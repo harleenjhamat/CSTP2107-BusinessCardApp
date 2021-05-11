@@ -18,4 +18,5 @@
 | - | ------ | ------ |
 | 1 | Template View| bla bla bla |
 | 2 | Copy card | bla bla bla |
-| 3 | Record the time and place where the card is exchanged | bla bla bla |
+| 3 | Display Card Exchange Details | i.e. card exchange time and location |
+| 4 | Search card by contact name | results will be displayed alphabetically | 
