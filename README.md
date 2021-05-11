@@ -11,6 +11,7 @@
 | 1 | Create| User can create a Business card |
 | 2 | Save | User can save a card in his/her portfolio |
 | 3 | Share | bla bla bla |
+| 4 | Edit | User can edit their card info |
 
 #### _Additional features:_
 
