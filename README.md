@@ -19,8 +19,9 @@
 
 | # | Additional features | Description |
 | - | ------ | ------ |
-| 1 | Template View| **???** |
-| 2 | Copy card | **???** |
+| 1 | Template View| User will be provided with templates from which they can choose the design of their business card |
+| 2 | Copy card | User can copy a card so that they don't have to start from scratch |
 | 3 | Display Card Exchange Details | i.e. card exchange time and location |
 | 4 | Search card by contact name | results will be displayed alphabetically | 
 | 5 | Upload image | User can upload an image to personalize their card |
+| 6 | Video presentation | User can also upload a video describing about their business and themselves |
