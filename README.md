@@ -11,7 +11,7 @@
 | - | ------ | ------ |
 | 1 | Create| User can create a Business card |
 | 2 | Save | User can save a card in his/her portfolio |
-| 3 | Share | Create the shareable link to the card |
+| 3 | Share | Create a shareable link to the card or share another user's card|
 | 4 | Edit | User can edit their card info |
 | 5 | Delete | User can delete their card |
 
