@@ -18,3 +18,4 @@
 | - | ------ | ------ |
 | 1 | Template View| bla bla bla |
 | 2 | Copy card | bla bla bla |
+| 3 | Record the time and place where the card is exchanged | bla bla bla |
