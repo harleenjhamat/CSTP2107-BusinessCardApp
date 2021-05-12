@@ -29,6 +29,7 @@
 - Edit own Business Card
 - Share own Business Card to other users by UserID
 - View own Business Card Collection
+- View Business Card Collected from other users
 
 ## Task and Deadline for iteration #1:
 1. Draw the basic components of the card app (on paper or draw.io) (by Tue)
