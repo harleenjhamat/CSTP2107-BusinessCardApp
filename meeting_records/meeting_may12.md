@@ -1,7 +1,7 @@
 # CSTP1207 - May 12, 2021 Meeting 
 
 ## Attendees: 
-Harleen, Ian, Jaisika, Karla, Michael, Pokai, Rayyan, Eric
+Harleen, Ian, Jaisika, Michael, Pokai, Rayyan, Eric
 
 ## Agenda
 1. Review each component
