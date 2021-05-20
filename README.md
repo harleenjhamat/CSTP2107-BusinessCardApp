@@ -1,27 +1,34 @@
-### CyberCard 
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-```diff
-+ This CyberCard app is created by VCC CSTP students. 
-+ You may create, save and share virtual business cards with other people
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
 ```
 
-#### _MVP features:_
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-| # | MVP (basic features) | Description |
-| - | ------ | ------ |
-| 1 | Create| User can create a Business card |
-| 2 | Save | User can save a card in his/her portfolio |
-| 3 | Share | Create a shareable link to the card or share another user's card|
-| 4 | Edit | User can edit their card info |
-| 5 | Delete | User can delete their card |
+You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-#### _Additional features:_
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-| # | Additional features | Description |
-| - | ------ | ------ |
-| 1 | Template View| User will be provided with templates from which they can choose the design of their business card |
-| 2 | Copy card | User can copy a card so that they don't have to start from scratch |
-| 3 | Display Card Exchange Details | i.e. card exchange time and location |
-| 4 | Search card by contact name | results will be displayed alphabetically | 
-| 5 | Upload image | User can upload an image to personalize their card |
-| 6 | Video presentation | User can also upload a video describing about their business and themselves |
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
