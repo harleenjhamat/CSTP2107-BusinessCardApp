@@ -1,0 +1,24 @@
+$primary_color: #54bcce;
+$text_color: #000000;
+$ivory:#f1f8f0;
+.cen {
+    text-align: center;
+}
+
+.getStartedBtn {
+    color: $text_color;
+    background-color: $primary_color;
+}
+
+.getStartedBtn:hover {
+    background-color: #0086ac;
+    color: $ivory;
+}
+
+.cardSlogan {
+    color: $text_color;
+}
+
+.conColor {
+    background-color: $ivory
+}
