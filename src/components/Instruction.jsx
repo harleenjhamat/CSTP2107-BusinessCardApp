@@ -6,7 +6,7 @@ const Instructions = () => {
   return (
     <Fragment>
       <div className={styles.wrapper}>
-        <div className="container">
+        <div className="container py-4">
           <div className="row">
             <div className="col-12 col-md-6 order-md-2">
               <Image
@@ -30,7 +30,7 @@ const Instructions = () => {
           </div>
         </div>
 
-        <div className="container">
+        <div className="container py-4">
           <div className="row">
             <div className="col-12 col-md-4">
               <Image src="/assets/customize_your_card.jpg" alt="instruction2" width={600} height={380} />
@@ -49,7 +49,7 @@ const Instructions = () => {
           </div>
         </div>
 
-        <div className="container">
+        <div className="container py-4">
           <div className="row">
             <div className="col-12 col-md-6 order-md-2">
               <Image src="/assets/share_your_card.jpg" alt="instruction3" width={600} height={380} />
