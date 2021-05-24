@@ -1,42 +1,27 @@
 @import './colors.scss';
 
+.footer {
+    padding-top: 5px;
+    margin-right: 5px;
+    background-color: $primary_color;
+    text-align: right
+    
+}
+
+.footerText {
+    color: $text_color;
+    width: 80%
+}
+
 .contact {
-    padding: 0px 0px 0px 0px;
-    width: 100x;
-    background: #0086ac;
+    background: $primary_color
 }
 
 .contactText {
     padding-top: 10px;
     padding-left: 10px;
     padding-bottom: 10px;
-    color: #f1f8f0; 
+    color: $text_color;
     width: 80%;
-    margin: 0 auto;
+    margin: 0 auto
 }
-
-.contactText p{
-    margin-bottom: 0;
-}
-
-.footer {
-    // position: fixed;
-    left: 0px;
-    padding: 0px 0px 0px 0px;
-    bottom: 0;
-    width: 100%;
-    /* Height of the footer*/ 
-    height: 40px;
-    background: #0086ac;
-    text-align: center;
-}
-
-.footerText {
-    // padding-top: 10px;
-    // padding-left: 10px;
-    // padding-bottom: 10px;
-    color: #f1f8f0; 
-    width: 80%;
-    margin: 0 auto;
-}
-

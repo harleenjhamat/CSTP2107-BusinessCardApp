@@ -1,23 +1,35 @@
+import { Fragment } from 'react'
 import styles from "../styles/footer.module.scss";
 
 const Footer = () => {
-  return (
-    <>
-      <div class={styles.contact}>
-        <div class={styles.contactText}>
-          <h4>Contact us</h4>
-          <p>Email: card@cybercard.com</p>
-          <p>Phone: 778-100-1000</p>
+  return ( 
+    <Fragment>
+        <div className='container-fluid m-0 p-0'>
+            <div className='row justify-content-center my-4'>
+                <div className={styles.contact}>
+                    <div className={styles.contactText}>
+                    <h4>Contact us</h4>
+                    <p>
+                    Email: card@cybercard.com 
+                    <br></br> Phone: 778-100-1000
+                    </p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class={styles.footer}>
-        <div class={styles.footerText}>
-          2021 Cybercard &copy Licensed under CSTP 2107
+        <div className='container-fluid m-0 p-0'>
+            <div className='row justify-content-center my-4'>
+                <div className={styles.footer}> 
+                    <div id={styles.footerText}>
+                      <p>
+                      2021 Cybercard © Licensed under CSTP 2107
+                      </p>
+                    </div>  
+                </div>
+            </div>
         </div>
-      </div>
-    </>
-  );
-};
 
-export default Footer;
+    </Fragment>
+)
+}
+export default Footer
