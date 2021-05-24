@@ -1,0 +1,23 @@
+@import './Colors.scss';
+
+.cen {
+    text-align: center;
+}
+
+.getStartedBtn {
+    color: $text_color;
+    background-color: $primary_color;
+}
+
+.getStartedBtn:hover {
+    background-color: #0086ac;
+    color: $ivory;
+}
+
+.cardSlogan {
+    color: $text_color;
+}
+
+.conColor {
+    background-color: $ivory
+}
