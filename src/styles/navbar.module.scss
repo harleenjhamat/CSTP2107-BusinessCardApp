@@ -1,8 +1,9 @@
 @import './colors.scss';
 
 .navbar {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    justify-content: center;
+    // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: $primary_color; 
+    display: flex;
 }
 
 .navbarContactBox {
@@ -10,8 +11,6 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: $primary_color; 
-    width: 80%;
     margin: 0 auto;
     // width: 800px;
     // height: 4rem;

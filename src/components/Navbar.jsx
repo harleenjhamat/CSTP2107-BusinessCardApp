@@ -8,7 +8,7 @@ export default function Navbar(params) {
         <ul className={styles.navbarContactBox}>
           <div className={styles.logo}>
             <img src="/assets/logo1.png" alt="CyberCard Logo" />
-          </div>
+          </div> 
 
           <Link href="#aboutus">
             <a className={styles.navbarContact}>About us</a>
