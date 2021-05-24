@@ -5,7 +5,7 @@ const Footer = () => {
     <>
       <div class={styles.contact}>
         <div class={styles.contactText}>
-          <p>Contact us</p>
+          <h4>Contact us</h4>
           <p>Email: card@cybercard.com</p>
           <p>Phone: 778-100-1000</p>
         </div>

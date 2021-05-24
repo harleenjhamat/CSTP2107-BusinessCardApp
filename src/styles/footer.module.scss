@@ -15,6 +15,10 @@
     margin: 0 auto;
 }
 
+.contactText p{
+    margin-bottom: 0;
+}
+
 .footer {
     // position: fixed;
     left: 0px;
@@ -24,6 +28,7 @@
     /* Height of the footer*/ 
     height: 40px;
     background: #0086ac;
+    text-align: center;
 }
 
 .footerText {
