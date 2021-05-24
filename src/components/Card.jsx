@@ -1,6 +1,5 @@
 import { Fragment } from 'react'
-import styles from '../../styles/Card.module.scss'
-import { Head } from 'next/head'
+import styles from '../styles/Card.module.scss'
 
 const Card = () => {
   return (
