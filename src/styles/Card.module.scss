@@ -8,6 +8,7 @@ $ivory:#f1f8f0;
 .getStartedBtn {
     color: $text_color;
     background-color: $primary_color;
+    white-space: nowrap;
 }
 
 .getStartedBtn:hover {
