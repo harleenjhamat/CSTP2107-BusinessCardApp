@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>CyberCard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script type="text/javascript" src="/static/bootstrap.bundle.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.bundle.js"></script>
         <link rel="icon" href="/logo1.ico" />
       </Head>
     </>

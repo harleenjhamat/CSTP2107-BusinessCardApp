@@ -8,7 +8,15 @@ const Instructions = () => {
       <div className={styles.wrapper}>
         <div className="container">
           <div className="row">
-            <div className="col-8">
+            <div className="col-12 col-md-6 order-md-2">
+              <Image
+                src="/assets/choose_template.jpg"
+                alt="instruction1"
+                width={600}
+                height={380}
+              />
+            </div>
+            <div className="col-12 col-md-6 order-md-1">
               <h2 className={styles.card}>
                 Choose a template
                 <p>
@@ -19,18 +27,15 @@ const Instructions = () => {
                 </p>
               </h2>
             </div>
-            <div className="col-4">
-              <Image src="/1.png" alt="instruction1" width={200} height={400} />
-            </div>
           </div>
         </div>
 
         <div className="container">
           <div className="row">
-            <div className="col-4">
-              <Image src="/2.png" alt="instruction2" width={200} height={400} />
+            <div className="col-12 col-md-4">
+              <Image src="/assets/customize_your_card.jpg" alt="instruction2" width={600} height={380} />
             </div>
-            <div className="col-8">
+            <div className="col-12 col-md-8">
               <h2 className={styles.card}>
                 Customize your card
                 <p>
@@ -46,7 +51,10 @@ const Instructions = () => {
 
         <div className="container">
           <div className="row">
-            <div className="col-8">
+            <div className="col-12 col-md-6 order-md-2">
+              <Image src="/assets/share_your_card.jpg" alt="instruction3" width={600} height={380} />
+            </div>
+            <div className="col-12 col-md-6 order-md-1">
               <h2 className={styles.card}>
                 Save and share
                 <p>
@@ -57,9 +65,6 @@ const Instructions = () => {
                   card!
                 </p>
               </h2>
-            </div>
-            <div className="col-4">
-              <Image src="/3.png" alt="instruction3" width={200} height={400} />
             </div>
           </div>
         </div>
