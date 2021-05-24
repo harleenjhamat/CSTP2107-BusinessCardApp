@@ -1,4 +1,4 @@
-import "../styles/globals.sass";
+import "../styles/Globals.sass";
 import "bootstrap/dist/css/bootstrap.css";
 
 import Head from "next/head";

@@ -1,0 +1,68 @@
+@import './colors.scss';
+
+.navbar {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content: center;
+}
+
+.navbarContactBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary_color; 
+    // width: 800px;
+    // height: 4rem;
+}
+
+.navbarContact {
+    display: grid;
+    margin: 10px;
+    color: aliceblue;
+    font-weight: 500;
+    text-decoration: none; 
+    white-space: nowrap; 
+}
+
+.navbarContact:hover {
+    color:$text_color;
+}
+
+.navbarContact a {
+    display: grid;
+    font-style: inherit;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.logo img {
+    border-radius: 10px;
+    height: 60px;
+}
+
+.button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    outline: none;
+    color: rgb(0, 0, 0);
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    width: 100px;
+    white-space: nowrap;
+    
+}
+
+.button:hover {
+    color:#fff;
+    background-color: #126599
+}
+
+.button:active {
+    color: #ffffff;
+    background-color: #1181C8;
+    transform: translateY(1px);
+}
