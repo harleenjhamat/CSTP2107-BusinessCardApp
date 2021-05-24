@@ -4,7 +4,7 @@ const AboutUs = () => {
   return (
     <>
       <div className={styles.aboutus}>
-        <div id={styles.aboutusText}>
+        <div className={styles.aboutusText}>
           <h4>About Us</h4>
           <p>
             Cybercard is the new way to share cards, whether it be for your

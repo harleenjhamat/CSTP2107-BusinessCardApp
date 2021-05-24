@@ -1,6 +1,7 @@
 import Navbar from "./../components/Navbar";
 import Card from "../components/Card";
 import AboutUs from "../components/AboutUs";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Navbar />
       <Card />
       <AboutUs/>
+      <Footer/>
     </div>
   );
 }

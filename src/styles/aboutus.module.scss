@@ -1,15 +1,16 @@
+@import './colors.scss';
+
 .aboutus {
-    position: fixed;
-    left: 0px; 
-    right: 0px;
-    padding: 0px 0px 0px 0px;
-    width: 100x;
-    background: #0086ac
+    // padding: 0px 0px 0px 0px;
+    // width: 100x;
+    background: #0086ac;
 }
 
 .aboutusText {
     padding-top: 10px;
     padding-left: 10px;
     padding-bottom: 10px;
-    color: #f1f8f0 
+    color: #f1f8f0; 
+    width: 80%;
+    margin: 0 auto;
 }
