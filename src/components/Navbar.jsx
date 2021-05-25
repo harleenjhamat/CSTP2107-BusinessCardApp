@@ -1,38 +1,74 @@
 import Link from "next/link";
-import styles from "../styles/NavBar.module.scss";
+import { Fragment } from "react";
+import Image from "next/image";
+import styles from "../styles/navbar.module.scss";
 
-export default function Navbar(params) {
+
+
+const Navbar = () => { 
   return (
     <>
-      <nav className={styles.navbar}>
-        <ul className={styles.navbarContactBox}>
-          <div className={styles.logo}>
-            <img src="/assets/logo1.png" alt="CyberCard Logo" />
-          </div>
+      <Fragment>
 
-          <div className={styles.navbarMiddle}>
-            <Link href="#aboutus">
-              <a className={styles.navbarContact}>About us</a>
-            </Link>
-            <Link href="#contactus">
-              <a className={styles.navbarContact}>Contact us</a>
-            </Link>
-            <Link href="#instructions">
-              <a className={styles.navbarContact}>Instructions</a>
-            </Link>
-          </div>
+        <div className={styles.navbar}>
+          <nav className="navbar navbar-expand-lg navbar-light">
+              <div className="container-fluid">
+                  <Image
+                    className="navbar-brand" 
+                    src="/assets/logo2.png"
+                    width={150}
+                    height={50}  
+                  />
 
-          <div>
-            <button className={styles.button} href="/">
-              Sign up
-            </button>
-            <button className={styles.button} href="/">
-              Login
-            </button>
-          </div>
-        </ul>
-      </nav>
-      <div></div>
+                <button className="navbar-toggler" 
+                        type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#navbarNavDropdown" 
+                        aria-controls="navbarNavDropdown" 
+                        aria-expanded="false" 
+                        aria-label="Toggle navigation" 
+                        >
+                  <span className="navbar-toggler-icon"></span>
+                </button>
+
+                <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                  
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <Link href="#aboutus">
+                        <a className={styles.navbarContact}>About us</a>
+                      </Link>
+                    </li>
+                    <li class="nav-item">
+                      <Link href="#contactus">
+                        <a className={styles.navbarContact}>Contact us</a>
+                      </Link>
+                    </li>
+                    <li class="nav-item">
+                      <Link href="#instructions">
+                        <a className={styles.navbarContact}>Instructions</a>
+                      </Link>
+                    </li>
+                    <li class="nav-item">
+                      <button className={styles.button} href="/">
+                        Sign up
+                      </button>
+                    </li>
+                    <li class="nav-item">
+                      <button className={styles.button} href="/">
+                        Login
+                      </button>
+                    </li>
+                  </ul>   
+                </div>
+              </div>
+          </nav>
+           
+        </div>  
+        
+      </Fragment>
     </>
   );
 }
+
+export default Navbar;

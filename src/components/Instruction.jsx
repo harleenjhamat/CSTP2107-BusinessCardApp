@@ -17,7 +17,7 @@ const Instructions = () => {
               />
             </div>
             <div className="col-12 col-md-6 order-md-1">
-              <h2 className={styles.card}>
+              <h2 id = "instructions" className={styles.card}>
                 Choose a template
                 <p>
                   Start by selecting a template for your card. We have a wide
