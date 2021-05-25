@@ -33,28 +33,28 @@ const Navbar = () => {
 
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
                   
-                  <ul class="navbar-nav">
-                    <li class="nav-item">
+                  <ul className="navbar-nav">
+                    <li className="nav-item">
                       <Link href="#aboutus">
                         <a className={styles.navbarContact}>About us</a>
                       </Link>
                     </li>
-                    <li class="nav-item">
+                    <li className="nav-item">
                       <Link href="#contactus">
                         <a className={styles.navbarContact}>Contact us</a>
                       </Link>
                     </li>
-                    <li class="nav-item">
+                    <li className="nav-item">
                       <Link href="#instructions">
                         <a className={styles.navbarContact}>Instructions</a>
                       </Link>
                     </li>
-                    <li class="nav-item">
+                    <li className="nav-item">
                       <button className={styles.button} href="/">
                         Sign up
                       </button>
                     </li>
-                    <li class="nav-item">
+                    <li className="nav-item">
                       <button className={styles.button} href="/">
                         Login
                       </button>
