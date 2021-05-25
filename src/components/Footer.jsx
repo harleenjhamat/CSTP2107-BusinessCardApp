@@ -20,7 +20,7 @@ const Footer = () => {
         <div className='container-fluid m-0 p-0'>
             <div className='row justify-content-center my-4'>
                 <div className={styles.footer}> 
-                    <div id={styles.footerText}>
+                    <div className={styles.footerText}>
                       <p>
                       2021 Cybercard © Licensed under CSTP 2107
                       </p>
