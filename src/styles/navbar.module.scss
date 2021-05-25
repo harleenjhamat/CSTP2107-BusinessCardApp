@@ -5,63 +5,40 @@
     background-color: $primary_color; 
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-items: center;
     align-items: center;
     padding: 10px;
     margin: 0 auto;
     width: 100%;
-    height: 4rem;
 }
 
-@media (min-width: 600px) {
-    .c2, .c3, .c4, .c5 {
-      width: 50%;
-    }
-  }
-  
-  @media (min-width: 800px) {
-    .c1 {
-      width: 60%;
-    }
-    .c2 {
-      width: 40%;
-    }
-    .c3, .c4 {
-      width: 33%;
-    }
-    .c5 {
-      width: 34%;
-    }
-  }
 
 
 .navbarContact {
-    display: flex;
-    padding: 30px;
-    margin: 10px;
-    color: rgb(255, 255, 255);
-    font-weight: 500;
-    text-decoration: none; 
-    white-space: nowrap; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 24px;
+  padding: 12px;
+  display: flex;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap; 
 }
-
-.navbarContact:hover {
-    color:$text_color;
+.navbarContact:hover{
+  color: #fff;
 }
-
-.navbarContact a {
-    font-style: inherit;
-    font-weight: 500;
-    text-decoration: none;
+.navbarContact:active {
+  color: #fff;
 }
 
 .button {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 500;
+    font-weight: 700;
     justify-items: center;
+    align-self: center;
     padding: 10px;
     margin: 10px;
-    margin-top: 30px;
+    margin-top: 10px;
     outline: none;
     color: rgb(0, 0, 0);
     background-color: #fff;
@@ -80,56 +57,5 @@
 .button:active {
     color: #ffffff;
     background-color: #1181C8;
-    transform: translateY(1px);
-}
-
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
-
-.topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #04AA6D;
-  color: white;
-}
-
-.topnav .icon {
-  display: none;
-}
-
-@media screen and (max-width: 600px) {
-  .topnav a:not(:first-child) {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
+    transform: translateY(3px);
 }
