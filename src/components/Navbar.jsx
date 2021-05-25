@@ -5,21 +5,23 @@ import styles from "../styles/navbar.module.scss";
 
 
 
+
 const Navbar = () => { 
   return (
     <>
       <Fragment>
-
-        <div className={styles.navbar}>
+        
           <nav className="navbar navbar-expand-lg navbar-light">
+            
               <div className="container-fluid">
+              <div className={styles.navbar}>
                   <Image
                     className="navbar-brand" 
                     src="/assets/logo2.png"
                     width={150}
                     height={50}  
                   />
-
+                
                 <button className="navbar-toggler" 
                         type="button" 
                         data-bs-toggle="collapse" 
@@ -61,10 +63,11 @@ const Navbar = () => {
                     </li>
                   </ul>   
                 </div>
+                </div>
               </div>
           </nav>
            
-        </div>  
+         
         
       </Fragment>
     </>
