@@ -4,11 +4,11 @@ import styles from "../styles/card.module.scss";
 const Card = () => {
   return (
     <Fragment>
-      <div className="container-fluid m-0 p-0">
-        <div className="row justify-content-center my-4">
-          <div className="col-12 col-md-6 my-4">
+      <div className="container-fluid m-0 p-0 mb-4">
+        <div className="row justify-content-center mt-4">
+          <div className="col-12 col-md-6 mt-4">
             <h1 className={`${styles.cen} ${styles.cardSlogan}`}>
-              Card Slogan
+            You Had My Card at Hello
             </h1>
           </div>
         </div>
