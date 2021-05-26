@@ -4,7 +4,7 @@
 Pokai, Eric, Michael, Jaisika, Rayyan, Karla, Harleen
 
 ## Agenda:
-> Distribute between team members the Tasks that was given by Yudhvir for this week (May 25 - June 1)
+> Distribute between team members the Tasks that were given by Yudhvir for this week (May 25 - June 1)
 
 ### Second_code_Phase:
 - Task 1: Develop the 2nd page, where a user may choose the template (personal, business, school...)
@@ -19,7 +19,7 @@ Pokai, Eric, Michael, Jaisika, Rayyan, Karla, Harleen
 
 [===>   Excel Link   <===](https://docs.google.com/spreadsheets/d/1DGRrQLtFtSJCMJyhjSK5V5siC-rPLXhfAPge5qlLo9k/edit#gid=0)
 
-### Next meeting and host
+### Next meeting and host:
 - Meeting time and day (Saturday  May 29 - 19:00 pm)
 - Meeting host: PoKai
 
