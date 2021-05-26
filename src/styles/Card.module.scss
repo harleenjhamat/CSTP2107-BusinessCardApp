@@ -5,7 +5,7 @@
 }
 
 .getStartedBtn {
-    color: $text_color;
+    color: $ivory;
     background-color: $primary_color;
     white-space: nowrap;
 }
@@ -13,6 +13,12 @@
 .getStartedBtn:hover {
     background-color: #0086ac;
     color: $ivory;
+}
+
+.getStartedBtn:active {
+    color: #ffffff;
+    background-color: #1181C8;
+    transform: translateY(3px);
 }
 
 .cardSlogan {
