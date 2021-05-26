@@ -4,63 +4,49 @@
     // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     background-color: $primary_color; 
     display: flex;
-}
-
-.navbarContactBox {
-    display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-items: center;
     align-items: center;
+    padding: 10px;
     margin: 0 auto;
-    width: 80%;
-    height: 4rem;
+    width: 100%;
 }
 
-.navbarMiddle{
-    display: flex;
-    justify-content: center;
-    text-decoration: none; 
-}
+
 
 .navbarContact {
-    display: grid;
-    margin: 10px;
-    color: aliceblue;
-    font-weight: 500;
-    text-decoration: none; 
-    white-space: nowrap; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 24px;
+  padding: 12px;
+  display: flex;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap; 
 }
-
-.navbarContact:hover {
-    color:$text_color;
+.navbarContact:hover{
+  color: #fff;
 }
-
-.navbarContact a {
-    display: grid;
-    font-style: inherit;
-    font-weight: 500;
-    text-decoration: none;
-}
-
-.logo img {
-    border-radius: 10px;
-    height: 60px;
+.navbarContact:active {
+  color: #fff;
 }
 
 .button {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 500;
-    display: inline-block;
-    padding: 10px 20px;
+    font-weight: 700;
+    justify-items: center;
+    align-self: center;
+    padding: 10px;
     margin: 10px;
+    margin-top: 10px;
     outline: none;
     color: rgb(0, 0, 0);
     background-color: #fff;
     border: none;
     border-radius: 10px;
     width: 100px;
+    height: 50px;
     white-space: nowrap;
-    
 }
 
 .button:hover {
@@ -71,5 +57,5 @@
 .button:active {
     color: #ffffff;
     background-color: #1181C8;
-    transform: translateY(1px);
+    transform: translateY(3px);
 }
