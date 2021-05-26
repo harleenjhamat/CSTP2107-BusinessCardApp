@@ -1,12 +1,10 @@
 import { Provider } from "next-auth/client";
+import Head from "next/head";
 import "bootstrap/dist/css/bootstrap.css";
 
 import "../styles/globals.scss";
 import Footer from "../components/Footer";
 import Navbar from "./../components/Navbar";
-
-
-import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
   return (
