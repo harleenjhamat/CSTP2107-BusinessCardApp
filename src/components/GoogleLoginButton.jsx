@@ -1,4 +1,4 @@
-import styles from "../styles/googleLoginButton.module.scss";
+import styles from "../styles/login.module.scss";
 
 const GoogleLoginButton = ({ handleSignIn }) => {
   return (

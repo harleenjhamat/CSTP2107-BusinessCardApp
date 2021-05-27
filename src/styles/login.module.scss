@@ -1,7 +1,9 @@
 @import './colors.scss';
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
 
-
+.loginContainer{
+  min-height: 58vh;
+}
 
 .googleBtn {
   color:$ivory;
