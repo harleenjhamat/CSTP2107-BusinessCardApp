@@ -5,8 +5,6 @@ import styles from "../styles/navbar.module.scss";
 const Navbar = () => {
   const [session, loading] = useSession();
 
-  console.log(session);
-
   return (
     <>
       <nav className={`navbar navbar-expand-lg navbar-light ${styles.navbar}`}>
