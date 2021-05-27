@@ -9,6 +9,8 @@ const Navbar = () => {
   const [session, loading] = useSession();
   const router = useRouter();
 
+  console.log(router);
+
   return (
     <>
       <nav className={`navbar navbar-expand-lg navbar-light ${styles.navbar}`}>
@@ -60,8 +62,8 @@ const Navbar = () => {
               </ul>
             </div>
 
-            {/* Show Login Button if User has not logged in */}
-            {!session && (
+            {/* Show Login Button if User has not logged in and the current page is not /auth/login */}
+            {!session && router.pathname !== "/auth/login" && (
               <button
                 className={`${styles.button}`}
                 onClick={() => router.push("/auth/login")}
@@ -69,7 +71,7 @@ const Navbar = () => {
                 Login
               </button>
             )}
-            
+
             {/* Hide Logout Button if the user has logged in  */}
             {session && (
               <>
