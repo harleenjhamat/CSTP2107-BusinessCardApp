@@ -10,16 +10,7 @@ export default NextAuth({
       // authorizationUrl: 'https://accounts.google.com/o/oauth2/v2/auth?prompt=consent&access_type=offline&response_type=code',
     }),
     // ...add more providers here
-
   ],
-  
-  pages: {
-    signIn: '/auth/signIn',
-    // signOut: '/auth/signout',
-    // error: '/auth/error', // Error code passed in query string as ?error=
-    // verifyRequest: '/auth/verify-request', // (used for check email message)
-    // newUser: null // If set, new users will be directed here on first sign in
-  },
 
   // A database is optional, but required to persist accounts in a database
   database: process.env.DATABASE_URL, 

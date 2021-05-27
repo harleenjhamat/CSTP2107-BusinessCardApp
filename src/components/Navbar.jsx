@@ -1,24 +1,28 @@
-import { signIn, signOut, useSession } from "next-auth/client";
+import { signOut, useSession } from "next-auth/client";
+import { useRouter } from "next/router";
 import Image from "next/image";
-import Link from 'next/link'
+import Link from "next/link";
 
 import styles from "../styles/navbar.module.scss";
 
 const Navbar = () => {
   const [session, loading] = useSession();
+  const router = useRouter();
 
   return (
     <>
       <nav className={`navbar navbar-expand-lg navbar-light ${styles.navbar}`}>
         <div className="container-fluid">
-        <Link href='/'>
-          <Image
-            className="navbar-brand"
-            src="/assets/logo2.png"
-            width={150}
-            height={50}
-          />
-        </Link>
+          <Link href="/">
+            <a>
+              <Image
+                className="navbar-brand"
+                src="/assets/logo2.png"
+                width={150}
+                height={50}
+              />
+            </a>
+          </Link>
 
           <button
             className="navbar-toggler"
@@ -56,11 +60,17 @@ const Navbar = () => {
               </ul>
             </div>
 
+            {/* Show Login Button if User has not logged in */}
             {!session && (
-              <button className={`${styles.button}`} onClick={() => signIn()}>
+              <button
+                className={`${styles.button}`}
+                onClick={() => router.push("/auth/login")}
+              >
                 Login
               </button>
             )}
+            
+            {/* Hide Logout Button if the user has logged in  */}
             {session && (
               <>
                 <img
@@ -68,7 +78,9 @@ const Navbar = () => {
                   src={session.user.image}
                   width="50"
                 />
-                <p className={styles.userNameText}>Welcome, {session.user.name}!</p>
+                <p className={styles.userNameText}>
+                  Welcome, {session.user.name}!
+                </p>
                 <button
                   className={`${styles.button}`}
                   onClick={() => signOut()}
