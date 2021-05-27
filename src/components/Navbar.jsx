@@ -9,8 +9,6 @@ const Navbar = () => {
   const [session, loading] = useSession();
   const router = useRouter();
 
-  console.log(router);
-
   return (
     <>
       <nav className={`navbar navbar-expand-lg navbar-light ${styles.navbar}`}>
@@ -66,7 +64,7 @@ const Navbar = () => {
             {!session && router.pathname !== "/auth/login" && (
               <button
                 className={`${styles.button}`}
-                onClick={() => router.push("/auth/login")}
+                onClick={() => router.push("/auth/login" + `${router.pathname}`)}
               >
                 Login
               </button>
