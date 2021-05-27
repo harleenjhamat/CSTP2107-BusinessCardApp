@@ -1,12 +1,7 @@
 @import './colors.scss';
 
-.footerContainer{
-    position: absolute;
-    bottom:0;
-}
-
 .footer {
-
+    position: absolute;
     margin: auto;
     background-color: $primary_color;
     text-align: center

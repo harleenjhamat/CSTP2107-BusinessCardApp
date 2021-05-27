@@ -1,5 +1,7 @@
 import { signIn, signOut, useSession } from "next-auth/client";
 import Image from "next/image";
+import Link from 'next/link'
+
 import styles from "../styles/navbar.module.scss";
 
 const Navbar = () => {
@@ -9,12 +11,14 @@ const Navbar = () => {
     <>
       <nav className={`navbar navbar-expand-lg navbar-light ${styles.navbar}`}>
         <div className="container-fluid">
+        <Link href='/'>
           <Image
             className="navbar-brand"
             src="/assets/logo2.png"
             width={150}
             height={50}
           />
+        </Link>
 
           <button
             className="navbar-toggler"

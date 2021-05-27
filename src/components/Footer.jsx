@@ -4,7 +4,7 @@ import styles from "../styles/footer.module.scss";
 const Footer = () => {
   return ( 
     <Fragment>
-        <div className={`container-fluid ${styles.footerContainer}`}>
+        <div className='container-fluid'>
             <div className='row justify-content-center'>
                 <div className={styles.contact}>
                     <div className={styles.contactText}>
