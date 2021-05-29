@@ -67,7 +67,7 @@ function CustomCard (props) {
               <div className={`col-4 my-4 ${styles.cen}`}>
                 <Image className={`border border-info border-5 ${styles.roundElem}`} src="/assets/img_avatar.png" alt="instruction1" width={200} height={200}/>
                 <p className={`p-0 m-0 ${styles.cen}`}>my@email.com</p>
-                <p className={`p-0 m-0 ${styles.cen}`}>powered by cydercard</p>
+                <p className={`p-0 m-0 ${styles.cen}`}>Powered by Cybercard</p>
               </div>
             </div>
           </div>
@@ -82,7 +82,7 @@ function CustomCard (props) {
             <div className="row justify-content-center m-0 p-0">
               {/* COL FOR TEXT */}
               <div className={`col-6 mt-4 p-0 ${styles.cen}`}>
-                <h3>Change the color:</h3>
+                <h3>Change the colour:</h3>
               </div>
               {/* COLOR PICKER: */}
               <div className={`col-6 mt-4 p-0 ${styles.cen}`}>
@@ -112,7 +112,7 @@ function CustomCard (props) {
               <div className={`col-6 m-0 p-0 ${styles.cen}`}>
               </div>
               <div className={`col-3 m-0 p-0 d-grid ${styles.cen}`}>
-                <button className={`btn btn-outline-dark btn-sm`} onClick={resetColorHandler}>reset</button>
+                <button className={`btn btn-outline-dark btn-sm`} onClick={resetColorHandler}>Reset</button>
               </div>
             </div>
 
