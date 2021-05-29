@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import styles from "../styles/card.module.scss";
+import styles from "../styles/customcard.module.scss";
 
 const Card = () => {
   return (

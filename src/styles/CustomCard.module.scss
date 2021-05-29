@@ -1,0 +1,26 @@
+@import './Colors.scss';
+.cen {
+    text-align: center;
+}
+
+.left {
+    text-align: start;
+}
+
+.right {
+    text-align: end;
+}
+
+.cardSlogan {
+    color: $text_color;
+}
+
+.cardBorder {
+    border-radius: 12px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+    background-color: #c9d8e4;
+}
+
+.photoUpload {
+    border-radius: 50%;
+}
