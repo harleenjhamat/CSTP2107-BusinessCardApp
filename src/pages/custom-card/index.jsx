@@ -23,7 +23,7 @@ function CustomCard (props) {
         </div>
         {/* BORDER */}
         <div className={`row justify-content-center my-2 mx-2`}>
-          <div className={`col-12 col-md-4 my-2 ${styles.cardBorder} ${styles.cen}`}>
+          <div className={`col-12 col-md-10 col-lg-5 my-2 ${styles.cardBorder} ${styles.cen}`}>
             {/* INNER PART */}
             <div className="row justify-content-center">
               <div className={`col-7 my-4 ${styles.left}`}>
