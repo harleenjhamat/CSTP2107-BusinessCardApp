@@ -137,10 +137,16 @@ function CustomCard (props) {
           </div>
         </div>
 
-        <div>
-          <input type="file" id="actual-btn" hidden/>
-                  <label className={`${styles.imageUser}`} htmlFor="actual-btn">Upload Photo</label>
+        {/* Logo and Photo Upload */}
+        <div className="row justify-content-center my-4">
+          <div className="col-12 col-md-6 mt-4">
+            <div>
+              <input type="file" id="actual-btn" hidden/>
+              <label className={`${styles.imageUser}`} htmlFor="actual-btn">Upload Photo</label>
+              </div>
+          </div>
         </div>
+        
       
         {/* BORDER */}
         <div className={`row justify-content-center my-2 mx-2`}>
@@ -166,7 +172,6 @@ function CustomCard (props) {
         {/* COLOR SECTION: */}
         <div className="row justify-content-center m-0 p-0 mx-2">
           <div className={`col-12 col-md-10 col-lg-5 my-2 ${styles.cen} ${styles.colorChanger}`}>
-
             <div className="row justify-content-center m-0 p-0">
               {/* COL FOR TEXT */}
               <div className={`col-6 mt-4 p-0 ${styles.cen}`}>
