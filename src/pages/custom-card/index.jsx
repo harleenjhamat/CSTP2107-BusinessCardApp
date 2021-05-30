@@ -15,7 +15,9 @@ function CustomCard (props) {
   const [hoverPink, setHoverPink] = useState('');
   const [hoverYellow, setHoverYellow] = useState('');
   const [username, setUsername] = useState('Bob Pancakes');
-  const [userphone, setUserphone] = useState('+1(236)333-22-11');
+  const [userphone, setUserphone] = useState('+1(236)-333-2211');
+  const [business, setBusiness] = useState('Pancake Central');
+  const [email, setEmail] = useState('cybercard@card.ca');
   var greyHandler = (event) => {
     setHoverBlue('')
     setHoverRed('')
@@ -111,13 +113,20 @@ function CustomCard (props) {
   var phoneHandler = (event)=>{
     setUserphone(event.target.value);
   }
+  var businessHandler = (event)=>{
+    setBusiness(event.target.value);
+  }
+  var emailHandler = (event)=>{
+    setEmail(event.target.value);
+  }
+
   return (
     <Fragment>
       <Head>
         <title> Your Custom Card</title>
         <meta name='description' content='Customize your Card' />
       </Head>
-      <Navbar />
+      <Navbar/>
       <div className="container-fluid m-0 p-0 mb-4">
         {/* TEXT */}
         <div className="row justify-content-center mt-4">
@@ -127,10 +136,12 @@ function CustomCard (props) {
             </h1>
           </div>
         </div>
+
         <div>
           <input type="file" id="actual-btn" hidden/>
-          <label className={`${styles.imageUser}`} htmlFor="actual-btn">Upload Photo</label>
+                  <label className={`${styles.imageUser}`} htmlFor="actual-btn">Upload Photo</label>
         </div>
+      
         {/* BORDER */}
         <div className={`row justify-content-center my-2 mx-2`}>
           <div className={`col-12 col-md-10 col-lg-5 my-2 ${styles.cardBorder} ${styles.cen} ${hoverGrey} ${hoverGreen} ${hoverOrange} ${hoverPink} ${hoverBlue} ${hoverRed} ${hoverPurple} ${hoverYellow}`}>
@@ -138,20 +149,19 @@ function CustomCard (props) {
             <div className="row justify-content-center">
               <div className={`col-7 my-4 ${styles.left}`}>
                 <Image className={`border border-info border-5 rounded-3`} src="/assets/business_logo.png" alt="instruction1" width={200} height={70}/>
-                <h2 className={`mt-3 ${styles.cardFont}`}>Business name</h2>
+                <h2 className={`mt-3 ${styles.cardFont}`}>{business}</h2>
                 <h4 className={`mt-4 ${styles.cardFont}`}>{username}</h4>
                 <p className={`${styles.cardFont}`}>{userphone}</p>
               </div>
               <div className={`col-4 my-4 ${styles.cen}`}>
                 <Image className={`border border-info border-5 ${styles.roundElem}`} src="/assets/img_avatar.png" alt="instruction1" width={200} height={200}/>
-                <p className={`p-0 m-0 ${styles.cen} ${styles.cardFont} `}>my@email.com</p>
+                <p className={`p-0 m-0 ${styles.cen} ${styles.cardFont} `}>{email}</p>
                 <p className={`p-0 m-0 ${styles.cen} ${styles.cardFont} `}>Powered by Cybercard</p>
               </div>
             </div>
           </div>
         </div>
         {/* END OF CARD */}
-
 
         {/* COLOR SECTION: */}
         <div className="row justify-content-center m-0 p-0 mx-2">
@@ -214,7 +224,7 @@ function CustomCard (props) {
                   <div className={`col-1 m-0 p-0 ${styles.cen}`}>
                     <h3 className={`${styles.colorWhite}`}>&#32;</h3>
                   </div>
-                  
+  
                 </div>
               </div>
             </div>
@@ -228,7 +238,6 @@ function CustomCard (props) {
               </div>
             </div>
 
-          
           </div>
         </div>
         {/* END OF COLOR PICKER */}
@@ -242,8 +251,16 @@ function CustomCard (props) {
                 <input id="namedInput" type="text" name="name" onChange={nameHandler}/>
               </div>
               <div className={`col-12 m-0 p-0 my-3 d-grid ${styles.cen}`}>
+                <label className="h4" htmlFor="businessInput">Type Business Name:</label>
+                <input id="businessInput" type="text" name="name" onChange={businessHandler}/>
+              </div>
+              <div className={`col-12 m-0 p-0 my-3 d-grid ${styles.cen}`}>
                 <label className="h4" htmlFor="phoneInput">Type Phone Number:</label>
                 <input id="phoneInput" type="text" name="name" onChange={phoneHandler}/>
+              </div>
+              <div className={`col-12 m-0 p-0 my-3 d-grid ${styles.cen}`}>
+                <label className="h4" htmlFor="emailInput">Type Email:</label>
+                <input id="emailInput" type="text" name="name" onChange={emailHandler}/>
               </div>
             </div>
           </div>
@@ -251,7 +268,7 @@ function CustomCard (props) {
 
 
       {/* END OF CONTAINER */}
-      </div>
+    </div>
     </Fragment>
   )
 }
