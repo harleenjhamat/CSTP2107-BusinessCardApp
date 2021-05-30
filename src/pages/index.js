@@ -4,6 +4,7 @@ import AboutUs from "../components/AboutUs";
 import Footer from "../components/Footer";
 import Instructions from "../components/Instruction";
 
+
 export default function Home() {
   return (
     <div>
@@ -12,6 +13,9 @@ export default function Home() {
       <Instructions/>
       <AboutUs/>
       <Footer/>
+  
+      
+     
     </div>
   );
 }
