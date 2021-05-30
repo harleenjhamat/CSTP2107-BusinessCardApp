@@ -11,14 +11,30 @@
     text-align: end;
 }
 
+.cardFont {
+    color:rgb(0, 0, 0);
+}
+
 .cardSlogan {
     color: $text_color;
+}
+
+.imageUser {
+    position: absolute;
+    right: 600px;
+    background-color: rgb(197, 236, 248);
+    color: rgb(60, 120, 128);
+    padding: 0.5rem;
+    font-family: sans-serif;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    margin-top: 1rem;
 }
 
 .cardBorder {
     border-radius: 12px;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
-    background-color: #c9d8e4;
+    background-color: #f1f9ff;
 }
 
 .colorChanger {
@@ -31,22 +47,61 @@
     border-radius: 50%;
 }
 
-.colorRed {
-    background-color: rgb(241, 170, 170);
+.colorGrey {
+    background-color: rgb(190, 190, 190);
     cursor: pointer;
-}
-
-.colorBlue {
-    background-color: rgb(183, 183, 247);
-    cursor: pointer;
+    color: transparent;
 }
 
 .colorGreen {
-    background-color: rgb(183, 248, 183);
+    background-color: rgb(117, 204, 117);
     cursor: pointer;
+    color: transparent;
+}
+
+.colorOrange {
+    background-color: rgb(241, 167, 82);
+    cursor: pointer;
+    color: transparent;
+}
+
+.colorBlue {
+    background-color: rgb(127, 170, 219);
+    cursor: pointer;
+    color: transparent;
+}
+
+
+.colorRed {
+    background-color: rgb(226, 96, 96);
+    cursor: pointer;
+    color: transparent;
+}
+
+.colorPink {
+    background-color: rgb(241, 175, 175);
+    cursor: pointer;
+    color: transparent;
+}
+
+.colorPurple {
+    background-color: rgb(183, 149, 194);
+    cursor: pointer;
+    color: transparent;
+}
+
+.colorYellow {
+    background-color: rgb(245, 236, 120);
+    cursor: pointer;
+    color: transparent;
 }
 
 .colorWhite {
     border-radius: 50%;
     background-color: white;
 }
+
+.userIcon {
+    font-family: sans-serif;
+    text-align: center;
+  }
