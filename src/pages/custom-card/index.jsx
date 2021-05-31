@@ -1,9 +1,10 @@
-import { Fragment } from 'react'
-import {useState} from 'react';
+import { Fragment } from 'react';
+import { useState } from 'react';
 import Head from 'next/head'
 import Navbar from './../../components/Navbar';
 import styles from "../../styles/customcard.module.scss";
 import Image from "next/image";
+
 
 function CustomCard (props) {
   const [hoverGrey, setHoverGrey] = useState('');
@@ -18,6 +19,7 @@ function CustomCard (props) {
   const [userphone, setUserphone] = useState('+1(236)-333-2211');
   const [business, setBusiness] = useState('Pancake Central');
   const [email, setEmail] = useState('cybercard@card.ca');
+
   var greyHandler = (event) => {
     setHoverBlue('')
     setHoverRed('')
@@ -76,7 +78,7 @@ function CustomCard (props) {
     setHoverGrey('')
     setHoverOrange('')
     setHoverPink('')
-    setHoverRed(`${styles.colorPurple}`);
+    setHoverPurple(`${styles.colorPurple}`);
   };
   var pinkHandler = (event) => {
     setHoverGreen('')
@@ -95,7 +97,7 @@ function CustomCard (props) {
     setHoverGrey('')
     setHoverOrange('')
     setHoverPink('')
-    setHoverRed(`${styles.colorYellow}`);
+    setHoverYellow(`${styles.colorYellow}`);
   };
   var resetColorHandler = (event)=>{
     setHoverGreen('')
@@ -238,6 +240,7 @@ function CustomCard (props) {
                 </div>
               </div>
             </div>
+          
 
             {/* RESET COLOR BUTTON */}
             <div className="row justify-content-center m-0 p-0 mt-2 mb-4">
@@ -251,6 +254,22 @@ function CustomCard (props) {
           </div>
         </div>
         {/* END OF COLOR PICKER */}
+
+        {/* FONT SECTION   API KEY: AIzaSyD6t_o-a_IC_UG_I93_ZFfD6NE76zU59a0 */}
+        <div className="row justify-content-center m-0 p-0 mx-2">
+          <div className={`col-12 col-md-10 col-lg-5 my-2 ${styles.cen} ${styles.colorChanger}`}>
+              <div className="row justify-content-center m-0 p-0">
+                {/* COL FOR TEXT */}
+                <div className={`col-6 mt-4 p-0 ${styles.cen}`}>
+                <h3>Choose your font:</h3>
+                </div>  
+              {/*FONT PICKER*/}
+                <div className={`col-6 mt-4 p-0 ${styles.cen}`}></div>
+              </div>
+          </div>
+        </div>
+        {/* END OF FONT PICKER */}
+        </div>
 
         {/* USER INPUT: */}
         <div className="row justify-content-center m-0 p-0 mx-2">
@@ -278,9 +297,11 @@ function CustomCard (props) {
 
 
       {/* END OF CONTAINER */}
-    </div>
     </Fragment>
   )
 }
 
 export default CustomCard
+
+
+
