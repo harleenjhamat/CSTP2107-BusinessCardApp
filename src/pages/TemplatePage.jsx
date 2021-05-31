@@ -2,12 +2,18 @@ import React from 'react'
 import { Fragment } from 'react';
 import { Button, Card, CardDescription, Image, Icon } from 'semantic-ui-react'
 import styles from "../styles/template.module.scss";
+import Head from 'next/head'
+
 
 
 
 const Templates = () => (
 
     <Fragment>
+      <Head>
+        <title>TemplatePage</title>
+        <meta name='description' content='Customize your Card' />
+      </Head>
         <div className={styles.head}>
             <h1>Choose Templates:</h1>
         </div>
