@@ -60,13 +60,14 @@ const Templates = () => (
 
                             <Card.Content extra>
                                 <div className='ui two buttons'>
+                                    <form action="/custom-card">
                                     <Button inverted color='blue' floated='right' animated>
                                         <Button.Content visible>Edit</Button.Content>
                                         <Button.Content hidden>
                                             <Icon name='edit' />
                                         </Button.Content>
                                     </Button>
-
+                                    </form>
                                 </div>
                             </Card.Content>
                         </Card>
@@ -123,12 +124,14 @@ const Templates = () => (
                             <br></br>
                             <Card.Content extra>
                                 <div className='ui two buttons'>
+                                <form action="/custom-card">
                                     <Button inverted color='blue' floated='right' animated>
                                         <Button.Content visible>Edit</Button.Content>
                                         <Button.Content hidden>
                                             <Icon name='edit' />
                                         </Button.Content>
                                     </Button>
+                                    </form>
 
                                 </div>
                             </Card.Content>
@@ -178,12 +181,14 @@ const Templates = () => (
                             </Card.Content>
                             <Card.Content extra>
                                 <div className='ui two buttons'>
+                                <form action="/custom-card">
                                     <Button inverted color='blue' floated='right' animated>
                                         <Button.Content visible>Edit</Button.Content>
                                         <Button.Content hidden>
                                             <Icon name='edit' />
                                         </Button.Content>
                                     </Button>
+                                    </form>
 
                                 </div>
                             </Card.Content>
