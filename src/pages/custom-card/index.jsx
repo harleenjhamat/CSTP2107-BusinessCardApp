@@ -128,7 +128,6 @@ function CustomCard (props) {
         <title> Your Custom Card</title>
         <meta name='description' content='Customize your Card' />
       </Head>
-      <Navbar/>
       <div className="container-fluid m-0 p-0 mb-4">
         {/* TEXT */}
         <div className="row justify-content-center mt-4">
@@ -143,13 +142,13 @@ function CustomCard (props) {
         <div className="row justify-content-center my-2">
           <div className={`col-12 col-md-5 col-lg-5 my-2`}>
             <div className="row justify-content-center">
-              <div className={`col-12 col-md-5 ${styles.left}`}>
+              <div className={`col-5 col-md-5 d-grid ${styles.left}`}>
                 <input type="file" id="actual-btn" hidden/>
-                <label className={`${styles.imageUser}`} htmlFor="actual-btn">Upload Logo</label>
+                <label className={`mx-2 ${styles.imageUser} ${styles.cen}`} htmlFor="actual-btn">Upload Logo</label>
               </div>  
-              <div className={`col-12 col-md-5 ${styles.right}`}>
+              <div className={`mx-2 col-5 col-md-5 d-grid ${styles.right}`}>
                 <input type="file" id="actual-btn" hidden/>
-                <label className={`${styles.imageUser}`} htmlFor="actual-btn">Upload Photo</label>
+                <label className={`${styles.imageUser} ${styles.cen}`} htmlFor="actual-btn">Upload Photo</label>
               </div>
             </div>
           </div>
@@ -181,7 +180,7 @@ function CustomCard (props) {
           <div className={`col-12 col-md-10 col-lg-5 my-2 ${styles.cen} ${styles.colorChanger}`}>
             <div className="row justify-content-center m-0 p-0">
               {/* COL FOR TEXT */}
-              <div className={`col-6 mt-4 p-0 ${styles.cen}`}>
+              <div className={`col-6 mt-5 pt-2 ${styles.cen}`}>
                 <h3>Change the colour:</h3>
               </div>
               {/* COLOR PICKER: */}
@@ -206,6 +205,9 @@ function CustomCard (props) {
                   <div className={`col-1 m-0 p-0 ${styles.cen}`}>
                     <h3 className={`${styles.colorWhite}`}>&#32;</h3>
                   </div>
+                </div>
+                <div className={`row justify-content-center m-0 p-0 mt-2`}>
+                  {/* 3 cols for colors: */}
                   <div className={`col-1 m-0 p-0 ${styles.cen}`} onClick={blueHandler}>
                     <h3 className={`${styles.colorBlue}`}>B</h3>
                   </div>
@@ -224,19 +226,27 @@ function CustomCard (props) {
                   <div className={`col-1 m-0 p-0 ${styles.cen}`}>
                     <h3 className={`${styles.colorWhite}`}>&#32;</h3>
                   </div>
-                  <div className={`col-1 m-0 p-0 ${styles.cen}`}  onClick={orangeHandler}>
+                </div>
+                <div className={`row justify-content-center m-0 p-0 mt-2`}>
+                  {/* 3 cols for colors: */}
+                  <div className={`col-1 m-0 p-0 ${styles.cen}`}>
+                    <h3 className={`${styles.colorWhite}`}>&#32;</h3>
+                  </div>
+                  <div className={`col-1 m-0 p-0 ${styles.cen}`}>
+                    <h3 className={`${styles.colorWhite}`}>&#32;</h3>
+                  </div>
+                  <div className={`col-1 m-0 p-0 `}  onClick={orangeHandler}>
                     <h3 className={`${styles.colorOrange}`}>O</h3>
                   </div>
-                  <div className={`col-1 m-0 p-0 ${styles.cen}`}>
+                  <div className={`col-1 m-0 p-0 `}>
                     <h3 className={`${styles.colorWhite}`}>&#32;</h3>
                   </div>
-                  <div className={`col-1 m-0 p-0 ${styles.cen}`}  onClick={pinkHandler}>
+                  <div className={`col-1 m-0 p-0 `}  onClick={pinkHandler}>
                     <h3 className={`${styles.colorPink}`}>P</h3>
                   </div>
-                  <div className={`col-1 m-0 p-0 ${styles.cen}`}>
+                  <div className={`col-1 m-0 p-0 `}>
                     <h3 className={`${styles.colorWhite}`}>&#32;</h3>
                   </div>
-  
                 </div>
               </div>
             </div>
