@@ -304,7 +304,9 @@ function CustomCard (props) {
             </div>
           </div>
         </div>
-
+        <br></br>
+        <br></br>
+        <br></br>
 
       {/* END OF CONTAINER */}
     </Fragment>

@@ -6,8 +6,9 @@ import Instructions from "../components/Instruction";
 export default function Home() {
   return (
     <div>
-      <Card />
+      <Card/>
       <Instructions/>
     </div>
+
   );
 }

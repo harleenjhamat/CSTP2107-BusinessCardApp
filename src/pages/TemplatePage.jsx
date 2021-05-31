@@ -4,9 +4,6 @@ import { Button, Card, CardDescription, Image, Icon } from 'semantic-ui-react'
 import styles from "../styles/template.module.scss";
 import Head from 'next/head'
 
-
-
-
 const Templates = () => (
 
     <Fragment>
@@ -59,16 +56,16 @@ const Templates = () => (
                             </Card.Content>
 
                             <Card.Content extra>
-                            <form action="/custom-card">
-                                <div className='ui two buttons'>  
-                                    <Button inverted color='blue' animated>
+                                <div className='ui two buttons'>
+                                    <form action="/custom-card">
+                                    <Button inverted color='blue' floated='right' animated>
                                         <Button.Content visible>Edit</Button.Content>
                                         <Button.Content hidden>
                                             <Icon name='edit' />
                                         </Button.Content>
-                                    </Button>   
+                                    </Button>
+                                    </form>
                                 </div>
-                            </form>
                             </Card.Content>
                         </Card>
 
@@ -123,16 +120,17 @@ const Templates = () => (
                             </Card.Content>
                             <br></br>
                             <Card.Content extra>
-                            <form action="/custom-card">
-                                <div className='ui two buttons'>  
-                                    <Button inverted color='blue' animated>
+                                <div className='ui two buttons'>
+                                <form action="/custom-card">
+                                    <Button inverted color='blue' floated='right' animated>
                                         <Button.Content visible>Edit</Button.Content>
                                         <Button.Content hidden>
                                             <Icon name='edit' />
                                         </Button.Content>
-                                    </Button>   
+                                    </Button>
+                                    </form>
+
                                 </div>
-                            </form>
                             </Card.Content>
                         </Card>
 
@@ -179,22 +177,26 @@ const Templates = () => (
 
                             </Card.Content>
                             <Card.Content extra>
-                            <form action="/custom-card">
-                                <div className='ui two buttons'>  
-                                    <Button inverted color='blue' animated>
+                                <div className='ui two buttons'>
+                                <form action="/custom-card">
+                                    <Button inverted color='blue' floated='right' animated>
                                         <Button.Content visible>Edit</Button.Content>
                                         <Button.Content hidden>
                                             <Icon name='edit' />
                                         </Button.Content>
-                                    </Button>   
+                                    </Button>
+                                    </form>
+
                                 </div>
-                            </form>
                             </Card.Content>
                         </Card>
                     </div>
                 </Card.Group>
             </div>
         </div>
+        <br></br>
+        <br></br>
+        <br></br>
     </Fragment>
 )
 

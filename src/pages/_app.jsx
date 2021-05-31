@@ -28,6 +28,8 @@ function MyApp({ Component, pageProps }) {
         </Head>
         <Navbar />
         <Component {...pageProps} />
+        <br></br>
+        <br></br>
         <AboutUs/>
         <Footer />
       </Provider>
