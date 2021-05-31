@@ -1,0 +1,19 @@
+@import './Colors.scss';
+
+.head{
+    font-family: "Lucida Console", "Courier New", monospace;
+    text-align: center;
+    margin: 20px;
+    font-weight: 900;
+    font-style: italic;
+    color:black;
+}
+
+.card{
+    justify-content: center;
+    display: flex;
+}
+
+.desc{
+    text-align: center;    
+}
