@@ -138,16 +138,23 @@ function CustomCard (props) {
         </div>
 
         {/* Logo and Photo Upload */}
-        <div className="row justify-content-center my-4">
-          <div className="col-12 col-md-6 mt-4">
-            <div>
-              <input type="file" id="actual-btn" hidden/>
-              <label className={`${styles.imageUser}`} htmlFor="actual-btn">Upload Photo</label>
-              </div>
+        <div className="row justify-content-center my-2">
+          <div className={`col-12 col-md-5 col-lg-5 my-2`}>
+            <div className="row justify-content-center">
+            <div className={`col-12 col-md-5 ${styles.left}`}>
+                <input type="file" id="actual-btn" hidden/>
+                <label className={`${styles.imageUser}`} htmlFor="actual-btn">Upload Logo</label>
+              </div>  
+              <div className={`col-12 col-md-5 ${styles.right}`}>
+                <input type="file" id="actual-btn" hidden/>
+                <label className={`${styles.imageUser}`} htmlFor="actual-btn">Upload Photo</label>
+                </div>
+              
+            
+            </div>
           </div>
         </div>
         
-      
         {/* BORDER */}
         <div className={`row justify-content-center my-2 mx-2`}>
           <div className={`col-12 col-md-10 col-lg-5 my-2 ${styles.cardBorder} ${styles.cen} ${hoverGrey} ${hoverGreen} ${hoverOrange} ${hoverPink} ${hoverBlue} ${hoverRed} ${hoverPurple} ${hoverYellow}`}>
