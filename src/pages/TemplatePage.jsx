@@ -2,22 +2,18 @@ import React from 'react'
 import { Fragment } from 'react';
 import { Button, Card, CardDescription, Image, Icon } from 'semantic-ui-react'
 import styles from "../styles/template.module.scss";
-import Navbar from "./../components/Navbar";
 
 
 
 const Templates = () => (
 
-
     <Fragment>
-        <Navbar />
         <div className={styles.head}>
             <h1>Choose Templates:</h1>
         </div>
 
         <div className="col-md-20 p-5">
             <div className={styles.card}>
-
 
                 <Card.Group>
                     <div className='ui three stackable cards'>
@@ -188,10 +184,8 @@ const Templates = () => (
                         </Card>
                     </div>
                 </Card.Group>
-
             </div>
         </div>
-
     </Fragment>
 )
 

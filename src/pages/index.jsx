@@ -8,7 +8,6 @@ export default function Home() {
     <div>
       <Card />
       <Instructions/>
-      <AboutUs/>
     </div>
   );
 }
