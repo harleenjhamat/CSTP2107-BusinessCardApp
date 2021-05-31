@@ -59,16 +59,16 @@ const Templates = () => (
                             </Card.Content>
 
                             <Card.Content extra>
-                                <div className='ui two buttons'>
-                                    <form action="/custom-card">
-                                    <Button inverted color='blue' floated='right' animated>
+                            <form action="/custom-card">
+                                <div className='ui two buttons'>  
+                                    <Button inverted color='blue' animated>
                                         <Button.Content visible>Edit</Button.Content>
                                         <Button.Content hidden>
                                             <Icon name='edit' />
                                         </Button.Content>
-                                    </Button>
-                                    </form>
+                                    </Button>   
                                 </div>
+                            </form>
                             </Card.Content>
                         </Card>
 
@@ -123,17 +123,16 @@ const Templates = () => (
                             </Card.Content>
                             <br></br>
                             <Card.Content extra>
-                                <div className='ui two buttons'>
-                                <form action="/custom-card">
-                                    <Button inverted color='blue' floated='right' animated>
+                            <form action="/custom-card">
+                                <div className='ui two buttons'>  
+                                    <Button inverted color='blue' animated>
                                         <Button.Content visible>Edit</Button.Content>
                                         <Button.Content hidden>
                                             <Icon name='edit' />
                                         </Button.Content>
-                                    </Button>
-                                    </form>
-
+                                    </Button>   
                                 </div>
+                            </form>
                             </Card.Content>
                         </Card>
 
@@ -180,17 +179,16 @@ const Templates = () => (
 
                             </Card.Content>
                             <Card.Content extra>
-                                <div className='ui two buttons'>
-                                <form action="/custom-card">
-                                    <Button inverted color='blue' floated='right' animated>
+                            <form action="/custom-card">
+                                <div className='ui two buttons'>  
+                                    <Button inverted color='blue' animated>
                                         <Button.Content visible>Edit</Button.Content>
                                         <Button.Content hidden>
                                             <Icon name='edit' />
                                         </Button.Content>
-                                    </Button>
-                                    </form>
-
+                                    </Button>   
                                 </div>
+                            </form>
                             </Card.Content>
                         </Card>
                     </div>
