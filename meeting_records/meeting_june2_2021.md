@@ -4,6 +4,8 @@
 Harleen, Jaisika, Michael, Pokai, Rayyan, Eric
 
 ## Agenda:
+> Remember to record the meeting!
+
 > Add Home Page 
 
 > Add Depths on Components
