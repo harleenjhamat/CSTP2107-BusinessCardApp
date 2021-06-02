@@ -1,7 +1,7 @@
 # CSTP 2107 - June 2, 2021 Meeting at 1:00pm
 
 ## Attendees:
-Harleen, Jaisika, Michael, Pokai, Eric
+Harleen, Jaisika, Michael, Karla, Pokai, Eric
 
 ## Agenda:
 - Remember to record the meeting!
