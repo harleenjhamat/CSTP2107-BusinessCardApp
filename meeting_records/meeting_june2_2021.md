@@ -46,5 +46,5 @@ Harleen, Jaisika, Michael, Karla, Pokai, Eric
 - Merge Date: Sun (merger make the deadline call)
 
 ## Next Meeting and Host:
-- Meeting time and day (Sat, June 6, Time: 1:30pm)
+- Meeting time and day (Sat, June 5, Time: 1:30pm)
 - Meeting host: Harleen
