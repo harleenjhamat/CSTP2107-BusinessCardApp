@@ -29,9 +29,9 @@ Harleen, Jaisika, Karla, Michael, Pokai, Rayyan, Eric
   - Add margin?
   - Add border?
   - Add color to some buttons?
-  - Get rid of the onHover in the instruction section
+  - Get rid of the onHover effect in the instruction section?
   - Choose a Color Palette
-    - replace the color codes in Color.scss
+    - replace the color codes in Color.scss!
 
 - Start using typescript in the project? (1 person)
   - install typescript in the project  
