@@ -10,8 +10,8 @@ Harleen, Jaisika, Karla, Michael, Pokai, Rayyan, Eric
   - SeachBar at the top
     - with functionailty or just UI?
   - cardlist container components
-    - should accept these props: title (for the card group), an array of card
-    - should render the list of card (from the props) 
+    - should accept props: title (name for the card group), an array of cards
+    - should render the list of cards (get cards from props) 
     - should be able to to expand or collapse
   - each card should have two buttons below
     - shareBtn: onclick => alert popup 
