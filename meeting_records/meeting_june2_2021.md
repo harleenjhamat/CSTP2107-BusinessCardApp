@@ -41,7 +41,7 @@ Harleen, Jaisika, Michael, Pokai, Eric
 ## Action Items and Deadline:
 - HomePage Team (complete sat) - michael, pokai, karla, ian
 - UI Team (sat) - Jaisika, rayyan 
-- Typescript - eric
+- Typescript on Auth related code - eric
 - Merger: Harleen? (1 people)
 - Merge Date: Sun (merger make the deadline call)
 
