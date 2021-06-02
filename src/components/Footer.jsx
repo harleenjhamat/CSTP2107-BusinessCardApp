@@ -8,7 +8,7 @@ const Footer = () => {
             <div className='row justify-content-center'>
                 <div className={styles.contact}>
                     <div className={styles.contactText}>
-                    <h4>Contact us</h4>
+                    <h4 id='contactus'>Contact us</h4>
                     <p>
                     Email: card@cybercard.com 
                     <br></br> Phone: 778-100-1000

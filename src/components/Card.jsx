@@ -1,5 +1,8 @@
+import { route } from "next/dist/next-server/server/router";
 import { Fragment } from "react";
+import Templates from "../pages/TemplatePage";
 import styles from "../styles/card.module.scss";
+
 
 const Card = () => {
   return (
@@ -23,11 +26,14 @@ const Card = () => {
                 />
               </div>
               <div className="col-12 col-md-3 my-2 d-grid">
-                <button
+                <form action="/TemplatePage" class="inline">
+                <button 
                   className={`btn btn-lg ${styles.cen} ${styles.getStartedBtn}`}
-                >
+                >          
                   Get started!
                 </button>
+                </form>
+                
               </div>
             </div>
           </div>
