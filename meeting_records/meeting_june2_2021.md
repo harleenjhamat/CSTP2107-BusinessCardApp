@@ -29,6 +29,7 @@ Harleen, Jaisika, Karla, Michael, Pokai, Rayyan, Eric
   - Add margin?
   - Add border?
   - Add color to some buttons?
+  - Add your atistic talent!
   - Get rid of the onHover effect in the instruction section?
   - Choose a Color Palette
     - replace the color codes in Color.scss!
