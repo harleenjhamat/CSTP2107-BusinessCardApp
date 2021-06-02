@@ -1,7 +1,7 @@
 # CSTP 2107 - June 2, 2021 Meeting at 1:00pm
 
 ## Attendees:
-Harleen, Jaisika, Karla, Michael, Pokai, Rayyan, Eric
+Harleen, Jaisika, Michael, Pokai, Eric
 
 ## Agenda:
 - Remember to record the meeting!
@@ -39,11 +39,12 @@ Harleen, Jaisika, Karla, Michael, Pokai, Rayyan, Eric
   - convert the current auth-related jsx pages into tsx
 
 ## Action Items and Deadline:
-- HomePage Team
-- UI Team
+- HomePage Team (complete sat) - michael, pokai, karla, ian
+- UI Team (sat) - Jaisika, rayyan 
+- Typescript - eric
 - Merger: Harleen? (1 people)
-- Merge Date: Sat/Sun (merger make the deadline call)
+- Merge Date: Sun (merger make the deadline call)
 
 ## Next Meeting and Host:
-- Meeting time and day (Sat/Sun, June 5/6, Time?)
+- Meeting time and day (Sat, June 6, Time: 1:30pm)
 - Meeting host: Harleen
