@@ -60,11 +60,34 @@ const Navbar = () => {
               </ul>
             </div>
 
+            {/* Bootstrip Spinners on auth loading */}
+            {loading && (
+              <>
+                <div class="spinner-grow text-primary" role="status">
+                  <span class="visually-hidden"></span>
+                </div>
+                <div class="spinner-grow text-secondary" role="status">
+                  <span class="visually-hidden"></span>
+                </div>
+                <div class="spinner-grow text-success" role="status">
+                  <span class="visually-hidden"></span>
+                </div>
+                <div class="spinner-grow text-danger" role="status">
+                  <span class="visually-hidden"></span>
+                </div>
+                <div class="spinner-grow text-warning" role="status">
+                  <span class="visually-hidden"></span>
+                </div>
+              </>
+            )}
+
             {/* Show Login Button if User has not logged in and the current page is not /auth/login */}
-            {!session && router.pathname !== "/auth/login" && (
+            {!loading && !session && router.pathname !== "/auth/login" && (
               <button
                 className={`${styles.button}`}
-                onClick={() => router.push("/auth/login" + `${router.pathname}`)}
+                onClick={() =>
+                  router.push("/auth/login" + `${router.pathname}`)
+                }
               >
                 Login
               </button>

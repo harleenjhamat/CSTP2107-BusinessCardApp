@@ -435,3 +435,5 @@ nb-configuration.xml
 .DS_Store
 *.eslintcache
 *.next
+
+.env
