@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import styles from "../styles/mainpage.module.scss";
+import Image from "next/image";
 
 
 const MainPage = () => (
@@ -10,8 +11,15 @@ const MainPage = () => (
             <div className="input-group rounded">
                 <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search"
                     aria-describedby="search-addon" />
-                <span className="input-group-text border-0" id="search-addon">
-                    <button className={` ${styles.button} `} ></button>
+                <span>
+                    <button className={` ${styles.searchbutton} `}>
+                    <Image
+                        src="/assets/search2.png"
+                        alt="search icon"
+                        width={20}
+                        height={20}
+                    />
+                    </button>
                 </span>
             </div>
             <div className="accordion" id="accordionExample">
@@ -51,6 +59,7 @@ const MainPage = () => (
                     </div>
                     </div>
                 </div>
+                
                 <button className={styles.button}> + + Add New Group + + </button>
             </div>
         </div>

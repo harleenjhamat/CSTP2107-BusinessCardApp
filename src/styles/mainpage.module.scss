@@ -14,7 +14,7 @@
     border: none;
     border-radius: 5px;
     width: 80%;
-    height: 50px;
+    height: 45px;
     white-space: nowrap;
 }
   
@@ -27,4 +27,22 @@
     color: $ivory;
     background-color: #1181c8;
     transform: translateY(3px);
+}
+
+.searchbutton {
+    background-color: $secondary_color;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.searchbutton:hover {
+    color: $ivory;
+    background-color:$secondary_color;
+}
+  
+.searchbutton:active {
+    color: $ivory;
+    background-color: #1181c8;
+    transform: translateY(2px);
 }
