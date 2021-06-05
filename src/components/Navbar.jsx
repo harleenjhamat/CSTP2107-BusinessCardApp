@@ -73,6 +73,12 @@ const Navbar = () => {
             {/* Hide Logout Button if the user has logged in  */}
             {session && (
               <>
+                <a
+                    className={` ${styles.navbarContact} `}
+                    href="http://localhost:3000/MainPage"
+                  >
+                    Main Page
+                </a>
                 <img
                   className="img-thumbnail round mx-2"
                   src={session.user.image}

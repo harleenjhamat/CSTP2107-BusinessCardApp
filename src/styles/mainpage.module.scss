@@ -1,2 +1,30 @@
 @import './Colors.scss';
+@import './CustomCard.module.scss';
 
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.button {
+    font-weight: 700;
+    color: aliceblue;
+    background-color: $primary_color;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 80%;
+    height: 50px;
+    white-space: nowrap;
+}
+  
+.button:hover {
+    color: $ivory;
+    background-color: #126599;
+}
+  
+.button:active {
+    color: $ivory;
+    background-color: #1181c8;
+    transform: translateY(3px);
+}
