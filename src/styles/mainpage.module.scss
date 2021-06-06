@@ -1,5 +1,4 @@
 @import './Colors.scss';
-@import './CustomCard.module.scss';
 
 .container {
     width: 80%;
@@ -87,6 +86,7 @@
 .MyOwnCardButtonDelete {
     font-weight: 700;
     color: aliceblue;
+    display: flex;
     justify-content: center;
     align-items: center;
     background-color: #F95F62;
@@ -111,10 +111,42 @@
 }
 
 .dropdownContainer {
+    font-weight: 700;
+    font-size: 25px;
     align-self: center;
-    justify-content: end;
+    justify-items: center;
+    align-items: center;
+    
+  
 }
-.AddCardButton {
-    justify-content: end;
+
+.CardDisplay {
+    right:50%;
+    justify-items: center;
     align-self: center;
+}
+
+.GroupButtonDelete {
+    font-weight: 700;
+    color: aliceblue;
+    justify-content: center;
+    align-items: center;
+    background-color: #F95F62;
+    padding: 5px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    height: 45px;
+
+    &:hover {
+        color: $ivory;
+        background-color: #E33539;
+    }
+      
+    &:active {
+        color: $ivory;
+        background-color: #EE9FA1;
+        transform: translateY(3px);
+    }
 }
