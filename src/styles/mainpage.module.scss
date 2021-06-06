@@ -4,6 +4,7 @@
 .container {
     width: 80%;
     margin: 0 auto;
+    max-width: 1200px;
 }
 
 .button {
@@ -16,36 +17,104 @@
     padding: 10px;
     border: none;
     border-radius: 5px;
-    width: 80%;
+    width: 100%;
     height: 45px;
+ 
     
+    &:hover {
+        color: $ivory;
+        background-color: #126599;
+    }
+      
+    &:active {
+        color: $ivory;
+        background-color: #1181c8;
+        transform: translateY(3px);
+    }
 }
-  
-.button:hover {
-    color: $ivory;
-    background-color: #126599;
-}
-  
-.button:active {
-    color: $ivory;
-    background-color: #1181c8;
-    transform: translateY(3px);
-}
+
 
 .searchbutton {
     background-color: $secondary_color;
     padding: 10px;
     border: none;
     border-radius: 5px;
+
+    &:hover {
+        color: $ivory;
+        background-color:$secondary_color;
+    }
+      
+    &:active {
+        color: $ivory;
+        background-color: #1181c8;
+        transform: translateY(2px);
+    }
 }
 
-.searchbutton:hover {
-    color: $ivory;
-    background-color:$secondary_color;
+
+.buttonContainer {
+    display: flex;
+    padding: 10px, 10px;
 }
-  
-.searchbutton:active {
-    color: $ivory;
-    background-color: #1181c8;
-    transform: translateY(2px);
+
+.MyOwnCardButtonShare {
+    font-weight: 700;
+    color: aliceblue;  
+    justify-content: center;
+    align-items: center;
+    background-color: #67D7ED;
+    padding: 5px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    width: 50%;
+    height: 45px;
+
+    &:hover {
+        color: $ivory;
+        background-color: #126599;
+    }
+      
+    &:active {
+        color: $ivory;
+        background-color: #1181c8;
+        transform: translateY(3px);
+    }
+    
+}
+
+.MyOwnCardButtonDelete {
+    font-weight: 700;
+    color: aliceblue;
+    justify-content: center;
+    align-items: center;
+    background-color: #F95F62;
+    padding: 5px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    width: 50%;
+    height: 45px;
+
+    &:hover {
+        color: $ivory;
+        background-color: #E33539;
+    }
+      
+    &:active {
+        color: $ivory;
+        background-color: #EE9FA1;
+        transform: translateY(3px);
+    }
+    
+}
+
+.dropdownContainer {
+    align-self: center;
+    justify-content: end;
+}
+.AddCardButton {
+    justify-content: end;
+    align-self: center;
 }
