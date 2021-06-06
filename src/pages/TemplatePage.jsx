@@ -4,26 +4,30 @@ import { Button, Card, CardDescription, Image, Icon } from 'semantic-ui-react'
 import styles from "../styles/template.module.scss";
 import Head from 'next/head'
 
+
+
+
 const Templates = () => (
 
-    <Fragment>
+    <div className={styles.page}>
       <Head>
         <title>TemplatePage</title>
-        <meta name='description' content='Customize your Card' />
+        <meta name='description' content='Customize your Card'/>
       </Head>
         <div className={styles.head}>
             <h1>Choose Templates:</h1>
         </div>
 
         <div className="col-md-20 p-5">
-            <div className={styles.card}>
+            <div className={styles.cblock}>
 
                 <Card.Group>
-                    <div className='ui three stackable cards'>
-                        <Card color="blue">
+                    <div className='ui three stackable cards'> 
+                        <span className={styles.Card1}>
+                        <Card color='blue'>
                             <Card.Content>
-                                <Image
-                                    floated='left'
+                                <img className={styles.img}
+                                    floated='right'
                                     width={50}
                                     height={50}
                                     size='circular'
@@ -31,7 +35,7 @@ const Templates = () => (
                                 />
                                 <div>
                                     <Image
-                                        floated='right'
+                                        floated='left'
                                         size='circular'
                                         width={80}
                                         height={30}
@@ -57,28 +61,28 @@ const Templates = () => (
 
                             <Card.Content extra>
                             <form action="/custom-card">
-                                <div className='ui two buttons'>
-                                    <Button inverted color='blue' floated='right' animated>
+                                <div className='ui two buttons'>  
+                                    <Button inverted color='blue' animated>
                                         <Button.Content visible>Edit</Button.Content>
                                         <Button.Content hidden>
                                             <Icon name='edit' />
                                         </Button.Content>
-                                    </Button>
+                                    </Button>   
                                 </div>
                             </form>
                             </Card.Content>
                         </Card>
-
+                        </span>
+                        <span className={styles.Card2}>
                         <Card color="blue">
                             <Card.Content>
-                                <Image
-                                    floated='right'
-                                    width={150}
-                                    height={150}
+                                <img className={styles.img}
+                                    width={100}
+                                    height={120}
                                     size='circular'
                                     src='https://wishesonlinedatingsecrets.club/wp-content/uploads/dsp_media/user_photos/user_47/47_white%20girl%20with%20black%20hair%20.png'
                                 />
-                                <div>
+                                <div> 
                                     <Image
                                         floated='left'
                                         size='square'
@@ -97,7 +101,7 @@ const Templates = () => (
                                 <CardDescription>
                                     <div style={{ position: "absolute", top: 120 }}>
                                         Art Director
-                                    </div>
+                                    </div><br></br>
                                 </CardDescription>
                                 <div className={styles.desc}>
                                     <ul class="list-group list-group-flush">
@@ -121,37 +125,33 @@ const Templates = () => (
                             <br></br>
                             <Card.Content extra>
                             <form action="/custom-card">
-                                <div className='ui two buttons'>
-                                    <Button inverted color='blue' floated='right' animated>
+                                <div className='ui two buttons'>  
+                                    <Button inverted color='blue' animated>
                                         <Button.Content visible>Edit</Button.Content>
                                         <Button.Content hidden>
                                             <Icon name='edit' />
                                         </Button.Content>
-                                    </Button>
+                                    </Button>   
                                 </div>
                             </form>
                             </Card.Content>
                         </Card>
-
+                        </span>
+                        <span className= {styles.Card3}>
                         <Card color="blue">
                             <Card.Content>
                                 <Card.Header>
                                     <Image
                                         floated='center'
                                         width={300}
-                                        height={150}
+                                        height={130}
                                         size='square'
                                         src='https://cdn.dribbble.com/users/2685035/screenshots/10812974/school_4x.jpg'
                                     />
                                 </Card.Header>
-                                <Card.Header>
-                                    <Image
-                                        floated='center'
-                                        size='medium circular'
-                                    />
-                                </Card.Header>
+    
                                 <CardDescription>
-                                    <div style={{ position: "absolute", bottom: 80 }}>
+                                    <div style={{ position: "absolute", bottom: 60 }}>
                                         Name: <br></br>
                                         <strong>Last, First Name</strong><br></br><br></br>
                                         Student ID: <br></br>
@@ -163,12 +163,9 @@ const Templates = () => (
                                     </div>
                                 </CardDescription>
                                 <Card.Header>
-                                    <Image
-                                        floated='right'
-                                        size='square'
-                                        bordered='solid'
-                                        width={200}
-                                        height={200}
+                                    <img className={styles.img}
+                                        width={150}
+                                        height={186}
                                         src='https://us.123rf.com/450wm/klauts/klauts1007/klauts100700010/7319401-cute-illustration-of-a-smiling-woman.jpg?ver=6'
                                     />
 
@@ -177,25 +174,25 @@ const Templates = () => (
                             </Card.Content>
                             <Card.Content extra>
                             <form action="/custom-card">
-                                <div className='ui two buttons'>
-                                    <Button inverted color='blue' floated='right' animated>
+                                <div className='ui two buttons'>  
+                                    <Button inverted color='blue' animated>
                                         <Button.Content visible>Edit</Button.Content>
                                         <Button.Content hidden>
                                             <Icon name='edit' />
                                         </Button.Content>
-                                    </Button>
+                                    </Button>   
                                 </div>
                             </form>
                             </Card.Content>
                         </Card>
+                        </span>
                     </div>
-                </Card.Group>
+                </Card.Group>   
+              
+            
             </div>
         </div>
-        <br></br>
-        <br></br>
-        <br></br>
-    </Fragment>
+    </div>
 )
 
 

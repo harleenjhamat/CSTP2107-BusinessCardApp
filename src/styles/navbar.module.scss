@@ -17,13 +17,13 @@
   font-size: 24px;
   padding: 12px;
   display: flex;
-  color: $ivory;
+  color: $white;
   font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
 }
 .navbarContact:hover {
-  color: $ivory;
+  color: $tertiary_color;
 }
 .navbarContact:active {
   color: $ivory;
@@ -39,7 +39,7 @@
   margin-top: 10px;
   outline: none;
   color: rgb(0, 0, 0);
-  background-color: $ivory;
+  background-color: $white;
   border: none;
   border-radius: 10px;
   width: 100px;
@@ -48,13 +48,13 @@
 }
 
 .button:hover {
-  color: $ivory;
-  background-color: #126599;
+  color: $white;
+  background-color: $tertiary_color;
 }
 
 .button:active {
-  color: $ivory;
-  background-color: #1181c8;
+  color: $text_color;
+  background-color: $white;
   transform: translateY(3px);
 }
 

@@ -10,8 +10,8 @@ const Card = () => {
       <div className="container-fluid m-0 p-0 mb-4">
         <div className="row justify-content-center mt-4">
           <div className="col-12 col-md-6 mt-4">
-            <h1 className={`${styles.cen} ${styles.cardSlogan}`}>
-            You Had My Card at Hello
+            <h1 className={styles.cen}>
+              <div><span className={styles.Slogan}>You Had My</span><span className={styles.cardSloganHalf}> Card at Hello</span></div>
             </h1>
           </div>
         </div>
