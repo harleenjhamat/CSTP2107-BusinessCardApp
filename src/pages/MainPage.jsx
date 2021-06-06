@@ -28,11 +28,10 @@ const MainPage = () => (
 
             {/*Dropdown */}
             <div className="accordion" id="accordionExample">
-                
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="headingOne">
                         <button className={`accordion-button row justify-content-center m-0 p-0 ${styles.cen} ${styles.dropdownContainer} ${styles.accordionButton}`} type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                <div className={`col-6 my-2 ${styles.left}`}>
+                                <div className={`col-6 my-2 text-nowrap ${styles.left}`}>
                                     My Own Card  
                                 </div>
                                 <div className={`col-5 my-2  ${styles.right}`}>
@@ -53,7 +52,7 @@ const MainPage = () => (
                     {/*Display user's own card*/}
                     <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div className="accordion-body">                   
-                    <div className={ styles.CardDisplay }>
+                    <div className={`${styles.CardDisplay} ${styles.cen}`}>
                         <a href="http://localhost:3000/custom-card">
                         <Image
                             src="/assets/card1.png"
@@ -93,31 +92,39 @@ const MainPage = () => (
 
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="headingTwo">
-                    <button className={`accordion-button collapsed ${styles.dropdownContainer}`} type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Group 1
-                        <div >
-                            <a href="/">
-                                <Image 
-                                    src="/assets/editGroupName.png"
-                                    alt="Edit Group Name"
-                                    width={30}
-                                    height={30} 
-                                    />
-                            </a>
-                            <a href="http://localhost:3000/TemplatePage">
-                                <Image 
-                                    src="/assets/add-card.png"
-                                    alt="Create Card"
-                                    width={40}
-                                    height={40}         
-                                />
-                            </a>
-                        </div>
-                    </button>
+                        <button className={`accordion-button row justify-content-center m-0 p-0 ${styles.cen} ${styles.accordionButton} ${styles.dropdownContainer}`} type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <div className={`col-6 my-2 text-nowrap ${styles.left}`}>
+                                   Group 1  
+                                </div>
+                                <div className={`col-5 my-2  ${styles.right}`}>
+                                    <div className={`row justify-content-end m-0 p-0`}>
+                                        <div className={`col-2 m-0 p-0 ${styles.right}`}>
+                                    <a href="/">
+                                        <Image 
+                                            src="/assets/editGroupName.png"
+                                            alt="Edit Group Name"
+                                            width={30}
+                                            height={30} 
+                                            />
+                                    </a>
+                                    </div>
+                                    <div className={`col-2 m-0 p-0 ${styles.right}`}>
+                                    <a href="http://localhost:3000/TemplatePage">
+                                        <Image 
+                                            src="/assets/add-card.png"
+                                            alt="Create Card"
+                                            width={40}
+                                            height={40}         
+                                        />
+                                    </a>
+                                    </div>
+                                    </div>
+                                </div>
+                        </button>
                     </h2>
                     <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                     <div className="accordion-body">
-                    <div className={ styles.CardDisplay }>
+                    <div className={`${styles.CardDisplay} ${styles.cen}`}>
                         <Image
                             src="/assets/card1.png"
                             alt="Create Card"
@@ -157,31 +164,39 @@ const MainPage = () => (
 
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="headingThree">
-                    <button className={`accordion-button collapsed ${styles.dropdownContainer}`} type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Group 2
-                        <div >
-                            <a href="/">
-                                <Image 
-                                    src="/assets/editGroupName.png"
-                                    alt="Edit Group Name"
-                                    width={30}
-                                    height={30} 
-                                    />
-                            </a>
-                            <a href="http://localhost:3000/TemplatePage">
-                                <Image 
-                                    src="/assets/add-card.png"
-                                    alt="Create Card"
-                                    width={40}
-                                    height={40}         
-                                />
-                            </a>
-                        </div>
-                    </button>
+                     <button className={`accordion-button row justify-content-center m-0 p-0 ${styles.cen} ${styles.accordionButton} ${styles.dropdownContainer}`} type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <div className={`col-6 my-2 text-nowrap ${styles.left}`}>
+                                   Group 2  
+                                </div>
+                                <div className={`col-5 my-2  ${styles.right}`}>
+                                    <div className={`row justify-content-end m-0 p-0`}>
+                                        <div className={`col-2 m-0 p-0 ${styles.right}`}>
+                                    <a href="/">
+                                        <Image 
+                                            src="/assets/editGroupName.png"
+                                            alt="Edit Group Name"
+                                            width={30}
+                                            height={30} 
+                                            />
+                                    </a>
+                                    </div>
+                                    <div className={`col-2 m-0 p-0 ${styles.right}`}>
+                                    <a href="http://localhost:3000/TemplatePage">
+                                        <Image 
+                                            src="/assets/add-card.png"
+                                            alt="Create Card"
+                                            width={40}
+                                            height={40}         
+                                        />
+                                    </a>
+                                    </div>
+                                    </div>
+                                </div>
+                        </button>
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                     <div className="accordion-body">
-                    <div className={ styles.CardDisplay }>
+                    <div className={`${styles.CardDisplay} ${styles.cen}`}>
                         <Image
                             src="/assets/card1.png"
                             alt="Create Card"
