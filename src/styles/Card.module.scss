@@ -1,30 +1,38 @@
-@import './Colors.scss';
+@import './colors.scss';
 
 .cen {
     text-align: center;
+    white-space: nowrap;
 }
 
 .getStartedBtn {
     color: $ivory;
     background-color: $primary_color;
     white-space: nowrap;
+    font-size : 1.25rem;
 }
 
 .getStartedBtn:hover {
-    background-color: #0086ac;
-    color: $ivory;
+    background-color: $tertiary_color;
+    color: $white;
+    font-size : 1.25rem;
 }
+
 
 .getStartedBtn:active {
-    color: #ffffff;
-    background-color: #1181C8;
+    color: $white;
+    background-color: $primary_color;
     transform: translateY(3px);
+    font-size : 1.25rem;
 }
-
-.cardSlogan {
-    color: $text_color;
+.Slogan{
+    color: $primary_color;
 }
-
+.cardSloganHalf{
+    font-size: 35px;
+    color: $primary_color;
+    text-shadow: 1px 1px 2px black, 0 0 25px $primary_color, 0 0 5px $secondary_color;
+}
 .conColor {
     background-color: $ivory
 }

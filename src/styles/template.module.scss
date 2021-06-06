@@ -1,19 +1,48 @@
 @import './Colors.scss';
 
 .head{
-    font-family: "Lucida Console", "Courier New", monospace;
     text-align: center;
     margin: 20px;
     font-weight: 900;
-    font-style: italic;
-    color:black;
+    color:$text_color;
+    
 }
 
-.card{
+.cblock{
     justify-content: center;
-    display: flex;
+    display: flex;  
 }
 
 .desc{
     text-align: center;    
 }
+
+.Card1{
+    margin:20px;
+    width: 290px; 
+    height:400px;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19) ;
+}
+.Card2{
+    margin:20px;
+    width: 290px; 
+    height:400px;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19) ;
+}
+.Card3{
+    margin:20px;
+    width: 290px; 
+    height:400px;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19) ;
+}
+
+.img{
+    border-radius: 50px;
+    box-shadow:0 0 5px #388087;
+    position: relative;
+    float: right;    
+}
+.page{
+    background-color: $white;
+}
+

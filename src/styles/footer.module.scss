@@ -4,7 +4,8 @@
     position: absolute;
     margin: auto;
     background-color: $primary_color;
-    text-align: center
+    text-align: center;
+    
 }
 
 .footerText {
@@ -19,5 +20,6 @@
     padding-top: 10px;
     color: $ivory;
     width: 80%;
-    margin: 0 auto
+    margin: 0 auto;
+    font-size : 1.25rem;
 }

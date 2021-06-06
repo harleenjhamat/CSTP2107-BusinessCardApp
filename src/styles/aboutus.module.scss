@@ -3,14 +3,15 @@
 .aboutus {
     // padding: 0px 0px 0px 0px;
     // width: 100x;
-    background: #0086ac;
+    background-color: $primary_color;
 }
 
 .aboutusText {
-    padding-top: 10px;
+    padding-top: 20px;
     padding-left: 10px;
     padding-bottom: 10px;
-    color: #f1f8f0; 
+    color: $ivory; 
     width: 80%;
     margin: 0 auto;
+    font-size: 1.25rem;
 }
