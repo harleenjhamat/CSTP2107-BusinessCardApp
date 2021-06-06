@@ -40,31 +40,51 @@ const Navbar = () => {
             <div className="d-flex flex-grow-1">
               <ul className="navbar-nav mb-2 mb-lg-0 flex-grow-1 justify-content-center">
                 <li className="nav-item">
-                  <a className={` ${styles.navbarContact}`} href="#aboutus">
-                    About
-                  </a>
+                  <Link href="#aboutus">
+                    <a className={` ${styles.navbarContact}`}>About</a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className={` ${styles.navbarContact}`} href="#contactus">
-                    Contact
-                  </a>
+                  <Link href="/#contactus">
+                    <a className={` ${styles.navbarContact}`}>Contact</a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className={` ${styles.navbarContact} `}
-                    href="#instructions"
-                  >
-                    Get Started
-                  </a>
+                  <Link href="/#instructions">
+                    <a className={` ${styles.navbarContact} `}>Get Started</a>
+                  </Link>
                 </li>
               </ul>
             </div>
 
+            {/* Bootstrip Spinners on auth loading */}
+            {loading && (
+              <>
+                <div class="spinner-grow text-primary" role="status">
+                  <span class="visually-hidden"></span>
+                </div>
+                <div class="spinner-grow text-secondary" role="status">
+                  <span class="visually-hidden"></span>
+                </div>
+                <div class="spinner-grow text-success" role="status">
+                  <span class="visually-hidden"></span>
+                </div>
+                <div class="spinner-grow text-danger" role="status">
+                  <span class="visually-hidden"></span>
+                </div>
+                <div class="spinner-grow text-warning" role="status">
+                  <span class="visually-hidden"></span>
+                </div>
+              </>
+            )}
+
             {/* Show Login Button if User has not logged in and the current page is not /auth/login */}
-            {!session && router.pathname !== "/auth/login" && (
+            {!loading && !session && router.pathname !== "/auth/login" && (
               <button
                 className={`${styles.button}`}
-                onClick={() => router.push("/auth/login" + `${router.pathname}`)}
+                onClick={() =>
+                  router.push("/auth/login" + `${router.pathname}`)
+                }
               >
                 Login
               </button>

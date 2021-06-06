@@ -6,19 +6,19 @@ const Instructions = () => {
   return (
     <Fragment>
       <div className={styles.wrapper}>
-        <div className="container">
+        <div className="container py-4">
           <div className="row">
             <div className="col-12 col-md-6 order-md-2">
-                <Image
-                  src="/assets/choose_template.jpg"
-                  alt="instruction1"
-                  width={600}
-                  height={380}
-                />
+              <Image
+                src="/assets/choose_template.jpg"
+                alt="instruction1"
+                width={600}
+                height={380}
+              />
             </div>
             <div className="col-12 col-md-6 order-md-1">
               <h2 id = "instructions" className={styles.card}>
-              <div className = {styles.cardHead}>1. Choose a template</div>
+                Choose a template
                 <p>
                   Start by selecting a template for your card. We have a wide
                   range of templates that come in different colours, designs and
@@ -29,15 +29,15 @@ const Instructions = () => {
             </div>
           </div>
         </div>
-        <br></br>
-        <div className="container">
+
+        <div className="container py-4">
           <div className="row">
             <div className="col-12 col-md-4">
               <Image src="/assets/customize_your_card.jpg" alt="instruction2" width={600} height={380} />
             </div>
             <div className="col-12 col-md-8">
               <h2 className={styles.card}>
-              <div className = {styles.cardHead}>2. Customize your card</div>
+                Customize your card
                 <p>
                   At this stage, you can make customizations to your card, Like
                   changing the colour, font and size of the text or adding
@@ -48,15 +48,15 @@ const Instructions = () => {
             </div>
           </div>
         </div>
-        <br></br>
-        <div className="container">
+
+        <div className="container py-4">
           <div className="row">
             <div className="col-12 col-md-6 order-md-2">
               <Image src="/assets/share_your_card.jpg" alt="instruction3" width={600} height={380} />
             </div>
             <div className="col-12 col-md-6 order-md-1">
               <h2 className={styles.card}>
-                <div className = {styles.cardHead}>3. Save and share</div>
+                Save and share
                 <p>
                   After making final changes to your card, you can easily save
                   your card to your device. Moreover, we are providing you with

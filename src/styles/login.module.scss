@@ -37,10 +37,10 @@
     font-size: 14px;
     letter-spacing: 0.9px;
     font-family: "Roboto";
-    cursor: pointer;
   }
   &:hover {
     box-shadow: 0 0 6px $google-blue;
+    cursor:pointer;
   }
   &:active {
     background: $button-active-blue;
