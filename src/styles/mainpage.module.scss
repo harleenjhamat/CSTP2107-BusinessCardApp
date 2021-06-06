@@ -1,5 +1,4 @@
 @import './Colors.scss';
-
 .container {
     width: 80%;
     margin: 0 auto;
@@ -18,13 +17,10 @@
     border-radius: 5px;
     width: 100%;
     height: 45px;
- 
-    
     &:hover {
         color: $ivory;
         background-color: #126599;
     }
-      
     &:active {
         color: $ivory;
         background-color: #1181c8;
@@ -32,25 +28,21 @@
     }
 }
 
-
 .searchbutton {
     background-color: $secondary_color;
     padding: 10px;
     border: none;
     border-radius: 5px;
-
     &:hover {
         color: $ivory;
-        background-color:$secondary_color;
+        background-color: $secondary_color;
     }
-      
     &:active {
         color: $ivory;
         background-color: #1181c8;
         transform: translateY(2px);
     }
 }
-
 
 .buttonContainer {
     display: flex;
@@ -59,7 +51,7 @@
 
 .MyOwnCardButtonShare {
     font-weight: 700;
-    color: aliceblue;  
+    color: aliceblue;
     justify-content: center;
     align-items: center;
     background-color: #67D7ED;
@@ -69,18 +61,15 @@
     border-radius: 5px;
     width: 50%;
     height: 45px;
-
     &:hover {
         color: $ivory;
         background-color: #126599;
     }
-      
     &:active {
         color: $ivory;
         background-color: #1181c8;
         transform: translateY(3px);
     }
-    
 }
 
 .MyOwnCardButtonDelete {
@@ -96,32 +85,24 @@
     border-radius: 5px;
     width: 50%;
     height: 45px;
-
     &:hover {
         color: $ivory;
         background-color: #E33539;
     }
-      
     &:active {
         color: $ivory;
         background-color: #EE9FA1;
         transform: translateY(3px);
     }
-    
 }
 
 .dropdownContainer {
     font-weight: 700;
     font-size: 25px;
-    align-self: center;
-    justify-items: center;
-    align-items: center;
-    
-  
 }
 
 .CardDisplay {
-    right:50%;
+    right: 50%;
     justify-items: center;
     align-self: center;
 }
@@ -138,15 +119,31 @@
     border-radius: 5px;
     width: 100%;
     height: 45px;
-
     &:hover {
         color: $ivory;
         background-color: #E33539;
     }
-      
     &:active {
         color: $ivory;
         background-color: #EE9FA1;
         transform: translateY(3px);
     }
+}
+
+.accordionButton {
+    &:after {
+        margin-right: auto !important;
+    }
+}
+
+.cen {
+    text-align: center;
+}
+
+.left {
+    text-align: start;
+}
+
+.right {
+    text-align: end;
 }

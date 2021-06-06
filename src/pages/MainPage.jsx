@@ -31,26 +31,22 @@ const MainPage = () => (
                 
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="headingOne">
-                        <button className={`accordion-button ${styles.dropdownContainer}`} type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            My Own Card  
-                            <div >
-                                <a href="/">
-                                    <Image 
-                                        src="/assets/editGroupName.png"
-                                        alt="Edit Group Name"
-                                        width={30}
-                                        height={30} 
-                                    />
-                                </a>
-                                <a href="http://localhost:3000/TemplatePage">
-                                    <Image 
-                                        src="/assets/add-card.png"
-                                        alt="Create Card"
-                                        width={40}
-                                        height={40}         
-                                    />
-                                </a>
-                            </div>
+                        <button className={`accordion-button row justify-content-center m-0 p-0 ${styles.cen} ${styles.dropdownContainer} ${styles.accordionButton}`} type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <div className={`col-6 my-2 ${styles.left}`}>
+                                    My Own Card  
+                                </div>
+                                <div className={`col-5 my-2  ${styles.right}`}>
+                                    <div className={`row justify-content-center m-0 p-0`}>
+                                        <a href="http://localhost:3000/TemplatePage">
+                                            <Image 
+                                                src="/assets/add-card.png"
+                                                alt="Create Card"
+                                                width={40}
+                                                height={40}         
+                                            />
+                                        </a>
+                                    </div>
+                                </div>
                         </button>
                     </h2>
 
