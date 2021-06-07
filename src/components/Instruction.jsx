@@ -18,7 +18,7 @@ const Instructions = () => {
             </div>
             <div className="col-12 col-md-6 order-md-1">
               <h2 id = "instructions" className={styles.card}>
-                Choose a template
+                <div className = {styles.cardHead}>1. Choose a template</div>
                 <p>
                   Start by selecting a template for your card. We have a wide
                   range of templates that come in different colours, designs and
@@ -37,7 +37,7 @@ const Instructions = () => {
             </div>
             <div className="col-12 col-md-8">
               <h2 className={styles.card}>
-                Customize your card
+                <div className = {styles.cardHead}>2. Customize your card</div>
                 <p>
                   At this stage, you can make customizations to your card, Like
                   changing the colour, font and size of the text or adding
@@ -56,7 +56,7 @@ const Instructions = () => {
             </div>
             <div className="col-12 col-md-6 order-md-1">
               <h2 className={styles.card}>
-                Save and share
+                <div className = {styles.cardHead}>3. Save and share</div>
                 <p>
                   After making final changes to your card, you can easily save
                   your card to your device. Moreover, we are providing you with
