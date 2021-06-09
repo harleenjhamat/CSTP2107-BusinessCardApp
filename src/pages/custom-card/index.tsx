@@ -21,7 +21,7 @@ function CustomCard(props) {
     if (!canvas)
       setCanvas(new fabric.Canvas("Canvas", { backgroundColor: "#eee" }));
     if (!canvas2)
-      setCanvas2(new fabric.Canvas("Canvas2", { backgroundColor: "#eee" }));
+      setCanvas2(new fabric.StaticCanvas("Canvas2", { backgroundColor: "#eee" }));
   }, []);
 
   const handleFontWeightChange = (e) => {
@@ -118,7 +118,7 @@ function CustomCard(props) {
   return (
     <>
       <div className={styles.container}>
-        <h2>Customize Your Card</h2>
+        <h2>Create Your Card</h2>
 
         <canvas className={styles.card_canvas} id="Canvas"></canvas>
 
@@ -218,7 +218,7 @@ function CustomCard(props) {
           </div>
         </div>
 
-        {items.length > 0 && <h2>Delete Your Card Items</h2>}
+        {items.length > 0 && <h2>Remove Card Items</h2>}
 
         <div
           className={styles.canvasItemContainer}
@@ -227,6 +227,8 @@ function CustomCard(props) {
         ></div>
 
         <button onClick={handleSave}>Save</button><br/><br/>
+
+        <h2>Your Saved Card</h2>
         <canvas className={styles.card_canvas} id="Canvas2"></canvas>
 
       </div>
