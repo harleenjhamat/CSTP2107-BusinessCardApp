@@ -104,11 +104,11 @@ const Templates = () => (
                                     </div><br></br>
                                 </CardDescription>
                                 <div className={styles.desc}>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item"><Icon name='mail' />name@email.com</li>
-                                        <li class="list-group-item"><Icon name='phone square' />(123)-987-5400</li>
-                                        <li class="list-group-item"><Icon name='browser' />abc.com</li>
-                                        <li class="list-group-item"><Icon name='map marker alternate' /> 123 Main Street, Vancouver</li>
+                                    <ul className="list-group list-group-flush">
+                                        <li className="list-group-item"><Icon name='mail' />name@email.com</li>
+                                        <li className="list-group-item"><Icon name='phone square' />(123)-987-5400</li>
+                                        <li className="list-group-item"><Icon name='browser' />abc.com</li>
+                                        <li className="list-group-item"><Icon name='map marker alternate' /> 123 Main Street, Vancouver</li>
                                     </ul>
                                 </div>
                                 <div style={{ position: "absolute", bottom: 60 }}>

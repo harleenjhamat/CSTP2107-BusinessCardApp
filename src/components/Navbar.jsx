@@ -60,20 +60,20 @@ const Navbar = () => {
             {/* Bootstrip Spinners on auth loading */}
             {loading && (
               <>
-                <div class="spinner-grow text-primary" role="status">
-                  <span class="visually-hidden"></span>
+                <div className="spinner-grow text-primary" role="status">
+                  <span className="visually-hidden"></span>
                 </div>
-                <div class="spinner-grow text-secondary" role="status">
-                  <span class="visually-hidden"></span>
+                <div className="spinner-grow text-secondary" role="status">
+                  <span className="visually-hidden"></span>
                 </div>
-                <div class="spinner-grow text-success" role="status">
-                  <span class="visually-hidden"></span>
+                <div className="spinner-grow text-success" role="status">
+                  <span className="visually-hidden"></span>
                 </div>
-                <div class="spinner-grow text-danger" role="status">
-                  <span class="visually-hidden"></span>
+                <div className="spinner-grow text-danger" role="status">
+                  <span className="visually-hidden"></span>
                 </div>
-                <div class="spinner-grow text-warning" role="status">
-                  <span class="visually-hidden"></span>
+                <div className="spinner-grow text-warning" role="status">
+                  <span className="visually-hidden"></span>
                 </div>
               </>
             )}
