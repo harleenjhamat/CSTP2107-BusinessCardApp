@@ -60,7 +60,7 @@ const Navbar = () => {
             {/* Bootstrip Spinners on auth loading */}
             {loading && (
               <>
-                <div class="spinner-border text-dark" role="status">
+                <div class="spinner-border text-light" role="status">
                   <span class="visually-hidden">Loading...</span>
                 </div>
               </>
