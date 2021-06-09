@@ -2,7 +2,7 @@
     width: 80%;
     margin: 0 auto;
     padding: 1% 0;
-    text-align: center;
+    // text-align: center;
 }
 
 .card_canvas {
@@ -11,15 +11,24 @@
 }
 
 .customized_card_form {
-    padding: 10px;
+    padding: 10px 0px;
     input {
-        margin-right: 1%;
+        margin-right: 2%;
     }
     div {
         display: block;
         margin-bottom: 10px;
     }
     label {
-        margin-right: 1%;
+        margin-right: 2%;
+    }
+}
+
+.canvasItemContainer{
+    div {
+        margin-bottom: 10px;
+    }
+    span {
+        margin-right: 2%;
     }
 }

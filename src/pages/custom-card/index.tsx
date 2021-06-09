@@ -5,6 +5,7 @@ import styles from "@/styles/CustomizeYourCard.module.scss";
 
 function CustomCard(props) {
   const [canvas, setCanvas]: [any, any] = useState();
+  const [canvas2, setCanvas2]: [any, any] = useState();
   const [items, setItems] = useState([]);
   const [itemID, setItemID] = useState(0);
   const [userTextInput, setUserTextInput] = useState("");
@@ -19,6 +20,8 @@ function CustomCard(props) {
   useEffect(() => {
     if (!canvas)
       setCanvas(new fabric.Canvas("Canvas", { backgroundColor: "#eee" }));
+    if (!canvas2)
+      setCanvas2(new fabric.Canvas("Canvas2", { backgroundColor: "#eee" }));
   }, []);
 
   const handleFontWeightChange = (e) => {
@@ -54,7 +57,7 @@ function CustomCard(props) {
   };
 
   const handleAddText = () => {
-    if(userTextInput == "") return;
+    if (userTextInput == "") return;
 
     const textOptions = {
       left: 10,
@@ -88,7 +91,7 @@ function CustomCard(props) {
     canvasItemDiv.appendChild(userText);
     canvasItemDiv.appendChild(deleteButton);
     canvasItemContainer.appendChild(canvasItemDiv);
-  
+
     setItemID(newItemID);
     setItems(newItems);
     setUserTextInput("");
@@ -96,27 +99,28 @@ function CustomCard(props) {
 
   const removeItemByID = (e) => {
     const buttonID = parseInt(e.target.getAttribute("itemid"));
-    const itemToDelete = items.find(item => item.itemID == buttonID);
+    const itemToDelete = items.find((item) => item.itemID == buttonID);
     canvas.remove(itemToDelete);
-    // console.log(itemToDelete);
-    console.log(items);
-    
 
     const itemDivToDelete = document.querySelector(`[itemid='${buttonID}']`);
     const canvasItemContainer = document.getElementById("canvasItemContainer");
-    if(itemDivToDelete) canvasItemContainer.removeChild(itemDivToDelete);
+    canvasItemContainer.removeChild(itemDivToDelete);
 
-    const filteredItems = items.filter(item => item.itemID !== buttonID);
-    console.log(filteredItems);
+    const filteredItems = items.filter((item) => item.itemID !== buttonID);
     setItems(filteredItems);
+  };
+
+  const handleSave = () => {
+    const canvasJson = canvas.toJSON();
+    canvas2.loadFromJSON(canvasJson);
   }
 
   return (
     <>
       <div className={styles.container}>
-        <h2>Customized Your Card</h2>
+        <h2>Customize Your Card</h2>
 
-        <canvas className={styles.card_canvas} id="Canvas" width="500" height="300"></canvas>
+        <canvas className={styles.card_canvas} id="Canvas"></canvas>
 
         <div className={styles.customized_card_form}>
           <div>
@@ -178,7 +182,7 @@ function CustomCard(props) {
               name="underline"
               value="on"
               onChange={handleUnderlineChange}
-              />
+            />
           </div>
 
           <div>
@@ -189,7 +193,7 @@ function CustomCard(props) {
               name="linethrough"
               value="on"
               onChange={handleLinethroughChange}
-              />
+            />
           </div>
 
           <div>
@@ -200,7 +204,7 @@ function CustomCard(props) {
               name="overline"
               value="on"
               onChange={handleOverlineChange}
-              />
+            />
           </div>
 
           <div>
@@ -212,10 +216,18 @@ function CustomCard(props) {
             />
             <button onClick={handleAddText}>Add text</button>
           </div>
-
         </div>
 
-        <div id="canvasItemContainer" onClick={removeItemByID}></div>
+        {items.length > 0 && <h2>Delete Your Card Items</h2>}
+
+        <div
+          className={styles.canvasItemContainer}
+          id="canvasItemContainer"
+          onClick={removeItemByID}
+        ></div>
+
+        <button onClick={handleSave}>Save</button><br/><br/>
+        <canvas className={styles.card_canvas} id="Canvas2"></canvas>
 
       </div>
     </>
