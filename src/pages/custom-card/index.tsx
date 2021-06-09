@@ -134,6 +134,7 @@ function CustomCard(props) {
         <h2>Add Text</h2>
 
         <div className={styles.customized_card_form}>
+          <div className={styles.customized_card_font_style}>
           <div>
             <label htmlFor="fontWeight">Font Weight:</label>
             <select
@@ -184,9 +185,12 @@ function CustomCard(props) {
               <option value="blue">blue</option>
             </select>
           </div>
+          </div>
 
+
+          <div className={styles.customized_card_font_style}>
           <div>
-            <label htmlFor="underline">Underline:</label>
+
             <input
               type="checkbox"
               id="underlineOn"
@@ -194,10 +198,12 @@ function CustomCard(props) {
               value="on"
               onChange={handleUnderlineChange}
             />
+            <label htmlFor="underline">Underline:</label>
+            
           </div>
 
           <div>
-            <label htmlFor="linethrough">Linethrough:</label>
+
             <input
               type="checkbox"
               id="linethroughOn"
@@ -205,10 +211,12 @@ function CustomCard(props) {
               value="on"
               onChange={handleLinethroughChange}
             />
+            <label htmlFor="linethrough">Linethrough</label>
+            
           </div>
 
           <div>
-            <label htmlFor="overline">Overline:</label>
+
             <input
               type="checkbox"
               id="overlineOn"
@@ -216,6 +224,9 @@ function CustomCard(props) {
               value="on"
               onChange={handleOverlineChange}
             />
+            <label htmlFor="overline">Overline</label>
+            
+          </div>
           </div>
 
           <div>
@@ -239,7 +250,7 @@ function CustomCard(props) {
         <br />
 
         <div>
-        <button onClick={handleSave}>Save</button>
+        <button className={styles.savebtn} onClick={handleSave}>Save</button>
         </div>
 
         <h2>Saved Card (for testing)</h2>

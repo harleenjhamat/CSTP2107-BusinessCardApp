@@ -1,8 +1,16 @@
+@import './colors.scss';
+
 .container {
     display: grid;
     justify-content: center;
     padding: 2%;
     margin-top: 1%;
+
+    h2 {
+        text-align: center;
+        color:$primary_color;
+        font-size: 30px;
+    }
 }
 
 .card_canvas_container{
@@ -21,10 +29,11 @@
 .customized_card_form {
     border-radius: 1%;
     border: rgba(0, 0, 0, 0.274) 1px solid;
-    padding: 10px 2px;
+    padding: 15px 10px;
 
     input {
         margin-right: 2%;
+        font-size: medium;
     }
     div {
         display: block;
@@ -35,6 +44,37 @@
     }
     button {
         display: inline;
+        font-weight: 700;
+        color: aliceblue;
+        background-color: $primary_color;
+        border: none;
+        border-radius: 5px;  
+        height: 30px;
+        &:hover {
+            color: $ivory;
+            background-color: #126599;
+        }
+        &:active {
+            color: $ivory;
+            background-color: #1181c8;
+            transform: translateY(3px);
+        }
+    }        
+}
+
+.customized_card_font_style {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+    border-radius: 1%;
+    padding: 15px 10px;
+
+    div {
+        display: block;
+        margin-bottom: 10px;
+    }
+    label {
+        margin-right: 2%;
     }
 }
 
@@ -47,3 +87,22 @@
     }
 }
 
+.savebtn {
+    display: inline;
+    justify-content: center;
+    font-weight: 700;
+    color: aliceblue;
+    background-color: $primary_color;
+    border: none;
+    border-radius: 5px;  
+    height: 30px;
+    &:hover {
+        color: $ivory;
+        background-color: #126599;
+    }
+    &:active {
+        color: $ivory;
+        background-color: #1181c8;
+        transform: translateY(3px);
+    }
+}
