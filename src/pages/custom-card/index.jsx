@@ -1,127 +1,63 @@
-import { Fragment } from 'react';
-import { useState } from 'react';
+import { Fragment } from 'react'
+import { useState } from 'react'
 import Head from 'next/head'
-import Navbar from './../../components/Navbar';
-import styles from "../../styles/customcard.module.scss";
-import Image from "next/image";
-import Scrollme from './../../components/Scrollme';
-
+import Navbar from './../../components/Navbar'
+import styles from '../../styles/customcard.module.scss'
+import Image from 'next/image'
+import Scrollme from './../../components/Scrollme'
+import React, { useEffect } from 'react'
+import { fabric } from 'fabric'
 
 function CustomCard (props) {
-  const [hoverGrey, setHoverGrey] = useState('');
-  const [hoverOrange, setHoverOrange] = useState('');
-  const [hoverGreen, setHoverGreen] = useState('');
-  const [hoverBlue, setHoverBlue] = useState('');
-  const [hoverRed, setHoverRed] = useState('');
-  const [hoverPurple, setHoverPurple] = useState('');
-  const [hoverPink, setHoverPink] = useState('');
-  const [hoverYellow, setHoverYellow] = useState('');
-  const [username, setUsername] = useState('Bob Pancakes');
-  const [userphone, setUserphone] = useState('+1(236)-333-2211');
-  const [business, setBusiness] = useState('Pancake Central');
-  const [email, setEmail] = useState('cybercard@card.ca');
+  var rect, triangle, circle, canvas, selectValue
+  useEffect(() => {
+    canvas = new fabric.Canvas('c')
+  }, [])
+  const addShape = () => {
+    rect = new fabric.Rect({
+      originX: 'left',
+      left: 200,
+      fill: 'red',
+      width: 200,
+      height: 200,
+      angle: 45
+    })
+    triangle = new fabric.Triangle({
+      width: 20,
+      height: 30,
+      fill: 'blue',
+      left: 50,
+      top: 50
+    })
+    circle = new fabric.Circle({
+      radius: 20,
+      fill: 'green',
+      left: 100,
+      top: 100
+    })
 
-  var greyHandler = (event) => {
-    setHoverBlue('')
-    setHoverRed('')
-    setHoverPurple('')
-    setHoverYellow('')
-    setHoverGreen('')
-    setHoverOrange('')
-    setHoverPink('')
-    setHoverGrey(`${styles.colorGrey}`);
-  };
-  var greenHandler = (event) => {
-    setHoverBlue('')
-    setHoverRed('')
-    setHoverPurple('')
-    setHoverYellow('')
-    setHoverGrey('')
-    setHoverOrange('')
-    setHoverPink('')
-    setHoverGreen(`${styles.colorGreen}`);
-  };
-  var orangeHandler = (event) => {
-    setHoverBlue('')
-    setHoverRed('')
-    setHoverPurple('')
-    setHoverYellow('')
-    setHoverGrey('')
-    setHoverGreen('')
-    setHoverPink('')
-    setHoverOrange(`${styles.colorOrange}`);
-  };
-  var blueHandler = (event) => {
-    setHoverGreen('')
-    setHoverRed('')
-    setHoverPurple('')
-    setHoverYellow('')
-    setHoverGrey('')
-    setHoverOrange('')
-    setHoverPink('')
-    setHoverBlue(`${styles.colorBlue}`);
-  };
-  var redHandler = (event) => {
-    setHoverGreen('')
-    setHoverBlue('')
-    setHoverPurple('')
-    setHoverYellow('')
-    setHoverGrey('')
-    setHoverOrange('')
-    setHoverPink('')
-    setHoverRed(`${styles.colorRed}`);
-  };
-  var purpleHandler = (event) => {
-    setHoverGreen('')
-    setHoverBlue('')
-    setHoverRed('')
-    setHoverYellow('')
-    setHoverGrey('')
-    setHoverOrange('')
-    setHoverPink('')
-    setHoverPurple(`${styles.colorPurple}`);
-  };
-  var pinkHandler = (event) => {
-    setHoverGreen('')
-    setHoverBlue('')
-    setHoverRed('')
-    setHoverYellow('')
-    setHoverGrey('')
-    setHoverOrange('')
-    setHoverPink(`${styles.colorPink}`);
-  };
-  var yellowHandler = (event) => {
-    setHoverGreen('')
-    setHoverBlue('')
-    setHoverRed('')
-    setHoverPurple('')
-    setHoverGrey('')
-    setHoverOrange('')
-    setHoverPink('')
-    setHoverYellow(`${styles.colorYellow}`);
-  };
-  var resetColorHandler = (event)=>{
-    setHoverGreen('')
-    setHoverBlue('')
-    setHoverRed('')
-    setHoverGrey('')
-    setHoverYellow('')
-    setHoverOrange('')
-    setHoverPink('')
-    setHoverPurple('');
+    if (selectValue === 'rect') {
+      canvas.add(rect)
+    } else if (selectValue === 'triangle') {
+      canvas.add(triangle)
+    } else if (selectValue === 'circle') {
+      canvas.add(circle)
+    }
   }
-  var nameHandler = (event)=>{
-    setUsername(event.target.value);
+
+  const removeShape = () => {
+    canvas.remove(canvas.getActiveObject())
+    console.log(canvas.getObjects())
   }
-  var phoneHandler = (event)=>{
-    setUserphone(event.target.value);
+
+  const handleChange = event => {
+    selectValue = event.target.value
+    console.log(selectValue)
   }
-  var businessHandler = (event)=>{
-    setBusiness(event.target.value);
-  }
-  var emailHandler = (event)=>{
-    setEmail(event.target.value);
-  }
+
+  var row_center = `row m-0 p-0 justify-content-center`
+  var row_default = `row m-0 p-0`
+  var col = `text-center m-0 p-0`
 
   return (
     <Fragment>
@@ -129,24 +65,41 @@ function CustomCard (props) {
         <title> Your Custom Card</title>
         <meta name='description' content='Customize your Card' />
       </Head>
-      <div className="container-fluid m-0 p-0 mb-4">
+      <div className='container-fluid m-0 p-0 mb-4'>
         {/* TEXT */}
-        <div className="row justify-content-center mt-4">
-          <div className="col-12 col-md-6 mt-4">
+        <div className='row justify-content-center mt-4'>
+          <div className='col-12 col-md-6 mt-4'>
             <h1 className={`${styles.cen} ${styles.cardSlogan}`}>
-            Customize your Card:
+              Customize your Card:
             </h1>
           </div>
         </div>
-            {/* INNER PART */}
-            
+        {/* INNER PART */}
+        <div className={`${row_center}`}>
+          <div className={`${col} col-11`}>
+            <select onChange={handleChange}>
+              <option key='?' value={null}>
+                Select..
+              </option>
+              <option key='rect' value='rect'>
+                Rectangle
+              </option>
+              <option key='triangle' value='triangle'>
+                Triangle
+              </option>
+              <option key='circle' value='circle'>
+                Circle
+              </option>
+            </select>
+            <button onClick={addShape}>Add shape</button>
+            <button onClick={removeShape}>Remove selected shape</button>
+            <canvas id='c' width={600} height={400} />
+          </div>
         </div>
-        <Scrollme/>
+      </div>
+      <Scrollme />
     </Fragment>
   )
 }
 
 export default CustomCard
-
-
-
