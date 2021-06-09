@@ -49,12 +49,12 @@
 
 .button:hover {
   color: $white;
-  background-color: $tertiary_color;
+  background-color: $button_on_hover; 
 }
 
 .button:active {
   color: $text_color;
-  background-color: $white;
+  background-color: $button-active-blue;
   transform: translateY(3px);
 }
 

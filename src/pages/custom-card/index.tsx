@@ -129,7 +129,7 @@ function CustomCard(props) {
           ></canvas>
         </div>
 
-        <div className={`d-flex justify-content-center`}>
+        <div className={`d-flex justify-content-center py-2`}>
           <button
             className={styles.savebtn}
             onClick={handleRemovedSelectedItem}
@@ -137,6 +137,8 @@ function CustomCard(props) {
             Remove Item
           </button>
         </div>
+
+        <hr/>
 
         <h2>Customize</h2>
 

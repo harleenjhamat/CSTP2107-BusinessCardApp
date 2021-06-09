@@ -3,7 +3,6 @@ import { Fragment } from "react";
 import Templates from "../pages/TemplatePage";
 import styles from "../styles/card.module.scss";
 
-
 const Card = () => {
   return (
     <Fragment>
@@ -26,7 +25,7 @@ const Card = () => {
                 />
               </div>
               <div className="col-12 col-md-3 my-2 d-grid">
-                <form action="/TemplatePage" class="inline">
+                <form action="/TemplatePage" className="inline">
                 <button 
                   className={`btn btn-lg ${styles.cen} ${styles.getStartedBtn}`}
                 >          

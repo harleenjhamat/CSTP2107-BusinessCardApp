@@ -60,20 +60,8 @@ const Navbar = () => {
             {/* Bootstrip Spinners on auth loading */}
             {loading && (
               <>
-                <div class="spinner-grow text-primary" role="status">
-                  <span class="visually-hidden"></span>
-                </div>
-                <div class="spinner-grow text-secondary" role="status">
-                  <span class="visually-hidden"></span>
-                </div>
-                <div class="spinner-grow text-success" role="status">
-                  <span class="visually-hidden"></span>
-                </div>
-                <div class="spinner-grow text-danger" role="status">
-                  <span class="visually-hidden"></span>
-                </div>
-                <div class="spinner-grow text-warning" role="status">
-                  <span class="visually-hidden"></span>
+                <div class="spinner-border text-dark" role="status">
+                  <span class="visually-hidden">Loading...</span>
                 </div>
               </>
             )}
@@ -94,10 +82,10 @@ const Navbar = () => {
             {session && (
               <>
                 <a
-                    className={` ${styles.navbarContact} `}
-                    href="http://localhost:3000/MainPage"
-                  >
-                    Main Page
+                  className={` ${styles.navbarContact} `}
+                  href="http://localhost:3000/MainPage"
+                >
+                  Main Page
                 </a>
                 <img
                   className="img-thumbnail round mx-2"

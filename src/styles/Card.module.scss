@@ -13,7 +13,7 @@
 }
 
 .getStartedBtn:hover {
-    background-color: $tertiary_color;
+    background-color: $button_on_hover; 
     color: $white;
     font-size : 1.25rem;
 }
@@ -21,7 +21,7 @@
 
 .getStartedBtn:active {
     color: $white;
-    background-color: $primary_color;
+    background-color: $button-active-blue;
     transform: translateY(3px);
     font-size : 1.25rem;
 }
