@@ -21,7 +21,9 @@ function CustomCard(props) {
     if (!canvas)
       setCanvas(new fabric.Canvas("Canvas", { backgroundColor: "#eee" }));
     if (!canvas2)
-      setCanvas2(new fabric.StaticCanvas("Canvas2", { backgroundColor: "#eee" }));
+      setCanvas2(
+        new fabric.StaticCanvas("Canvas2", { backgroundColor: "#eee" })
+      );
   }, []);
 
   const handleFontWeightChange = (e) => {
@@ -113,14 +115,23 @@ function CustomCard(props) {
   const handleSave = () => {
     const canvasJson = canvas.toJSON();
     canvas2.loadFromJSON(canvasJson);
-  }
+  };
 
   return (
     <>
       <div className={styles.container}>
         <h2>Create Your Card</h2>
 
-        <canvas className={styles.card_canvas} id="Canvas"></canvas>
+        <div className={styles.card_canvas_container}>
+          <canvas
+            className={styles.card_canvas}
+            id="Canvas"
+            width="450"
+            height="250"
+          ></canvas>
+        </div>
+
+        <h2>Add Text</h2>
 
         <div className={styles.customized_card_form}>
           <div>
@@ -216,21 +227,30 @@ function CustomCard(props) {
             />
             <button onClick={handleAddText}>Add text</button>
           </div>
+
+          {items.length > 0 && <h2>Remove Text</h2>}
+            <div
+              className={styles.canvasItemContainer}
+              id="canvasItemContainer"
+              onClick={removeItemByID}
+            ></div>
+
+        </div>
+        <br />
+
+        <div>
+        <button onClick={handleSave}>Save</button>
         </div>
 
-        {items.length > 0 && <h2>Remove Card Items</h2>}
-
-        <div
-          className={styles.canvasItemContainer}
-          id="canvasItemContainer"
-          onClick={removeItemByID}
-        ></div>
-
-        <button onClick={handleSave}>Save</button><br/><br/>
-
-        <h2>Your Saved Card</h2>
-        <canvas className={styles.card_canvas} id="Canvas2"></canvas>
-
+        <h2>Saved Card (for testing)</h2>
+        <div className={styles.card_canvas_container}>
+          <canvas
+            className={styles.card_canvas}
+            id="Canvas2"
+            width="450"
+            height="250"
+          ></canvas>
+        </div>
       </div>
     </>
   );

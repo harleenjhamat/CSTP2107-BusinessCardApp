@@ -1,8 +1,16 @@
 .container {
-    width: 80%;
-    margin: 0 auto;
+    display: grid;
+    justify-content: center;
+    padding: 2%;
+    margin-top: 1%;
+}
+
+.card_canvas_container{
+    display:grid;
+    justify-content:baseline;
+    overflow:auto;
+    margin: 1% 0;
     padding: 1% 0;
-    // text-align: center;
 }
 
 .card_canvas {
@@ -11,7 +19,10 @@
 }
 
 .customized_card_form {
-    padding: 10px 0px;
+    border-radius: 1%;
+    border: rgba(0, 0, 0, 0.274) 1px solid;
+    padding: 10px 2px;
+
     input {
         margin-right: 2%;
     }
@@ -21,6 +32,9 @@
     }
     label {
         margin-right: 2%;
+    }
+    button {
+        display: inline;
     }
 }
 
@@ -32,3 +46,4 @@
         margin-right: 2%;
     }
 }
+
