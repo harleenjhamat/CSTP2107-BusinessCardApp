@@ -1,0 +1,25 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 1% 0;
+    text-align: center;
+}
+
+.card_canvas {
+    border: rgba(0, 0, 0, 0.274) 1px solid;
+    border-radius: 1%;
+}
+
+.customized_card_form {
+    padding: 10px;
+    input {
+        margin-right: 1%;
+    }
+    div {
+        display: block;
+        margin-bottom: 10px;
+    }
+    label {
+        margin-right: 1%;
+    }
+}
