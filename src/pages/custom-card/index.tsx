@@ -79,7 +79,27 @@ function CustomCard(props) {
   const handleSave = () => {
     const canvasJson = canvas.toJSON();
     // canvas2.loadFromJSON(canvasJson);
-    console.log(canvasJson);
+    const sendObject = {
+      json: canvas.toJSON(),
+      user: JSON.parse(sessionStorage.getItem('user')),
+      img: canvas.toDataURL('png'),
+      sharedcode: (Math.random()).toString()
+    }
+    const sendObjectStr = JSON.stringify(sendObject)
+
+    fetch("http://localhost:3000/api/usercards?=", {
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": sendObjectStr
+        })
+        .then(response => {
+          console.log(response);
+        })
+        .catch(err => {
+          console.error(err);
+        });
   };
 
   const handleRemovedSelectedItem = () => {
