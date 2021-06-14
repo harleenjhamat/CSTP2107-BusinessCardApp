@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import styles from "../styles/sharedcard.module.scss";
+import styles from "@/styles/sharedcard.module.scss";
 
 var row_center = `row m-0 p-0 justify-content-center`
 var row_default = `row m-0 p-0`
@@ -18,7 +18,7 @@ const SharedCard = () => (
                     </div> 
                     <div className={`${row_default} justify-content-between mb-5`}>
                         <div className={`${col} col-12 col-md-5 mt-3 d-grid`}>
-                            <button className={`btn btn-secondary`}>Remove</button>
+                            <button className={`${styles.button}`}>Remove</button>
                         </div>
                         <div className={`${col} col-12 col-md-5 mt-3 d-grid`}>
                             {/* <button className={`btn btn-secondary`}>Edit</button> */}

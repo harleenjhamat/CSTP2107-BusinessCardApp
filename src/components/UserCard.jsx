@@ -15,10 +15,10 @@ const UserCard = () => (
                 </div> 
                 <div className={`${row_default} mb-5 justify-content-between`}>
                     <div className={`${col} col-12 col-md-5 mt-3 d-grid`}>
-                        <button className={`btn btn-secondary`}>Share</button>
+                        <button className={`${styles.button}`}>Share</button>
                     </div>
                     <div className={`${col} col-12 col-md-5 mt-3 d-grid`}>
-                        <button className={`btn btn-secondary`}>Edit</button>
+                        <button className={`${styles.button}`}>Edit</button>
                     </div>
                 </div>  
             </div>  

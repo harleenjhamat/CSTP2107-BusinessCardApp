@@ -1,5 +1,26 @@
+@import "./Colors.scss";
+
 .fitimg {
     object-fit: cover;
+    filter: drop-shadow(0 0 0.30rem slategray);
     // width: 1000px;
     // height: 1000px;
+}
+
+.button {
+    color: $ivory;
+    background-color: $primary_color;
+    filter: drop-shadow(0 0 0.15rem slategray);
+    border-radius: 5px;
+    padding: 3%;
+    font-size: medium;
+    &:hover {
+        color: $ivory;
+        background-color: $button_on_hover;
+    }
+    &:active {
+        color: $ivory;
+        background-color: $tertiary_color;
+        transform: translateY(3px);
+    }
 }
