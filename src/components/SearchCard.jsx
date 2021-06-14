@@ -9,9 +9,9 @@ const SearchCard = () => (
     <Fragment>
     <div className={`${row_center}`}>
         <div className={`${col} col-12`}>
-            <div className={`${row_default} justify-content-between my-4`}>
+            <div className={`${row_default} justify-content my-4`}>
                 <div className={`${col} col-12 col-md-8 mb-2`}>
-                    <input type="text" className={`form-control`} />
+                    <input type="text" placeholder="search card here.." className={`form-control`} />
                 </div>
                 <div className={`${col} col-12 col-md-3 mb-2 d-grid`}>
                     <button className={`${styles.button}`}>Search</button>
@@ -21,6 +21,5 @@ const SearchCard = () => (
     </div>
     </Fragment>
 )
-
 
 export default SearchCard

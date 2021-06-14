@@ -17,7 +17,7 @@ const SharedCard = () => (
                         </div>
                     </div> 
                     <div className={`${row_default} justify-content-between mb-5`}>
-                        <div className={`${col} col-12 col-md-5 mt-3 d-grid`}>
+                        <div className={`${col} col-6 .col-md-4`}>
                             <button className={`${styles.button}`}>Remove</button>
                         </div>
                         <div className={`${col} col-12 col-md-5 mt-3 d-grid`}>
