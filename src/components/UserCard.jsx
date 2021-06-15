@@ -55,11 +55,11 @@ const UserCard = (props) => {
             </div>
           </div>
           <div className={`${row_default} mb-5 justify-content-between`}>
-            <div className={`${col} col-12 col-md-5 mt-3 d-grid`}>
-              <button className={`btn btn-secondary`} onClick={SharedCard}>Share</button>
+            <div className={`${col} col-6 .col-md-8`}>
+              <button className={`${styles.button}`} onClick={SharedCard}>Share</button>
             </div>
-            <div className={`${col} col-12 col-md-5 mt-3 d-grid`}>
-              <button className={`btn btn-secondary`}>Edit</button>
+            <div className={`${col} col-6 .col-md-8`}>
+              <button className={`${styles.buttonNew}`}>Edit</button>
             </div>
           </div>
         </div>

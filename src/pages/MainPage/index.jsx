@@ -1,10 +1,11 @@
 import { Fragment } from 'react'
+import { useState, useEffect } from 'react'
 
 import Scrollme from './../../components/Scrollme'
 import UserCard from './../../components/UserCard'
-import SearchCard from './../../components/SearchCard'
 import SharedCard from './../../components/SharedCard'
-import { useState, useEffect } from 'react'
+import styles from "@/styles/mainpage.module.scss";
+import SearchCard from './../../components/SearchCard';
 
 var row_center = `row m-0 p-0 justify-content-center`
 var row_default = `row m-0 p-0`
@@ -44,12 +45,11 @@ const MainPage = () => {
       <div className={`container-fluid m-0 p-0 mt-5`}>
         <div className={`row m-0 p-0 mx-2 justify-content-center`}>
           <div className={`col-12 col-md-4 text-center border-end`}>
-            <h1>User's cards:</h1>
-            <SearchCard />
+            <h1 className={styles.cardHead}>Your Card:</h1>
             <UserCard />
           </div>
           <div className={`col-12 col-md-8 text-center`}>
-            <h1>Added cards:</h1>
+            <h1 className={styles.cardHead}>Shared With You</h1>
             <div className={`${row_center}`}>
               <div className={`${col} col-11`}>
                 <SearchCard addnewcard={newCardHandler} />
