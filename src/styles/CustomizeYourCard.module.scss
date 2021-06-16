@@ -13,6 +13,7 @@
     button {
         display: inline;
         justify-content: center;
+        width: 100px;
         padding: 1.8%;
         font-weight: 700;
         color: $ivory;
@@ -34,7 +35,7 @@
 
 .card_canvas_container{
     display:grid;
-    justify-content:baseline;
+    justify-content:center;
     overflow:auto;
     margin: 1% 0;
     padding: 1% 0;
@@ -48,7 +49,7 @@
 .customized_card_form {
     border-radius: 1%;
     border: $border_color 1px solid;
-    padding: 15px 10px;
+    padding: 15px 20px;
     input {
         margin-right: 3%;
         margin-bottom: 4%;
@@ -61,3 +62,10 @@
         margin-right: 4%;
     }    
 }
+
+// Apply when the icon is in active state
+.btnActive{
+    background-color: $button-active-blue;
+    border: 1px solid $border_color;
+}
+

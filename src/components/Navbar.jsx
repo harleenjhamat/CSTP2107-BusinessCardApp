@@ -44,7 +44,7 @@ const Navbar = () => {
             <div className="d-flex flex-grow-1">
               <ul className="navbar-nav mb-2 mb-lg-0 flex-grow-1 justify-content-center">
                 <li className="nav-item">
-                  <Link href="#aboutus">
+                  <Link href="/#aboutus">
                     <a className={` ${styles.navbarContact}`}>About</a>
                   </Link>
                 </li>

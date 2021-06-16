@@ -6,29 +6,27 @@ import { base64ToBlob, readFile } from "@/utility/File";
 
 function CustomCard(props) {
   const [canvas, setCanvas]: [any, any] = useState();
-  // const [canvas2, setCanvas2]: [any, any] = useState();
   const [userTextInput, setUserTextInput] = useState("");
-  const [fontWeight, setFontWeight] = useState("normal");
-  const [fontStyle, setFontStyle] = useState("normal");
+  const [fontWeight, setFontWeight] = useState(false);
+  const [fontStyle, setFontStyle] = useState(false);
   const [fontFamily, setFontFamily] = useState("arial");
   const [fontColor, setFontColor] = useState("black");
   const [underline, setUnderline] = useState(false);
   const [linethrough, setLinethrough] = useState(false);
   const [overline, setOverline] = useState(false);
+  const [textToolDisplay, setTextToolDisplay] = useState("none");
 
   useEffect(() => {
     if (!canvas)
       setCanvas(new fabric.Canvas("Canvas", { backgroundColor: "#eee" }));
-    // if (!canvas2)
-    //   setCanvas2(new fabric.Canvas("Canvas2", { backgroundColor: "#eee" }));
   }, []);
 
   const handleFontWeightChange = (e) => {
-    setFontWeight(e.target.value);
+    setFontWeight(!fontWeight);
   };
 
   const handleFontStyleChange = (e) => {
-    setFontStyle(e.target.value);
+    setFontStyle(!fontStyle);
   };
 
   const handleFontFamilyChange = (e) => {
@@ -40,19 +38,24 @@ function CustomCard(props) {
   };
 
   const handleUnderlineChange = (e) => {
-    setUnderline(e.target.checked);
+    setUnderline(!underline);
   };
 
   const handleLinethroughChange = (e) => {
-    setLinethrough(e.target.checked);
+    setLinethrough(!linethrough);
   };
 
   const handleOverlineChange = (e) => {
-    setOverline(e.target.checked);
+    setOverline(!overline);
   };
 
   const handleUserTextInput = (e) => {
     setUserTextInput(e.target.value);
+  };
+
+  const handleToggleTextDisplay = () => {
+    const displayState = textToolDisplay === "none" ? "block" : "none";
+    setTextToolDisplay(displayState);
   };
 
   const handleAddText = () => {
@@ -61,8 +64,8 @@ function CustomCard(props) {
     const textOptions = {
       left: 10,
       top: 10,
-      fontWeight,
-      fontStyle,
+      fontWeight: fontWeight ? "bold" : "normal",
+      fontStyle: fontStyle ? "italic" : "normal",
       fontFamily,
       fill: fontColor,
       underline,
@@ -74,41 +77,43 @@ function CustomCard(props) {
     canvas.add(newTextObj);
 
     setUserTextInput("");
+    handleToggleTextDisplay();
   };
 
   const handleSave = () => {
     const canvasJson = canvas.toJSON();
-    // canvas2.loadFromJSON(canvasJson);
     const sendObject = {
       json: canvas.toJSON(),
-      user: JSON.parse(sessionStorage.getItem('user')),
-      img: canvas.toDataURL('png'),
-      sharedcode: (Math.random()).toString()
-    }
-    const sendObjectStr = JSON.stringify(sendObject)
+      user: JSON.parse(sessionStorage.getItem("user")),
+      img: canvas.toDataURL("png"),
+      sharedcode: Math.random().toString(),
+    };
+    const sendObjectStr = JSON.stringify(sendObject);
 
     fetch("http://localhost:3000/api/usercards?=", {
-          "method": "POST",
-          "headers": {
-            "Content-Type": "application/json"
-          },
-          "body": sendObjectStr
-        })
-        .then(response => {
-          console.log(response);
-        })
-        .catch(err => {
-          console.error(err);
-        });
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: sendObjectStr,
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   const handleRemovedSelectedItem = () => {
     canvas.remove(canvas.getActiveObject());
   };
 
-  // const handleRemovedSelectedItem2 = () => {
-  //   canvas2.remove(canvas2.getActiveObject());
-  // };
+  const handleRemovedSelectedItemOnKeyPress = (e)=>{
+    console.log(e);
+    if(e.key == "Backspace" || e.key === "Delete")
+      handleRemovedSelectedItem();
+  }
 
   const handleAddImage = () => {
     const addImageInput = document.getElementById("addImageInput");
@@ -138,9 +143,12 @@ function CustomCard(props) {
   return (
     <>
       <div className={styles.container}>
-        <h2>Your Card</h2>
+        <h2>Customize Your Card</h2>
 
-        <div className={styles.card_canvas_container}>
+        <div className={styles.card_canvas_container}
+          onKeyDownCapture={handleRemovedSelectedItemOnKeyPress}
+          tabIndex="0"
+        >
           <canvas
             className={styles.card_canvas}
             id="Canvas"
@@ -149,125 +157,17 @@ function CustomCard(props) {
           ></canvas>
         </div>
 
-        <div className={`d-flex justify-content-center py-2`}>
-          <button
-            className={styles.savebtn}
-            onClick={handleRemovedSelectedItem}
-          >
-            Remove Item
-          </button>
-        </div>
-
-        <hr/>
-
-        <h2>Customize</h2>
-
-        <div className={styles.customized_card_form}>
-          <div>
-            <input
-              type="text"
-              id="myText"
-              value={userTextInput}
-              onChange={handleUserTextInput}
-            />
-            <button onClick={handleAddText}>Add text</button>
+        {/* add text, image, remove item */}
+        <div className={`d-flex justify-content-center my-2`}>
+          <div className={`mx-2`}>
+            <button
+              onClick={handleToggleTextDisplay}
+            >
+              Text
+            </button>
           </div>
 
-          <div className={`row`}>
-            <div className={`col`}>
-              <div>
-                <label htmlFor="fontWeight">Font Weight:</label>
-                <select
-                  name="fontWeight"
-                  id="fontWeight"
-                  onChange={handleFontWeightChange}
-                >
-                  <option value="normal">normal</option>
-                  <option value="bold">bold</option>
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="fontFamily">Font Family:</label>
-                <select
-                  name="fontFamily"
-                  id="fontFamily"
-                  onChange={handleFontFamilyChange}
-                >
-                  <option value="arial">arial</option>
-                  <option value="courier">courier</option>
-                  <option value="times">times</option>
-                </select>
-              </div>
-            </div>
-            <div className={`col`}>
-              <div>
-                <label htmlFor="fontStyle">Font Style:</label>
-                <select
-                  name="fontStyle"
-                  id="fontStyle"
-                  onChange={handleFontStyleChange}
-                >
-                  <option value="normal">normal</option>
-                  <option value="italic">italic</option>
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="fontColor">Font Color:</label>
-                <select
-                  name="fontColor"
-                  id="fontColor"
-                  onChange={handleFontColorChange}
-                >
-                  <option value="black">black</option>
-                  <option value="green">green</option>
-                  <option value="red">red</option>
-                  <option value="blue">blue</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          {/* checkboxes */}
-          <div className={`row`}>
-            <div className={`col`}>
-              <input
-                type="checkbox"
-                id="underlineOn"
-                name="underline"
-                value="on"
-                onChange={handleUnderlineChange}
-              />
-              <label htmlFor="underline">Underline</label>
-            </div>
-
-            <div className={`col`}>
-              <input
-                type="checkbox"
-                id="linethroughOn"
-                name="linethrough"
-                value="on"
-                onChange={handleLinethroughChange}
-              />
-              <label htmlFor="linethrough">Linethrough</label>
-            </div>
-
-            <div className={`col`}>
-              <input
-                type="checkbox"
-                id="overlineOn"
-                name="overline"
-                value="on"
-                onChange={handleOverlineChange}
-              />
-              <label htmlFor="overline">Overline</label>
-            </div>
-          </div>
-
-          <hr />
-
-          <div>
+          <div className={`mx-2`}>
             <input
               accept="image/*"
               id="addImageInput"
@@ -278,9 +178,92 @@ function CustomCard(props) {
             />
             <div>
               <button id="addImageButton" onClick={handleAddImage}>
-                Add Image
+                Image
               </button>
             </div>
+          </div>
+
+          <div className={`mx-2`}>
+            <button
+              className={styles.savebtn}
+              onClick={handleRemovedSelectedItem}
+            >
+              Remove Item
+            </button>
+          </div>
+        </div>
+
+        <div
+          className={styles.customized_card_form}
+          style={{ display: `${textToolDisplay}` }}
+        >
+          <div className={`row my-2`}>
+            <div
+              className={`${fontWeight == true ? styles.btnActive : ""} col`}
+              onClick={handleFontWeightChange}
+            >
+              Bold
+            </div>
+            <div
+              className={`${fontStyle == true ? styles.btnActive : ""} col`}
+              onClick={handleFontStyleChange}
+            >
+              Italic
+            </div>
+            <div
+              className={`${underline == true ? styles.btnActive : ""} col`}
+              onClick={handleUnderlineChange}
+            >
+              Underline
+            </div>
+            <div
+              className={`${linethrough == true ? styles.btnActive : ""} col`}
+              onClick={handleLinethroughChange}
+            >
+              Linethrough
+            </div>
+            <div
+              className={`${overline == true ? styles.btnActive : ""} col`}
+              onClick={handleOverlineChange}
+            >
+              Overline
+            </div>
+
+            <div className={`col`}>
+              {/* <label htmlFor="fontColor">Font Color</label> */}
+              <input
+                name="fontColor"
+                id="fontColor"
+                onChange={handleFontColorChange}
+                type="color"
+              ></input>
+            </div>
+
+            <div className={`col`}>
+              {/* <label htmlFor="fontFamily">Font Family:</label> */}
+              <select
+                name="fontFamily"
+                id="fontFamily"
+                onChange={handleFontFamilyChange}
+              >
+                <option value="arial">arial</option>
+                <option value="courier">courier</option>
+                <option value="times">times</option>
+              </select>
+            </div>
+          </div>
+
+          <div className={`row justify-content-center`}>
+            <input
+              className={`col-8`}
+              type="text"
+              id="myText"
+              value={userTextInput}
+              onChange={handleUserTextInput}
+            />
+            <button className={`col-3`} onClick={handleAddText}>
+              Add text
+            </button>
           </div>
         </div>
         <br />
@@ -288,26 +271,6 @@ function CustomCard(props) {
         <div className={`d-flex justify-content-center`}>
           <button onClick={handleSave}>Save Card</button>
         </div>
-
-        {/* ---------------------------------------testing code------------------------------------- */}
-        {/* <h2>Saved Card (for testing)</h2>
-        <div className={styles.card_canvas_container}>
-          <canvas
-            className={styles.card_canvas}
-            id="Canvas2"
-            width="450"
-            height="250"
-          ></canvas>
-        </div>
-
-        <div>
-          <button
-            className={styles.savebtn}
-            onClick={handleRemovedSelectedItem2}
-          >
-            Remove Selected Item
-          </button>
-        </div> */}
       </div>
     </>
   );
