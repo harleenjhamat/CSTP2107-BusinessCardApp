@@ -178,7 +178,7 @@ function CustomCard(props) {
             <div>
               <Button color="blue" id="addImageButton" onClick={handleAddImage}>
                 <Button.Content>
-                  <Icon name="file image" />
+                  <Icon name="image" />
                 </Button.Content>
               </Button>
             </div>
@@ -191,7 +191,7 @@ function CustomCard(props) {
               onClick={handleRemovedSelectedItem}
             >
               <Button.Content>
-                <Icon name="trash" />
+                <Icon name="trash alternate" />
               </Button.Content>
             </Button>
           </div>

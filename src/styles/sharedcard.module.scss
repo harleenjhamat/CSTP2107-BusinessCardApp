@@ -47,3 +47,22 @@
         transform: translateY(3px);
     }
 }
+
+.imgwrap{
+    position:relative;
+}
+
+.imgwrap .close{
+   
+    position:absolute;
+    bottom:10px;
+    right:2px;
+    color:red;
+    z-index:100;
+    
+    &:hover{
+        background-color: red;
+        color:white
+    }
+}
+
