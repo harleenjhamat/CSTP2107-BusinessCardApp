@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { fabric } from "fabric";
-import { Button,Icon } from 'semantic-ui-react'
+import { Button, Icon } from "semantic-ui-react";
 
 import styles from "@/styles/CustomizeYourCard.module.scss";
 import { base64ToBlob, readFile } from "@/utility/File";
@@ -78,7 +78,7 @@ function CustomCard(props) {
     canvas.add(newTextObj);
 
     setUserTextInput("");
-    handleToggleTextDisplay();
+    // handleToggleTextDisplay();
   };
 
   const handleSave = () => {
@@ -110,11 +110,10 @@ function CustomCard(props) {
     canvas.remove(canvas.getActiveObject());
   };
 
-  const handleRemovedSelectedItemOnKeyPress = (e)=>{
+  const handleRemovedSelectedItemOnKeyPress = (e) => {
     console.log(e);
-    if(e.key == "Backspace" || e.key === "Delete")
-      handleRemovedSelectedItem();
-  }
+    if (e.key == "Backspace" || e.key === "Delete") handleRemovedSelectedItem();
+  };
 
   const handleAddImage = () => {
     const addImageInput = document.getElementById("addImageInput");
@@ -146,7 +145,8 @@ function CustomCard(props) {
       <div className={styles.container}>
         <h2>Customize Your Card</h2>
 
-        <div className={styles.card_canvas_container}
+        <div
+          className={styles.card_canvas_container}
           onKeyDownCapture={handleRemovedSelectedItemOnKeyPress}
           tabIndex="0"
         >
@@ -161,10 +161,8 @@ function CustomCard(props) {
         {/* add text, image, remove item */}
         <div className={`d-flex justify-content-center my-2`}>
           <div className={`mx-2`}>
-            <Button color='grey'
-              onClick={handleToggleTextDisplay}
-            >
-            <Icon name= 'text height'/>
+            <Button color="blue" onClick={handleToggleTextDisplay}>
+              <Icon name="font" />
             </Button>
           </div>
 
@@ -178,18 +176,23 @@ function CustomCard(props) {
               type="file"
             />
             <div>
-              <Button color='grey' id="addImageButton" onClick={handleAddImage}>
-                <Button.Content><Icon name= 'file image'/></Button.Content>
+              <Button color="blue" id="addImageButton" onClick={handleAddImage}>
+                <Button.Content>
+                  <Icon name="file image" />
+                </Button.Content>
               </Button>
             </div>
           </div>
 
           <div className={`mx-2`}>
-            <Button color= 'red'
+            <Button
+              color="red"
               className={styles.savebtn}
               onClick={handleRemovedSelectedItem}
             >
-              <Button.Content><Icon name='trash'/></Button.Content>
+              <Button.Content>
+                <Icon name="trash" />
+              </Button.Content>
             </Button>
           </div>
         </div>
@@ -198,50 +201,58 @@ function CustomCard(props) {
           className={styles.customized_card_form}
           style={{ display: `${textToolDisplay}` }}
         >
-          <div className={`row my-2`}>
-          <div className={`${fontWeight == false ? styles.btn : ""} col`}>
-            <div
-              className={`${fontWeight == true ? styles.btnActive : ""} col`}
-              onClick={handleFontWeightChange}
-            >
-            <Icon name= 'bold'/>
-            </div>
+          <div className={`row my-3`}>
+            <div className={`${fontWeight == false ? styles.btn : ""} col`}>
+              <div
+                className={`${fontWeight == true ? styles.btnActive : ""} col`}
+                onClick={handleFontWeightChange}
+              >
+                <Icon name="bold" />
+              </div>
             </div>
             <div className={`${fontStyle == false ? styles.btn : ""} col`}>
-            <div
-              className={`${fontStyle == true ? styles.btnActive : ""} col`}
-              onClick={handleFontStyleChange}
-            >
-              <Icon name= 'italic'/>
-            </div>
+              <div
+                className={`${fontStyle == true ? styles.btnActive : ""} col`}
+                onClick={handleFontStyleChange}
+              >
+                <Icon name="italic" />
+              </div>
             </div>
             <div className={`${underline == false ? styles.btn : ""} col`}>
-            <div
-              className={`${underline == true ? styles.btnActive : ""} col`}
-              onClick={handleUnderlineChange}
-            >
-              <Icon name= 'underline'/>
-            </div>
+              <div
+                className={`${underline == true ? styles.btnActive : ""} col`}
+                onClick={handleUnderlineChange}
+              >
+                <Icon name="underline" />
+              </div>
             </div>
             <div className={`${linethrough == false ? styles.btn : ""} col`}>
-            <div
-              className={`${linethrough == true ? styles.btnActive : ""} col`}
-              onClick={handleLinethroughChange}
-            >
-             <Icon name= 'strikethrough'/>
-            </div>
+              <div
+                className={`${linethrough == true ? styles.btnActive : ""} col`}
+                onClick={handleLinethroughChange}
+              >
+                <Icon name="strikethrough" />
+              </div>
             </div>
             <div className={`${overline == false ? styles.btn : ""} col`}>
-            <div
-              className={`${overline == true ? styles.btnActive : ""} col`}
-              onClick={handleOverlineChange}
-            >
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="mdi-format-overline" width="25" height="25" viewBox="0 0"><path d="M5,5H19V3H5V5M9.62,16L12,9.67L14.37,16M11,7L5.5,21H7.75L8.87,18H15.12L16.25,21H18.5L13,7H11Z" /></svg>
-            </div>
+              <div
+                className={`${overline == true ? styles.btnActive : ""} col`}
+                onClick={handleOverlineChange}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  version="1.1"
+                  id="mdi-format-overline"
+                  width="20"
+                  height="18"
+                  viewBox="3 2 26 26"
+                >
+                  <path d="M5,5H19V3H5V5M9.62,16L12,9.67L14.37,16M11,7L5.5,21H7.75L8.87,18H15.12L16.25,21H18.5L13,7H11Z" />
+                </svg>
+              </div>
             </div>
 
             <div className={`col`}>
-              {/* <label htmlFor="fontColor">Font Color</label> */}
               <input
                 name="fontColor"
                 id="fontColor"
@@ -251,7 +262,6 @@ function CustomCard(props) {
             </div>
 
             <div className={`col`}>
-              {/* <label htmlFor="fontFamily">Font Family:</label> */}
               <select
                 name="fontFamily"
                 id="fontFamily"
@@ -267,21 +277,24 @@ function CustomCard(props) {
 
           <div className={`row justify-content-center`}>
             <input
-              className={`col-8`}
+              className={`col-8 ${styles.textInput}`}
               type="text"
               id="myText"
               value={userTextInput}
               onChange={handleUserTextInput}
             />
             <button className={`col-3`} onClick={handleAddText}>
-              <Icon name ='plus circle'/> Add Text
+              <Icon name="plus circle" /> Add Text
             </button>
           </div>
         </div>
         <br />
 
         <div className={`d-flex justify-content-center`}>
-          <button onClick={handleSave}><Icon name = 'save'/>Save Card</button>
+          <button onClick={handleSave}>
+            <Icon name="save" />
+            Save Card
+          </button>
         </div>
       </div>
     </>
