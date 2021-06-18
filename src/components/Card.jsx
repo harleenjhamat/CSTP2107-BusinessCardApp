@@ -25,7 +25,7 @@ const Card = () => {
                 />
               </div>
               <div className="col-12 col-md-3 my-2 d-grid">
-                <form action="/TemplatePage" className="inline">
+                <form action="/custom-card" className="inline">
                 <button 
                   className={`btn btn-lg ${styles.cen} ${styles.getStartedBtn}`}
                 >          

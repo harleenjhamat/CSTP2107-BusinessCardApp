@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { fabric } from "fabric";
+import { Button,Icon } from 'semantic-ui-react'
 
 import styles from "@/styles/CustomizeYourCard.module.scss";
 import { base64ToBlob, readFile } from "@/utility/File";
@@ -160,11 +161,11 @@ function CustomCard(props) {
         {/* add text, image, remove item */}
         <div className={`d-flex justify-content-center my-2`}>
           <div className={`mx-2`}>
-            <button
+            <Button color='grey'
               onClick={handleToggleTextDisplay}
             >
-              Text
-            </button>
+            <Icon name= 'text height'/>
+            </Button>
           </div>
 
           <div className={`mx-2`}>
@@ -177,19 +178,19 @@ function CustomCard(props) {
               type="file"
             />
             <div>
-              <button id="addImageButton" onClick={handleAddImage}>
-                Image
-              </button>
+              <Button color='grey' id="addImageButton" onClick={handleAddImage}>
+                <Button.Content><Icon name= 'file image'/></Button.Content>
+              </Button>
             </div>
           </div>
 
           <div className={`mx-2`}>
-            <button
+            <Button color= 'red'
               className={styles.savebtn}
               onClick={handleRemovedSelectedItem}
             >
-              Remove Item
-            </button>
+              <Button.Content><Icon name='trash'/></Button.Content>
+            </Button>
           </div>
         </div>
 
@@ -198,35 +199,45 @@ function CustomCard(props) {
           style={{ display: `${textToolDisplay}` }}
         >
           <div className={`row my-2`}>
+          <div className={`${fontWeight == false ? styles.btn : ""} col`}>
             <div
               className={`${fontWeight == true ? styles.btnActive : ""} col`}
               onClick={handleFontWeightChange}
             >
-              Bold
+            <Icon name= 'bold'/>
             </div>
+            </div>
+            <div className={`${fontStyle == false ? styles.btn : ""} col`}>
             <div
               className={`${fontStyle == true ? styles.btnActive : ""} col`}
               onClick={handleFontStyleChange}
             >
-              Italic
+              <Icon name= 'italic'/>
             </div>
+            </div>
+            <div className={`${underline == false ? styles.btn : ""} col`}>
             <div
               className={`${underline == true ? styles.btnActive : ""} col`}
               onClick={handleUnderlineChange}
             >
-              Underline
+              <Icon name= 'underline'/>
             </div>
+            </div>
+            <div className={`${linethrough == false ? styles.btn : ""} col`}>
             <div
               className={`${linethrough == true ? styles.btnActive : ""} col`}
               onClick={handleLinethroughChange}
             >
-              Linethrough
+             <Icon name= 'strikethrough'/>
             </div>
+            </div>
+            <div className={`${overline == false ? styles.btn : ""} col`}>
             <div
               className={`${overline == true ? styles.btnActive : ""} col`}
               onClick={handleOverlineChange}
             >
-              Overline
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="mdi-format-overline" width="25" height="25" viewBox="0 0"><path d="M5,5H19V3H5V5M9.62,16L12,9.67L14.37,16M11,7L5.5,21H7.75L8.87,18H15.12L16.25,21H18.5L13,7H11Z" /></svg>
+            </div>
             </div>
 
             <div className={`col`}>
@@ -249,6 +260,7 @@ function CustomCard(props) {
                 <option value="arial">arial</option>
                 <option value="courier">courier</option>
                 <option value="times">times</option>
+                <option value="verdana">verdana</option>
               </select>
             </div>
           </div>
@@ -262,14 +274,14 @@ function CustomCard(props) {
               onChange={handleUserTextInput}
             />
             <button className={`col-3`} onClick={handleAddText}>
-              Add text
+              <Icon name ='plus circle'/> Add Text
             </button>
           </div>
         </div>
         <br />
 
         <div className={`d-flex justify-content-center`}>
-          <button onClick={handleSave}>Save Card</button>
+          <button onClick={handleSave}><Icon name = 'save'/>Save Card</button>
         </div>
       </div>
     </>

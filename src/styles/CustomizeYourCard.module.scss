@@ -7,20 +7,22 @@
     margin-top: 1%;
     h2 {
         text-align: center;
-        color:$primary_color;
-        font-size: 30px;
+        color:$text_color;
+        font-size: 40px;
+        text-shadow: 4px 2px 4px $tertiary_color;
+        font-family:  "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
     button {
         display: inline;
         justify-content: center;
-        width: 100px;
-        padding: 1.8%;
+        width: 110px;
         font-weight: 700;
         color: $ivory;
         background-color: $primary_color;
         border: none;
         border-radius: 5px;  
         height: 30px;
+        box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19) ;
         &:hover {
             color: $ivory;
             background-color: $button_on_hover;
@@ -63,9 +65,14 @@
     }    
 }
 
+.btn{
+    border: 1px solid $border_color;
+}
 // Apply when the icon is in active state
 .btnActive{
+    height:25px;
+    text-align: center;
     background-color: $button-active-blue;
-    border: 1px solid $border_color;
+   
 }
 
