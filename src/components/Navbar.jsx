@@ -1,4 +1,4 @@
-import { signOut, useSession } from "next-auth/client";
+import { signOut, useSession, signIn } from "next-auth/client";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,6 +8,10 @@ import styles from "../styles/navbar.module.scss";
 const Navbar = () => {
   const [session, loading] = useSession();
   const router = useRouter();
+  // const { sessionStorage }  = window; 
+  if ((typeof window !== "undefined") && session) {
+    sessionStorage.setItem('user', JSON.stringify(session.user))
+  }
 
   return (
     <>
@@ -40,7 +44,7 @@ const Navbar = () => {
             <div className="d-flex flex-grow-1">
               <ul className="navbar-nav mb-2 mb-lg-0 flex-grow-1 justify-content-center">
                 <li className="nav-item">
-                  <Link href="#aboutus">
+                  <Link href="/#aboutus">
                     <a className={` ${styles.navbarContact}`}>About</a>
                   </Link>
                 </li>
@@ -60,27 +64,26 @@ const Navbar = () => {
             {/* Bootstrip Spinners on auth loading */}
             {loading && (
               <>
-                <div class="spinner-border text-light" role="status">
-                  <span class="visually-hidden">Loading...</span>
+                <div className="spinner-border text-light" role="status">
+                  <span className="visually-hidden">Loading...</span>
                 </div>
               </>
             )}
 
             {/* Show Login Button if User has not logged in and the current page is not /auth/login */}
-            {!loading && !session && router.pathname !== "/auth/login" && (
+            {!loading && !session && (
               <button
                 className={`${styles.button}`}
-                onClick={() =>
-                  router.push("/auth/login" + `${router.pathname}`)
-                }
+                onClick={() => signIn('google')}
               >
                 Login
               </button>
             )}
 
             {/* Hide Logout Button if the user has logged in  */}
-            {session && (
+            {session  && (
               <>
+              {console.log(session)}
                 <a
                   className={` ${styles.navbarContact} `}
                   href="http://localhost:3000/MainPage"
@@ -97,7 +100,7 @@ const Navbar = () => {
                 </p>
                 <button
                   className={`${styles.button}`}
-                  onClick={() => signOut()}
+                  onClick={() => signOut('google')}
                 >
                   Logout
                 </button>
