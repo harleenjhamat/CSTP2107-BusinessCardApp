@@ -55,7 +55,7 @@ function CustomCard(props) {
   };
 
   const handleToggleTextDisplay = () => {
-    const displayState = textToolDisplay === "none" ? "block" : "none";
+    const displayState = textToolDisplay === "none" ? "block" : "none"; 
     setTextToolDisplay(displayState);
   };
 
@@ -161,9 +161,9 @@ function CustomCard(props) {
         {/* add text, image, remove item */}
         <div className={`d-flex justify-content-center my-2`}>
           <div className={`mx-2`}>
-            <Button color="blue" onClick={handleToggleTextDisplay}>
+            <button onClick={handleToggleTextDisplay}>
               <Icon name="font" />
-            </Button>
+            </button>
           </div>
 
           <div className={`mx-2`}>
@@ -176,24 +176,19 @@ function CustomCard(props) {
               type="file"
             />
             <div>
-              <Button color="blue" id="addImageButton" onClick={handleAddImage}>
-                <Button.Content>
+              <button id="addImageButton" onClick={handleAddImage}>
                   <Icon name="file image" />
-                </Button.Content>
-              </Button>
+              </button>
             </div>
           </div>
 
           <div className={`mx-2`}>
-            <Button
-              color="red"
-              className={styles.savebtn}
+            <button
+              className={styles.trashButton}
               onClick={handleRemovedSelectedItem}
             >
-              <Button.Content>
                 <Icon name="trash" />
-              </Button.Content>
-            </Button>
+            </button>
           </div>
         </div>
 
@@ -202,7 +197,7 @@ function CustomCard(props) {
           style={{ display: `${textToolDisplay}` }}
         >
           <div className={`row my-3`}>
-            <div className={`${fontWeight == false ? styles.btn : ""} col`}>
+            <div className={`col`}>
               <div
                 className={`${fontWeight == true ? styles.btnActive : ""} col`}
                 onClick={handleFontWeightChange}
@@ -210,7 +205,7 @@ function CustomCard(props) {
                 <Icon name="bold" />
               </div>
             </div>
-            <div className={`${fontStyle == false ? styles.btn : ""} col`}>
+            <div className={`col`}>
               <div
                 className={`${fontStyle == true ? styles.btnActive : ""} col`}
                 onClick={handleFontStyleChange}
@@ -218,7 +213,7 @@ function CustomCard(props) {
                 <Icon name="italic" />
               </div>
             </div>
-            <div className={`${underline == false ? styles.btn : ""} col`}>
+            <div className={`col`}>
               <div
                 className={`${underline == true ? styles.btnActive : ""} col`}
                 onClick={handleUnderlineChange}
@@ -226,7 +221,7 @@ function CustomCard(props) {
                 <Icon name="underline" />
               </div>
             </div>
-            <div className={`${linethrough == false ? styles.btn : ""} col`}>
+            <div className={`col`}>
               <div
                 className={`${linethrough == true ? styles.btnActive : ""} col`}
                 onClick={handleLinethroughChange}
@@ -234,7 +229,7 @@ function CustomCard(props) {
                 <Icon name="strikethrough" />
               </div>
             </div>
-            <div className={`${overline == false ? styles.btn : ""} col`}>
+            <div className={`col`}>
               <div
                 className={`${overline == true ? styles.btnActive : ""} col`}
                 onClick={handleOverlineChange}

@@ -1,12 +1,15 @@
 $primary_color: #388087;
 $secondary_color: #6B4423;
 $tertiary_color: #C2EDCE;
+
 $text_color: #000000;
 $ivory:#f1f8f0;
 $white: #fff;
+
 $google-blue: #4285f4;
-$button_on_hover: #126599;
+$button_on_hover: lighten($primary_color, 5%);
 $button-active-blue: #BADFE7; 
 $border_color: rgba(0, 0, 0, 0.274);
 $light_grey: rgba(0, 0, 0, 0.342);
 $light_shade: rgba(32, 32, 32, 0.288);
+$danger: rgb(180, 2, 2);
