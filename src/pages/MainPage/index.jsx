@@ -6,6 +6,7 @@ import UserCard from './../../components/UserCard'
 import SharedCard from './../../components/SharedCard'
 import styles from "@/styles/mainpage.module.scss";
 import SearchCard from './../../components/SearchCard';
+import FabAdd from './../../components/FabAdd';
 
 var row_center = `row m-0 p-0 justify-content-center`
 var row_default = `row m-0 p-0`
@@ -66,6 +67,7 @@ const MainPage = () => {
           <Scrollme />
         </div>
       </div>
+      <FabAdd/>
     </Fragment>
   )
 }
