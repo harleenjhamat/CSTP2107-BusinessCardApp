@@ -3,9 +3,7 @@ import styles from '../styles/mainpage.module.scss'
 const FabAdd = () => {
   return (
     <Fragment>
-      <h1>
-        <span className={`${styles.addCard} material-icons`}> group_add</span>
-      </h1>
+      <button className={`${styles.addCard} w3-button w3-xlarge w3-circle w3-teal`}>+</button>
     </Fragment>
   )
 }
