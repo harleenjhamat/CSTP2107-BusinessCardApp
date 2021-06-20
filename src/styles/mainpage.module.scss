@@ -148,7 +148,16 @@
     text-align: end;
 }
 
-.cardHead{
+.cardHead {
     color: $secondary_color;
     font-family: cursive;
-  }
+}
+
+.addCard {
+    position: fixed;
+    top: 85%;
+    right: 7%;
+    margin-left: 50px;
+    cursor: pointer;
+    z-index: 3;
+}
