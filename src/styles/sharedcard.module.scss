@@ -7,44 +7,48 @@
 }
 
 .button {
+    display: inline;
+    justify-content: center;
+    width: 110px;
+    font-weight: 700;
     color: $ivory;
     background-color: $primary_color;
-    width: 50%;
-    filter: drop-shadow(0 0 0.15rem slategray);
+    border: none;
     border-radius: 5px;
-    padding: 3%;
-    font-size: medium;
+    height: 30px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
     &:hover {
-        color: $ivory;
-        background-color: $button_on_hover;
+      color: $ivory;
+      background-color: $button_on_hover;
     }
     &:active {
-        color: $ivory;
-        background-color: $tertiary_color;
-        transform: translateY(3px);
+      color: $ivory;
+      background-color: $button-active-blue;
+      transform: translateY(3px);
     }
-}
+  }
 
 .buttonNew {
-    color: $ivory;
-    background-color: $button_on_hover;
-    width: 50%;
+    display: inline;
     justify-content: center;
-    align-items: center;
-    filter: drop-shadow(0 0 0.15rem slategray);
+    width: 110px;
+    font-weight: 700;
+    color: $ivory;
+    background-color: $primary_color;
+    border: none;
     border-radius: 5px;
-    padding: 3%;
-    font-size: medium;
+    height: 30px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
     &:hover {
-        color: $ivory;
-        background-color: $primary_color;
+      color: $ivory;
+      background-color: $button_on_hover;
     }
     &:active {
-        color: $ivory;
-        background-color: $button_on_hover;
-        transform: translateY(3px);
+      color: $ivory;
+      background-color: $button-active-blue;
+      transform: translateY(3px);
     }
-}
+  }
 
 .imgwrap {
     position: relative;

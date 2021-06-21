@@ -50,51 +50,48 @@
 }
 
 .MyOwnCardButtonShare {
-    font-weight: 700;
-    color: aliceblue;
+    display: inline;
     justify-content: center;
-    align-items: center;
-    background-color: #67D7ED;
-    padding: 5px;
-    margin: 5px;
+    width: 110px;
+    font-weight: 700;
+    color: $ivory;
+    background-color: $primary_color;
     border: none;
     border-radius: 5px;
-    width: 50%;
-    height: 45px;
+    height: 30px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
     &:hover {
-        color: $ivory;
-        background-color: #126599;
+      color: $ivory;
+      background-color: $button_on_hover;
     }
     &:active {
-        color: $ivory;
-        background-color: #1181c8;
-        transform: translateY(3px);
+      color: $ivory;
+      background-color: $button-active-blue;
+      transform: translateY(3px);
     }
-}
+  }
 
 .MyOwnCardButtonDelete {
-    font-weight: 700;
-    color: aliceblue;
-    display: flex;
+    display: inline;
     justify-content: center;
-    align-items: center;
-    background-color: #F95F62;
-    padding: 5px;
-    margin: 5px;
+    width: 110px;
+    font-weight: 700;
+    color: $ivory;
+    background-color: $primary_color;
     border: none;
     border-radius: 5px;
-    width: 50%;
-    height: 45px;
+    height: 30px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
     &:hover {
-        color: $ivory;
-        background-color: #E33539;
+      color: $ivory;
+      background-color: $button_on_hover;
     }
     &:active {
-        color: $ivory;
-        background-color: #EE9FA1;
-        transform: translateY(3px);
+      color: $ivory;
+      background-color: $button-active-blue;
+      transform: translateY(3px);
     }
-}
+  }
 
 .dropdownContainer {
     font-weight: 700;

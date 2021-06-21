@@ -54,11 +54,12 @@ const UserCard = (props) => {
               {shareCardNum && <p>Copy code to share card: <span><br></br></span> {shareCardNumStr}</p>}
             </div>
           </div>
-          <div className={`${row_default} mb-5 justify-content-center`}>
-            <div className={`${col} col-6 .col-md-8`}>
+          <br></br>
+          <div className={`${row_default} mb-3 justify-content-center`}>
+            <div className={`${col} col-4 .col-md-7`}>
               <button className={`${styles.button}`} onClick={SharedCard}>Share</button>
             </div>
-            <div className={`${col} col-6 .col-md-8`}>
+            <div className={`${col} col-4 .col-md-7`}>
               <button className={`${styles.buttonNew}`}>Edit</button>
             </div>
           </div>

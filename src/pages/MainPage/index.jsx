@@ -45,17 +45,10 @@ const MainPage = () => {
     <Fragment>
       <div className={`container-fluid m-0 p-0 mt-5`}>
         <div className={`row m-0 p-0 mx-2 justify-content-center`}>
-          <div className={`col-12 col-md-4 text-center border-end`}>
-            <h1 className={styles.cardHead}>Your Card:</h1>
+          <div className={`col-12 col-md-6 text-center `}>
             <UserCard />
-          </div>
-          <div className={`col-12 col-md-8 text-center`}>
-            <h1 className={styles.cardHead}>Shared With You</h1>
-            <div className={`${row_center}`}>
-              <div className={`${col} col-11`}>
-                <SearchCard addnewcard={newCardHandler} />
-              </div>
-            </div>
+            <br></br>
+             <SearchCard addnewcard={newCardHandler} />             
             <div className={`${row_default} justify-content-between`}>
               { searchClicked && <SharedCard feedimg={url} />}
 
@@ -65,9 +58,11 @@ const MainPage = () => {
             </div>
           </div>
           <Scrollme />
+          </div>
         </div>
-      </div>
+
       <FabAdd/>
+
     </Fragment>
   )
 }
