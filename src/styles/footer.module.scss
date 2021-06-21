@@ -1,11 +1,9 @@
 @import './colors.scss';
-
 .footer {
-    position: absolute;
+    // position: absolute;
     margin: auto;
     background-color: $primary_color;
     text-align: center;
-    
 }
 
 .footerText {
@@ -21,5 +19,5 @@
     color: $ivory;
     width: 80%;
     margin: 0 auto;
-    font-size : 1.25rem;
+    font-size: 1.25rem;
 }

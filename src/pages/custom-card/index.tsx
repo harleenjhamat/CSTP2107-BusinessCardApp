@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { fabric } from "fabric";
 import { Button, Icon } from "semantic-ui-react";
+import { Fragment } from 'react'
 
 import styles from "@/styles/CustomizeYourCard.module.scss";
 import { base64ToBlob, readFile } from "@/utility/File";
+import Scrollme from './../../components/Scrollme';
 
 function CustomCard(props) {
   const [canvas, setCanvas]: [any, any] = useState();
@@ -141,7 +143,7 @@ function CustomCard(props) {
   };
 
   return (
-    <>
+    <Fragment>
       <div className={styles.container}>
         <h2>Customize Your Card</h2>
 
@@ -292,8 +294,9 @@ function CustomCard(props) {
           </button>
         </div>
       </div>
-    </>
-  );
+      <Scrollme/>
+    </Fragment>
+    );
 }
 
 export default CustomCard;
