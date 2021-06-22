@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
 import { fabric } from "fabric";
-import { Button, Icon } from "semantic-ui-react";
-import { Fragment } from 'react'
+import { Icon } from "semantic-ui-react";
 
 import styles from "@/styles/CustomizeYourCard.module.scss";
 import { base64ToBlob, readFile } from "@/utility/File";
-import Scrollme from './../../components/Scrollme';
 
 function CustomCard(props) {
   const [canvas, setCanvas]: [any, any] = useState();
@@ -18,6 +16,8 @@ function CustomCard(props) {
   const [linethrough, setLinethrough] = useState(false);
   const [overline, setOverline] = useState(false);
   const [textToolDisplay, setTextToolDisplay] = useState("none");
+  const [addTextActive, setAddTextActive] = useState(false);
+  const [addTextMode, setAddTextMode] = useState(false);
 
   useEffect(() => {
     if (!canvas)
@@ -57,16 +57,31 @@ function CustomCard(props) {
   };
 
   const handleToggleTextDisplay = () => {
-    const displayState = textToolDisplay === "none" ? "block" : "none"; 
+    const displayState = textToolDisplay === "none" ? "block" : "none";
     setTextToolDisplay(displayState);
+    setAddTextActive(!addTextActive);
   };
 
-  const handleAddText = () => {
-    if (userTextInput == "") return;
+  const handleAddTextMode = () => {
+    setAddTextMode(true);
+  }
+
+  const handleAddText = (e) => {
+    if (addTextMode === false) return;
+
+    var rect = e.target.getBoundingClientRect();
+    let x, y;
+    if (e.type === "click") {
+      x = e.clientX - rect.left;
+      y = e.clientY - rect.top;
+    } else {
+      x = e.touches[0].clientX - rect.left;
+      y = e.touches[0].clientY - rect.top;
+    }
 
     const textOptions = {
-      left: 10,
-      top: 10,
+      left: x,
+      top: y,
       fontWeight: fontWeight ? "bold" : "normal",
       fontStyle: fontStyle ? "italic" : "normal",
       fontFamily,
@@ -74,13 +89,14 @@ function CustomCard(props) {
       underline,
       linethrough,
       overline,
+      selectable: true,
     };
 
-    const newTextObj = new fabric.Text(userTextInput, textOptions);
+    const newTextObj = new fabric.IText(userTextInput, textOptions);
     canvas.add(newTextObj);
 
     setUserTextInput("");
-    // handleToggleTextDisplay();
+    setAddTextMode(false);
   };
 
   const handleSave = () => {
@@ -109,7 +125,12 @@ function CustomCard(props) {
   };
 
   const handleRemovedSelectedItem = () => {
-    canvas.remove(canvas.getActiveObject());
+    if(canvas.getActiveObject()._objects){
+      const selectedObjects = canvas.getActiveObject()._objects;
+      selectedObjects.forEach(obj => canvas.remove(obj));
+    }else{
+      canvas.remove(canvas.getActiveObject());
+    }
   };
 
   const handleRemovedSelectedItemOnKeyPress = (e) => {
@@ -143,28 +164,19 @@ function CustomCard(props) {
   };
 
   return (
-    <Fragment>
-      <div className={styles.container}>
+    <>
+      <div className={styles.container} id="custom-card-container">
         <h2>Customize Your Card</h2>
 
-        <div
-          className={styles.card_canvas_container}
-          onKeyDownCapture={handleRemovedSelectedItemOnKeyPress}
-          tabIndex="0"
-        >
-          <canvas
-            className={styles.card_canvas}
-            id="Canvas"
-            width="450"
-            height="250"
-          ></canvas>
-        </div>
-
         {/* add text, image, remove item */}
-        <div className={`d-flex justify-content-center my-2`}>
+        <div className={`d-flex justify-content-center my-3`}>
           <div className={`mx-2`}>
-            <button onClick={handleToggleTextDisplay}>
+            <button
+              className={`${addTextActive ? styles.btnActive : ""}`}
+              onClick={handleToggleTextDisplay}
+            >
               <Icon name="font" />
+              Text
             </button>
           </div>
 
@@ -179,7 +191,8 @@ function CustomCard(props) {
             />
             <div>
               <button id="addImageButton" onClick={handleAddImage}>
-                  <Icon name="file image" />
+                <Icon name="file image" />
+                Image
               </button>
             </div>
           </div>
@@ -189,10 +202,33 @@ function CustomCard(props) {
               className={styles.trashButton}
               onClick={handleRemovedSelectedItem}
             >
-                <Icon name="trash" />
+              <Icon name="trash" />
+              Delete
             </button>
           </div>
         </div>
+
+        <div
+          className={styles.card_canvas_container}
+          onKeyDownCapture={handleRemovedSelectedItemOnKeyPress}
+          onClick={handleAddText}
+          onTouchStart={handleAddText}
+          id="CanvasDiv"
+          tabIndex="0"
+        >
+          <canvas
+            className={styles.card_canvas}
+            id="Canvas"
+            width="450"
+            height="250"
+          ></canvas>
+        </div>
+
+        {addTextMode && userTextInput !== "" && (
+          <div className={`alert alert-info ${styles.hintText}`}>
+            click on the canvas
+          </div>
+        )}
 
         <div
           className={styles.customized_card_form}
@@ -201,7 +237,7 @@ function CustomCard(props) {
           <div className={`row my-3`}>
             <div className={`col`}>
               <div
-                className={`${fontWeight == true ? styles.btnActive : ""} col`}
+                className={`${fontWeight == true ? styles.toolActive : ""} col`}
                 onClick={handleFontWeightChange}
               >
                 <Icon name="bold" />
@@ -209,7 +245,7 @@ function CustomCard(props) {
             </div>
             <div className={`col`}>
               <div
-                className={`${fontStyle == true ? styles.btnActive : ""} col`}
+                className={`${fontStyle == true ? styles.toolActive : ""} col`}
                 onClick={handleFontStyleChange}
               >
                 <Icon name="italic" />
@@ -217,7 +253,7 @@ function CustomCard(props) {
             </div>
             <div className={`col`}>
               <div
-                className={`${underline == true ? styles.btnActive : ""} col`}
+                className={`${underline == true ? styles.toolActive : ""} col`}
                 onClick={handleUnderlineChange}
               >
                 <Icon name="underline" />
@@ -225,7 +261,9 @@ function CustomCard(props) {
             </div>
             <div className={`col`}>
               <div
-                className={`${linethrough == true ? styles.btnActive : ""} col`}
+                className={`${
+                  linethrough == true ? styles.toolActive : ""
+                } col`}
                 onClick={handleLinethroughChange}
               >
                 <Icon name="strikethrough" />
@@ -233,7 +271,7 @@ function CustomCard(props) {
             </div>
             <div className={`col`}>
               <div
-                className={`${overline == true ? styles.btnActive : ""} col`}
+                className={`${overline == true ? styles.toolActive : ""} col`}
                 onClick={handleOverlineChange}
               >
                 <svg
@@ -280,23 +318,22 @@ function CustomCard(props) {
               value={userTextInput}
               onChange={handleUserTextInput}
             />
-            <button className={`col-3`} onClick={handleAddText}>
+            <button className={`col-3`} onClick={handleAddTextMode}>
               <Icon name="plus circle" /> Add Text
             </button>
           </div>
         </div>
         <br />
 
-        <div className={`d-flex justify-content-center`}>
-          <button onClick={handleSave}>
+        <div className={`d-flex justify-content-center py-2`}>
+          <button className={styles.saveBtn} onClick={handleSave}>
             <Icon name="save" />
-            Save Card
+            Save
           </button>
         </div>
       </div>
-      <Scrollme/>
-    </Fragment>
-    );
+    </>
+  );
 }
 
 export default CustomCard;
