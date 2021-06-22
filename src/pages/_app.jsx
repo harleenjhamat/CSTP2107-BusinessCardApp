@@ -32,7 +32,6 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
         <br></br>
         <br></br>
-        <AboutUs/>
         <Footer />
       </Provider>
     </>

@@ -1,18 +1,36 @@
-@import './colors.scss';
+@import './Colors.scss';
+
+.card {
+    margin-top: 40px;
+    height: 400px;
+    width: 700px;
+}
 
 .aboutus {
     // padding: 0px 0px 0px 0px;
     // width: 100x;
-    background-color: $primary_color;
-    box-shadow: 0px 0px 10px slategray;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19) ;
 }
 
 .aboutusText {
     padding-top: 20px;
     padding-left: 10px;
     padding-bottom: 10px;
-    color: $ivory; 
-    width: 80%;
+    color: $text_color;
     margin: 0 auto;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    font-family: sans-serif, cursive;
+    line-height: 2;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    filter: drop-shadow(0 0 0.75rem slategray);
+
+}
+
+.header {
+    text-align: center;
+    font-size: 40px;
+    filter: drop-shadow(0 0 0.75rem slategray);
+    font-family: cursive;
+    color: $secondary_color;
 }

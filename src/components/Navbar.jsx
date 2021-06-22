@@ -44,9 +44,9 @@ const Navbar = () => {
             <div className="d-flex flex-grow-1">
               <ul className="navbar-nav mb-2 mb-lg-0 flex-grow-1 justify-content-center">
                 <li className="nav-item">
-                  <Link href="/#aboutus">
+                  <a href="http://localhost:3000/AboutUs">
                     <a className={` ${styles.navbarContact}`}>About</a>
-                  </Link>
+                  </a>
                 </li>
                 <li className="nav-item">
                   <Link href="/#contactus">
