@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "../styles/globals.scss";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import 'semantic-ui-css/semantic.min.css';
+import "semantic-ui-css/semantic.min.css";
 import AboutUs from "../components/AboutUs";
 
 function MyApp({ Component, pageProps }) {
@@ -23,8 +23,20 @@ function MyApp({ Component, pageProps }) {
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
           ></link>
-          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-          <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          />
+          <link
+            rel="stylesheet"
+            href="https://www.w3schools.com/w3css/4/w3.css"
+          ></link>
+          {/* Google fonts */}
+          <link
+            href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700"
+            rel="stylesheet"
+            type="text/css"
+          />
           <script type="text/javascript" src="/js/bootstrap.bundle.js"></script>
           <link rel="icon" href="/favicon.ico" />
         </Head>

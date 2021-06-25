@@ -1,23 +1,28 @@
-@import './colors.scss';
-.footer {
-    // position: absolute;
-    margin: auto;
-    background-color: $primary_color;
-    text-align: center;
-}
-
-.footerText {
-    color: $ivory;
-}
+@import "./colors.scss";
 
 .contact {
-    background: $primary_color
+  background: $primary_color;
+  padding: .5% 0;
+  text-align: center;
 }
 
 .contactText {
-    padding-top: 10px;
-    color: $ivory;
-    width: 80%;
-    margin: 0 auto;
-    font-size: 1.25rem;
+  letter-spacing: 1px;
+  font-style: italic;
+  padding-top: 10px;
+  color: $ivory;
+  width: 80%;
+  margin: 0 auto;
+  font-size: 1.25rem;
+}
+
+.footer {
+  padding: 1% 0;
+  font-size: small;
+  background-color: $primary_color;
+  text-align: center;
+}
+
+.footerText {
+  color: $ivory;
 }

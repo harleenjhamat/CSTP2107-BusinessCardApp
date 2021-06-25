@@ -8,19 +8,19 @@ import styles from "../styles/navbar.module.scss";
 const Navbar = () => {
   const [session, loading] = useSession();
   const router = useRouter();
-  // const { sessionStorage }  = window; 
-  if ((typeof window !== "undefined") && session) {
-    sessionStorage.setItem('user', JSON.stringify(session.user))
+
+  if (typeof window !== "undefined" && session) {
+    sessionStorage.setItem("user", JSON.stringify(session.user));
   }
 
   return (
     <>
-      <nav className={`navbar navbar-expand-lg navbar-light ${styles.navbar}`}>
+      <nav className={`navbar navbar-expand-lg navbar-light ${styles.navbar}`}> 
         <div className="container-fluid">
           <Link href="/">
             <a>
               <Image
-                className="navbar-brand"
+                className={`navbar-brand`}
                 src="/assets/logo2.png"
                 width={150}
                 height={50}
@@ -42,20 +42,20 @@ const Navbar = () => {
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <div className="d-flex flex-grow-1">
-              <ul className="navbar-nav mb-2 mb-lg-0 flex-grow-1 justify-content-center">
-                <li className="nav-item">
+              <ul className="navbar-nav mb-lg-0">
+                <li className="nav-item py-3 py-md-0">
+                  <Link href="/#instructions">
+                    <a className={`${styles.navbarContact} mx-md-1`}>Get Started</a>
+                  </Link>
+                </li>
+                <li className="nav-item py-3 py-md-0">
                   <a href="http://localhost:3000/AboutUs">
                     <a className={` ${styles.navbarContact}`}>About</a>
                   </a>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item py-3 py-md-0">
                   <Link href="/#contactus">
                     <a className={` ${styles.navbarContact}`}>Contact</a>
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link href="/#instructions">
-                    <a className={` ${styles.navbarContact} `}>Get Started</a>
                   </Link>
                 </li>
               </ul>
@@ -74,33 +74,30 @@ const Navbar = () => {
             {!loading && !session && (
               <button
                 className={`${styles.button}`}
-                onClick={() => signIn('google')}
+                onClick={() => signIn("google")}
               >
                 Login
               </button>
             )}
 
             {/* Hide Logout Button if the user has logged in  */}
-            {session  && (
+            {session && (
               <>
-              {console.log(session)}
-                <a
-                  className={` ${styles.navbarContact} `}
-                  href="http://localhost:3000/MainPage"
-                >
-                  Main Page
-                </a>
-                <img
-                  className="img-thumbnail round mx-2"
-                  src={session.user.image}
-                  width="50"
-                />
+                <Link href="/MainPage" >
+                  <a>
+                    <img
+                      className={`${styles.thumbnail} mx-3 my-2 my-md-0`}
+                      src={session.user.image}
+                      width="50"
+                    />
+                  </a>
+                </Link>
                 <p className={styles.userNameText}>
                   Welcome, {session.user.name}!
                 </p>
                 <button
                   className={`${styles.button}`}
-                  onClick={() => signOut('google')}
+                  onClick={() => signOut("google")}
                 >
                   Logout
                 </button>

@@ -1,38 +1,47 @@
-@import './colors.scss';
+@import "./colors.scss";
 
-.cen {
-    text-align: center;
-    white-space: nowrap;
+.container {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/assets/choose_template.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  p {
+    font-size: 2.1em;
+    font-style: italic;
+    letter-spacing: 4px;
+    margin: 0;
+  }
+  h1 {
+    font-size: 3em;
+  }
 }
 
-.getStartedBtn {
-    color: $ivory;
-    background-color: $primary_color;
-    white-space: nowrap;
-    font-size : 1.25rem;
+.banner{
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
+  margin: 4% 2%;
+  padding:6% 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.getStartedBtn:hover {
-    background-color: $button_on_hover; 
+.getStartBtn {
+  width: 300px;
+  height: 60px;
+  background-color: $primary_color;
+  color: $white;
+  font-size: 2em;
+  font-style: italic;
+  letter-spacing: 1.1px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
+  &:hover {
+    background-color: darken($primary_color, 5%);
     color: $white;
-    font-size : 1.25rem;
-}
-
-
-.getStartedBtn:active {
-    color: $white;
-    background-color: $button-active-blue;
-    transform: translateY(3px);
-    font-size : 1.25rem;
-}
-.Slogan{
-    color: $primary_color;
-}
-.cardSloganHalf{
-    font-size: 35px;
-    color: $primary_color;
-    text-shadow: 1px 1px 2px black, 0 0 25px $primary_color, 0 0 5px $secondary_color;
-}
-.conColor {
-    background-color: $ivory
+  }
 }
