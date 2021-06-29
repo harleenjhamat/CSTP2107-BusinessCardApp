@@ -9,7 +9,7 @@ $medium: 900px;
   justify-content: center;
   padding: 2%;
   @media screen and (min-width: $medium) {
-    display:grid;
+    display: grid;
   }
   h2 {
     text-align: center;
@@ -22,7 +22,7 @@ $medium: 900px;
   button,
   .button {
     @media screen and (max-width: $small) {
-      display:block;
+      display: block;
     }
     display: inline;
     justify-content: center;
@@ -53,7 +53,7 @@ $medium: 900px;
   margin: 2% 0;
   padding: 1% 0;
 }
- 
+
 .card_canvas {
   border: $border_color 1px solid;
   border-radius: 1%;
@@ -79,6 +79,16 @@ $medium: 900px;
   label {
     margin-right: 4%;
   }
+  visibility: hidden;
+  height: 0;
+  opacity: 0;
+  transition: height 0.5s, visibility 0.2s, opacity 0.2s linear;
+}
+
+.display {
+  visibility: visible;
+  opacity: 1;
+  height: 100%;
 }
 
 // Apply when the icon is in active state

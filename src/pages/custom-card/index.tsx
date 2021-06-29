@@ -231,8 +231,8 @@ function CustomCard(props) {
         )}
 
         <div
-          className={`${styles.customized_card_form}`}
-          style={{ display: `${textToolDisplay}` }}
+          className={`${styles.customized_card_form} ${textToolDisplay == "none" ? styles.display : '' }`}
+          // style={{ display: `${textToolDisplay}` }}
         >
           <div className={`row my-3 justify-content-center`}>
             <div className={`col mb-3`}>
