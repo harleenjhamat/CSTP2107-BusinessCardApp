@@ -66,7 +66,6 @@ $medium: 900px;
   padding: 2% 4%;
   margin-top: 2%;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
-  transition: height 2s;
   text-align: center;
   input {
     margin-right: 3%;
@@ -84,7 +83,6 @@ $medium: 900px;
 
 // Apply when the icon is in active state
 .toolActive {
-  // height:25px;
   text-align: center;
   background-color: $light_grey;
   border-radius: 10%;

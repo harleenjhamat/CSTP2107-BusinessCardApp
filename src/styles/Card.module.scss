@@ -22,14 +22,27 @@
 }
 
 .banner{
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
   margin: 2% 2%;
-  padding:6% 10%;
+  padding:5% 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  width: 50%;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
+  animation-name: ease-in-shadow;
+  animation-duration: 4s;
 }
+
+@keyframes ease-in-shadow {
+  from {
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 8, 0.19);
+  }
+  to {
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
+  }
+}
+
 
 .getStartBtn {
   width: 300px;
