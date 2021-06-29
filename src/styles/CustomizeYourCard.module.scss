@@ -1,29 +1,38 @@
 @import "./colors.scss";
 
+$small: 300px;
+$medium: 900px;
+
 .container {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  padding: 1%;
-  margin-top: 1%;
-  min-height: 70vh;
+  padding: 2%;
+  @media screen and (min-width: $medium) {
+    display:grid;
+  }
   h2 {
     text-align: center;
     color: $text_color;
     font-size: 40px;
     text-shadow: 1px 1px 2px $border_color;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 2%;
   }
   button,
   .button {
+    @media screen and (max-width: $small) {
+      display:block;
+    }
     display: inline;
     justify-content: center;
-    width: 110px;
+    width: 130px;
+    height: 30px;
     font-weight: 700;
     color: $ivory;
     background-color: $primary_color;
     border: none;
     border-radius: 5px;
-    height: 30px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
     &:hover {
       color: $ivory;
@@ -38,13 +47,13 @@
 }
 
 .card_canvas_container {
-  display: grid;
+  display: flex;
   justify-content: center;
   overflow: auto;
   margin: 2% 0;
   padding: 1% 0;
 }
-
+ 
 .card_canvas {
   border: $border_color 1px solid;
   border-radius: 1%;
@@ -54,9 +63,11 @@
 .customized_card_form {
   border-radius: 1%;
   border: $border_color 1px solid;
-  padding: 1px 20px;
+  padding: 2% 4%;
   margin-top: 2%;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
+  transition: height 2s;
+  text-align: center;
   input {
     margin-right: 3%;
     margin-bottom: 4%;
@@ -64,6 +75,7 @@
   }
   select {
     margin-bottom: 4%;
+    width: 100px;
   }
   label {
     margin-right: 4%;

@@ -64,7 +64,7 @@ function CustomCard(props) {
 
   const handleAddTextMode = () => {
     setAddTextMode(true);
-  }
+  };
 
   const handleAddText = (e) => {
     if (addTextMode === false) return;
@@ -125,10 +125,10 @@ function CustomCard(props) {
   };
 
   const handleRemovedSelectedItem = () => {
-    if(canvas.getActiveObject()._objects){
+    if (canvas.getActiveObject()._objects) {
       const selectedObjects = canvas.getActiveObject()._objects;
-      selectedObjects.forEach(obj => canvas.remove(obj));
-    }else{
+      selectedObjects.forEach((obj) => canvas.remove(obj));
+    } else {
       canvas.remove(canvas.getActiveObject());
     }
   };
@@ -142,7 +142,7 @@ function CustomCard(props) {
     const addImageInput = document.getElementById("addImageInput");
     addImageInput.click();
   };
-
+ 
   const handleImageInput = async (e) => {
     const files = e.target.files;
     if (files.length === 0) return;
@@ -169,8 +169,8 @@ function CustomCard(props) {
         <h2>Customize Your Card</h2>
 
         {/* add text, image, remove item */}
-        <div className={`d-flex justify-content-center my-3`}>
-          <div className={`mx-2`}>
+        <div className={`row justify-content-center align-middle my-2`}>
+          <div className={`col-5 col-md-4 my-2`}>
             <button
               className={`${addTextActive ? styles.btnActive : ""}`}
               onClick={handleToggleTextDisplay}
@@ -180,7 +180,7 @@ function CustomCard(props) {
             </button>
           </div>
 
-          <div className={`mx-2`}>
+          <div className={`col-5 col-md-4 my-2`}>
             <input
               accept="image/*"
               id="addImageInput"
@@ -197,7 +197,7 @@ function CustomCard(props) {
             </div>
           </div>
 
-          <div className={`mx-2`}>
+          <div className={`col-5 col-md-4 my-2`}>
             <button
               className={styles.trashButton}
               onClick={handleRemovedSelectedItem}
@@ -231,11 +231,11 @@ function CustomCard(props) {
         )}
 
         <div
-          className={styles.customized_card_form}
+          className={`${styles.customized_card_form}`}
           style={{ display: `${textToolDisplay}` }}
         >
-          <div className={`row my-3`}>
-            <div className={`col`}>
+          <div className={`row my-3 justify-content-center`}>
+            <div className={`col mb-3`}>
               <div
                 className={`${fontWeight == true ? styles.toolActive : ""} col`}
                 onClick={handleFontWeightChange}
@@ -296,7 +296,7 @@ function CustomCard(props) {
               ></input>
             </div>
 
-            <div className={`col`}>
+            <div className={`col-4 col-md-4`}>
               <select
                 name="fontFamily"
                 id="fontFamily"
@@ -309,10 +309,10 @@ function CustomCard(props) {
               </select>
             </div>
           </div>
-
+          
           <div className={`row justify-content-center`}>
             <input
-              className={`col-8 ${styles.textInput}`}
+              className={`col-7 ${styles.textInput}`}
               type="text"
               id="myText"
               value={userTextInput}
