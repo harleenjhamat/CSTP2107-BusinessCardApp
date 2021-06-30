@@ -1,5 +1,7 @@
 @import "./colors.scss";
 
+$small: 400px;
+
 .container {
   min-height: 70vh;
   display: flex;
@@ -29,6 +31,10 @@
   align-items: center;
   text-align: center;
   width: 50%;
+  @media screen and (max-width: $small) {
+    width: 80%;
+    margin: 6% 2%;
+  }
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
   animation-name: ease-in-shadow;
   animation-duration: 4s;
@@ -43,7 +49,6 @@
   }
 }
 
-
 .getStartBtn {
   width: 300px;
   height: 60px;
@@ -53,6 +58,9 @@
   font-style: italic;
   letter-spacing: 1.1px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
+  @media screen and (max-width: $small) {
+    margin-bottom: 5%;
+  }
   &:hover {
     background-color: darken($primary_color, 5%);
     color: $white;

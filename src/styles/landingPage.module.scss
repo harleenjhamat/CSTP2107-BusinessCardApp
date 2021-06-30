@@ -1,0 +1,31 @@
+@import "./colors.scss";
+
+.callForActionBtn {
+  background-color: $primary_color;
+  color: $ivory;
+  font-size: medium;
+  width: 120px;
+  height: 60px;
+  position: fixed;
+  bottom: 4%;
+  right: 4%;
+  border-radius: 5%;
+  border: none;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
+  transition: opacity 0.2s;
+  &:hover {
+    opacity: 0.9;
+  }
+  animation-name: ease-in-shadow;
+  animation-duration: 1s;
+}
+
+@keyframes ease-in-shadow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
