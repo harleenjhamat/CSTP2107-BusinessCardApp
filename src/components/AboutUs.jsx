@@ -7,7 +7,6 @@ const AboutUs = () => {
     <div className={styles.wrap}>
         <h1>About Us</h1>
         <p>Learn about our company and us. We are growing every single day.</p>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#fff" fill-opacity="1" d="M0,32L40,69.3C80,107,160,181,240,192C320,203,400,149,480,128C560,107,640,117,720,149.3C800,181,880,235,960,240C1040,245,1120,203,1200,202.7C1280,203,1360,245,1400,266.7L1440,288L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path></svg>      
     </div>
       <div className={styles.wrapper}>
         <div className="my-4">
@@ -100,13 +99,13 @@ const AboutUs = () => {
           <div className={styles.profile}>
             <img className={styles.profileimg} src="/assets/img2.jpg"/>
             <h3 className={styles.username}>Eric</h3>
-            <h5>Project Manager</h5>
+            <h5>Project Member</h5>
           </div>
 
           <div className={styles.profile}>
             <img className={styles.profileimg} src="/assets/img3.jpg"/>
             <h3 className={styles.username}>Pokai Huang</h3>
-            <h5>UI Team Lead</h5>
+            <h5>Project Lead</h5>
           </div>
 
           <div className={styles.profile}>
@@ -120,7 +119,7 @@ const AboutUs = () => {
         <div className={styles.profiles}>
         <div className={styles.profile}>
             <img className={styles.profileimg} src="/assets/img5.jpg"/>
-            <h3 className={styles.username}>Harleen Jhammat</h3>
+            <h3 className={styles.username}>Harleen Jhamat</h3>
             <h5>Software Tester</h5>
           </div>
     
@@ -138,15 +137,15 @@ const AboutUs = () => {
           <div className={styles.profile}>
             <img className={styles.profileimg} src="/assets/img8.jpg"/>
             <h3 className={styles.username}>Jaisika Singh</h3>
-            <h5>Team Member</h5>
+            <h5>UI Team Lead</h5>
           </div>
         </div>
       </div>
+      <br /><br />
       <div className={styles.container3}>
         <h1>Want to learn more about us?</h1>
         <a href="http://localhost:3000/ContactUs"><button className={styles.btn} >Contact Us</button></a>
       </div>
-
     </>
   );
 };

@@ -1,6 +1,7 @@
 import styles from "../styles/contactus.module.scss";
 import Image from "next/image";
 
+
 const ContactUs = () => {
   return (
     <>    
@@ -9,6 +10,7 @@ const ContactUs = () => {
         <p>Want to get in touch? Send us a message and we will be in touch within one business day</p>
     </div>
     <div className={styles.row}>
+
         <div className={styles.container1}>
             <div className={styles.contactcol}>
                 <i class='fa fa-home'></i>
@@ -17,7 +19,6 @@ const ContactUs = () => {
                     <p>Surrey, BC</p>
                 </span>
             </div>
-
             <div className={styles.contactcol}>
                 <i class='fa fa-phone'></i>
                 <span>

@@ -12,27 +12,21 @@
   background-color: hsl(180, 13%, 17%);
 }
 
-.wrap svg {
-  top: 0;
-  left: 0;
-  z-index: -1;
-  position:absolute;
-  
-}
 .wrap h1{ 
   text-align: center;
   color:white;
   font-size: 6rem;
   padding-top:200px;
-  font-family:'Nova Round', cursive;
+  letter-spacing: 3px;
+  
 }
-
 .wrap p{
   text-align: center;
   color:white;
   font-size:20px;
-  font-weight: 300;
-  font-family:'Nova Round', cursive;
+  font-weight: 400;
+  letter-spacing: 3px;
+ 
 }
 
 .wrapper{
@@ -79,7 +73,7 @@
   font-weight: 30px;
   font-size: 3rem;
   text-align: center;
-  font-family:'Nova Round', cursive;
+  
 }
 .para{
   color: $white;
@@ -94,6 +88,7 @@
 .container1{
   padding-top:20px;
   text-align: center;
+ 
 }
 
 .container1 h1{
@@ -214,13 +209,12 @@
   font-weight: 30px;
   font-size: 3rem;
   text-align: center;
-  font-family:'Nova Round', cursive;
 
 }
 .container3 .btn{
   align-items: center;
   justify-content: center;
-  margin-left:40%;
+  margin-left:45%;
   padding: 15px 32px;
   margin-bottom: 30px;
   border-style: solid;
@@ -237,8 +231,9 @@
 }
 
 @media all and (max-width:30em){
-  .btn{
-      display: block;
-       margin: auto;
+  .btn{  
+    display: inline-flex;
+    margin-bottom: 30px;
+
   }
 }

@@ -13,7 +13,6 @@
     align-items: center;
     margin-bottom: 40px;
    
-   
 }   
 
 .contactcol i{
@@ -33,6 +32,9 @@
     color: black;
     font-weight: 400;
 }
+.contactcol h1{
+    font-size: 35px;
+}
 .contactcol input, .contactcol textarea{
     width:100%;
     padding:15px;
@@ -40,6 +42,7 @@
     outline:none;
     border:1px solid #ccc;
     box-sizing: border-box;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0), 0 2px 2px 0 rgba(0, 0, 0, 0.19);
 }
 
 .btn{
@@ -68,25 +71,23 @@
 }
 .container{
     align-items: center;
-    justify-content: center;
-    padding-top:20%;
+    background-position: center;
+    background-repeat: no-repeat;
     padding-bottom: 6%;
     overflow: hidden;
     background-blend-mode: overlay;
     background-color: hsl(180, 13%, 17%);
     width: 100%;
-    height: 100%;
-    block-size: auto;
+    min-height:70vh;
     background-image: url('/assets/contactus.jpg/');
   }
   .container h1{
     color: $white;
-    padding-top:20px;
+    padding-top:200px;
     letter-spacing: 3px;
     font-weight: 30px;
-    font-size: 3rem;
+    font-size: 6rem;
     text-align: center;
-    font-family:'Nova Round', cursive;
   }
   .container p{
     color: $white;
