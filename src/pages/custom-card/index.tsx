@@ -103,9 +103,11 @@ function CustomCard(props) {
     const canvasJson = canvas.toJSON();
     const sendObject = {
       json: canvas.toJSON(),
-      user: JSON.parse(sessionStorage.getItem("user")),
+      name: JSON.parse(sessionStorage.getItem("name")),
+      email: JSON.parse(sessionStorage.getItem("email")),
       img: canvas.toDataURL("png"),
-      sharedcode: Math.random().toString(),
+      sharedcode: Math.random(),
+      create_new_card:"yes"
     };
     const sendObjectStr = JSON.stringify(sendObject);
 

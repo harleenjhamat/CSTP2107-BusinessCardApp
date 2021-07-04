@@ -13,20 +13,46 @@ const UserCard = (props) => {
   const [shareCardNum, setshareCardNum] = useState(false);
   const [shareCardNumStr, setshareCardNumStr] = useState('');
 
-  fetch('http://localhost:3000/api/usercards?=', {
-    method: 'GET',
-    headers: {}
-  })
+  // fetch('http://localhost:3000/api/usercards?=', {
+  //   method: 'GET',
+  //   headers: {}
+  // })
+    // .then(function (response) {
+    //   return response.json()
+    // })
+  //   .then(function (data) {
+  //   //   console.log(data[data.length - 1].img)
+  //     setmyCustomCard(true)
+  //     setmyCustomCardUrl(data[data.length - 1].img)
+  //     setshareCardNumStr(data[data.length - 1].sharedcode)
+  //   })
+  if (typeof window !== "undefined") {
+    const sendObject = {
+      get_personal_card: JSON.parse(sessionStorage.getItem("email"))
+    };
+    const sendObjectStr = JSON.stringify(sendObject);
+    
+    fetch("http://localhost:3000/api/usercards", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: sendObjectStr
+    })
     .then(function (response) {
       return response.json()
     })
     .then(function (data) {
-    //   console.log(data[data.length - 1].img)
+      console.log(data)
       setmyCustomCard(true)
-      setmyCustomCardUrl(data[data.length - 1].img)
-      setshareCardNumStr(data[data.length - 1].sharedcode)
+      setmyCustomCardUrl(data[0].img)
+      setshareCardNumStr(data[0].sharedcode)
     })
-
+    .catch(err => {
+      console.error(err);
+    });
+  }
+    
     const SharedCard = () =>{
         setshareCardNum(true)
     }

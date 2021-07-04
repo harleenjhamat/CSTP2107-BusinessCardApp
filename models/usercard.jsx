@@ -7,8 +7,12 @@ var usercard = new Schema({
         type: JSON,
         required: true
     },
-    user: {
-        type: JSON,
+    name: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
         required: true
     },
     img: {
@@ -16,6 +20,9 @@ var usercard = new Schema({
     },
     sharedcode: {
         type: String
+    },
+    other_cards: {
+        type: Array
     }
 });
 

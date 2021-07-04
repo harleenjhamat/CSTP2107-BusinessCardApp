@@ -7,6 +7,7 @@ import SharedCard from './../../components/SharedCard'
 import styles from "@/styles/mainpage.module.scss";
 import SearchCard from './../../components/SearchCard';
 import FabAdd from './../../components/FabAdd';
+import AddCard from './../../components/AddCard';
 
 var row_center = `row m-0 p-0 justify-content-center`
 var row_default = `row m-0 p-0`
@@ -15,6 +16,7 @@ var col = `text-center m-0 p-0`
 const MainPage = () => {
   const [url, seturl] = useState('')
   const [searchClicked, setsearchClicked] = useState(false);
+  const [addclicked, setaddclicked] = useState(false);
   const [datafetched, setdatafetched] = useState(false)
   const [getallcards, setgetallcards] = useState([])
 
@@ -26,7 +28,7 @@ const MainPage = () => {
       })
         .then(res => res.json())
         .then(data => {
-          console.log(data)
+          // console.log(data)
           setgetallcards(data)
           setdatafetched(true)
         })
@@ -41,6 +43,11 @@ const MainPage = () => {
     setsearchClicked(true)
     seturl(data)
   }
+
+  const Handle_fab_clicked = data => {
+    setaddclicked(data)
+  }
+
   return (
     <Fragment>
       <div className={`container-fluid m-0 p-0 mt-5`}>
@@ -50,18 +57,20 @@ const MainPage = () => {
             <br></br>
              <SearchCard addnewcard={newCardHandler} />             
             <div className={`${row_default} justify-content-between`}>
-              { searchClicked && <SharedCard feedimg={url} />}
+              {/* { searchClicked && <SharedCard feedimg={url} />}
 
               {!searchClicked && getallcards.map(card => (
                 <SharedCard key={Math.random()} feedimg={card.img} />
-              ))}
+              ))} */
+              addclicked && <AddCard/>
+              }
             </div>
           </div>
           <Scrollme />
           </div>
         </div>
 
-      <FabAdd/>
+      <FabAdd fab_clicked={Handle_fab_clicked}/>
 
     </Fragment>
   )
