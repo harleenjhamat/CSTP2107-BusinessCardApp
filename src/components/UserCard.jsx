@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 import styles from '../styles/sharedcard.module.scss'
 import { useState } from 'react'
 import SharedCard from './SharedCard';
+import { Icon } from 'semantic-ui-react';
 
 var row_center = `row m-0 p-0 justify-content-center`
 var row_default = `row m-0 p-0`
@@ -57,10 +58,15 @@ const UserCard = (props) => {
           <br></br>
           <div className={`${row_default} mb-3 justify-content-center`}>
             <div className={`${col} col-4 .col-md-7`}>
-              <button className={`${styles.button}`} onClick={SharedCard}>Share</button>
+              <button className={`${styles.button}`} onClick={SharedCard}>
+                <Icon name='share alternate'/>
+                Share</button>
             </div>
             <div className={`${col} col-4 .col-md-7`}>
-              <button className={`${styles.buttonNew}`}>Edit</button>
+              <button className={`${styles.buttonNew}`}>
+                <Icon name='edit'/>
+                Edit
+              </button>
             </div>
           </div>
         </div>
