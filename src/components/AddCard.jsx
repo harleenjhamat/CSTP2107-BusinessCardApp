@@ -32,7 +32,7 @@ const AddCard = (props) => {
                 .catch(err => {
                 console.error(err);
                 });
-        props.hideAddBlock()    
+        props.hideAddBlock(false)    
     }
     return (
         <Fragment>

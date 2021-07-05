@@ -11,9 +11,13 @@ const SearchCard = (props) => {
     const sharedcode = useRef('');
     const GetCardByCode = () => {
         // console.log(sharedcode)
+        if(sharedcode.current.value === ''){
+            window.location.reload();
+        }
         const sendObject = {
             filter_card: sharedcode.current.value
         }
+        sharedcode.current.value = ''
         const sendObjectStr = JSON.stringify(sendObject)
         fetch("http://localhost:3000/api/usercards/?=", {
             "method": "POST",

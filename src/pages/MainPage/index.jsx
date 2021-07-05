@@ -93,6 +93,7 @@ const MainPage = () => {
   }
   const showAddBlockHandler = () => {
     setaddclicked(false)
+    window.location.reload();
   }
 
   return (

@@ -31,6 +31,7 @@ const SharedCard = (props) => {
             .catch(err => {
             console.error(err);
             });
+            window.location.reload();
 }
   return (
     <Fragment>
