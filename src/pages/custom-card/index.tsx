@@ -19,11 +19,8 @@ function CustomCard(props) {
   const [textToolDisplay, setTextToolDisplay] = useState("none");
   const [addTextActive, setAddTextActive] = useState(false);
   const [addTextMode, setAddTextMode] = useState(false);
-<<<<<<< HEAD
   const router = useRouter();
-=======
   const [tag, settag] = useState('');
->>>>>>> 5e14c4155850e3e4ee916ee6b3a6b5f829f5074a
 
   useEffect(() => {
     if (!canvas)
@@ -130,12 +127,8 @@ function CustomCard(props) {
       body: sendObjectStr,
     })
       .then((response) => {
-<<<<<<< HEAD
         console.log(response);
         router.push("/MainPage");
-=======
-        // console.log(response);
->>>>>>> 5e14c4155850e3e4ee916ee6b3a6b5f829f5074a
       })
       .catch((err) => {
         console.error(err);
@@ -152,10 +145,6 @@ function CustomCard(props) {
   };
 
   const handleRemovedSelectedItemOnKeyPress = (e) => {
-<<<<<<< HEAD
-=======
-    // console.log(e);
->>>>>>> 5e14c4155850e3e4ee916ee6b3a6b5f829f5074a
     if (e.key == "Backspace" || e.key === "Delete") handleRemovedSelectedItem();
   };
 
