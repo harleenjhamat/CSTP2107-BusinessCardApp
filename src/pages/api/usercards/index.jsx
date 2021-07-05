@@ -7,7 +7,13 @@ const handler = async (req, res) => {
     const { create_new_card } = req.body
     const { addcard } = req.body
     const { get_personal_card } = req.body
-    const { byname } = req.body
+    const { get_cards_from_users_array } = req.body
+    const { render_cards } = req.body
+    const { emailofcurrectuser } = req.body
+    const { deletecard } = req.body
+    const { useremail } = req.body
+    const { email } = req.body
+    const { img } = req.body
 
     if (get_personal_card) {
       try {
@@ -22,22 +28,60 @@ const handler = async (req, res) => {
     if (addcard) {
       try {
         var usercards = await Usercard.updateOne(
-          {email: addcard},
+          { email: emailofcurrectuser },
           { $push: { other_cards: [addcard] } }
-          ).exec()
+        ).exec()
         res.send(usercards)
       } catch (e) {
         res.status(400).send(e)
       }
     }
     if (create_new_card) {
-      const usercard = new Usercard(req.body)
       try {
-        await usercard.save()
-        res.send(usercard)
+        var usercards = await Usercard.findOneAndUpdate({email:email}, {img:img}).exec()
+        res.send(usercards)
       } catch (e) {
-        res.status(400)
-        res.send(e)
+        const usercard = new Usercard(req.body)
+        try {
+          await usercard.save()
+          res.send(usercard)
+        } catch (e) {
+          res.status(400)
+          res.send(e)
+        }
+      }
+    }
+    if (get_cards_from_users_array) {
+      try {
+        var usercards = await Usercard.find({
+          email: get_cards_from_users_array
+        }).exec()
+        res.send(usercards)
+        // console.log(usercards[0].other_cards)
+      } catch (e) {
+        res.status(400).send(e)
+      }
+    }
+    if (render_cards) {
+      try {
+        var usercards = await Usercard.find({
+          email: render_cards
+        }).exec()
+        res.send(usercards)
+        console.log(usercards)
+      } catch (e) {
+        res.status(400).send(e)
+      }
+    }
+    if (deletecard) {
+      try {
+        var usercards = await Usercard.updateOne(
+          { email: useremail },
+          { $pull: { other_cards: deletecard } }
+        ).exec()
+        res.send(usercards)
+      } catch (e) {
+        res.status(400).send(e)
       }
     }
   }

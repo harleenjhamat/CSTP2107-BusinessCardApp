@@ -10,9 +10,10 @@ var col = `text-center m-0 p-0`
 const AddCard = (props) => {
     const enteredEmail = useRef('');
     const AddCardByEmail = () => {
-        console.log(enteredEmail.current.value)
+        // console.log(enteredEmail.current.value)
         const sendObject = {
-            addcard: enteredEmail.current.value
+            addcard: enteredEmail.current.value,
+            emailofcurrectuser: JSON.parse(sessionStorage.getItem("email"))
         }
         const sendObjectStr = JSON.stringify(sendObject)
         fetch("http://localhost:3000/api/usercards", {
@@ -26,7 +27,7 @@ const AddCard = (props) => {
                     return response.json()
                 })
                 .then(function (data) {
-                    console.log(data)
+                    // console.log(data)
                 })
                 .catch(err => {
                 console.error(err);
@@ -35,6 +36,7 @@ const AddCard = (props) => {
     }
     return (
         <Fragment>
+            <br></br>
             <div className={`${row_center}`}>
                 <div className={`${col} col-4`}>
                     <input type="text" placeholder="enter email here.." className={`form-control`} ref={enteredEmail} />

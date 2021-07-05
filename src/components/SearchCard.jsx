@@ -10,7 +10,7 @@ var col = `text-center m-0 p-0`
 const SearchCard = (props) => {
     const sharedcode = useRef('');
     const GetCardByCode = () => {
-        console.log(sharedcode)
+        // console.log(sharedcode)
         const sendObject = {
             addcard: sharedcode.current.value
             // addcard: "0.39290873404547777"

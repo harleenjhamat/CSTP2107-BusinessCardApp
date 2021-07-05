@@ -119,7 +119,7 @@ function CustomCard(props) {
       body: sendObjectStr,
     })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
       })
       .catch((err) => {
         console.error(err);
@@ -136,7 +136,7 @@ function CustomCard(props) {
   };
 
   const handleRemovedSelectedItemOnKeyPress = (e) => {
-    console.log(e);
+    // console.log(e);
     if (e.key == "Backspace" || e.key === "Delete") handleRemovedSelectedItem();
   };
 
