@@ -48,6 +48,9 @@ const MainPage = () => {
           <div className={`col-12 col-md-6 text-center `}>
             <UserCard />
             <br></br>
+            <br></br>
+              <br></br>
+              <br></br>
              <SearchCard addnewcard={newCardHandler} />             
             <div className={`${row_default} justify-content-between`}>
               { searchClicked && <SharedCard feedimg={url} />}
@@ -55,6 +58,7 @@ const MainPage = () => {
               {!searchClicked && getallcards.map(card => (
                 <SharedCard key={Math.random()} feedimg={card.img} />
               ))}
+              
             </div>
           </div>
           <Scrollme />

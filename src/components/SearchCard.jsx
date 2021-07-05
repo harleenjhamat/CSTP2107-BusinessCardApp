@@ -35,16 +35,15 @@ const SearchCard = (props) => {
     return (
         <Fragment>
             <div className={`${row_center}`}>
-                <div className={`${col} col-4`}>
+                <div className={`${col} col-7`}>
                     <input type="text" placeholder="search card here.." className={`form-control`} ref={sharedcode} />
                 </div>
-                <br></br>
-                <br></br>
-                <br></br>
-                <div className={`${col} col-12 `}>
+                <div className={`${col} col-2 `}>
                     <button className={`${styles.button}`} onClick={GetCardByCode}>Search</button>
                 </div>
+            
             </div>
+            <br></br>
             <br></br>
         </Fragment>)
 }
