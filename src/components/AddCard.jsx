@@ -10,24 +10,28 @@ var col = `text-center m-0 p-0`
 const AddCard = (props) => {
     const enteredEmail = useRef('');
     const AddCardByEmail = () => {
+        console.log(enteredEmail.current.value)
         const sendObject = {
             addcard: enteredEmail.current.value
         }
         const sendObjectStr = JSON.stringify(sendObject)
-        // fetch("http://localhost:3000/api/usercards/?=", {
-        //     "method": "POST",
-        //     "headers": {
-        //         "Content-Type": "application/json"
-        //     },
-        //     "body": sendObjectStr
-        // })
-        //     .then(function (response) {
-        //         return response.json()
-        //     })
-        //     .then(function (data) {
-        //         props.addnewcard(data[data.length - 1].img)
-        //     })
-
+        fetch("http://localhost:3000/api/usercards", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: sendObjectStr
+                })
+                .then(function (response) {
+                    return response.json()
+                })
+                .then(function (data) {
+                    console.log(data)
+                })
+                .catch(err => {
+                console.error(err);
+                });
+        props.hideAddBlock()    
     }
     return (
         <Fragment>

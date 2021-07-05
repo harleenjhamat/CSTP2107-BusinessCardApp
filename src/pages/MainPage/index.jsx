@@ -28,7 +28,6 @@ const MainPage = () => {
       })
         .then(res => res.json())
         .then(data => {
-          // console.log(data)
           setgetallcards(data)
           setdatafetched(true)
         })
@@ -39,13 +38,15 @@ const MainPage = () => {
   })
 
   const newCardHandler = data => {
-    // console.log(data)
     setsearchClicked(true)
     seturl(data)
   }
 
   const Handle_fab_clicked = data => {
     setaddclicked(data)
+  }
+  const showAddBlockHandler = () => {
+    setaddclicked(false)
   }
 
   return (
@@ -62,7 +63,7 @@ const MainPage = () => {
               {!searchClicked && getallcards.map(card => (
                 <SharedCard key={Math.random()} feedimg={card.img} />
               ))} */
-              addclicked && <AddCard/>
+              addclicked && <AddCard hideAddBlock={showAddBlockHandler}/>
               }
             </div>
           </div>
