@@ -12,8 +12,7 @@ const SearchCard = (props) => {
     const GetCardByCode = () => {
         // console.log(sharedcode)
         const sendObject = {
-            addcard: sharedcode.current.value
-            // addcard: "0.39290873404547777"
+            filter_card: sharedcode.current.value
         }
         const sendObjectStr = JSON.stringify(sendObject)
         fetch("http://localhost:3000/api/usercards/?=", {
@@ -27,8 +26,8 @@ const SearchCard = (props) => {
                 return response.json()
             })
             .then(function (data) {
-                // console.log(data[data.length - 1].img)
-                props.addnewcard(data[data.length - 1].img)
+                console.log(data[0])
+                props.addnewcard(data[0].img)
             })
 
     }

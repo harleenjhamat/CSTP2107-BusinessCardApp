@@ -14,6 +14,7 @@ const handler = async (req, res) => {
     const { useremail } = req.body
     const { email } = req.body
     const { img } = req.body
+    const { filter_card } = req.body
 
     if (get_personal_card) {
       try {
@@ -79,6 +80,16 @@ const handler = async (req, res) => {
           { email: useremail },
           { $pull: { other_cards: deletecard } }
         ).exec()
+        res.send(usercards)
+      } catch (e) {
+        res.status(400).send(e)
+      }
+    }
+    if (filter_card) {
+      try {
+        var usercards = await Usercard.find({
+          email: filter_card
+        }).exec()
         res.send(usercards)
       } catch (e) {
         res.status(400).send(e)

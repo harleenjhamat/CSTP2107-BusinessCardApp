@@ -104,8 +104,7 @@ const MainPage = () => {
             <br></br>
             <SearchCard addnewcard={newCardHandler} />
             <div className={`${row_default} justify-content-between`}>
-              {/* { searchClicked && <SharedCard feedimg={url} /> */}
-              {/* {console.log(portfolio[0]._id)} */}
+              { searchClicked && <SharedCard feedimg={url} />}
               {addclicked && <div><AddCard hideAddBlock={showAddBlockHandler} /><br></br></div>}
               {!searchClicked &&
                 portfolio !== [] &&
