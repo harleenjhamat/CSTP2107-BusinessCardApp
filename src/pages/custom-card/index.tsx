@@ -19,7 +19,11 @@ function CustomCard(props) {
   const [textToolDisplay, setTextToolDisplay] = useState("none");
   const [addTextActive, setAddTextActive] = useState(false);
   const [addTextMode, setAddTextMode] = useState(false);
+<<<<<<< HEAD
   const router = useRouter();
+=======
+  const [tag, settag] = useState('');
+>>>>>>> 5e14c4155850e3e4ee916ee6b3a6b5f829f5074a
 
   useEffect(() => {
     if (!canvas)
@@ -68,7 +72,10 @@ function CustomCard(props) {
   const handleAddTextMode = () => {
     setAddTextMode(true);
   };
-
+  const tagHandle = (e) => {
+    // console.log(e.target.value)
+    settag(e.target.value)
+  }
   const handleAddText = (e) => {
     if (addTextMode === false) return;
 
@@ -106,9 +113,12 @@ function CustomCard(props) {
     const canvasJson = canvas.toJSON();
     const sendObject = {
       json: canvas.toJSON(),
-      user: JSON.parse(sessionStorage.getItem("user")),
+      name: JSON.parse(sessionStorage.getItem("name")),
+      email: JSON.parse(sessionStorage.getItem("email")),
       img: canvas.toDataURL("png"),
-      sharedcode: Math.random().toString(),
+      sharedcode: Math.random(),
+      create_new_card:"yes",
+      tag: tag
     };
     const sendObjectStr = JSON.stringify(sendObject);
 
@@ -120,8 +130,12 @@ function CustomCard(props) {
       body: sendObjectStr,
     })
       .then((response) => {
+<<<<<<< HEAD
         console.log(response);
         router.push("/MainPage");
+=======
+        // console.log(response);
+>>>>>>> 5e14c4155850e3e4ee916ee6b3a6b5f829f5074a
       })
       .catch((err) => {
         console.error(err);
@@ -138,6 +152,10 @@ function CustomCard(props) {
   };
 
   const handleRemovedSelectedItemOnKeyPress = (e) => {
+<<<<<<< HEAD
+=======
+    // console.log(e);
+>>>>>>> 5e14c4155850e3e4ee916ee6b3a6b5f829f5074a
     if (e.key == "Backspace" || e.key === "Delete") handleRemovedSelectedItem();
   };
 
@@ -165,7 +183,9 @@ function CustomCard(props) {
     ) as HTMLInputElement;
     addImageInput.value = null;
   };
-
+  var row_center = `row m-0 p-0 justify-content-center`
+  var row_default = `row m-0 p-0`
+  var col = `text-center m-0 p-0`
   return (
     <>
       <div className={styles.container} id="custom-card-container">
@@ -177,8 +197,8 @@ function CustomCard(props) {
             <button
               className={`${addTextActive ? "" : styles.btnActive }`}
               onClick={handleToggleTextDisplay}
-            >
-              <Icon name="font" />
+              >
+              <Icon name="file image"/>
               Text
             </button>
           </div>
@@ -330,13 +350,19 @@ function CustomCard(props) {
         </div>
         <br />
 
+        <div className={`${row_center}`}>
+            <div className={`${col} col-12`}>
+                <input type="text" placeholder="Enter Tag here..." className={`form-control`} onChange={tagHandle} />
+            </div>
+        </div>
         <div className={`d-flex justify-content-center py-2`}>
           <button className={styles.saveBtn} onClick={handleSave}>
             <Icon name="save" />
             Save
           </button>
         </div>
-      </div>
+            <br></br>
+        </div>
     </>
   );
 }

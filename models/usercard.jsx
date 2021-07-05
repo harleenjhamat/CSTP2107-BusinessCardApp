@@ -4,17 +4,24 @@ var validator = require('validator')
 
 var usercard = new Schema({
     json: {
-        type: JSON,
-        required: true
+        type: JSON
     },
-    user: {
-        type: JSON,
-        required: true
+    name: {
+        type: String
+    },
+    email: {
+        type: String
     },
     img: {
         type: String
     },
     sharedcode: {
+        type: String
+    },
+    other_cards: {
+        type: Array
+    },
+    tag: {
         type: String
     }
 });

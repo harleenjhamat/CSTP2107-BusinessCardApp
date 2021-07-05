@@ -11,6 +11,8 @@ const Navbar = () => {
 
   if (typeof window !== "undefined" && session) {
     sessionStorage.setItem("user", JSON.stringify(session.user));
+    sessionStorage.setItem("name", JSON.stringify(session.user.name));
+    sessionStorage.setItem("email", JSON.stringify(session.user.email));
   }
 
   return (
@@ -54,9 +56,9 @@ const Navbar = () => {
                   </a>
                 </li>
                 <li className="nav-item py-3 py-md-0">
-                  <Link href="/#contactus">
+                  <a href="http://localhost:3000/ContactUs">
                     <a className={` ${styles.navbarContact}`}>Contact</a>
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>
