@@ -27,7 +27,6 @@ function CustomCard(props) {
       setCanvas(new fabric.Canvas("Canvas", { backgroundColor: "#eee" }));
   }, []);
 
-
   const handleFontWeightChange = (e) => {
     setFontWeight(!fontWeight);
   };
@@ -187,7 +186,7 @@ function CustomCard(props) {
               className={`${addTextActive ? "" : styles.btnActive }`}
               onClick={handleToggleTextDisplay}
               >
-              <Icon name="file image"/>
+              <Icon name="font"/>
               Text
             </button>
           </div>
