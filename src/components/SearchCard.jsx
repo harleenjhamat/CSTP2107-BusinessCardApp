@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { Fragment } from 'react';
 import styles from "@/styles/sharedcard.module.scss";
 import { Container } from '@material-ui/core';
+import { Icon } from "semantic-ui-react";
 
 var row_center = `row m-0 p-0 justify-content-center`
 var row_default = `row m-0 p-0`
@@ -39,7 +40,9 @@ const SearchCard = (props) => {
                     <input type="text" placeholder="search card here.." className={`form-control`} ref={sharedcode} />
                 </div>
                 <div className={`${col} col-2 `}>
-                    <button className={`${styles.button}`} onClick={GetCardByCode}>Search</button>
+                    <button className={`${styles.button}`} onClick={GetCardByCode}>
+                    <Icon name="search" />
+                    Search</button>
                 </div>
             
             </div>
