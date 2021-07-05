@@ -11,11 +11,14 @@ var col = `text-center m-0 p-0`
 const SearchCard = (props) => {
     const sharedcode = useRef('');
     const GetCardByCode = () => {
-        console.log(sharedcode)
-        const sendObject = {
-            addcard: sharedcode.current.value
-            // addcard: "0.39290873404547777"
+        // console.log(sharedcode)
+        if(sharedcode.current.value === ''){
+            window.location.reload();
         }
+        const sendObject = {
+            filter_card: sharedcode.current.value
+        }
+        sharedcode.current.value = ''
         const sendObjectStr = JSON.stringify(sendObject)
         fetch("http://localhost:3000/api/usercards/?=", {
             "method": "POST",
@@ -28,8 +31,8 @@ const SearchCard = (props) => {
                 return response.json()
             })
             .then(function (data) {
-                // console.log(data[data.length - 1].img)
-                props.addnewcard(data[data.length - 1].img)
+                console.log(data[0])
+                props.addnewcard(data[0].img)
             })
 
     }

@@ -11,6 +11,8 @@ const Navbar = () => {
 
   if (typeof window !== "undefined" && session) {
     sessionStorage.setItem("user", JSON.stringify(session.user));
+    sessionStorage.setItem("name", JSON.stringify(session.user.name));
+    sessionStorage.setItem("email", JSON.stringify(session.user.email));
   }
 
   return (
