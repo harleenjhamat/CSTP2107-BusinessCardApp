@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { fabric } from "fabric";
 import { Icon } from "semantic-ui-react";
+import { useRouter } from 'next/router'
 
 import styles from "@/styles/CustomizeYourCard.module.scss";
 import { base64ToBlob, readFile } from "@/utility/File";
@@ -18,11 +19,13 @@ function CustomCard(props) {
   const [textToolDisplay, setTextToolDisplay] = useState("none");
   const [addTextActive, setAddTextActive] = useState(false);
   const [addTextMode, setAddTextMode] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     if (!canvas)
       setCanvas(new fabric.Canvas("Canvas", { backgroundColor: "#eee" }));
   }, []);
+
 
   const handleFontWeightChange = (e) => {
     setFontWeight(!fontWeight);
@@ -118,6 +121,7 @@ function CustomCard(props) {
     })
       .then((response) => {
         console.log(response);
+        router.push("/MainPage");
       })
       .catch((err) => {
         console.error(err);
@@ -134,7 +138,6 @@ function CustomCard(props) {
   };
 
   const handleRemovedSelectedItemOnKeyPress = (e) => {
-    console.log(e);
     if (e.key == "Backspace" || e.key === "Delete") handleRemovedSelectedItem();
   };
 
@@ -142,7 +145,7 @@ function CustomCard(props) {
     const addImageInput = document.getElementById("addImageInput");
     addImageInput.click();
   };
- 
+
   const handleImageInput = async (e) => {
     const files = e.target.files;
     if (files.length === 0) return;
@@ -172,7 +175,7 @@ function CustomCard(props) {
         <div className={`row justify-content-center align-middle my-2`}>
           <div className={`col-5 col-md-4 my-2`}>
             <button
-              className={`${addTextActive ? styles.btnActive : ""}`}
+              className={`${addTextActive ? "" : styles.btnActive }`}
               onClick={handleToggleTextDisplay}
             >
               <Icon name="font" />
@@ -231,7 +234,9 @@ function CustomCard(props) {
         )}
 
         <div
-          className={`${styles.customized_card_form} ${textToolDisplay == "none" ? styles.display : '' }`}
+          className={`${styles.customized_card_form} ${
+            textToolDisplay == "none" ? styles.display : ""
+          }`}
           // style={{ display: `${textToolDisplay}` }}
         >
           <div className={`row my-3 justify-content-center`}>
@@ -309,7 +314,7 @@ function CustomCard(props) {
               </select>
             </div>
           </div>
-          
+
           <div className={`row justify-content-center`}>
             <input
               className={`col-7 ${styles.textInput}`}
