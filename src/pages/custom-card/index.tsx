@@ -174,8 +174,8 @@ function CustomCard(props) {
             <button
               className={`${addTextActive ? styles.btnActive : ""}`}
               onClick={handleToggleTextDisplay}
-            >
-              <Icon name="font" />
+              >
+              <Icon name="file image"/>
               Text
             </button>
           </div>
