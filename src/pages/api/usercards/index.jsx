@@ -16,12 +16,21 @@ const handler = async (req, res) => {
     const { img } = req.body
     const { tag } = req.body
     const { filter_card } = req.body
+    const { check_if_exist } = req.body
 
     if (get_personal_card) {
       try {
         var usercards = await Usercard.find({
           email: get_personal_card
         }).exec()
+        res.send(usercards)
+      } catch (e) {
+        res.status(400).send(e)
+      }
+    }
+    if (check_if_exist) {
+      try {
+        var usercards = await Usercard.where({ email: check_if_exist }).count();
         res.send(usercards)
       } catch (e) {
         res.status(400).send(e)

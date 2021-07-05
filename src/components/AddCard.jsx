@@ -9,19 +9,48 @@ var col = `text-center m-0 p-0`
 
 const AddCard = (props) => {
     const enteredEmail = useRef('');
-    const AddCardByEmail = () => {
+
+    const check_if_exist = async()=>{
         // console.log(enteredEmail.current.value)
         const sendObject = {
-            addcard: enteredEmail.current.value,
-            emailofcurrectuser: JSON.parse(sessionStorage.getItem("email"))
+            check_if_exist: enteredEmail.current.value
         }
         const sendObjectStr = JSON.stringify(sendObject)
-        fetch("http://localhost:3000/api/usercards", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: sendObjectStr
+        const responsex = await fetch("http://localhost:3000/api/usercards", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: sendObjectStr
+        })
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (data) {
+            // console.log(data)
+            return data;
+        })
+        .catch(err => {
+        console.error(err);
+        });
+        return responsex
+    }
+    const  AddCardByEmail = async() => {
+        // console.log(enteredEmail.current.value)
+        check_if_exist().then(function (response) {
+            // console.log(response)
+            if(response>0){
+                const sendObject = {
+                    addcard: enteredEmail.current.value,
+                    emailofcurrectuser: JSON.parse(sessionStorage.getItem("email"))
+                }
+                const sendObjectStr = JSON.stringify(sendObject)
+                fetch("http://localhost:3000/api/usercards", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: sendObjectStr
                 })
                 .then(function (response) {
                     return response.json()
@@ -30,9 +59,11 @@ const AddCard = (props) => {
                     // console.log(data)
                 })
                 .catch(err => {
-                console.error(err);
+                    console.error(err);
                 });
-        props.hideAddBlock(false)    
+            props.hideAddBlock(false)    
+            }
+        })
     }
     return (
         <Fragment>
