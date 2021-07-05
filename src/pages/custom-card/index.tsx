@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { fabric } from "fabric";
 import { Icon } from "semantic-ui-react";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
 import styles from "@/styles/CustomizeYourCard.module.scss";
 import { base64ToBlob, readFile } from "@/utility/File";
@@ -19,8 +19,8 @@ function CustomCard(props) {
   const [textToolDisplay, setTextToolDisplay] = useState("none");
   const [addTextActive, setAddTextActive] = useState(false);
   const [addTextMode, setAddTextMode] = useState(false);
+  const [tag, settag] = useState("");
   const router = useRouter();
-  const [tag, settag] = useState('');
 
   useEffect(() => {
     if (!canvas)
@@ -68,10 +68,12 @@ function CustomCard(props) {
   const handleAddTextMode = () => {
     setAddTextMode(true);
   };
+
   const tagHandle = (e) => {
     // console.log(e.target.value)
-    settag(e.target.value)
-  }
+    settag(e.target.value);
+  };
+
   const handleAddText = (e) => {
     if (addTextMode === false) return;
 
@@ -106,15 +108,15 @@ function CustomCard(props) {
   };
 
   const handleSave = () => {
-    const canvasJson = canvas.toJSON();
+    // const canvasJson = canvas.toJSON();
     const sendObject = {
       json: canvas.toJSON(),
       name: JSON.parse(sessionStorage.getItem("name")),
       email: JSON.parse(sessionStorage.getItem("email")),
       img: canvas.toDataURL("png"),
       sharedcode: Math.random(),
-      create_new_card:"yes",
-      tag: tag
+      create_new_card: "yes",
+      tag: tag,
     };
     const sendObjectStr = JSON.stringify(sendObject);
 
@@ -126,7 +128,7 @@ function CustomCard(props) {
       body: sendObjectStr,
     })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         router.push("/MainPage");
       })
       .catch((err) => {
@@ -171,9 +173,7 @@ function CustomCard(props) {
     ) as HTMLInputElement;
     addImageInput.value = null;
   };
-  var row_center = `row m-0 p-0 justify-content-center`
-  var row_default = `row m-0 p-0`
-  var col = `text-center m-0 p-0`
+
   return (
     <>
       <div className={styles.container} id="custom-card-container">
@@ -183,10 +183,10 @@ function CustomCard(props) {
         <div className={`row justify-content-center align-middle my-2`}>
           <div className={`col-5 col-md-4 my-2`}>
             <button
-              className={`${addTextActive ? "" : styles.btnActive }`}
+              className={`${addTextActive ? styles.btnActive : ""}`}
               onClick={handleToggleTextDisplay}
-              >
-              <Icon name="font"/>
+            >
+              <Icon name="font" />
               Text
             </button>
           </div>
@@ -243,9 +243,8 @@ function CustomCard(props) {
 
         <div
           className={`${styles.customized_card_form} ${
-            textToolDisplay == "none" ? styles.display : ""
+            textToolDisplay == "none" ? "" : styles.display
           }`}
-          // style={{ display: `${textToolDisplay}` }}
         >
           <div className={`row my-3 justify-content-center`}>
             <div className={`col mb-3`}>
@@ -338,19 +337,23 @@ function CustomCard(props) {
         </div>
         <br />
 
-        <div className={`${row_center}`}>
-            <div className={`${col} col-12`}>
-                <input type="text" placeholder="Enter Tag here..." className={`form-control`} onChange={tagHandle} />
-            </div>
-        </div>
+        {/* Saving Section */}
         <div className={`d-flex justify-content-center py-2`}>
+        <div className={`text-center mx-3 p-0 col-8`}>
+            <input
+              type="text"
+              placeholder="Add a Card Name (optional)"
+              className={`form-control`}
+              onChange={tagHandle}
+            />
+          </div>
           <button className={styles.saveBtn} onClick={handleSave}>
             <Icon name="save" />
             Save
           </button>
         </div>
-            <br></br>
-        </div>
+        <br></br>
+      </div>
     </>
   );
 }
