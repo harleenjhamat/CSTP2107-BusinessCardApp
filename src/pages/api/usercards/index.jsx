@@ -14,6 +14,7 @@ const handler = async (req, res) => {
     const { useremail } = req.body
     const { email } = req.body
     const { img } = req.body
+    const { tag } = req.body
     const { filter_card } = req.body
 
     if (get_personal_card) {
@@ -39,11 +40,23 @@ const handler = async (req, res) => {
     }
     if (create_new_card) {
       try {
-        var usercards = await Usercard.findOneAndUpdate({email:email}, {img:img}).exec()
-        res.send(usercards)
+        var usercards = await Usercard.findOneAndUpdate({email:email}, {img:img, tag:tag}).exec()
+        if(usercards===null){
+          try {
+            const usercard = new Usercard(req.body)
+            await usercard.save()
+            res.send(usercard)
+          } catch (e) {
+            res.status(400)
+            res.send(e)
+          }
+        }else{
+          res.send(usercards)
+        }
       } catch (e) {
-        const usercard = new Usercard(req.body)
+        res.send(e)
         try {
+          const usercard = new Usercard(req.body)
           await usercard.save()
           res.send(usercard)
         } catch (e) {
@@ -88,7 +101,7 @@ const handler = async (req, res) => {
     if (filter_card) {
       try {
         var usercards = await Usercard.find({
-          email: filter_card
+          tag: filter_card
         }).exec()
         res.send(usercards)
       } catch (e) {
