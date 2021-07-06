@@ -61,8 +61,8 @@ const AddCard = (props) => {
                 .catch(err => {
                     console.error(err);
                 });
-            props.hideAddBlock(false)    
             }
+            props.hideAddBlock(false)       
         })
     }
     return (
