@@ -39,7 +39,7 @@ const SearchCard = (props) => {
     <Fragment>
       <div className={`d-flex mx-4 justify-content-center`}>
         <div className={`d-flex mx-4 justify-content-center`}>
-          <div className={`col-8 mx-2`}>
+          <div className={`col-10 mx-2`}>
             <input
               type="text"
               placeholder="search card here.."
@@ -47,7 +47,7 @@ const SearchCard = (props) => {
               ref={sharedcode}
             />
           </div>
-          <div className={`col`}>
+          <div className={`col mx-2`}>
             <button className={`${styles.button}`} onClick={GetCardByCode}>
               <Icon name="search" />
               Search
