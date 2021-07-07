@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Modal, makeStyles } from "@material-ui/core";
 
 import UserCard from "./../../components/UserCard";
 import SharedCard from "./../../components/SharedCard";
@@ -17,6 +18,9 @@ const MainPage = () => {
 
   const [searchClicked, setsearchClicked] = useState(false);
   const [addclicked, setaddclicked] = useState(false);
+
+  const [openModal, setOpenModal] = useState(false);
+  const modalClasses = useStyles();
 
   useEffect(() => {
     if (!arrayReceived) {
@@ -83,6 +87,7 @@ const MainPage = () => {
   };
 
   const Handle_fab_clicked = (data) => {
+    setOpenModal(true);
     setaddclicked(data);
   };
 
@@ -100,36 +105,23 @@ const MainPage = () => {
         <div className={`col-12 col-md-4 p-4 pb-0 text-center`}>
           <UserCard fab_clicked={Handle_fab_clicked} />
 
+          {/* This is the hidden add contact modal */}
           {addclicked && (
-            <div
-              className="modal fade"
-              id="staticBackdrop"
-              // data-bs-backdrop="static"
-              // data-bs-keyboard="false"
-              // tabindex="-1"
-              // aria-labelledby="staticBackdropLabel"
-              // aria-hidden="true"
+            <Modal
+              open={openModal}
+              onClose={() => {
+                setOpenModal(false);
+              }}
+              className={modalClasses.modal}
             >
-              <div className="modal-dialog modal-dialog-centered">
-                <div className="modal-content">
-                  <div className="modal-header">
-                    <h3 className="modal-title" id="staticBackdropLabel">
-                      Add Contact
-                    </h3>
-                    <button
-                      type="button"
-                      className="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div className="modal-body pt-0">
-                    <AddCard hideAddBlock={showAddBlockHandler} />
-                  </div>
+              {
+                <div className={modalClasses.paper}>
+                  <AddCard hideAddBlock={showAddBlockHandler} />
                 </div>
-              </div>
-            </div>
+              }
+            </Modal>
           )}
+
         </div>
 
         {/* This is other people's cards section */}
@@ -138,7 +130,7 @@ const MainPage = () => {
 
           {/* This is the card deck */}
           <div className={`${styles.imgDiv}`}>
-            {searchClicked && <SharedCard feedimg={url}/>}
+            {searchClicked && <SharedCard feedimg={url} />}
 
             {!searchClicked &&
               portfolio !== [] &&
@@ -157,5 +149,20 @@ const MainPage = () => {
     </>
   );
 };
+
+const useStyles = makeStyles((theme) => ({
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
+    borderRadius: "1%",
+    padding: theme.spacing(5, 5),
+  },
+}));
+
 
 export default MainPage;

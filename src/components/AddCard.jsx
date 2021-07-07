@@ -1,11 +1,6 @@
 import { useRef } from 'react';
 import { Fragment } from 'react';
 import styles from "@/styles/sharedcard.module.scss";
-import { Container } from '@material-ui/core';
-
-var row_center = `row m-0 p-0 justify-content-center`
-var row_default = `row m-0 p-0`
-var col = `text-center m-0 p-0`
 
 const AddCard = (props) => {
     const enteredEmail = useRef('');
@@ -67,16 +62,14 @@ const AddCard = (props) => {
     }
     return (
         <Fragment>
-            <br></br>
-            <div className={`d-flex align-items-center`}>
-                <div className={`col-8`}>
-                    <input type="text" placeholder="Enter your email contact" className={`form-control`} ref={enteredEmail} />
+            <div className={`d-flex align-items-center justify-content-center flex-wrap`}>
+                <div className={`col-10`}>
+                    <input type="text" placeholder="Enter contact email" className={`form-control`} ref={enteredEmail} />
                 </div>
-                <div className={`mx-auto`}>
+                <div className={`mx-auto mt-4`}>
                     <button className={`${styles.button}`} onClick={AddCardByEmail}> Add Card </button>
                 </div>
             </div>
-            <br></br>
         </Fragment>)
 }
 

@@ -1,9 +1,10 @@
-import { useRouter } from "next/router";
-import styles from "../styles/sharedcard.module.scss";
 import { useState } from "react";
-import { Icon } from "semantic-ui-react";
+import { useRouter } from "next/router";
 
-const UserCard = ({fab_clicked}) => {
+import { Icon } from "semantic-ui-react";
+import styles from "../styles/sharedcard.module.scss";
+
+const UserCard = ({ fab_clicked }) => {
   const router = useRouter();
   const [myCustomCard, setmyCustomCard] = useState(false);
   const [myCustomCardUrl, setmyCustomCardUrl] = useState("");
@@ -38,7 +39,7 @@ const UserCard = ({fab_clicked}) => {
   }
 
   const SharedCard = () => {
-    setshareCardNum(true);
+    setshareCardNum(!shareCardNum);
   };
 
   const handleEdit = () => {
@@ -68,7 +69,7 @@ const UserCard = ({fab_clicked}) => {
             className={`${styles.imgShadow} figure-img img-fluid rounded`}
             alt="..."
           />
-          
+
           {/* Display share email message */}
           {shareCardNum && (
             <div className="border border-success rounded p-2 m-4 bd-highlight text-center">
@@ -82,19 +83,16 @@ const UserCard = ({fab_clicked}) => {
           )}
 
           {/* share and edit container */}
-          <div className={`d-flex justify-content-around my-5`}>
-            <button
-              className={`${styles.button} col-3`}
-              onClick={handleEdit}
-            >
-              <Icon name="edit"/>
+          <div className={`d-flex justify-content-around my-4`}>
+            <button className={`${styles.button} col-3`} onClick={handleEdit}>
+              <Icon name="edit" />
               Edit
             </button>
             <button className={`${styles.button} col-3`} onClick={SharedCard}>
               <Icon name="share alternate" />
               Share
             </button>
-            <button className={`${styles.button} col-3`} data-bs-toggle="modal" data-bs-target="#staticBackdrop" onClick={fab_clicked}>
+            <button className={`${styles.button} col-3`} onClick={fab_clicked}>
               <Icon name="add" />
               Contact
             </button>
