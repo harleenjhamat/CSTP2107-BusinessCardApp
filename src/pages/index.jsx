@@ -7,17 +7,17 @@ import styles from "../styles/landingPage.module.scss";
 export default function Home() {
   const router = useRouter();
 
-  const handleGetStart = () => {
-    router.push("/custom-card");
-  };
+  // const handleGetStart = () => {
+  //   router.push("/custom-card");
+  // };
 
   return (
     <div className={styles.container}>
       <Card />
       <Instructions />
-      <button className={styles.callForActionBtn} onClick={handleGetStart}>
+      {/* <button className={styles.callForActionBtn} onClick={handleGetStart}>
         Start Now
-      </button>
+      </button> */}
     </div>
   );
 }

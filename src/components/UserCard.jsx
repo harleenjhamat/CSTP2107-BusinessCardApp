@@ -1,15 +1,9 @@
-import { Fragment } from "react";
 import { useRouter } from "next/router";
 import styles from "../styles/sharedcard.module.scss";
 import { useState } from "react";
-import SharedCard from "./SharedCard";
 import { Icon } from "semantic-ui-react";
 
-var row_center = `row m-0 p-0 justify-content-center`;
-var row_default = `row m-0 p-0`;
-var col = `text-center m-0 p-0`;
-
-const UserCard = (props) => {
+const UserCard = ({fab_clicked}) => {
   const router = useRouter();
   const [myCustomCard, setmyCustomCard] = useState(false);
   const [myCustomCardUrl, setmyCustomCardUrl] = useState("");
@@ -46,59 +40,68 @@ const UserCard = (props) => {
   const SharedCard = () => {
     setshareCardNum(true);
   };
+
   const handleEdit = () => {
     router.push("/custom-card");
   };
 
   return (
-    <Fragment>
-      <div className={`${row_center}`}>
-        <div className={`${col} col-12`}>
-          <div className={`${row_center}`}>
-            <div className={`${col} col-12`}>
-              {!myCustomCard && (
-                <img
-                  src="/assets/choose_template.jpg"
-                  className={`${styles.imgShadow} figure-img img-fluid rounded`}
-                  alt="..."
-                />
-              )}
-              {myCustomCard && (
-                <img
-                  src={`${myCustomCardUrl}`}
-                  className={`${styles.imgShadow} figure-img img-fluid rounded`}
-                  alt="..."
-                />
-              )}
-              {shareCardNum && (
-                <p>
-                  Copy your email to share card:{" "}
-                  <span>
-                    <br></br>
-                  </span>{" "}
-                  {email}
-                </p>
-              )}
-            </div>
+    <>
+      {/* Display loader or User-card  */}
+      {(!myCustomCard && (
+        <div className="d-flex justify-content-center">
+          <div className="spinner-grow text-secondary" role="status">
+            <span className="visually-hidden">Loading...</span>
           </div>
-          <br></br>
-          <div className={`${row_default} mb-3 justify-content-center`}>
-            <div className={`${col} col-4 .col-md-7`}>
-              <button className={`${styles.button}`} onClick={SharedCard}>
-                <Icon name="share alternate" />
-                Share
-              </button>
-            </div>
-            <div className={`${col} col-4 .col-md-7`}>
-              <button className={`${styles.buttonNew}`} onClick={handleEdit}>
-                <Icon name="edit" />
-                Edit
-              </button>
-            </div>
+          <div className="spinner-grow text-secondary mx-2" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+          <div className="spinner-grow text-secondary" role="status">
+            <span className="visually-hidden">Loading...</span>
           </div>
         </div>
-      </div>
-    </Fragment>
+      )) || (
+        <>
+          {/* This is the user card */}
+          <img
+            src={`${myCustomCardUrl}`}
+            className={`${styles.imgShadow} figure-img img-fluid rounded`}
+            alt="..."
+          />
+          
+          {/* Display share email message */}
+          {shareCardNum && (
+            <div className="border border-success rounded p-2 m-4 bd-highlight text-center">
+              <p className="m-0">
+                <b>Copy your email to share card:</b>
+              </p>
+              <p>
+                <i>{email}</i>
+              </p>
+            </div>
+          )}
+
+          {/* share and edit container */}
+          <div className={`d-flex justify-content-around my-5`}>
+            <button
+              className={`${styles.button} col-3`}
+              onClick={handleEdit}
+            >
+              <Icon name="edit"/>
+              Edit
+            </button>
+            <button className={`${styles.button} col-3`} onClick={SharedCard}>
+              <Icon name="share alternate" />
+              Share
+            </button>
+            <button className={`${styles.button} col-3`} data-bs-toggle="modal" data-bs-target="#staticBackdrop" onClick={fab_clicked}>
+              <Icon name="add" />
+              Contact
+            </button>
+          </div>
+        </>
+      )}
+    </>
   );
 };
 

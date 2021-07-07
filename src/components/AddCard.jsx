@@ -68,15 +68,12 @@ const AddCard = (props) => {
     return (
         <Fragment>
             <br></br>
-            <div className={`${row_center}`}>
-                <div className={`${col} col-4`}>
-                    <input type="text" placeholder="enter email here.." className={`form-control`} ref={enteredEmail} />
+            <div className={`d-flex align-items-center`}>
+                <div className={`col-8`}>
+                    <input type="text" placeholder="Enter your email contact" className={`form-control`} ref={enteredEmail} />
                 </div>
-                <br></br>
-                <br></br>
-                <br></br>
-                <div className={`${col} col-12 `}>
-                    <button className={`${styles.button}`} onClick={AddCardByEmail}> -- Add -- </button>
+                <div className={`mx-auto`}>
+                    <button className={`${styles.button}`} onClick={AddCardByEmail}> Add Card </button>
                 </div>
             </div>
             <br></br>

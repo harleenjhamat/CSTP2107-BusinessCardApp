@@ -20,19 +20,16 @@ $medium: 900px;
     margin: 2%;
   }
   button,
-  .button {
-    @media screen and (max-width: $small) {
-      display: block;
-    }
+  .button, .saveBtn  {
     display: inline;
-    justify-content: center;
-    width: 130px;
-    height: 30px;
-    font-weight: 700;
+    width: 110px;
+    height: 90px;
+    font-weight: 700; 
     color: $ivory;
     background-color: $primary_color;
     border: none;
     border-radius: 5px;
+    height: 40px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
     &:hover {
       color: $ivory;
@@ -113,6 +110,7 @@ $medium: 900px;
   border-radius: 2%;
   border: 1px solid $light_grey;
   padding: 3px;
+  margin:0 !important;
 }
 
 .trashButton {
@@ -120,12 +118,6 @@ $medium: 900px;
   &:hover {
     background-color: lighten($danger, 5%) !important;
   }
-}
-
-.saveBtn {
-  padding: 1%;
-  width: 150px !important;
-  height: 35px !important;
 }
 
 .hintText {

@@ -36,29 +36,24 @@ const SearchCard = (props) => {
       });
   };
   return (
-    <Fragment>
-      <div className={`d-flex mx-4 justify-content-center`}>
-        <div className={`d-flex mx-4 justify-content-center`}>
-          <div className={`col-10 mx-2`}>
+    <div className={`${styles.searchBarDiv} my-4`}>
+        <div className={`row gy-4 justify-content-center align-items-center`}>
+          <div className={`col-12 col-sm-9`}>
             <input
               type="text"
-              placeholder="search card here.."
+              placeholder="Search Cards"
               className={`form-control`}
               ref={sharedcode}
             />
           </div>
-          <div className={`col mx-2`}>
+          <div className={`col-12 col-sm text-center`}>
             <button className={`${styles.button}`} onClick={GetCardByCode}>
               <Icon name="search" />
               Search
             </button>
           </div>
         </div>
-      </div>
-
-      <br></br>
-      <br></br>
-    </Fragment>
+    </div>
   );
 };
 

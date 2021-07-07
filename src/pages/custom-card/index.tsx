@@ -180,8 +180,8 @@ function CustomCard(props) {
         <h2>Customize Your Card</h2>
 
         {/* add text, image, remove item */}
-        <div className={`row justify-content-center align-middle my-2`}>
-          <div className={`col-5 col-md-4 my-2`}>
+        <div className={`d-flex justify-content-between p-2`}>
+          <div className={`my-2 text-center`}>
             <button
               className={`${addTextActive ? styles.btnActive : ""}`}
               onClick={handleToggleTextDisplay}
@@ -191,7 +191,7 @@ function CustomCard(props) {
             </button>
           </div>
 
-          <div className={`col-5 col-md-4 my-2`}>
+          <div className={`my-2 mx-2 text-center`}>
             <input
               accept="image/*"
               id="addImageInput"
@@ -208,7 +208,7 @@ function CustomCard(props) {
             </div>
           </div>
 
-          <div className={`col-5 col-md-4 my-2`}>
+          <div className={`my-2 text-center`}>
             <button
               className={styles.trashButton}
               onClick={handleRemovedSelectedItem}
@@ -246,7 +246,7 @@ function CustomCard(props) {
             textToolDisplay == "none" ? "" : styles.display
           }`}
         >
-          <div className={`row my-3 justify-content-center`}>
+          <div className={`d-flex my-3 justify-content-center flex-wrap`}>
             <div className={`col mb-3`}>
               <div
                 className={`${fontWeight == true ? styles.toolActive : ""} col`}
@@ -322,24 +322,30 @@ function CustomCard(props) {
             </div>
           </div>
 
-          <div className={`row justify-content-center`}>
-            <input
-              className={`col-7 ${styles.textInput}`}
-              type="text"
-              id="myText"
-              value={userTextInput}
-              onChange={handleUserTextInput}
-            />
-            <button className={`col-3`} onClick={handleAddTextMode}>
-              <Icon name="plus circle" /> Add Text
-            </button>
+          <div
+            className={`d-flex justify-content-around align-items-center flex-wrap`}
+          >
+            <div className={`col mx-3`}>
+              <input
+                className={`${styles.textInput}`}
+                type="text"
+                id="myText"
+                value={userTextInput}
+                onChange={handleUserTextInput}
+              />
+            </div>
+            <div className={`col py-3`}>
+              <button onClick={handleAddTextMode}>
+                <Icon name="plus circle" /> Add Text
+              </button>
+            </div>
           </div>
         </div>
         <br />
 
         {/* Saving Section */}
-        <div className={`d-flex justify-content-center py-2`}>
-        <div className={`text-center mx-3 p-0 col-8`}>
+        <div className={`d-flex align-items-center py-2 mb-5`}>
+          <div className={`mx-3 p-0 col-8`}>
             <input
               type="text"
               placeholder="Add a Card Name (optional)"
@@ -352,7 +358,6 @@ function CustomCard(props) {
             Save
           </button>
         </div>
-        <br></br>
       </div>
     </>
   );

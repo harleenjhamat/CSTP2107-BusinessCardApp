@@ -1,6 +1,6 @@
 @import "./colors.scss";
 
-$small: 400px;
+$small: 500px;
 
 .container {
   min-height: 70vh;
@@ -55,7 +55,8 @@ $small: 400px;
   background-color: $primary_color;
   color: $white;
   font-size: 2em;
-  font-style: italic;
+  //font-style: italic;
+  margin-bottom: 4%;
   letter-spacing: 1.1px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
   @media screen and (max-width: $small) {

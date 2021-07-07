@@ -1,17 +1,10 @@
-import { Fragment } from "react";
 import { useState, useEffect } from "react";
 
-import Scrollme from "./../../components/Scrollme";
 import UserCard from "./../../components/UserCard";
 import SharedCard from "./../../components/SharedCard";
 import SearchCard from "./../../components/SearchCard";
-import FabAdd from "./../../components/FabAdd";
 import AddCard from "./../../components/AddCard";
 import styles from "@/styles/sharedcard.module.scss";
-
-var row_center = `row m-0 p-0 justify-content-center`;
-var row_default = `row m-0 p-0`;
-var col = `text-center m-0 p-0`;
 
 const MainPage = () => {
   const [url, seturl] = useState("");
@@ -99,46 +92,69 @@ const MainPage = () => {
   };
 
   return (
-    <Fragment>
-      <div className={`container-fluid m-0 p-0 mt-5`}>
-        <div className={`row m-0 p-0 mx-2 justify-content-center`}>
-          <div className={`col-12 col-md-6 text-center`}>
-            <UserCard />
-            <br></br>
-            <SearchCard addnewcard={newCardHandler} />
-            <div className={`${col} col-12`}>
-            <div className={`${styles.imgDiv}`}>
-              {searchClicked && <SharedCard feedimg={url} />}
+    <>
+      <div
+        className={`${styles.container} row gx-5 py-lg-4 px-lg-5 justify-content-center align-items-center`}
+      >
+        {/* This is the user card section*/}
+        <div className={`col-12 col-md-4 p-4 pb-0 text-center`}>
+          <UserCard fab_clicked={Handle_fab_clicked} />
 
-              {addclicked && (
-                <div>
-                  <AddCard hideAddBlock={showAddBlockHandler} />
-                  <br></br>
+          {addclicked && (
+            <div
+              className="modal fade"
+              id="staticBackdrop"
+              // data-bs-backdrop="static"
+              // data-bs-keyboard="false"
+              // tabindex="-1"
+              // aria-labelledby="staticBackdropLabel"
+              // aria-hidden="true"
+            >
+              <div className="modal-dialog modal-dialog-centered">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h3 className="modal-title" id="staticBackdropLabel">
+                      Add Contact
+                    </h3>
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div className="modal-body pt-0">
+                    <AddCard hideAddBlock={showAddBlockHandler} />
+                  </div>
                 </div>
-              )}
+              </div>
+            </div>
+          )}
+        </div>
 
-              {!searchClicked &&
-                portfolio !== [] &&
-                portfolio.map((card) => (
-                  <SharedCard
-                    key={card._id}
-                    feedimg={card.img}
-                    id={card._id}
-                    useremail={JSON.parse(sessionStorage.getItem("email"))}
-                    email={card.email}
-                  />
-                ))}
-            </div>
-            </div>
+        {/* This is other people's cards section */}
+        <div className={`col-12 col-md-8 p-4 pt-0`}>
+          <SearchCard addnewcard={newCardHandler} />
+
+          {/* This is the card deck */}
+          <div className={`${styles.imgDiv}`}>
+            {searchClicked && <SharedCard feedimg={url}/>}
+
+            {!searchClicked &&
+              portfolio !== [] &&
+              portfolio.map((card) => (
+                <SharedCard
+                  key={card._id}
+                  feedimg={card.img}
+                  id={card._id}
+                  useremail={JSON.parse(sessionStorage.getItem("email"))}
+                  email={card.email}
+                />
+              ))}
           </div>
-
-          <Scrollme />
-          
         </div>
       </div>
-
-      <FabAdd fab_clicked={Handle_fab_clicked} />
-    </Fragment>
+    </>
   );
 };
 

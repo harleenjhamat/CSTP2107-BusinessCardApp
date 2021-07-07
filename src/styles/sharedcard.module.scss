@@ -1,40 +1,71 @@
 @import "./Colors.scss";
 
-.imgDiv {
+$small: 450px;
+
+.container{
+  min-height: 75vh;
   display: flex;
-  flex-direction: column;
 }
 
-.imgwrap {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.imgDiv {
   display: flex;
-  max-width: 450px;
+  flex-direction: row;
+  overflow-x: auto;
+  padding-bottom: 4%;
+  @media screen and (max-width: $small) {
+    flex-direction: column;
+    overflow-x:unset;
+    padding-bottom: 0%;
+  }
+}
+
+.imgWrap {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 0 auto !important;
   position: relative;
-  flex-direction: column;
+  flex-direction: row;
   transition: 0.2s;
   &:not(:first-child) {
-    margin-top: -60px !important;
+    margin-left: -400px !important;
   }
   &:hover {
-    transform: translateY(-5rem);
+    transform: translateX(-5rem);
+    i {
+      color: red;
+      transition: 0.6s;
+      &:hover {
+        color: rgba(255, 0, 0, 0.678);
+      }
+    }
   }
-  &:hover ~ .card {
-    transform: translateY(120px) !important;
+  &:hover ~ .imgWrap {
+    transform: translateX(220px) !important;
   }
   i {
     position: absolute;
     top: 10px;
     right: 2px;
     width: 10%;
-    color: red;
+    color: transparent;
+  }
+  @media screen and (max-width: $small) {
+    flex-direction: column;
+    &:not(:first-child) {
+      margin-left: 0px !important;
+      margin-top: -50px !important;
+    }
     &:hover {
-      color: rgba(255, 0, 0, 0.678);
+      transform: translateX(0rem);
+      transform: translateY(-2rem);
+    }
+    &:hover ~ .imgWrap {
+      transform: translateX(0px) !important;
+      transform: translateY(40px) !important;
     }
   }
 }
 
-.imgShadow{
+.imgShadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transition: 0.2s;
   &:hover {
@@ -44,14 +75,14 @@
 
 .button {
   display: inline;
-  justify-content: center;
   width: 110px;
-  font-weight: 700;
+  height: 90px;
+  font-weight: 700; 
   color: $ivory;
   background-color: $primary_color;
   border: none;
   border-radius: 5px;
-  height: 30px;
+  height: 40px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
   &:hover {
     color: $ivory;
@@ -64,24 +95,11 @@
   }
 }
 
-.buttonNew {
-  display: inline;
-  justify-content: center;
-  width: 110px;
-  font-weight: 700;
-  color: $ivory;
-  background-color: $primary_color;
-  border: none;
-  border-radius: 5px;
-  height: 30px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
-  &:hover {
-    color: $ivory;
-    background-color: $button_on_hover;
-  }
-  &:active {
-    color: $ivory;
-    background-color: $button-active-blue;
-    transform: translateY(3px);
+.searchBarDiv{
+  width: 85%;
+  margin: 0 auto;
+  padding-bottom: 3%;
+  input{
+    border: 1px solid $border_color;
   }
 }

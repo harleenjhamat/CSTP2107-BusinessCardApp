@@ -1,10 +1,5 @@
-import { Fragment } from "react";
-import { Button, Icon } from "semantic-ui-react";
+import { Icon } from "semantic-ui-react";
 import styles from "@/styles/sharedcard.module.scss";
-
-var row_center = `row m-0 p-0 justify-content-center`;
-var row_default = `row m-0 p-0`;
-var col = `text-center m-0 p-0`;
 
 const SharedCard = (props) => {
   const deleteFromCollection = () => {
@@ -34,8 +29,8 @@ const SharedCard = (props) => {
   };
   return (
     <>
-      <div className={`${styles.imgwrap} ${col} col-12`}>
-        <img src={props.feedimg} alt="..." />
+      <div className={`${styles.imgWrap}`}>
+        <img className={`img-fluid`} src={props.feedimg} alt="..." />
         <Icon
           className={styles.close}
           onClick={deleteFromCollection}
