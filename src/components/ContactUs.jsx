@@ -13,14 +13,14 @@ const ContactUs = () => {
 
         <div className={styles.container1}>
             <div className={styles.contactcol}>
-                <i class='fa fa-home'></i>
+                <i className='fa fa-home'></i>
                 <span>
                     <h5>XYZ Road, ABC Building</h5>
                     <p>Surrey, BC</p>
                 </span>
             </div>
             <div className={styles.contactcol}>
-                <i class='fa fa-phone'></i>
+                <i className='fa fa-phone'></i>
                 <span>
                     <h5>+1(778)-100-1000 </h5>
                     <p>Monday to Saturday, 10AM to 6PM</p>
@@ -28,7 +28,7 @@ const ContactUs = () => {
             </div>
 
             <div className={styles.contactcol}>
-                <i class='fa fa-envelope-o'></i>
+                <i className='fa fa-envelope-o'></i>
                 <span>
                     <h5>card@cybercard.com</h5>
                     <p>Email us your query</p>
