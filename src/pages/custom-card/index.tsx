@@ -348,7 +348,7 @@ function CustomCard(props) {
           <div className={`mx-3 p-0 col-8`}>
             <input
               type="text"
-              placeholder="Add a Card Name (optional)"
+              placeholder="Add a search tag to your card (ie. student)"
               className={`form-control`}
               onChange={tagHandle}
             />
