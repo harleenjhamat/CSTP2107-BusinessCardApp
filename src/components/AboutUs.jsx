@@ -66,27 +66,6 @@ const AboutUs = () => {
                 </div>
               </div>
             </div>
-                <div className={styles.container1}>
-                <div className={styles.cards}>
-                <div className={styles.car}>
-                  <img src="/assets/v4.png"/>
-                  <h1>Service Excellence</h1>
-                  <p>We believe deeply in providing superior service at the highest level of coustesy and promptness to our internal and external customers.</p>
-                </div>
-
-                <div className={styles.car}>
-                  <img src="/assets/v5.png"/>
-                  <h1>Empowerment</h1>
-                  <p>We empower our teammates to encourage one another, celebrate accomplishments and have a passion for professional development.</p>
-                </div>
-
-                <div className={styles.car}>
-                  <img src="/assets/v6.png"/>
-                  <h1>Inovation</h1>
-                  <p>We believe persistent innovation in design, service and operations can differentiate our properties from the completion.</p>
-                </div>
-              </div>
-          </div>
       <div className = {styles.container2}>
       <h1>MEET OUR CYBERCARD TEAM</h1><br/>
         <div className={styles.profiles}>
@@ -142,10 +121,7 @@ const AboutUs = () => {
         </div>
       </div>
       <br /><br />
-      <div className={styles.container3}>
-        <h1>Want to learn more about us?</h1>
-        <a href="http://localhost:3000/ContactUs"><button className={styles.btn} >Contact Us</button></a>
-      </div>
+      
     </>
   );
 };
