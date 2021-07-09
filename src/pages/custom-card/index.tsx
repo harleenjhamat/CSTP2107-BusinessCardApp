@@ -7,7 +7,7 @@ import styles from "@/styles/CustomizeYourCard.module.scss";
 import { base64ToBlob, readFile } from "@/utility/File";
 
 function CustomCard(props) {
-  const [canvasBackgroundColor] = useState(["blue", "grey", "black"]);
+  const [canvasBackgroundColor] = useState(["Teal", "grey", "black"]);
   const [canvas, setCanvas]: [any, any] = useState();
   const [userTextInput, setUserTextInput] = useState("");
   const [fontWeight, setFontWeight] = useState(false);
@@ -150,6 +150,10 @@ function CustomCard(props) {
     canvas.getActiveObject().bringToFront();
   };
 
+  const handleSendToBack = () => {
+    canvas.getActiveObject().sendToBack();
+  };
+
   const handleCanvasBackgroundColor = (e) => {
     let classList = e.target.className;
     let color = canvasBackgroundColor.find(c => classList.indexOf(c) !== -1);
@@ -221,17 +225,17 @@ function CustomCard(props) {
             </div>
           </div>
 
-          <div className={`my-2 text-center`}>
+          <div className={`my-2 mx-2 text-center`}>
             <button onClick={handleBringToFront}>
               <Icon name="arrow up" />
               Bring To Front
             </button>
           </div>
 
-          <div className={`my-2 text-center`}>
-            <button onClick={handleCanvasBackgroundColor}>
-              <Icon name="arrow up" />
-              set background
+          <div className={`my-2 mx-2 text-center`}>
+            <button onClick={handleSendToBack}>
+              <Icon name="arrow down" />
+              Send To Back
             </button>
           </div>
         </div>
