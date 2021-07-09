@@ -100,7 +100,7 @@ const MainPage = () => {
     <>
       <div
         className={`${styles.container} row gx-5 py-lg-4 px-lg-5 justify-content-center align-items-center`}
-      >
+      >        
         {/* This is the user card section*/}
         <div className={`col-12 col-md-4 p-4 pb-0 text-center`}>
           <UserCard fab_clicked={Handle_fab_clicked} />
@@ -127,7 +127,6 @@ const MainPage = () => {
         {/* This is other people's cards section */}
         <div className={`col-12 col-md-8 p-4 pt-0`}>
           <SearchCard addnewcard={newCardHandler} />
-
           {/* This is the card deck */}
           <div className={`${styles.imgDiv}`}>
             {searchClicked && <SharedCard feedimg={url} />}
@@ -144,6 +143,7 @@ const MainPage = () => {
                 />
               ))}
           </div>
+
         </div>
       </div>
     </>
@@ -163,6 +163,5 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(5, 5),
   },
 }));
-
 
 export default MainPage;
