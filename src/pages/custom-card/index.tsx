@@ -145,6 +145,10 @@ function CustomCard(props) {
     }
   };
 
+  const handleBringToFront = () => {
+    canvas.getActiveObject().bringToFront();
+  };
+
   const handleRemovedSelectedItemOnKeyPress = (e) => {
     if (e.key == "Backspace" || e.key === "Delete") handleRemovedSelectedItem();
   };
@@ -210,11 +214,10 @@ function CustomCard(props) {
 
           <div className={`my-2 text-center`}>
             <button
-              className={styles.trashButton}
-              onClick={handleRemovedSelectedItem}
+              onClick={handleBringToFront}
             >
-              <Icon name="trash" />
-              Delete
+              <Icon name="arrow up" />
+              Bring To Front
             </button>
           </div>
         </div>
@@ -233,6 +236,19 @@ function CustomCard(props) {
             width="450"
             height="250"
           ></canvas>
+        </div>
+
+        
+        <div className={`d-flex justify-content-center p-2`}>
+          <div className={`my-2 text-center`}>
+            <button
+              className={styles.trashButton}
+              onClick={handleRemovedSelectedItem}
+            >
+              <Icon name="trash" />
+              Delete
+            </button>
+          </div>
         </div>
 
         {addTextMode && userTextInput !== "" && (
