@@ -7,6 +7,7 @@ import styles from "@/styles/CustomizeYourCard.module.scss";
 import { base64ToBlob, readFile } from "@/utility/File";
 
 function CustomCard(props) {
+  const [canvasBackgroundColor] = useState(["blue", "grey", "black"]);
   const [canvas, setCanvas]: [any, any] = useState();
   const [userTextInput, setUserTextInput] = useState("");
   const [fontWeight, setFontWeight] = useState(false);
@@ -149,6 +150,14 @@ function CustomCard(props) {
     canvas.getActiveObject().bringToFront();
   };
 
+  const handleCanvasBackgroundColor = (e) => {
+    let classList = e.target.className;
+    let color = canvasBackgroundColor.find(c => classList.indexOf(c) !== -1);
+    console.log(color);
+    
+    canvas.setBackgroundColor(color, canvas.renderAll.bind(canvas));
+  };
+
   const handleRemovedSelectedItemOnKeyPress = (e) => {
     if (e.key == "Backspace" || e.key === "Delete") handleRemovedSelectedItem();
   };
@@ -213,13 +222,32 @@ function CustomCard(props) {
           </div>
 
           <div className={`my-2 text-center`}>
-            <button
-              onClick={handleBringToFront}
-            >
+            <button onClick={handleBringToFront}>
               <Icon name="arrow up" />
               Bring To Front
             </button>
           </div>
+
+          <div className={`my-2 text-center`}>
+            <button onClick={handleCanvasBackgroundColor}>
+              <Icon name="arrow up" />
+              set background
+            </button>
+          </div>
+        </div>
+
+        <div>
+          {canvasBackgroundColor.map((color) => (
+            <div
+              style={{ display: "inline-block" }}
+              onClick={handleCanvasBackgroundColor}
+            >
+              <Icon
+                name="address card"
+                className={`circular large ${color} inverted icon`}
+              ></Icon>
+            </div>
+          ))}
         </div>
 
         <div
@@ -238,7 +266,6 @@ function CustomCard(props) {
           ></canvas>
         </div>
 
-        
         <div className={`d-flex justify-content-center p-2`}>
           <div className={`my-2 text-center`}>
             <button
