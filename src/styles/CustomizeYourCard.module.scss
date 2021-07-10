@@ -58,9 +58,11 @@ $medium: 900px;
 }
 
 .customized_card_form {
-  border-radius: 1%;
+  background-color:$grey;
+  max-width: 450px;
+  border-radius: 10px;
   border: $border_color 1px solid;
-  padding: 2% 4%;
+  padding: 4% 4%;
   margin-top: 2%;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
   text-align: center;
@@ -79,7 +81,7 @@ $medium: 900px;
   visibility: hidden;
   height: 0;
   opacity: 0;
-  transition: height 0.5s, visibility 0.2s, opacity 0.2s linear;
+  transition: height 0.5s, visibility 2.2s, opacity 0.2s linear;
 }
 
 .display {
@@ -127,3 +129,6 @@ $medium: 900px;
   padding-bottom: 4%;
 }
 
+.backgroundColorList {
+  margin: 5px;
+}

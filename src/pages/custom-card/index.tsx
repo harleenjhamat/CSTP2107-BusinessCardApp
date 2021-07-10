@@ -7,7 +7,9 @@ import styles from "@/styles/CustomizeYourCard.module.scss";
 import { base64ToBlob, readFile } from "@/utility/File";
 
 function CustomCard(props) {
-  const [canvasBackgroundColor] = useState(["Teal", "grey", "black"]);
+  const [canvasBackgroundColor] = useState([
+    "red", "orange", "yellow", "olive", "green", "teal", "blue", "violet", "purple", "pink", "brown", "black", "grey", "white",
+  ]);
   const [canvas, setCanvas]: [any, any] = useState();
   const [userTextInput, setUserTextInput] = useState("");
   const [fontWeight, setFontWeight] = useState(false);
@@ -18,7 +20,9 @@ function CustomCard(props) {
   const [linethrough, setLinethrough] = useState(false);
   const [overline, setOverline] = useState(false);
   const [textToolDisplay, setTextToolDisplay] = useState("none");
+  const [backgroundColorDisplay, setBackgroundColorDisplay] = useState("none");
   const [addTextActive, setAddTextActive] = useState(false);
+  const [selectBackgroundColorActive, setSelectBackgroundColorActive] = useState(false);
   const [addTextMode, setAddTextMode] = useState(false);
   const [tag, settag] = useState("");
   const router = useRouter();
@@ -64,6 +68,20 @@ function CustomCard(props) {
     const displayState = textToolDisplay === "none" ? "block" : "none";
     setTextToolDisplay(displayState);
     setAddTextActive(!addTextActive);
+    if (textToolDisplay === "none") {
+      setBackgroundColorDisplay('none');
+      setSelectBackgroundColorActive(false);
+    }
+  };
+
+  const handleToggleBackgroundColorDisplay = () => {
+    const displayState = backgroundColorDisplay === "none" ? "block" : "none";
+    setBackgroundColorDisplay(displayState);
+    setSelectBackgroundColorActive(!selectBackgroundColorActive);
+    if (backgroundColorDisplay === "none") {
+      setTextToolDisplay('none');
+      setAddTextActive(false);
+    }
   };
 
   const handleAddTextMode = () => {
@@ -156,10 +174,26 @@ function CustomCard(props) {
 
   const handleCanvasBackgroundColor = (e) => {
     let classList = e.target.className;
+    let colorList: any = {
+      "red": "#B03060",
+      "orange": "#FE9A76",
+      "yellow": "#FFD700",
+      "olive": "#32CD32",
+      "green": "#016936",
+      "teal": "#008080",
+      "blue": "#6289FF",
+      "violet": "#EE82EE",
+      "purple": "#B413EC",
+      "pink": "#E390BA",
+      "brown": "#A52A2A",
+      "grey": "#A0A0A0",
+      "black": "#000000",
+      "white": "#FFFFFF",
+    }
     let color = canvasBackgroundColor.find(c => classList.indexOf(c) !== -1);
-    console.log(color);
-    
-    canvas.setBackgroundColor(color, canvas.renderAll.bind(canvas));
+    console.log(classList);
+    console.log(colorList[color]);
+    canvas.setBackgroundColor(colorList[color], canvas.renderAll.bind(canvas));
   };
 
   const handleRemovedSelectedItemOnKeyPress = (e) => {
@@ -197,8 +231,8 @@ function CustomCard(props) {
         <h2>Customize Your Card</h2>
 
         {/* add text, image, remove item */}
-        <div className={`d-flex justify-content-between p-2`}>
-          <div className={`my-2 text-center`}>
+        <div className={`d-flex justify-content-center p-2`}>
+          <div className={`my-2 mx-2 text-center`}>
             <button
               className={`${addTextActive ? styles.btnActive : ""}`}
               onClick={handleToggleTextDisplay}
@@ -226,34 +260,16 @@ function CustomCard(props) {
           </div>
 
           <div className={`my-2 mx-2 text-center`}>
-            <button onClick={handleBringToFront}>
-              <Icon name="arrow up" />
-              Bring To Front
-            </button>
-          </div>
-
-          <div className={`my-2 mx-2 text-center`}>
-            <button onClick={handleSendToBack}>
-              <Icon name="arrow down" />
-              Send To Back
-            </button>
-          </div>
-        </div>
-
-        <div>
-          {canvasBackgroundColor.map((color) => (
-            <div
-              style={{ display: "inline-block" }}
-              onClick={handleCanvasBackgroundColor}
+            <button
+              className={`${selectBackgroundColorActive ? styles.btnActive : ""}`}
+              onClick={handleToggleBackgroundColorDisplay}
             >
-              <Icon
-                name="address card"
-                className={`circular large ${color} inverted icon`}
-              ></Icon>
-            </div>
-          ))}
+              <Icon name="address card"/>
+              Background
+            </button>
+          </div>
         </div>
-
+      
         <div
           className={styles.card_canvas_container}
           onKeyDownCapture={handleRemovedSelectedItemOnKeyPress}
@@ -271,7 +287,20 @@ function CustomCard(props) {
         </div>
 
         <div className={`d-flex justify-content-center p-2`}>
-          <div className={`my-2 text-center`}>
+          <div className={`my-2 mx-2 text-center`}>
+              <button onClick={handleBringToFront}>
+                <Icon name="arrow up" />
+                Bring Front
+              </button>
+            </div>
+
+            <div className={`my-2 mx-2 text-center`}>
+              <button onClick={handleSendToBack}>
+                <Icon name="arrow down" />
+                Send Back
+              </button>
+            </div>
+          <div className={`my-2 mx-2 text-center`}>
             <button
               className={styles.trashButton}
               onClick={handleRemovedSelectedItem}
@@ -279,6 +308,26 @@ function CustomCard(props) {
               <Icon name="trash" />
               Delete
             </button>
+          </div>
+        </div>
+
+        <div
+          className={`${styles.customized_card_form} ${
+            backgroundColorDisplay == "none" ? "" : styles.display
+          }`}
+        >
+          <div className={`d-flex justify-content-center flex-wrap`}>
+            {canvasBackgroundColor.map((color) => (
+              <div
+                className={`col my-3 ${styles.backgroundColorList}`}
+                onClick={handleCanvasBackgroundColor}
+              >
+                <Icon
+                  name="id card"
+                  className={`circular large ${color} inverted icon`}
+                ></Icon>
+              </div>
+            ))}            
           </div>
         </div>
 
