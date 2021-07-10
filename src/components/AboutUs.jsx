@@ -12,11 +12,19 @@ const AboutUs = () => {
         <div className="my-4">
           <div className="row align-items-center justify-content-around">
             <div className={`col-12 col-md-5 order-md-2 p-1`}>   
-                <Image
-                  src="/assets/card-1.jpg"
+                <Image 
+                  src="/assets/cc1.PNG"
                   alt="card"
-                  width={1000}
-                  height={1000}
+                  width={530}
+                  height={300}
+                />
+                <br></br>
+                <br></br>
+                <Image
+                  src="/assets/cc2.PNG"
+                  alt="card"
+                  width={530}
+                  height={300}
                 />
             </div>
             <div className={`col-12 col-md-6 order-md-1 ${styles.card}`}>
