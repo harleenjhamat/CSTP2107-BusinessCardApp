@@ -12,7 +12,7 @@ const AboutUs = () => {
         <div className="my-4">
           <div className="row align-items-center justify-content-around">
             <div className={`col-12 col-md-5 order-md-2 p-1`}>   
-                <Image 
+                <img 
                   src="/assets/cc1.PNG"
                   alt="card"
                   width={530}
@@ -20,7 +20,7 @@ const AboutUs = () => {
                 />
                 <br></br>
                 <br></br>
-                <Image
+                <img
                   src="/assets/cc2.PNG"
                   alt="card"
                   width={530}
@@ -80,19 +80,19 @@ const AboutUs = () => {
           <div className={styles.profile}>
             <img className={styles.profileimg} src="/assets/img1.jpg"/>
             <h3 className={styles.username}>Michael Kashkov</h3>
-            <h5>Backend Manager</h5>
+            <h5>Team Member</h5>
           </div>
 
           <div className={styles.profile}>
             <img className={styles.profileimg} src="/assets/img2.jpg"/>
             <h3 className={styles.username}>Eric</h3>
-            <h5>Project Member</h5>
+            <h5>Team Member</h5>
           </div>
 
           <div className={styles.profile}>
             <img className={styles.profileimg} src="/assets/img3.jpg"/>
             <h3 className={styles.username}>Pokai Huang</h3>
-            <h5>Project Lead</h5>
+            <h5>Team Member</h5>
           </div>
 
           <div className={styles.profile}>
@@ -107,7 +107,7 @@ const AboutUs = () => {
         <div className={styles.profile}>
             <img className={styles.profileimg} src="/assets/img5.jpg"/>
             <h3 className={styles.username}>Harleen Jhamat</h3>
-            <h5>Software Tester</h5>
+            <h5>Team Member</h5>
           </div>
     
           <div className={styles.profile}>
@@ -119,12 +119,12 @@ const AboutUs = () => {
           <div className={styles.profile}>
             <img className={styles.profileimg} src="/assets/img7.jpg"/>
             <h3 className={styles.username}>Ian</h3>
-            <h5>Managing Partner</h5>
+            <h5>Team Member</h5>
           </div>
           <div className={styles.profile}>
             <img className={styles.profileimg} src="/assets/img8.jpg"/>
             <h3 className={styles.username}>Jaisika Singh</h3>
-            <h5>UI Team Lead</h5>
+            <h5>Team Member</h5>
           </div>
         </div>
       </div>

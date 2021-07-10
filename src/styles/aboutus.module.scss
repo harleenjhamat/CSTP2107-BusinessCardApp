@@ -31,9 +31,26 @@
 
 .wrapper{
   width: 100%;
-  margin: 0 auto;  
+  margin: 0 auto; 
+  padding-right: 10px;
+  padding-left: 10px; 
+}
+.wrapper img{
+  background-color: $secondary-color;
+  border: solid;
+  border-color: $primary-color;
+  filter: drop-shadow(4px 4px 4px gray);
+ // box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+@media only screen and (max-width:1150px){
+  .wrapper img{
+    flex-direction:column;
+    align-items: center;
+    width: 360px;
+    height:250px;
+  }
+}
 
 .card {
   padding: 6%;
