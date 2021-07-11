@@ -1,10 +1,10 @@
 @import './Colors.scss';
 
 .wrap{
-  background-image: url("/assets/about-us.jpeg");
+  background-image: url("/assets/about-us.jpg");
   background-position: center;
   background-size: cover;
-  min-height: 70vh;
+  min-height: 80vh;
   width:100%;
   overflow: hidden;
   background-blend-mode: overlay;
@@ -31,9 +31,26 @@
 
 .wrapper{
   width: 100%;
-  margin: 0 auto;  
+  margin: 0 auto; 
+  padding-right: 10px;
+  padding-left: 10px; 
+}
+.wrapper img{
+  background-color: $secondary-color;
+  border: solid;
+  border-color: $primary-color;
+  filter: drop-shadow(4px 4px 4px gray);
+ // box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+@media only screen and (max-width:1150px){
+  .wrapper img{
+    flex-direction:column;
+    align-items: center;
+    width: 360px;
+    height:250px;
+  }
+}
 
 .card {
   padding: 6%;
@@ -93,9 +110,10 @@
 
 .container1 h1{
   color: $primary-color;
-  padding-top:20px;
+  padding-top:10px;
   letter-spacing: 3px;
   font-weight: 30px;
+  text-align: center;
 }
 
 .container1 p{
@@ -173,7 +191,7 @@
   margin: 10px 60px;
 }
 .car{
-  margin-top: 40px;
+  margin-top: 30px;
   background-color: $secondary-color;
   flex-basis: 400px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -195,45 +213,5 @@
   }
 }
 
-.container3{
-  width: 100%;
-  height: 50px;
-  block-size: auto;
-  background: $secondary-color;
-}
 
-.container3 h1{
-  color: $white;
-  padding-top:20px;
-  letter-spacing: 3px;
-  font-weight: 30px;
-  font-size: 3rem;
-  text-align: center;
 
-}
-.container3 .btn{
-  align-items: center;
-  justify-content: center;
-  margin-left:45%;
-  padding: 15px 32px;
-  margin-bottom: 30px;
-  border-style: solid;
-  border-color: $primary-color;
-  font-size:1.5rem;
-  background-color:$white;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-}
-.container3 .btn:hover{
-  background-color:$primary-color;
-  color:$white;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-@media all and (max-width:30em){
-  .btn{  
-    display: inline-flex;
-    margin-bottom: 30px;
-
-  }
-}
