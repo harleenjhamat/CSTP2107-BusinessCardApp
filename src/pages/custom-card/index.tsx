@@ -8,7 +8,20 @@ import { base64ToBlob, readFile } from "@/utility/File";
 
 function CustomCard(props) {
   const [canvasBackgroundColor] = useState([
-    "red", "orange", "yellow", "olive", "green", "teal", "blue", "violet", "purple", "pink", "brown", "black", "grey", "white",
+    "red",
+    "orange",
+    "yellow",
+    "olive",
+    "green",
+    "teal",
+    "blue",
+    "violet",
+    "purple",
+    "pink",
+    "brown",
+    "black",
+    "grey",
+    "white",
   ]);
   const [canvas, setCanvas]: [any, any] = useState();
   const [userTextInput, setUserTextInput] = useState("");
@@ -22,7 +35,8 @@ function CustomCard(props) {
   const [textToolDisplay, setTextToolDisplay] = useState("none");
   const [backgroundColorDisplay, setBackgroundColorDisplay] = useState("none");
   const [addTextActive, setAddTextActive] = useState(false);
-  const [selectBackgroundColorActive, setSelectBackgroundColorActive] = useState(false);
+  const [selectBackgroundColorActive, setSelectBackgroundColorActive] =
+    useState(false);
   const [addTextMode, setAddTextMode] = useState(false);
   const [tag, settag] = useState("");
   const router = useRouter();
@@ -69,7 +83,7 @@ function CustomCard(props) {
     setTextToolDisplay(displayState);
     setAddTextActive(!addTextActive);
     if (textToolDisplay === "none") {
-      setBackgroundColorDisplay('none');
+      setBackgroundColorDisplay("none");
       setSelectBackgroundColorActive(false);
     }
   };
@@ -79,7 +93,7 @@ function CustomCard(props) {
     setBackgroundColorDisplay(displayState);
     setSelectBackgroundColorActive(!selectBackgroundColorActive);
     if (backgroundColorDisplay === "none") {
-      setTextToolDisplay('none');
+      setTextToolDisplay("none");
       setAddTextActive(false);
     }
   };
@@ -165,32 +179,32 @@ function CustomCard(props) {
   };
 
   const handleBringToFront = () => {
-    canvas.getActiveObject().bringToFront();
+    canvas.getActiveObject()?.bringToFront();
   };
 
   const handleSendToBack = () => {
-    canvas.getActiveObject().sendToBack();
+    canvas.getActiveObject()?.sendToBack();
   };
 
   const handleCanvasBackgroundColor = (e) => {
     let classList = e.target.className;
     let colorList: any = {
-      "red": "#B03060",
-      "orange": "#FE9A76",
-      "yellow": "#FFD700",
-      "olive": "#32CD32",
-      "green": "#016936",
-      "teal": "#008080",
-      "blue": "#6289FF",
-      "violet": "#EE82EE",
-      "purple": "#B413EC",
-      "pink": "#E390BA",
-      "brown": "#A52A2A",
-      "grey": "#A0A0A0",
-      "black": "#000000",
-      "white": "#FFFFFF",
-    }
-    let color = canvasBackgroundColor.find(c => classList.indexOf(c) !== -1);
+      red: "#B03060",
+      orange: "#FE9A76",
+      yellow: "#FFD700",
+      olive: "#32CD32",
+      green: "#016936",
+      teal: "#008080",
+      blue: "#6289FF",
+      violet: "#EE82EE",
+      purple: "#B413EC",
+      pink: "#E390BA",
+      brown: "#A52A2A",
+      grey: "#A0A0A0",
+      black: "#000000",
+      white: "#FFFFFF",
+    };
+    let color = canvasBackgroundColor.find((c) => classList.indexOf(c) !== -1);
     console.log(classList);
     console.log(colorList[color]);
     canvas.setBackgroundColor(colorList[color], canvas.renderAll.bind(canvas));
@@ -231,18 +245,18 @@ function CustomCard(props) {
         <h2>Customize Your Card</h2>
 
         {/* add text, image, remove item */}
-        <div className={`d-flex justify-content-center p-2`}>
-          <div className={`my-2 mx-2 text-center`}>
+        <div className={`d-flex justify-content-center p-2 flex-wrap`}>
+          <div className={`${styles.buttonDiv} mx-2 text-center`}>
             <button
               className={`${addTextActive ? styles.btnActive : ""}`}
               onClick={handleToggleTextDisplay}
             >
               <Icon name="font" />
-              Text
             </button>
+            <span>Text</span>
           </div>
 
-          <div className={`my-2 mx-2 text-center`}>
+          <div className={` mx-2 text-center`}>
             <input
               accept="image/*"
               id="addImageInput"
@@ -251,25 +265,50 @@ function CustomCard(props) {
               style={{ display: "none" }}
               type="file"
             />
-            <div>
+            <div className={`${styles.buttonDiv}`}>
               <button id="addImageButton" onClick={handleAddImage}>
                 <Icon name="file image" />
-                Image
               </button>
+              <span>Image</span>
             </div>
           </div>
 
-          <div className={`my-2 mx-2 text-center`}>
+          <div className={`${styles.buttonDiv} mx-2 text-center`}>
             <button
-              className={`${selectBackgroundColorActive ? styles.btnActive : ""}`}
+              className={`${
+                selectBackgroundColorActive ? styles.btnActive : ""
+              }`}
               onClick={handleToggleBackgroundColorDisplay}
             >
-              <Icon name="address card"/>
-              Background
+              <Icon name="id card" />
             </button>
+            <span>Card Color</span>
+          </div>
+
+          <div className={`${styles.buttonDiv} mx-2 text-center`}>
+            <button onClick={handleBringToFront}>
+              <Icon name="arrow up" />
+            </button>
+            <span>Bring To Front</span>
+          </div>
+
+          <div className={`${styles.buttonDiv} mx-2 text-center`}>
+            <button onClick={handleSendToBack}>
+              <Icon name="arrow down" />
+            </button>
+            <span>Send Back</span>
+          </div>
+          <div className={`${styles.buttonDiv}  mx-2 text-center`}>
+            <button
+              className={styles.trashButton}
+              onClick={handleRemovedSelectedItem}
+            >
+              <Icon name="trash alternate" />
+            </button>
+            <span>Delete</span>
           </div>
         </div>
-      
+
         <div
           className={styles.card_canvas_container}
           onKeyDownCapture={handleRemovedSelectedItemOnKeyPress}
@@ -284,31 +323,6 @@ function CustomCard(props) {
             width="450"
             height="250"
           ></canvas>
-        </div>
-
-        <div className={`d-flex justify-content-center p-2`}>
-          <div className={`my-2 mx-2 text-center`}>
-              <button onClick={handleBringToFront}>
-                <Icon name="arrow up" />
-                Bring Front
-              </button>
-            </div>
-
-            <div className={`my-2 mx-2 text-center`}>
-              <button onClick={handleSendToBack}>
-                <Icon name="arrow down" />
-                Send Back
-              </button>
-            </div>
-          <div className={`my-2 mx-2 text-center`}>
-            <button
-              className={styles.trashButton}
-              onClick={handleRemovedSelectedItem}
-            >
-              <Icon name="trash" />
-              Delete
-            </button>
-          </div>
         </div>
 
         <div
@@ -327,7 +341,7 @@ function CustomCard(props) {
                   className={`circular large ${color} inverted icon`}
                 ></Icon>
               </div>
-            ))}            
+            ))}
           </div>
         </div>
 
@@ -421,7 +435,7 @@ function CustomCard(props) {
           <div
             className={`d-flex justify-content-around align-items-center flex-wrap`}
           >
-            <div className={`col mx-3`}>
+            <div className={`col-8 mx-3`}>
               <input
                 className={`${styles.textInput}`}
                 type="text"
@@ -430,29 +444,33 @@ function CustomCard(props) {
                 onChange={handleUserTextInput}
               />
             </div>
-            <div className={`col py-3`}>
-              <button onClick={handleAddTextMode}>
-                <Icon name="plus circle" /> Add Text
-              </button>
+            <div className={`col`}>
+              <div className={`${styles.horizontalButtonDiv}`}>
+                <button onClick={handleAddTextMode}>
+                  <Icon name="plus circle" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
         <br />
 
         {/* Saving Section */}
-        <div className={`d-flex align-items-center py-2 mb-5`}>
-          <div className={`mx-3 p-0 col-8`}>
+        <div className={`row align-items-center py-2 mb-5`}>
+          <div className={`col-9`}>
             <input
               type="text"
               placeholder="Add a search tag to your card (ie. student)"
-              className={`form-control`}
+              className={`form-control ${styles.saveInput}`}
               onChange={tagHandle}
             />
           </div>
-          <button className={styles.saveBtn} onClick={handleSave}>
-            <Icon name="save" />
-            Save
-          </button>
+          <div className={`${styles.horizontalButtonDiv} col`}>
+            <button className={styles.saveBtn} onClick={handleSave}>
+              <Icon name="save" />
+            </button>
+            {/* <span>Save</span> */}
+          </div>
         </div>
       </div>
     </>
