@@ -170,10 +170,10 @@ function CustomCard(props) {
   };
 
   const handleRemovedSelectedItem = () => {
-    if (canvas.getActiveObject()._objects) {
+    if (canvas.getActiveObject()?._objects) {
       const selectedObjects = canvas.getActiveObject()._objects;
       selectedObjects.forEach((obj) => canvas.remove(obj));
-    } else {
+    } else if(canvas.getActiveObject()){
       canvas.remove(canvas.getActiveObject());
     }
   };
