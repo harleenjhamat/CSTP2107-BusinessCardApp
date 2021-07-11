@@ -410,10 +410,10 @@ function CustomCard(props) {
                 id="fontFamily"
                 onChange={handleFontFamilyChange}
               >
-                <option value="arial">arial</option>
-                <option value="courier">courier</option>
-                <option value="times">times</option>
-                <option value="verdana">verdana</option>
+                <option value="arial">Arial</option>
+                <option value="courier">Courier</option>
+                <option value="times">Times</option>
+                <option value="verdana">Verdana</option>
               </select>
             </div>
           </div>

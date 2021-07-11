@@ -78,14 +78,14 @@ $medium: 900px;
   label {
     margin-right: 4%;
   }
-  visibility: hidden;
+  display: none;
   height: 0;
   opacity: 0;
-  transition: height 0.5s, visibility 2.2s, opacity 0.2s linear;
+  transition: height 0.5s, display 2.2s, opacity 0.2s linear;
 }
 
 .display {
-  visibility: visible;
+  display: block;
   opacity: 1;
   height: 100%;
 }
