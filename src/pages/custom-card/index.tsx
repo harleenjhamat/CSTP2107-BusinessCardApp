@@ -5,24 +5,10 @@ import { useRouter } from "next/router";
 
 import styles from "@/styles/CustomizeYourCard.module.scss";
 import { base64ToBlob, readFile } from "@/utility/File";
+import { ColorList, ColorArray } from "./../../utility/ColorList";
 
 function CustomCard(props) {
-  const [canvasBackgroundColor] = useState([
-    "red",
-    "orange",
-    "yellow",
-    "olive",
-    "green",
-    "teal",
-    "blue",
-    "violet",
-    "purple",
-    "pink",
-    "brown",
-    "black",
-    "grey",
-    "white",
-  ]);
+  const [canvasBackgroundColor] = useState(ColorArray);
   const [canvas, setCanvas]: [any, any] = useState();
   const [userTextInput, setUserTextInput] = useState("");
   const [fontWeight, setFontWeight] = useState(false);
@@ -38,7 +24,7 @@ function CustomCard(props) {
   const [selectBackgroundColorActive, setSelectBackgroundColorActive] =
     useState(false);
   const [addTextMode, setAddTextMode] = useState(false);
-  const [tag, settag] = useState("");
+  const [tag, setTag] = useState("");
   const router = useRouter();
 
   useEffect(() => {
@@ -82,6 +68,7 @@ function CustomCard(props) {
     const displayState = textToolDisplay === "none" ? "block" : "none";
     setTextToolDisplay(displayState);
     setAddTextActive(!addTextActive);
+
     if (textToolDisplay === "none") {
       setBackgroundColorDisplay("none");
       setSelectBackgroundColorActive(false);
@@ -92,6 +79,7 @@ function CustomCard(props) {
     const displayState = backgroundColorDisplay === "none" ? "block" : "none";
     setBackgroundColorDisplay(displayState);
     setSelectBackgroundColorActive(!selectBackgroundColorActive);
+
     if (backgroundColorDisplay === "none") {
       setTextToolDisplay("none");
       setAddTextActive(false);
@@ -103,8 +91,7 @@ function CustomCard(props) {
   };
 
   const tagHandle = (e) => {
-    // console.log(e.target.value)
-    settag(e.target.value);
+    setTag(e.target.value);
   };
 
   const handleAddText = (e) => {
@@ -141,7 +128,6 @@ function CustomCard(props) {
   };
 
   const handleSave = () => {
-    // const canvasJson = canvas.toJSON();
     const sendObject = {
       json: canvas.toJSON(),
       name: JSON.parse(sessionStorage.getItem("name")),
@@ -151,6 +137,7 @@ function CustomCard(props) {
       create_new_card: "yes",
       tag: tag,
     };
+
     const sendObjectStr = JSON.stringify(sendObject);
 
     fetch("http://localhost:3000/api/usercards?=", {
@@ -161,7 +148,6 @@ function CustomCard(props) {
       body: sendObjectStr,
     })
       .then((response) => {
-        // console.log(response);
         router.push("/MainPage");
       })
       .catch((err) => {
@@ -173,7 +159,7 @@ function CustomCard(props) {
     if (canvas.getActiveObject()?._objects) {
       const selectedObjects = canvas.getActiveObject()._objects;
       selectedObjects.forEach((obj) => canvas.remove(obj));
-    } else if(canvas.getActiveObject()){
+    } else if (canvas.getActiveObject()) {
       canvas.remove(canvas.getActiveObject());
     }
   };
@@ -188,26 +174,9 @@ function CustomCard(props) {
 
   const handleCanvasBackgroundColor = (e) => {
     let classList = e.target.className;
-    let colorList: any = {
-      red: "#B03060",
-      orange: "#FE9A76",
-      yellow: "#FFD700",
-      olive: "#32CD32",
-      green: "#016936",
-      teal: "#008080",
-      blue: "#6289FF",
-      violet: "#EE82EE",
-      purple: "#B413EC",
-      pink: "#E390BA",
-      brown: "#A52A2A",
-      grey: "#A0A0A0",
-      black: "#000000",
-      white: "#FFFFFF",
-    };
     let color = canvasBackgroundColor.find((c) => classList.indexOf(c) !== -1);
-    console.log(classList);
-    console.log(colorList[color]);
-    canvas.setBackgroundColor(colorList[color], canvas.renderAll.bind(canvas));
+    if(!color) return;
+    canvas.setBackgroundColor(ColorList[color], canvas.renderAll.bind(canvas));
   };
 
   const handleRemovedSelectedItemOnKeyPress = (e) => {
@@ -244,9 +213,11 @@ function CustomCard(props) {
       <div className={styles.container} id="custom-card-container">
         <h2>Customize Your Card</h2>
 
-        {/* add text, image, remove item */}
+        {/* add text, image, backgroundColor, bring-to-front, send-to-back, remove item */}
         <div className={`d-flex justify-content-center p-2 flex-wrap`}>
-          <div className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}>
+          <div
+            className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}
+          >
             <button
               className={`${addTextActive ? styles.btnActive : ""}`}
               onClick={handleToggleTextDisplay}
@@ -273,7 +244,9 @@ function CustomCard(props) {
             </div>
           </div>
 
-          <div className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}>
+          <div
+            className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}
+          >
             <button
               className={`${
                 selectBackgroundColorActive ? styles.btnActive : ""
@@ -285,20 +258,27 @@ function CustomCard(props) {
             <span className={styles.tooltiptext}>Card Color</span>
           </div>
 
-          <div className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}>
+          <div
+            className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}
+          >
             <button onClick={handleBringToFront}>
               <Icon name="arrow up" />
             </button>
             <span className={styles.tooltiptext}>Bring Front</span>
           </div>
 
-          <div className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}>
+          <div
+            className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}
+          >
             <button onClick={handleSendToBack}>
               <Icon name="arrow down" />
             </button>
             <span className={styles.tooltiptext}>Send Back</span>
           </div>
-          <div className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}>
+
+          <div
+            className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}
+          >
             <button
               className={styles.trashButton}
               onClick={handleRemovedSelectedItem}
@@ -309,6 +289,7 @@ function CustomCard(props) {
           </div>
         </div>
 
+        {/* Card Canvas */}
         <div
           className={styles.card_canvas_container}
           onKeyDownCapture={handleRemovedSelectedItemOnKeyPress}
@@ -325,6 +306,7 @@ function CustomCard(props) {
           ></canvas>
         </div>
 
+        {/* Card Color Background Tool Div */}
         <div
           className={`${styles.customized_card_form} ${
             backgroundColorDisplay == "none" ? "" : styles.display
@@ -338,7 +320,7 @@ function CustomCard(props) {
               >
                 <Icon
                   name="id card"
-                  className={`circular large ${color} inverted icon`}
+                  className={`circular large ${color === "white" ? `${color}` : `${color} inverted`} icon`}
                 ></Icon>
                 <span className={styles.colorText}>{color}</span>
               </div>
@@ -346,12 +328,14 @@ function CustomCard(props) {
           </div>
         </div>
 
+        {/* Add Text Popup Message */}
         {addTextMode && userTextInput !== "" && (
           <div className={`alert alert-info ${styles.hintText}`}>
             click on the canvas
           </div>
         )}
 
+        {/* Text Tool Div */}
         <div
           className={`${styles.customized_card_form} ${
             textToolDisplay == "none" ? "" : styles.display
@@ -456,7 +440,7 @@ function CustomCard(props) {
         </div>
         <br />
 
-        {/* Saving Section */}
+        {/* Save Card Section */}
         <div className={`row align-items-center py-2 mb-5`}>
           <div className={`col-9`}>
             <input
@@ -470,7 +454,6 @@ function CustomCard(props) {
             <button className={styles.saveBtn} onClick={handleSave}>
               <Icon name="save" />
             </button>
-            {/* <span>Save</span> */}
           </div>
         </div>
       </div>
