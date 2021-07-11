@@ -33,7 +33,7 @@ $medium: 900px;
     i {
       position: relative;
       top: 0px;
-      left: 0px;
+      left: 1px;
     }
     &:hover{
     background-color: $quaternary_color;
@@ -47,6 +47,7 @@ $medium: 900px;
   align-items: center;
   width: 50px;
   margin-bottom: 1%;
+  margin-right: 0.25rem;
   span{
     display: none;
   }
@@ -82,12 +83,12 @@ $medium: 900px;
 }
 
 .customized_card_form {
-  background-color:$grey;
+  background-color: $grey;
   max-width: 450px;
   border-radius: 1%;
   border: $border_color 1px solid;
-  padding: 4% 4%;
-  margin-top: 2%;
+  padding: 1% 1%;
+  margin-top: 1%;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
   text-align: center;
   input {
@@ -159,4 +160,48 @@ $medium: 900px;
 
 .saveInput{
   width: 300px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 100px;
+  background-color: $primary_color;
+  color: #fff;
+  text-align: center;
+  font-weight: 500;
+  border: 1px solid $light_shade;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: sticky;
+  z-index: 1;
+  top: 150%;
+  left: 50%;
+  margin-left: -25px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border: 1px solid $light_shade;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent $primary_color transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.colorText {
+  font-size: 14;
+  font-weight: bold;
+  text-transform: capitalize;
 }

@@ -246,14 +246,14 @@ function CustomCard(props) {
 
         {/* add text, image, remove item */}
         <div className={`d-flex justify-content-center p-2 flex-wrap`}>
-          <div className={`${styles.buttonDiv} mx-2 text-center`}>
+          <div className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}>
             <button
               className={`${addTextActive ? styles.btnActive : ""}`}
               onClick={handleToggleTextDisplay}
             >
               <Icon name="font" />
             </button>
-            <span>Text</span>
+            <span className={styles.tooltiptext}>Text</span>
           </div>
 
           <div className={` mx-2 text-center`}>
@@ -265,47 +265,47 @@ function CustomCard(props) {
               style={{ display: "none" }}
               type="file"
             />
-            <div className={`${styles.buttonDiv}`}>
+            <div className={`${styles.buttonDiv} ${styles.tooltip}`}>
               <button id="addImageButton" onClick={handleAddImage}>
                 <Icon name="file image" />
               </button>
-              <span>Image</span>
+              <span className={styles.tooltiptext}>Image</span>
             </div>
           </div>
 
-          <div className={`${styles.buttonDiv} mx-2 text-center`}>
+          <div className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}>
             <button
               className={`${
                 selectBackgroundColorActive ? styles.btnActive : ""
-              }`}
+              } `}
               onClick={handleToggleBackgroundColorDisplay}
             >
-              <Icon name="id card" />
+              <Icon name="address card" />
             </button>
-            <span>Card Color</span>
+            <span className={styles.tooltiptext}>Card Color</span>
           </div>
 
-          <div className={`${styles.buttonDiv} mx-2 text-center`}>
+          <div className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}>
             <button onClick={handleBringToFront}>
               <Icon name="arrow up" />
             </button>
-            <span>Bring To Front</span>
+            <span className={styles.tooltiptext}>Bring Front</span>
           </div>
 
-          <div className={`${styles.buttonDiv} mx-2 text-center`}>
+          <div className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}>
             <button onClick={handleSendToBack}>
               <Icon name="arrow down" />
             </button>
-            <span>Send Back</span>
+            <span className={styles.tooltiptext}>Send Back</span>
           </div>
-          <div className={`${styles.buttonDiv}  mx-2 text-center`}>
+          <div className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}>
             <button
               className={styles.trashButton}
               onClick={handleRemovedSelectedItem}
             >
-              <Icon name="trash alternate" />
+              <Icon className="inverted trash alternate" />
             </button>
-            <span>Delete</span>
+            <span className={styles.tooltiptext}>Delete</span>
           </div>
         </div>
 
@@ -340,6 +340,7 @@ function CustomCard(props) {
                   name="id card"
                   className={`circular large ${color} inverted icon`}
                 ></Icon>
+                <span className={styles.colorText}>{color}</span>
               </div>
             ))}
           </div>
