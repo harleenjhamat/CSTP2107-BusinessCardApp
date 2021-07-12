@@ -20,12 +20,53 @@ function CustomCard(props) {
   const [addTextActive, setAddTextActive] = useState(false);
   const [addTextMode, setAddTextMode] = useState(false);
   const [tag, settag] = useState("");
+  const [showLogInMsg, setShowLogInMsg] = useState(false);
+  const [canvasLoaded, setcanvasLoaded] = useState(false);
   const router = useRouter();
 
+  const pullCanvas = async() => {
+        const sendObject = {
+          get_personal_card: JSON.parse(sessionStorage.getItem("email")),
+        };
+        const sendObjectStr = JSON.stringify(sendObject);
+    
+        const responsex = await fetch("http://localhost:3000/api/usercards", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: sendObjectStr,
+        })
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            return data
+            
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+    return responsex
+  }
   useEffect(() => {
-    if (!canvas)
-      setCanvas(new fabric.Canvas("Canvas", { backgroundColor: "#eee" }));
+      if (!canvas){
+        setCanvas(new fabric.Canvas("Canvas", { backgroundColor: "#eee" }));
+      }
   }, []);
+    setTimeout(() => {
+      if (typeof window !== "undefined") {
+        if(sessionStorage.getItem("email") !== null && !canvasLoaded){
+          pullCanvas().then(function (response) {
+            // console.log(response[0])
+            if (canvas){
+              setCanvas(canvas.loadFromJSON(response[0].json,canvas.renderAll.bind(canvas)))
+              setcanvasLoaded(true)
+            }
+          })
+        }
+      }
+  }, 1000)
 
   const handleFontWeightChange = (e) => {
     setFontWeight(!fontWeight);
@@ -109,31 +150,45 @@ function CustomCard(props) {
 
   const handleSave = () => {
     // const canvasJson = canvas.toJSON();
-    const sendObject = {
-      json: canvas.toJSON(),
-      name: JSON.parse(sessionStorage.getItem("name")),
-      email: JSON.parse(sessionStorage.getItem("email")),
-      img: canvas.toDataURL("png"),
-      sharedcode: Math.random(),
-      create_new_card: "yes",
-      tag: tag,
-    };
-    const sendObjectStr = JSON.stringify(sendObject);
+    if(sessionStorage.getItem("email")){
+      const sendObject = {
+        json: canvas.toJSON(),
+        name: JSON.parse(sessionStorage.getItem("name")),
+        email: JSON.parse(sessionStorage.getItem("email")),
+        img: canvas.toDataURL("png"),
+        sharedcode: Math.random(),
+        create_new_card: "yes",
+        tag: tag,
+      };
+      const sendObjectStr = JSON.stringify(sendObject);
 
-    fetch("http://localhost:3000/api/usercards?=", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: sendObjectStr,
-    })
-      .then((response) => {
-        // console.log(response);
-        router.push("/MainPage");
+      fetch("http://localhost:3000/api/usercards?=", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: sendObjectStr,
       })
-      .catch((err) => {
-        console.error(err);
-      });
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          if(data.email === null){
+            console.log('have to log in')
+          }else{
+            router.push("/MainPage");
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }else{
+      setShowLogInMsg(true)
+      setTimeout(() => {
+        setShowLogInMsg(false)
+    }, 3000)
+  
+    }
   };
 
   const handleRemovedSelectedItem = () => {
@@ -343,6 +398,7 @@ function CustomCard(props) {
         </div>
         <br />
 
+        { showLogInMsg && <h2>Please logIn first...</h2>}
         {/* Saving Section */}
         <div className={`d-flex align-items-center py-2 mb-5`}>
           <div className={`mx-3 p-0 col-8`}>

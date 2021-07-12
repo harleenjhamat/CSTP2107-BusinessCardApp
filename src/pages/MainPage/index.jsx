@@ -8,7 +8,7 @@ import AddCard from "./../../components/AddCard";
 import styles from "@/styles/sharedcard.module.scss";
 
 const MainPage = () => {
-  const [url, seturl] = useState("");
+  const [filteredArray, setfilteredArray] = useState([]);
 
   const [array_of_cards, set_array_of_cards] = useState([]);
   const [arrayReceived, setarrayReceived] = useState(false);
@@ -83,7 +83,7 @@ const MainPage = () => {
 
   const newCardHandler = (data) => {
     setsearchClicked(true);
-    seturl(data);
+    setfilteredArray(data);
   };
 
   const Handle_fab_clicked = (data) => {
@@ -126,11 +126,21 @@ const MainPage = () => {
 
         {/* This is other people's cards section */}
         <div className={`col-12 col-md-8 p-4 pt-0`}>
-          <SearchCard addnewcard={newCardHandler} />
+          <SearchCard addnewcard={newCardHandler} portfolio={portfolio}/>
           {/* This is the card deck */}
           <div className={`${styles.imgDiv}`}>
-            {searchClicked && <SharedCard feedimg={url} />}
-
+            {searchClicked && 
+              filteredArray !== [] &&
+              filteredArray.map((card) => (
+                <SharedCard
+                  key={card._id}
+                  feedimg={card.img}
+                  id={card._id}
+                  useremail={JSON.parse(sessionStorage.getItem("email"))}
+                  email={card.email}
+                />
+              ))}
+              {/* {console.log(portfolio)} */}
             {!searchClicked &&
               portfolio !== [] &&
               portfolio.map((card) => (

@@ -12,6 +12,9 @@ const UserCard = ({ fab_clicked }) => {
   const [email, setEmail] = useState("");
 
   if (typeof window !== "undefined") {
+    if(sessionStorage.getItem("email") === null){
+      router.push("/custom-card");
+    }
     const sendObject = {
       get_personal_card: JSON.parse(sessionStorage.getItem("email")),
     };
@@ -28,10 +31,13 @@ const UserCard = ({ fab_clicked }) => {
         return response.json();
       })
       .then(function (data) {
-        // console.log(data)
-        setmyCustomCard(true);
-        setmyCustomCardUrl(data[0].img);
-        setEmail(data[0].email);
+        if(data.length === 0){
+          router.push("/custom-card");
+        }else{
+          setmyCustomCard(true);
+          setmyCustomCardUrl(data[0].img);
+          setEmail(data[0].email);
+        }
       })
       .catch((err) => {
         console.error(err);

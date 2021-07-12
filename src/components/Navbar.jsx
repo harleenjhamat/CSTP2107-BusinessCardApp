@@ -8,6 +8,10 @@ import styles from "../styles/navbar.module.scss";
 const Navbar = () => {
   const [session, loading] = useSession();
   const router = useRouter();
+  const signOutHandler = () => {
+    sessionStorage.clear() 
+    signOut("google")
+  };
 
   if (typeof window !== "undefined" && session) {
     sessionStorage.setItem("user", JSON.stringify(session.user));
@@ -99,7 +103,8 @@ const Navbar = () => {
                 </p>
                 <button
                   className={`${styles.button}`}
-                  onClick={() => signOut("google")}
+                  // onClick={() => signOut("google")}
+                  onClick={signOutHandler}
                 >
                   Logout
                 </button>

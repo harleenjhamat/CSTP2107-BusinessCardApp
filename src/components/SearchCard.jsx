@@ -10,30 +10,19 @@ var col = `text-center m-0 p-0`;
 
 const SearchCard = (props) => {
   const sharedcode = useRef("");
-  const GetCardByCode = () => {
+  const GetCards = () => {
     // console.log(sharedcode)
     if (sharedcode.current.value === "") {
       window.location.reload();
     }
-    const sendObject = {
-      filter_card: sharedcode.current.value,
-    };
-    sharedcode.current.value = "";
-    const sendObjectStr = JSON.stringify(sendObject);
-    fetch("http://localhost:3000/api/usercards/?=", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: sendObjectStr,
-    })
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data[0]);
-        props.addnewcard(data[0].img);
-      });
+    let filteredCards = props.portfolio.filter((card) => {
+      return (
+         card.email.toLowerCase().includes(sharedcode.current.value.toLowerCase()) 
+      || card.tag.toLowerCase().includes(sharedcode.current.value.toLowerCase())
+      || card.name.toLowerCase().includes(sharedcode.current.value.toLowerCase())
+      );
+    });
+      props.addnewcard(filteredCards);
   };
   return (
     <div className={`${styles.searchBarDiv} my-4`}>
@@ -47,7 +36,7 @@ const SearchCard = (props) => {
             />
           </div>
           <div className={`col-12 col-sm text-center`}>
-            <button className={`${styles.button}`} onClick={GetCardByCode}>
+            <button className={`${styles.button}`} onClick={GetCards}>
               <Icon name="search" />
               Search
             </button>

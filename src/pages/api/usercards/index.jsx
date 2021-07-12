@@ -15,6 +15,7 @@ const handler = async (req, res) => {
     const { email } = req.body
     const { img } = req.body
     const { tag } = req.body
+    const { json } = req.body
     const { filter_card } = req.body
     const { check_if_exist } = req.body
 
@@ -49,7 +50,7 @@ const handler = async (req, res) => {
     }
     if (create_new_card) {
       try {
-        var usercards = await Usercard.findOneAndUpdate({email:email}, {img:img, tag:tag}).exec()
+        var usercards = await Usercard.findOneAndUpdate({email:email}, {img:img, tag:tag, json:json}).exec()
         if(usercards===null){
           try {
             const usercard = new Usercard(req.body)
