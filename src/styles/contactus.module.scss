@@ -72,13 +72,14 @@
 .container{
     align-items: center;
     background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
     padding-bottom: 6%;
     overflow: hidden;
     background-blend-mode: overlay;
     background-color: hsl(180, 13%, 17%);
     width: 100%;
-    min-height:70vh;
+    min-height:80vh;
     background-image: url('/assets/contactus.jpg/');
   }
   .container h1{

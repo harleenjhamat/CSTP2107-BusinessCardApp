@@ -22,8 +22,8 @@ const ContactUs = () => {
             <div className={styles.contactcol}>
                 <i className='fa fa-phone'></i>
                 <span>
-                    <h5>+1(778)-100-1000 </h5>
-                    <p>Monday to Saturday, 10AM to 6PM</p>
+                    <h5>+1(778)-100-1000</h5>
+                    <p>Monday - Saturday, 10AM to 6PM</p>
                 </span>
             </div>
 
@@ -35,7 +35,6 @@ const ContactUs = () => {
                 </span>
             </div>
         </div>
-    
         <div className={styles.contactcol}>
             <form action=''>
             <h1>Questions? </h1>
@@ -44,7 +43,7 @@ const ContactUs = () => {
                 <input type='email' placeholder='Enter email address' required />
                 <input type='text' placeholder='Enter your subject' required />
                 <textarea rows='8' placeholder='Message' required></textarea>
-                <button type ='submit' className={styles.btn}>Send Mesasage</button>
+                <button type ='submit' className={styles.btn}>Send Message</button>
             </form>
         </div>
     </div>
