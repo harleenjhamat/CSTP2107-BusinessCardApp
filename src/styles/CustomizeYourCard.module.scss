@@ -170,11 +170,10 @@ $medium: 900px;
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 100px;
-  background-color: $primary_color;
-  color: #fff;
+  background-color: rgba(141, 141, 141, 0.6);
+  color: rgb(0, 0, 0);
   text-align: center;
   font-weight: 500;
-  border: 1px solid $light_shade;
   border-radius: 6px;
   padding: 5px 0;
   position: sticky;
@@ -182,6 +181,7 @@ $medium: 900px;
   top: 150%;
   left: 50%;
   margin-left: -25px;
+  margin-top: 5px;
 }
 
 .tooltip .tooltiptext::after {
@@ -190,10 +190,9 @@ $medium: 900px;
   bottom: 100%;
   left: 50%;
   margin-left: -5px;
-  border: 1px solid $light_shade;
   border-width: 5px;
   border-style: solid;
-  border-color: transparent transparent $primary_color transparent;
+  border-color: transparent transparent rgba(141, 141, 141, 0.6) transparent;
 }
 
 .tooltip:hover .tooltiptext {

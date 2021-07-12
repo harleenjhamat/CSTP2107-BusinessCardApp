@@ -342,7 +342,7 @@ function CustomCard(props) {
           }`}
         >
           <div className={`d-flex my-3 justify-content-center flex-wrap`}>
-            <div className={`col mb-3`}>
+            <div className={`col mx-1 mb-3`}>
               <div
                 className={`${fontWeight == true ? styles.toolActive : ""} col`}
                 onClick={handleFontWeightChange}
@@ -350,7 +350,7 @@ function CustomCard(props) {
                 <Icon name="bold" />
               </div>
             </div>
-            <div className={`col`}>
+            <div className={`col mx-1`}>
               <div
                 className={`${fontStyle == true ? styles.toolActive : ""} col`}
                 onClick={handleFontStyleChange}
@@ -358,7 +358,7 @@ function CustomCard(props) {
                 <Icon name="italic" />
               </div>
             </div>
-            <div className={`col`}>
+            <div className={`col mx-1`}>
               <div
                 className={`${underline == true ? styles.toolActive : ""} col`}
                 onClick={handleUnderlineChange}
@@ -366,7 +366,7 @@ function CustomCard(props) {
                 <Icon name="underline" />
               </div>
             </div>
-            <div className={`col`}>
+            <div className={`col mx-1`}>
               <div
                 className={`${
                   linethrough == true ? styles.toolActive : ""
@@ -376,7 +376,7 @@ function CustomCard(props) {
                 <Icon name="strikethrough" />
               </div>
             </div>
-            <div className={`col`}>
+            <div className={`col mx-1`}>
               <div
                 className={`${overline == true ? styles.toolActive : ""} col`}
                 onClick={handleOverlineChange}
@@ -394,7 +394,7 @@ function CustomCard(props) {
               </div>
             </div>
 
-            <div className={`col`}>
+            <div className={`col mx-1`}>
               <input
                 name="fontColor"
                 id="fontColor"
@@ -403,7 +403,7 @@ function CustomCard(props) {
               ></input>
             </div>
 
-            <div className={`col-4 col-md-4`}>
+            <div className={`col-4 mx-1 col-md-4`}>
               <select
                 name="fontFamily"
                 id="fontFamily"
