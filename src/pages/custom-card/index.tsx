@@ -169,7 +169,6 @@ function CustomCard(props) {
   };
 
   const handleSave = () => {
-<<<<<<< HEAD
     // const canvasJson = canvas.toJSON();
     if(sessionStorage.getItem("email")){
       const sendObject = {
