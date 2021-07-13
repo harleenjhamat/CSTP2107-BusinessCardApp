@@ -8,8 +8,9 @@
 .card {
   padding: 4%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  text-align: center;
+  text-align: justify;
   display: flex;
+  background: white;
   flex-direction: column;
   justify-content: center;
   h1{
@@ -21,5 +22,10 @@
     font-size: 1.5rem;
     line-height: 2;
   }
+
+  h1 {
+    text-align: center;
+  }
 }
+
 
