@@ -9,10 +9,10 @@ const Instructions = () => {
           <div className="row align-items-center justify-content-around">
             <div className={`col-12 col-md-5 order-md-2 p-1`}>
                 <Image
-                  src="/assets/choose_template.jpg"
+                  src="/assets/bot_choose.jpg"
                   alt="instruction1"
-                  width={600}
-                  height={300}
+                  width={550}
+                  height={305}
                 />
             </div>
             <div className={`col-12 col-md-6 order-md-1 ${styles.card}`}>
@@ -29,7 +29,7 @@ const Instructions = () => {
           <div className="row align-items-center justify-content-around pt-4">
             <div className="col-6 col-md-4">
               <Image
-                src="/assets/choose_template.jpg"
+                src="/assets/bot_custom.jpg"
                 alt="instruction2"
                 width={600}
                 height={370.467}
@@ -50,10 +50,10 @@ const Instructions = () => {
           <div className="row align-items-center justify-content-around">
             <div className="col-12 col-md-5 order-md-2">
               <Image
-                src="/assets/share_your_card.jpg"
+                src="/assets/bot_share.jpg"
                 alt="instruction3"
-                width={600}
-                height={300}
+                width={550}
+                height={305}
               />
             </div>
             <div className={`col-12 col-md-6 order-md-1 ${styles.card}`}>
