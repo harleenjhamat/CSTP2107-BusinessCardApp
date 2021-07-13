@@ -5,8 +5,10 @@ import { useRouter } from "next/router";
 
 import styles from "@/styles/CustomizeYourCard.module.scss";
 import { base64ToBlob, readFile } from "@/utility/File";
+import { ColorList, ColorArray } from "./../../utility/ColorList";
 
 function CustomCard(props) {
+  const [canvasBackgroundColor] = useState(ColorArray);
   const [canvas, setCanvas]: [any, any] = useState();
   const [userTextInput, setUserTextInput] = useState("");
   const [fontWeight, setFontWeight] = useState(false);
@@ -17,9 +19,12 @@ function CustomCard(props) {
   const [linethrough, setLinethrough] = useState(false);
   const [overline, setOverline] = useState(false);
   const [textToolDisplay, setTextToolDisplay] = useState("none");
+  const [backgroundColorDisplay, setBackgroundColorDisplay] = useState("none");
   const [addTextActive, setAddTextActive] = useState(false);
+  const [selectBackgroundColorActive, setSelectBackgroundColorActive] =
+    useState(false);
   const [addTextMode, setAddTextMode] = useState(false);
-  const [tag, settag] = useState("");
+  const [tag, setTag] = useState("");
   const [showLogInMsg, setShowLogInMsg] = useState(false);
   const [canvasLoaded, setcanvasLoaded] = useState(false);
   const router = useRouter();
@@ -104,6 +109,22 @@ function CustomCard(props) {
     const displayState = textToolDisplay === "none" ? "block" : "none";
     setTextToolDisplay(displayState);
     setAddTextActive(!addTextActive);
+
+    if (textToolDisplay === "none") {
+      setBackgroundColorDisplay("none");
+      setSelectBackgroundColorActive(false);
+    }
+  };
+
+  const handleToggleBackgroundColorDisplay = () => {
+    const displayState = backgroundColorDisplay === "none" ? "block" : "none";
+    setBackgroundColorDisplay(displayState);
+    setSelectBackgroundColorActive(!selectBackgroundColorActive);
+
+    if (backgroundColorDisplay === "none") {
+      setTextToolDisplay("none");
+      setAddTextActive(false);
+    }
   };
 
   const handleAddTextMode = () => {
@@ -111,8 +132,7 @@ function CustomCard(props) {
   };
 
   const tagHandle = (e) => {
-    // console.log(e.target.value)
-    settag(e.target.value);
+    setTag(e.target.value);
   };
 
   const handleAddText = (e) => {
@@ -149,6 +169,7 @@ function CustomCard(props) {
   };
 
   const handleSave = () => {
+<<<<<<< HEAD
     // const canvasJson = canvas.toJSON();
     if(sessionStorage.getItem("email")){
       const sendObject = {
@@ -192,12 +213,27 @@ function CustomCard(props) {
   };
 
   const handleRemovedSelectedItem = () => {
-    if (canvas.getActiveObject()._objects) {
+    if (canvas.getActiveObject()?._objects) {
       const selectedObjects = canvas.getActiveObject()._objects;
       selectedObjects.forEach((obj) => canvas.remove(obj));
-    } else {
+    } else if (canvas.getActiveObject()) {
       canvas.remove(canvas.getActiveObject());
     }
+  };
+
+  const handleBringToFront = () => {
+    canvas.getActiveObject()?.bringToFront();
+  };
+
+  const handleSendToBack = () => {
+    canvas.getActiveObject()?.sendToBack();
+  };
+
+  const handleCanvasBackgroundColor = (e) => {
+    let classList = e.target.className;
+    let color = canvasBackgroundColor.find((c) => classList.indexOf(c) !== -1);
+    if(!color) return;
+    canvas.setBackgroundColor(ColorList[color], canvas.renderAll.bind(canvas));
   };
 
   const handleRemovedSelectedItemOnKeyPress = (e) => {
@@ -234,19 +270,21 @@ function CustomCard(props) {
       <div className={styles.container} id="custom-card-container">
         <h2>Customize Your Card</h2>
 
-        {/* add text, image, remove item */}
-        <div className={`d-flex justify-content-between p-2`}>
-          <div className={`my-2 text-center`}>
+        {/* add text, image, backgroundColor, bring-to-front, send-to-back, remove item */}
+        <div className={`d-flex justify-content-center p-2 flex-wrap`}>
+          <div
+            className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}
+          >
             <button
               className={`${addTextActive ? styles.btnActive : ""}`}
               onClick={handleToggleTextDisplay}
             >
               <Icon name="font" />
-              Text
             </button>
+            <span className={styles.tooltiptext}>Text</span>
           </div>
 
-          <div className={`my-2 mx-2 text-center`}>
+          <div className={` mx-2 text-center`}>
             <input
               accept="image/*"
               id="addImageInput"
@@ -255,25 +293,60 @@ function CustomCard(props) {
               style={{ display: "none" }}
               type="file"
             />
-            <div>
+            <div className={`${styles.buttonDiv} ${styles.tooltip}`}>
               <button id="addImageButton" onClick={handleAddImage}>
                 <Icon name="file image" />
-                Image
               </button>
+              <span className={styles.tooltiptext}>Image</span>
             </div>
           </div>
 
-          <div className={`my-2 text-center`}>
+          <div
+            className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}
+          >
+            <button
+              className={`${
+                selectBackgroundColorActive ? styles.btnActive : ""
+              } `}
+              onClick={handleToggleBackgroundColorDisplay}
+            >
+              <Icon name="address card" />
+            </button>
+            <span className={styles.tooltiptext}>Card Color</span>
+          </div>
+
+          <div
+            className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}
+          >
+            <button onClick={handleBringToFront}>
+              <Icon name="arrow up" />
+            </button>
+            <span className={styles.tooltiptext}>Bring Front</span>
+          </div>
+
+          <div
+            className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}
+          >
+            <button onClick={handleSendToBack}>
+              <Icon name="arrow down" />
+            </button>
+            <span className={styles.tooltiptext}>Send Back</span>
+          </div>
+
+          <div
+            className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}
+          >
             <button
               className={styles.trashButton}
               onClick={handleRemovedSelectedItem}
             >
-              <Icon name="trash" />
-              Delete
+              <Icon className="inverted trash alternate" />
             </button>
+            <span className={styles.tooltiptext}>Delete</span>
           </div>
         </div>
 
+        {/* Card Canvas */}
         <div
           className={styles.card_canvas_container}
           onKeyDownCapture={handleRemovedSelectedItemOnKeyPress}
@@ -290,19 +363,43 @@ function CustomCard(props) {
           ></canvas>
         </div>
 
+        {/* Card Color Background Tool Div */}
+        <div
+          className={`${styles.customized_card_form} ${
+            backgroundColorDisplay == "none" ? "" : styles.display
+          }`}
+        >
+          <div className={`d-flex justify-content-center flex-wrap`}>
+            {canvasBackgroundColor.map((color) => (
+              <div
+                className={`col my-3 ${styles.backgroundColorList}`}
+                onClick={handleCanvasBackgroundColor}
+              >
+                <Icon
+                  name="id card"
+                  className={`circular large ${color === "white" ? `${color}` : `${color} inverted`} icon`}
+                ></Icon>
+                <span className={styles.colorText}>{color}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Add Text Popup Message */}
         {addTextMode && userTextInput !== "" && (
           <div className={`alert alert-info ${styles.hintText}`}>
             click on the canvas
           </div>
         )}
 
+        {/* Text Tool Div */}
         <div
           className={`${styles.customized_card_form} ${
             textToolDisplay == "none" ? "" : styles.display
           }`}
         >
           <div className={`d-flex my-3 justify-content-center flex-wrap`}>
-            <div className={`col mb-3`}>
+            <div className={`col mx-1 mb-3`}>
               <div
                 className={`${fontWeight == true ? styles.toolActive : ""} col`}
                 onClick={handleFontWeightChange}
@@ -310,7 +407,7 @@ function CustomCard(props) {
                 <Icon name="bold" />
               </div>
             </div>
-            <div className={`col`}>
+            <div className={`col mx-1`}>
               <div
                 className={`${fontStyle == true ? styles.toolActive : ""} col`}
                 onClick={handleFontStyleChange}
@@ -318,7 +415,7 @@ function CustomCard(props) {
                 <Icon name="italic" />
               </div>
             </div>
-            <div className={`col`}>
+            <div className={`col mx-1`}>
               <div
                 className={`${underline == true ? styles.toolActive : ""} col`}
                 onClick={handleUnderlineChange}
@@ -326,7 +423,7 @@ function CustomCard(props) {
                 <Icon name="underline" />
               </div>
             </div>
-            <div className={`col`}>
+            <div className={`col mx-1`}>
               <div
                 className={`${
                   linethrough == true ? styles.toolActive : ""
@@ -336,7 +433,7 @@ function CustomCard(props) {
                 <Icon name="strikethrough" />
               </div>
             </div>
-            <div className={`col`}>
+            <div className={`col mx-1`}>
               <div
                 className={`${overline == true ? styles.toolActive : ""} col`}
                 onClick={handleOverlineChange}
@@ -354,7 +451,7 @@ function CustomCard(props) {
               </div>
             </div>
 
-            <div className={`col`}>
+            <div className={`col mx-1`}>
               <input
                 name="fontColor"
                 id="fontColor"
@@ -363,16 +460,16 @@ function CustomCard(props) {
               ></input>
             </div>
 
-            <div className={`col-4 col-md-4`}>
+            <div className={`col-4 mx-1 col-md-4`}>
               <select
                 name="fontFamily"
                 id="fontFamily"
                 onChange={handleFontFamilyChange}
               >
-                <option value="arial">arial</option>
-                <option value="courier">courier</option>
-                <option value="times">times</option>
-                <option value="verdana">verdana</option>
+                <option value="arial">Arial</option>
+                <option value="courier">Courier</option>
+                <option value="times">Times</option>
+                <option value="verdana">Verdana</option>
               </select>
             </div>
           </div>
@@ -380,7 +477,7 @@ function CustomCard(props) {
           <div
             className={`d-flex justify-content-around align-items-center flex-wrap`}
           >
-            <div className={`col mx-3`}>
+            <div className={`col-8 mx-3`}>
               <input
                 className={`${styles.textInput}`}
                 type="text"
@@ -389,30 +486,33 @@ function CustomCard(props) {
                 onChange={handleUserTextInput}
               />
             </div>
-            <div className={`col py-3`}>
-              <button onClick={handleAddTextMode}>
-                <Icon name="plus circle" /> Add Text
-              </button>
+            <div className={`col`}>
+              <div className={`${styles.horizontalButtonDiv}`}>
+                <button onClick={handleAddTextMode}>
+                  <Icon name="plus circle" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
         <br />
 
         { showLogInMsg && <h2>Please logIn first...</h2>}
-        {/* Saving Section */}
-        <div className={`d-flex align-items-center py-2 mb-5`}>
-          <div className={`mx-3 p-0 col-8`}>
+        {/* Save Card Section */}
+        <div className={`row align-items-center py-2 mb-5`}>
+          <div className={`col-9`}>
             <input
               type="text"
               placeholder="Add a search tag to your card (ie. student)"
-              className={`form-control`}
+              className={`form-control ${styles.saveInput}`}
               onChange={tagHandle}
             />
           </div>
-          <button className={styles.saveBtn} onClick={handleSave}>
-            <Icon name="save" />
-            Save
-          </button>
+          <div className={`${styles.horizontalButtonDiv} col`}>
+            <button className={styles.saveBtn} onClick={handleSave}>
+              <Icon name="save" />
+            </button>
+          </div>
         </div>
       </div>
     </>
