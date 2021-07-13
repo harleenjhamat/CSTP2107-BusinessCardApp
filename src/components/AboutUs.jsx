@@ -97,7 +97,7 @@ const AboutUs = () => {
 
           <div className={styles.profile}>
             <img className={styles.profileimg} src="/assets/img4.jpg"/>
-            <h3 className={styles.username}>Karla</h3>
+            <h3 className={styles.username}>Karla Barrera</h3>
             <h5>Team Member</h5>
           </div>
         </div>
