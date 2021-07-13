@@ -10,16 +10,18 @@ $small: 450px;
 
 .imgDiv {
   display: flex;
-  flex-direction: row;
-  padding-bottom: 4%;
+  //flex-direction: row;
+  flex-direction: column;
+  //padding-bottom: 4%;
+  padding-bottom: 0%;
   &:hover{
     padding-top: 20px;
   }
-  @media screen and (max-width: $small) {
-    flex-direction: column;
-    overflow-x:unset;
-    padding-bottom: 0%;
-  }
+  // @media screen and (max-width: $small) {
+  //   flex-direction: column;
+  //   overflow-x:unset;
+  //   padding-bottom: 0%;
+  // }
 }
 
 .imgWrap {
@@ -29,10 +31,14 @@ $small: 450px;
   flex-direction: row;
   transition: 0.2s;
   &:not(:first-child) {
-    margin-left: -400px !important;
+    //margin-left: -400px !important;
+    //margin-left: 0px !important;
+    margin-top: -50px !important;
   }
   &:hover {
-    transform: translateY(-100px);
+    //transform: translateY(-100px);
+    transform: translateX(0rem);
+    transform: translateY(-2rem);
     i {
       color: red;
       transition: 0.6s;
@@ -43,6 +49,8 @@ $small: 450px;
   }
   &:hover ~ .imgWrap {
     transform: translateX(400px) !important;
+    transform: translateX(0px) !important;
+    transform: translateY(40px) !important;
   }
   i {
     position: absolute;
@@ -68,6 +76,53 @@ $small: 450px;
   }
 }
 
+.userCardDiv{
+    /* Your styling. */
+    position: fixed;
+    z-index: 999999;
+    top:0;
+    height: 100vh;
+    text-align: center;
+    background-color: darken($primary_color, 5%);
+
+    /* Solution part I. */
+    display: table;
+}
+
+.userCardInsideDiv{
+  width: 100%;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.userCardCloseButton{
+  position:absolute;
+  top:100px;
+  right:30px;
+  margin-bottom: 20px;
+  padding: 20px;
+  padding-right: 30px;
+  color:white;
+  font-size: large;
+  &:hover{
+   cursor: pointer;
+   color: darken(white, 10%); 
+  }
+}
+
+.viewMyCardButton{
+  width: 150px !important;
+  height: 50px !important;
+  margin: 20px;
+  position: absolute;
+  font-size: medium;
+  padding:2px;
+  right:1%;
+  bottom:2%;
+  z-index: 999;
+}
+
 .imgShadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transition: 0.2s;
@@ -82,7 +137,7 @@ $small: 450px;
   height: 90px;
   font-weight: 700; 
   color: $ivory;
-  background-color: $primary_color;
+  background-color: complement($primary_color);
   border: none;
   border-radius: 5px;
   height: 40px;

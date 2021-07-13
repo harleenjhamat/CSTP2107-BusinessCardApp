@@ -12,7 +12,7 @@ const UserCard = ({ fab_clicked }) => {
   const [email, setEmail] = useState("");
 
   if (typeof window !== "undefined") {
-    if(sessionStorage.getItem("email") === null){
+    if (sessionStorage.getItem("email") === null) {
       router.push("/custom-card");
     }
     const sendObject = {
@@ -31,9 +31,9 @@ const UserCard = ({ fab_clicked }) => {
         return response.json();
       })
       .then(function (data) {
-        if(data.length === 0){
+        if (data.length === 0) {
           router.push("/custom-card");
-        }else{
+        } else {
           setmyCustomCard(true);
           setmyCustomCardUrl(data[0].img);
           setEmail(data[0].email);
@@ -46,6 +46,14 @@ const UserCard = ({ fab_clicked }) => {
 
   const SharedCard = () => {
     setshareCardNum(!shareCardNum);
+
+    /* Copy email to clipboard */
+    var copyText = document.getElementById("sharedEmail");
+    if(copyText){
+      copyText.select();
+      copyText.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+    }
   };
 
   const handleEdit = () => {
@@ -76,24 +84,27 @@ const UserCard = ({ fab_clicked }) => {
             alt="..."
           />
 
+          <div className={`d-flex justify-content-around my-4`}>
+            <button className={`${styles.button} col-3`} onClick={handleEdit}>
+              <Icon name="edit" />
+              Edit
+            </button>
+          </div>
+
           {/* Display share email message */}
           {shareCardNum && (
-            <div className="border border-success rounded p-2 m-4 bd-highlight text-center">
+            <div className="border border-success rounded p-3 bd-highlight text-center">
               <p className="m-0">
-                <b>Copy your email to share card:</b>
+                <b>Copied email to clipboard:</b>
               </p>
               <p>
-                <i>{email}</i>
+                <input type="text" value={email} id="sharedEmail" style={{border:"none", width:"200px"}}/>
               </p>
             </div>
           )}
 
           {/* share and edit container */}
           <div className={`d-flex justify-content-around my-4`}>
-            <button className={`${styles.button} col-3`} onClick={handleEdit}>
-              <Icon name="edit" />
-              Edit
-            </button>
             <button className={`${styles.button} col-3`} onClick={SharedCard}>
               <Icon name="share alternate" />
               Share

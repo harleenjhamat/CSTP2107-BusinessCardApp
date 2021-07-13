@@ -1,12 +1,6 @@
 import { useRef } from "react";
-import { Fragment } from "react";
 import styles from "@/styles/sharedcard.module.scss";
-import { Container } from "@material-ui/core";
 import { Icon } from "semantic-ui-react";
-
-var row_center = `row m-0 p-0 justify-content-center`;
-var row_default = `row m-0 p-0`;
-var col = `text-center m-0 p-0`;
 
 const SearchCard = (props) => {
   const sharedcode = useRef("");
