@@ -504,7 +504,7 @@ function CustomCard(props) {
         {showLogInMsg && <h2>Please logIn first...</h2>}
 
         {/* Save Card Section */}
-        <div className={`row align-items-center py-2`}>
+        <div className={`row align-items-center py-0`}>
           <div className={`col-9`}>
             <input
               type="text"

@@ -31,7 +31,7 @@ $medium: 900px;
       left: 1px;
     }
     &:hover {
-      background-color: lighten(complement($quaternary_color), 5%) !important;
+      background-color: lighten(complement($primary_color), 10%) !important;
     }
   }
 }
@@ -69,9 +69,9 @@ $medium: 900px;
 
 .customized_card_form {
   background-color: $grey;
-  width: 450px; 
+  width: 450px;
   @media screen and (max-width: $small) {
-    width: 95%; 
+    width: 95%;
   }
   border-radius: 1%;
   border: $border_color 1px solid;
@@ -98,15 +98,14 @@ $medium: 900px;
   text-align: center;
   background-color: complement($quaternary_color) !important;
   border-radius: 10%;
-  border: 2px solid complement($light_grey) !important; 
+  border: 2px solid complement($light_grey) !important;
   padding: 1%;
 }
 
 .btnActive {
-  background-color: complement($quaternary_color) !important;
-  border: 2px solid complement($light_grey) !important; 
+  background-color: lighten(complement($primary_color), 10%) !important;
   &:hover {
-    background-color: darken(complement($quaternary_color), 4%) !important;
+    background-color: darken(complement($primary_color), 4%) !important;
     border: 2px solid darken($light_grey, 4%) !important;
   }
 }
@@ -143,14 +142,15 @@ $medium: 900px;
   border: 2px solid $border_color;
 }
 
-.normalBtn{
-  background-color: $primary_color;
+.normalBtn {
+  background-color: complement($primary_color);
   margin: 15px;
   margin-bottom: 5%;
-  width: 100px;
-  height: 42px;
-  font-size: medium;
-  &:hover{
+  border: none;
+  width: 90px;
+  height: 35px;
+  font-size: 16px;
+  &:hover {
     background-color: lighten($primary_color, 5%) !important;
   }
 }
