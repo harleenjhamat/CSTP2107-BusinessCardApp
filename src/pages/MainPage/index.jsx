@@ -142,58 +142,73 @@ const MainPage = () => {
         </div>
       </div>
 
-      <div
-        className={`${styles.container} justify-content-center`}
-      >
+      <div className={`${styles.container} justify-content-center`}>
         {/* This is other people's cards section */}
 
-          {/* My Card & Contact Row*/}
-          <div className={`d-flex justify-content-center my-2`}>
-            <button
-              className={`${styles.button} mx-4`}
-              onClick={handleMyCardDisplay}
-            >
-              <Icon name="user" />
-              My Card
-            </button>
+        {/* My Card & Contact Row*/}
+        <div className={`d-flex justify-content-center my-2`}>
+          <button
+            className={`${styles.button} mx-4`}
+            onClick={handleMyCardDisplay}
+          >
+            <Icon name="user" />
+            My Card
+          </button>
 
-            <button
-              className={`${styles.button} mx-4`}
-              onClick={Handle_fab_clicked}
-            >
-              <Icon name="add" />
-              Contact
-            </button>
+          <button
+            className={`${styles.button} mx-4`}
+            onClick={Handle_fab_clicked}
+          >
+            <Icon name="add" />
+            Contact
+          </button>
+        </div>
+
+        <SearchCard addnewcard={newCardHandler} portfolio={portfolio} />
+
+        {/* This is the card deck */}
+        <div className={`${styles.imgDiv}`}>
+          {portfolio === [] && <div>empty</div>}
+
+          {searchClicked &&
+            filteredArray !== [] &&
+            filteredArray.map((card) => (
+              <SharedCard
+                key={card._id}
+                feedimg={card.img}
+                id={card._id}
+                useremail={JSON.parse(sessionStorage.getItem("email"))}
+                email={card.email}
+              />
+            ))}
+
+          {!searchClicked &&
+            portfolio !== [] &&
+            portfolio.map((card) => (
+              <SharedCard
+                key={card._id}
+                feedimg={card.img}
+                id={card._id}
+                useremail={JSON.parse(sessionStorage.getItem("email"))}
+                email={card.email}
+              />
+            ))}
+        </div>
+
+        {/* Loaders */}
+        {!arrayReceived && (
+          <div className="text-center">
+            <div className="spinner-grow text-secondary" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+            <div className="spinner-grow text-secondary mx-2" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+            <div className="spinner-grow text-secondary" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
           </div>
-
-          <SearchCard addnewcard={newCardHandler} portfolio={portfolio} />
-
-          {/* This is the card deck */}
-          <div className={`${styles.imgDiv}`}>
-            {searchClicked &&
-              filteredArray !== [] &&
-              filteredArray.map((card) => (
-                <SharedCard
-                  key={card._id}
-                  feedimg={card.img}
-                  id={card._id}
-                  useremail={JSON.parse(sessionStorage.getItem("email"))}
-                  email={card.email}
-                />
-              ))}
-            {/* {console.log(portfolio)} */}
-            {!searchClicked &&
-              portfolio !== [] &&
-              portfolio.map((card) => (
-                <SharedCard
-                  key={card._id}
-                  feedimg={card.img}
-                  id={card._id}
-                  useremail={JSON.parse(sessionStorage.getItem("email"))}
-                  email={card.email}
-                />
-              ))}
-          </div>
+        )}
       </div>
     </>
   );

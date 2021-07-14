@@ -30,10 +30,6 @@ const SearchCard = (props) => {
         className={`form-control`}
         ref={sharedcode}
       />
-      {/* <button className={`${styles.button}`} onClick={GetCards}>
-        <Icon name="search" />
-        Search
-      </button> */}
     </div>
   );
 };
