@@ -12,7 +12,15 @@ const UserCard = ({ fab_clicked }) => {
   const [shareCardNum, setshareCardNum] = useState(false);
   const [email, setEmail] = useState("");
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    var canvas = document.getElementById("qrCanvas");
+    if (canvas) {
+      QRCode.toCanvas(canvas, email, function (error) {
+        if (error) console.error(error);
+        console.log("success!");
+      });
+    }
+  }, []);
 
   if (typeof window !== "undefined") {
     if (sessionStorage.getItem("email") === null) {
@@ -57,14 +65,6 @@ const UserCard = ({ fab_clicked }) => {
       copyText.setSelectionRange(0, 99999);
       document.execCommand("copy");
     }
-
-    var canvas = document.getElementById("qrCanvas");
-    if (canvas) {
-      QRCode.toCanvas(canvas, email, function (error) {
-        if (error) console.error(error);
-        console.log("success!");
-      });
-    }
   };
 
   const handleEdit = () => {
@@ -89,42 +89,45 @@ const UserCard = ({ fab_clicked }) => {
       )) || (
         <>
           {/* This is the user card */}
-          <div className={`${styles.userCardImgDiv} d-flex justify-content-around my-4`}>
+          <div
+            className={`${styles.userCardImgDiv} d-flex justify-content-around my-4`}
+          >
             <img
               src={`${myCustomCardUrl}`}
               className={`${styles.imgShadow} figure-img img-fluid rounded`}
               alt="..."
             />
-              <Icon onClick={handleEdit} name="edit" />
+            <Icon onClick={handleEdit} name="edit" />
+          </div>
+
+          <div>
+            <canvas id="qrCanvas"></canvas>
+          </div>
+
+          {/* share and edit container */}
+          <div className={`d-flex justify-content-around my-4`}>
+            <button className={`${styles.button} col-3`} onClick={SharedCard}>
+              <Icon name="share alternate" />
+              Sharable Link
+            </button>
           </div>
 
           {/* Display share email message */}
           {shareCardNum && (
-            <div className="border border-success rounded p-3 bd-highlight text-center">
+            <div className="rounded bd-highlight text-center">
               <p className="m-0">
-                <b>Copied email to clipboard:</b>
+                <b>Copied to clipboard:</b>
               </p>
               <p>
                 <input
                   type="text"
                   value={email}
                   id="sharedEmail"
-                  style={{ border: "none", width: "200px" }}
+                  style={{ border: "none", width: "200px", backgroundColor: "transparent" }}
                 />
               </p>
-              <div>
-                <canvas id="qrCanvas"></canvas>
-              </div>
             </div>
           )}
-
-          {/* share and edit container */}
-          <div className={`d-flex justify-content-around my-4`}>
-            <button className={`${styles.button} col-3`} onClick={SharedCard}>
-              <Icon name="share alternate" />
-              Share
-            </button>
-          </div>
         </>
       )}
     </>
