@@ -111,7 +111,6 @@ const MainPage = () => {
         style={{ display: `${displayMyCard}` }}
       >
         <div className={`${styles.userCardInsideDiv}`}>
-
           <div
             className={`${styles.userCardCloseButton}`}
             onClick={handleMyCardDisplay}
@@ -147,8 +146,7 @@ const MainPage = () => {
         className={`${styles.container} row gx-5 py-lg-4 px-lg-5 justify-content-center align-items-start`}
       >
         {/* This is other people's cards section */}
-        <div className={`col-12 col-md-7 p-4 pt-0`}>
-
+        <div className={`col-12 col-md-6 p-4 pt-0`}>
           <div className="col-12 text-center">
             <button
               className={`${styles.button} ${styles.viewMyCardButton}`}
@@ -160,6 +158,18 @@ const MainPage = () => {
           </div>
 
           <SearchCard addnewcard={newCardHandler} portfolio={portfolio} />
+
+          {/* Contact Row*/}
+          <div className={`d-flex justify-content-around my-4`}>
+          <button
+            className={`${styles.button} col-3`}
+            onClick={Handle_fab_clicked}
+          >
+            <Icon name="add" />
+            Contact
+          </button>
+          </div>
+
           {/* This is the card deck */}
           <div className={`${styles.imgDiv}`}>
             {searchClicked &&

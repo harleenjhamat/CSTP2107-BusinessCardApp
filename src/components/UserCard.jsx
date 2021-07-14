@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+var QRCode = require("qrcode");
 
 import { Icon } from "semantic-ui-react";
 import styles from "../styles/sharedcard.module.scss";
@@ -10,6 +11,8 @@ const UserCard = ({ fab_clicked }) => {
   const [myCustomCardUrl, setmyCustomCardUrl] = useState("");
   const [shareCardNum, setshareCardNum] = useState(false);
   const [email, setEmail] = useState("");
+
+  useEffect(() => {}, []);
 
   if (typeof window !== "undefined") {
     if (sessionStorage.getItem("email") === null) {
@@ -49,10 +52,18 @@ const UserCard = ({ fab_clicked }) => {
 
     /* Copy email to clipboard */
     var copyText = document.getElementById("sharedEmail");
-    if(copyText){
+    if (copyText) {
       copyText.select();
       copyText.setSelectionRange(0, 99999);
       document.execCommand("copy");
+    }
+
+    var canvas = document.getElementById("qrCanvas");
+    if (canvas) {
+      QRCode.toCanvas(canvas, email, function (error) {
+        if (error) console.error(error);
+        console.log("success!");
+      });
     }
   };
 
@@ -78,17 +89,13 @@ const UserCard = ({ fab_clicked }) => {
       )) || (
         <>
           {/* This is the user card */}
-          <img
-            src={`${myCustomCardUrl}`}
-            className={`${styles.imgShadow} figure-img img-fluid rounded`}
-            alt="..."
-          />
-
-          <div className={`d-flex justify-content-around my-4`}>
-            <button className={`${styles.button} col-3`} onClick={handleEdit}>
-              <Icon name="edit" />
-              Edit
-            </button>
+          <div className={`${styles.userCardImgDiv} d-flex justify-content-around my-4`}>
+            <img
+              src={`${myCustomCardUrl}`}
+              className={`${styles.imgShadow} figure-img img-fluid rounded`}
+              alt="..."
+            />
+              <Icon onClick={handleEdit} name="edit" />
           </div>
 
           {/* Display share email message */}
@@ -98,8 +105,16 @@ const UserCard = ({ fab_clicked }) => {
                 <b>Copied email to clipboard:</b>
               </p>
               <p>
-                <input type="text" value={email} id="sharedEmail" style={{border:"none", width:"200px"}}/>
+                <input
+                  type="text"
+                  value={email}
+                  id="sharedEmail"
+                  style={{ border: "none", width: "200px" }}
+                />
               </p>
+              <div>
+                <canvas id="qrCanvas"></canvas>
+              </div>
             </div>
           )}
 
@@ -108,10 +123,6 @@ const UserCard = ({ fab_clicked }) => {
             <button className={`${styles.button} col-3`} onClick={SharedCard}>
               <Icon name="share alternate" />
               Share
-            </button>
-            <button className={`${styles.button} col-3`} onClick={fab_clicked}>
-              <Icon name="add" />
-              Contact
             </button>
           </div>
         </>
