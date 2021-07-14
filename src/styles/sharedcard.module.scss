@@ -3,17 +3,21 @@
 $small: 450px;
 
 .container {
-  min-height: 75vh;
-  width: 95%;
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh;
+  width: 90%;
   margin: 2% auto;
 }
 
 .imgDiv {
   display: flex;
-  flex-direction: column;
-  padding-bottom: 0%;
-  &:hover {
-    padding-top: 20px;
+  flex-direction: row;
+  padding-bottom: 4%;
+  @media screen and (max-width: $small) {
+    flex-direction: column;
+    overflow-x:unset;
+    padding-bottom: 0%;
   }
 }
 
@@ -24,11 +28,10 @@ $small: 450px;
   flex-direction: row;
   transition: 0.2s;
   &:not(:first-child) {
-    margin-top: -80px !important;
+    margin-left: -200px !important;
   }
   &:hover {
-    transform: translateX(0rem);
-    transform: translateY(-2rem);
+    transform: translateY(-100px);
     i {
       color: red;
       transition: 0.6s;
@@ -38,8 +41,8 @@ $small: 450px;
     }
   }
   &:hover ~ .imgWrap {
-    transform: translateX(0px) !important;
-    transform: translateY(40px) !important;
+    // transform: translateY(-10px) !important;
+    transform: translateX(220px) !important;
   }
   i {
     position: absolute;
@@ -90,7 +93,7 @@ $small: 450px;
   text-align: right;
   margin-bottom: 20px;
   padding: 20px;
-  padding-right: 30px;
+  padding-right: 5px;
   color: white;
   font-size: large;
   &:hover {
@@ -104,7 +107,7 @@ $small: 450px;
   i {
     position: absolute;
     top: 10px;
-    right: 20px;
+    right: 10px;
     color: green;
     font-size: medium;
   }
@@ -119,6 +122,16 @@ $small: 450px;
   padding: 2px;
   right: 1%;
   bottom: 2%;
+  z-index: 1;
+}
+
+.menuPopup {
+  position: absolute;
+  right: 0;
+  bottom: 10%;
+  background-color: red;
+  min-width: 50px;
+  min-height: 50px;
   z-index: 1;
 }
 
@@ -149,11 +162,19 @@ $small: 450px;
 }
 
 .searchBarDiv {
-  width: 85%;
-  margin: 0 auto;
-  padding-bottom: 3%;
+  text-align: center;
+  width: 50%;
+  @media screen and (max-width: $small) {
+    width: 100%;
+  }
+  margin: 10px auto;
+  padding: 1%;
   input {
-    border: 1px solid $border_color;
+    border: 2px solid $border_color;
+    padding: 1%;
+    display: inline-block;
+  }
+  button{
+    margin: 10px 0;
   }
 }
-

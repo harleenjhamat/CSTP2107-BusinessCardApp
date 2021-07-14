@@ -105,7 +105,7 @@ const MainPage = () => {
 
   return (
     <>
-      {/* This is the user card section*/}
+      {/* This is the hidden user card section*/}
       <div
         className={`${styles.userCardDiv} col-12 col-md-5 p-4 pb-0 text-center justify-content-center`}
         style={{ display: `${displayMyCard}` }}
@@ -143,32 +143,30 @@ const MainPage = () => {
       </div>
 
       <div
-        className={`${styles.container} row gx-5 py-lg-4 px-lg-5 justify-content-center align-items-start`}
+        className={`${styles.container} justify-content-center`}
       >
         {/* This is other people's cards section */}
-        <div className={`col-12 col-md-6 p-4 pt-0`}>
-          <div className="col-12 text-center">
+
+          {/* My Card & Contact Row*/}
+          <div className={`d-flex justify-content-center my-2`}>
             <button
-              className={`${styles.button} ${styles.viewMyCardButton}`}
+              className={`${styles.button} mx-4`}
               onClick={handleMyCardDisplay}
             >
               <Icon name="user" />
               My Card
             </button>
+
+            <button
+              className={`${styles.button} mx-4`}
+              onClick={Handle_fab_clicked}
+            >
+              <Icon name="add" />
+              Contact
+            </button>
           </div>
 
           <SearchCard addnewcard={newCardHandler} portfolio={portfolio} />
-
-          {/* Contact Row*/}
-          <div className={`d-flex justify-content-around my-4`}>
-          <button
-            className={`${styles.button} col-3`}
-            onClick={Handle_fab_clicked}
-          >
-            <Icon name="add" />
-            Contact
-          </button>
-          </div>
 
           {/* This is the card deck */}
           <div className={`${styles.imgDiv}`}>
@@ -196,7 +194,6 @@ const MainPage = () => {
                 />
               ))}
           </div>
-        </div>
       </div>
     </>
   );
