@@ -12,7 +12,7 @@ const UserCard = ({ fab_clicked }) => {
   const [shareCardNum, setshareCardNum] = useState(false);
   const [email, setEmail] = useState("");
 
-  useEffect(() => {
+  useEffect(()=>{
     var canvas = document.getElementById("qrCanvas");
     if (canvas) {
       QRCode.toCanvas(canvas, email, function (error) {
@@ -20,7 +20,7 @@ const UserCard = ({ fab_clicked }) => {
         console.log("success!");
       });
     }
-  }, []);
+  }, [email]);
 
   if (typeof window !== "undefined") {
     if (sessionStorage.getItem("email") === null) {
@@ -123,7 +123,11 @@ const UserCard = ({ fab_clicked }) => {
                   type="text"
                   value={email}
                   id="sharedEmail"
-                  style={{ border: "none", width: "200px", backgroundColor: "transparent" }}
+                  style={{
+                    border: "none",
+                    width: "200px",
+                    backgroundColor: "transparent",
+                  }}
                 />
               </p>
             </div>
