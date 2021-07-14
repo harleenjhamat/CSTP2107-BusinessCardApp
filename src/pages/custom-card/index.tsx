@@ -225,10 +225,12 @@ function CustomCard(props) {
 
   const handleBringToFront = () => {
     canvas.getActiveObject()?.bringToFront();
+    canvas.discardActiveObject();
   };
 
   const handleSendToBack = () => {
     canvas.getActiveObject()?.sendToBack();
+    canvas.discardActiveObject();
   };
 
   const handleCanvasBackgroundColor = (e) => {
