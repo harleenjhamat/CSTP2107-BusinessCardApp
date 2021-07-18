@@ -240,6 +240,14 @@ function CustomCard(props) {
     canvas.setBackgroundColor(ColorList[color], canvas.renderAll.bind(canvas));
   };
 
+  const handleCustomBackgroundColor = (e) =>{
+   let backgroundColorInput = document.getElementById("cardCustomBackgroundColor") as any;
+   let color = backgroundColorInput.value;
+   console.log(color);
+   canvas.setBackgroundColor(color, canvas.renderAll.bind(canvas));
+   backgroundColorInput.value = color;
+  }
+
   const handleRemovedSelectedItemOnKeyPress = (e) => {
     if (e.key == "Backspace" || e.key === "Delete") handleRemovedSelectedItem();
   };
@@ -388,6 +396,19 @@ function CustomCard(props) {
                 <span className={styles.colorText}>{color}</span>
               </div>
             ))}
+            <div
+              className={`col my-3 white ${styles.customBackgroundColorDiv}`}
+            >
+              <div>
+              <input
+                type="color"
+                id="cardCustomBackgroundColor"
+                name="cardCustomBackgroundColor"
+                onChange={handleCustomBackgroundColor}
+              ></input>
+              </div>
+              <span className={styles.colorText}>Custom</span>
+            </div>
           </div>
         </div>
 
