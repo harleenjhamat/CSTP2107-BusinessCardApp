@@ -285,7 +285,7 @@ function CustomCard(props) {
         {/* add text, image, backgroundColor, bring-to-front, send-to-back, remove item */}
         <div className={`d-flex justify-content-center pt-2 flex-wrap`}>
           <div
-            className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}
+            className={`${styles.buttonDiv} mx-2 text-center`}
           >
             <button
               className={`${addTextActive ? styles.btnActive : ""}`}
@@ -305,7 +305,7 @@ function CustomCard(props) {
               style={{ display: "none" }}
               type="file"
             />
-            <div className={`${styles.buttonDiv} ${styles.tooltip}`}>
+            <div className={`${styles.buttonDiv} `}>
               <button id="addImageButton" onClick={handleAddImage}>
                 <Icon name="file image" />
               </button>
@@ -314,7 +314,7 @@ function CustomCard(props) {
           </div>
 
           <div
-            className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}
+            className={`${styles.buttonDiv}  mx-2 text-center`}
           >
             <button
               className={`${
@@ -328,7 +328,7 @@ function CustomCard(props) {
           </div>
 
           <div
-            className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}
+            className={`${styles.buttonDiv} mx-2 text-center`}
           >
             <button onClick={handleBringToFront}>
               <Icon name="arrow up" />
@@ -337,7 +337,7 @@ function CustomCard(props) {
           </div>
 
           <div
-            className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}
+            className={`${styles.buttonDiv} mx-2 text-center`}
           >
             <button onClick={handleSendToBack}>
               <Icon name="arrow down" />
@@ -346,7 +346,7 @@ function CustomCard(props) {
           </div>
 
           <div
-            className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}
+            className={`${styles.buttonDiv} mx-2 text-center`}
           >
             <button
               className={styles.trashButton}
