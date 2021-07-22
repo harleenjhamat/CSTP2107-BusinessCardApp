@@ -12,7 +12,7 @@ export const ColorList = {
   brown: "#A52A2A",
   grey: "#A0A0A0",
   black: "#000000",
-  white: "#FFFFFF",
+  // white: "#FFFFFF",
 };
 
 export const ColorArray = [
@@ -29,6 +29,6 @@ export const ColorArray = [
   "brown",
   "black",
   "grey",
-  "white",
+  // "white",
 ];
 

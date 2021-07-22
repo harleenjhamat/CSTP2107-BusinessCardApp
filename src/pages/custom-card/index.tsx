@@ -29,49 +29,53 @@ function CustomCard(props) {
   const [canvasLoaded, setcanvasLoaded] = useState(false);
   const router = useRouter();
 
-  const pullCanvas = async() => {
-        const sendObject = {
-          get_personal_card: JSON.parse(sessionStorage.getItem("email")),
-        };
-        const sendObjectStr = JSON.stringify(sendObject);
-    
-        const responsex = await fetch("http://localhost:3000/api/usercards", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: sendObjectStr,
-        })
-          .then(function (response) {
-            return response.json();
-          })
-          .then(function (data) {
-            return data
-            
-          })
-          .catch((err) => {
-            console.error(err);
-          });
-    return responsex
-  }
+  const pullCanvas = async () => {
+    const sendObject = {
+      get_personal_card: JSON.parse(sessionStorage.getItem("email")),
+    };
+    const sendObjectStr = JSON.stringify(sendObject);
+
+    const responsex = await fetch("http://localhost:3000/api/usercards", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: sendObjectStr,
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        return data;
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+    return responsex;
+  };
   useEffect(() => {
-      if (!canvas){
-        setCanvas(new fabric.Canvas("Canvas", { backgroundColor: "#eee" }));
-      }
+    if (!canvas) {
+      setCanvas(new fabric.Canvas("Canvas", { backgroundColor: "#eee" }));
+    }
   }, []);
-    setTimeout(() => {
-      if (typeof window !== "undefined") {
-        if(sessionStorage.getItem("email") !== null && !canvasLoaded){
-          pullCanvas().then(function (response) {
-            // console.log(response[0])
-            if (canvas){
-              setCanvas(canvas.loadFromJSON(response[0].json,canvas.renderAll.bind(canvas)))
-              setcanvasLoaded(true)
-            }
-          })
-        }
+  setTimeout(() => {
+    if (typeof window !== "undefined") {
+      if (sessionStorage.getItem("email") !== null && !canvasLoaded) {
+        pullCanvas().then(function (response) {
+          // console.log(response[0])
+          if (canvas) {
+            setCanvas(
+              canvas.loadFromJSON(
+                response[0].json,
+                canvas.renderAll.bind(canvas)
+              )
+            );
+            setcanvasLoaded(true);
+          }
+        });
       }
-  }, 1000)
+    }
+  }, 1000);
 
   const handleFontWeightChange = (e) => {
     setFontWeight(!fontWeight);
@@ -170,7 +174,7 @@ function CustomCard(props) {
 
   const handleSave = () => {
     // const canvasJson = canvas.toJSON();
-    if(sessionStorage.getItem("email")){
+    if (sessionStorage.getItem("email")) {
       const sendObject = {
         json: canvas.toJSON(),
         name: JSON.parse(sessionStorage.getItem("name")),
@@ -193,21 +197,20 @@ function CustomCard(props) {
           return response.json();
         })
         .then(function (data) {
-          if(data.email === null){
-            console.log('have to log in')
-          }else{
+          if (data.email === null) {
+            console.log("have to log in");
+          } else {
             router.push("/MainPage");
           }
         })
         .catch((err) => {
           console.error(err);
         });
-    }else{
-      setShowLogInMsg(true)
+    } else {
+      setShowLogInMsg(true);
       setTimeout(() => {
-        setShowLogInMsg(false)
-    }, 3000)
-  
+        setShowLogInMsg(false);
+      }, 3000);
     }
   };
 
@@ -222,18 +225,28 @@ function CustomCard(props) {
 
   const handleBringToFront = () => {
     canvas.getActiveObject()?.bringToFront();
+    canvas.discardActiveObject();
   };
 
   const handleSendToBack = () => {
     canvas.getActiveObject()?.sendToBack();
+    canvas.discardActiveObject();
   };
 
   const handleCanvasBackgroundColor = (e) => {
     let classList = e.target.className;
     let color = canvasBackgroundColor.find((c) => classList.indexOf(c) !== -1);
-    if(!color) return;
+    if (!color) return;
     canvas.setBackgroundColor(ColorList[color], canvas.renderAll.bind(canvas));
   };
+
+  const handleCustomBackgroundColor = (e) =>{
+   let backgroundColorInput = document.getElementById("cardCustomBackgroundColor") as any;
+   let color = backgroundColorInput.value;
+   console.log(color);
+   canvas.setBackgroundColor(color, canvas.renderAll.bind(canvas));
+   backgroundColorInput.value = color;
+  }
 
   const handleRemovedSelectedItemOnKeyPress = (e) => {
     if (e.key == "Backspace" || e.key === "Delete") handleRemovedSelectedItem();
@@ -270,9 +283,9 @@ function CustomCard(props) {
         <h2>Customize Your Card</h2>
 
         {/* add text, image, backgroundColor, bring-to-front, send-to-back, remove item */}
-        <div className={`d-flex justify-content-center p-2 flex-wrap`}>
+        <div className={`d-flex justify-content-center pt-2 flex-wrap`}>
           <div
-            className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}
+            className={`${styles.buttonDiv} mx-2 text-center`}
           >
             <button
               className={`${addTextActive ? styles.btnActive : ""}`}
@@ -292,7 +305,7 @@ function CustomCard(props) {
               style={{ display: "none" }}
               type="file"
             />
-            <div className={`${styles.buttonDiv} ${styles.tooltip}`}>
+            <div className={`${styles.buttonDiv} `}>
               <button id="addImageButton" onClick={handleAddImage}>
                 <Icon name="file image" />
               </button>
@@ -301,7 +314,7 @@ function CustomCard(props) {
           </div>
 
           <div
-            className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}
+            className={`${styles.buttonDiv}  mx-2 text-center`}
           >
             <button
               className={`${
@@ -311,11 +324,11 @@ function CustomCard(props) {
             >
               <Icon name="address card" />
             </button>
-            <span className={styles.tooltiptext}>Card Color</span>
+            <span className={styles.tooltiptext}>Card Colors</span>
           </div>
 
           <div
-            className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}
+            className={`${styles.buttonDiv} mx-2 text-center`}
           >
             <button onClick={handleBringToFront}>
               <Icon name="arrow up" />
@@ -324,7 +337,7 @@ function CustomCard(props) {
           </div>
 
           <div
-            className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}
+            className={`${styles.buttonDiv} mx-2 text-center`}
           >
             <button onClick={handleSendToBack}>
               <Icon name="arrow down" />
@@ -333,7 +346,7 @@ function CustomCard(props) {
           </div>
 
           <div
-            className={`${styles.buttonDiv} ${styles.tooltip} mx-2 text-center`}
+            className={`${styles.buttonDiv} mx-2 text-center`}
           >
             <button
               className={styles.trashButton}
@@ -376,18 +389,33 @@ function CustomCard(props) {
               >
                 <Icon
                   name="id card"
-                  className={`circular large ${color === "white" ? `${color}` : `${color} inverted`} icon`}
+                  className={`circular large ${
+                    color === "white" ? `${color}` : `${color} inverted`
+                  } icon`}
                 ></Icon>
                 <span className={styles.colorText}>{color}</span>
               </div>
             ))}
+            <div
+              className={`col my-3 white ${styles.customBackgroundColorDiv}`}
+            >
+              <div>
+              <input
+                type="color"
+                id="cardCustomBackgroundColor"
+                name="cardCustomBackgroundColor"
+                onChange={handleCustomBackgroundColor}
+              ></input>
+              </div>
+              <span className={styles.colorText}>Custom</span>
+            </div>
           </div>
         </div>
 
         {/* Add Text Popup Message */}
         {addTextMode && userTextInput !== "" && (
           <div className={`alert alert-info ${styles.hintText}`}>
-            click on the canvas
+            <div>click on the canvas</div>
           </div>
         )}
 
@@ -473,10 +501,8 @@ function CustomCard(props) {
             </div>
           </div>
 
-          <div
-            className={`d-flex justify-content-around align-items-center flex-wrap`}
-          >
-            <div className={`col-8 mx-3`}>
+          <div className={`row gx-0 align-items-center`}>
+            <div className={`col`}>
               <input
                 className={`${styles.textInput}`}
                 type="text"
@@ -486,19 +512,22 @@ function CustomCard(props) {
               />
             </div>
             <div className={`col`}>
-              <div className={`${styles.horizontalButtonDiv}`}>
-                <button onClick={handleAddTextMode}>
-                  <Icon name="plus circle" />
-                </button>
+              <div
+                className={`${styles.normalBtn} btn btn-success`}
+                onClick={handleAddTextMode}
+              >
+                <Icon className="add" />
+                Add
               </div>
             </div>
           </div>
         </div>
         <br />
 
-        { showLogInMsg && <h2>Please logIn first...</h2>}
+        {showLogInMsg && <h2>Please logIn first...</h2>}
+
         {/* Save Card Section */}
-        <div className={`row align-items-center py-2 mb-5`}>
+        <div className={`row align-items-center py-0`}>
           <div className={`col-9`}>
             <input
               type="text"
@@ -507,11 +536,14 @@ function CustomCard(props) {
               onChange={tagHandle}
             />
           </div>
-          <div className={`${styles.horizontalButtonDiv} col`}>
-            <button className={styles.saveBtn} onClick={handleSave}>
-              <Icon name="save" />
-            </button>
-          </div>
+        </div>
+
+        <div
+          className={`${styles.normalBtn} btn btn-success`}
+          onClick={handleSave}
+        >
+          <Icon className="save" />
+          Save
         </div>
       </div>
     </>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Modal, makeStyles } from "@material-ui/core";
+import { Icon } from "semantic-ui-react";
 
 import UserCard from "./../../components/UserCard";
 import SharedCard from "./../../components/SharedCard";
@@ -21,6 +22,8 @@ const MainPage = () => {
 
   const [openModal, setOpenModal] = useState(false);
   const modalClasses = useStyles();
+
+  const [displayMyCard, setDisplayMyCard] = useState("none");
 
   useEffect(() => {
     if (!arrayReceived) {
@@ -96,13 +99,28 @@ const MainPage = () => {
     window.location.reload();
   };
 
+  const handleMyCardDisplay = () => {
+    displayMyCard == "none" ? setDisplayMyCard("") : setDisplayMyCard("none");
+  };
+
   return (
     <>
+      {/* This is the hidden user card section*/}
       <div
-        className={`${styles.container} row gx-5 py-lg-4 px-lg-5 justify-content-center align-items-center`}
-      >        
-        {/* This is the user card section*/}
-        <div className={`col-12 col-md-4 p-4 pb-0 text-center`}>
+        className={`${styles.userCardDiv} col-12 col-md-5 p-4 pb-0 text-center justify-content-center`}
+        style={{ display: `${displayMyCard}` }}
+      >
+        <div className={`${styles.userCardInsideDiv}`}>
+          <div
+            className={`${styles.userCardCloseButton}`}
+            onClick={handleMyCardDisplay}
+          >
+            <div>
+              <Icon name="close" />
+              close
+            </div>
+          </div>
+
           <UserCard fab_clicked={Handle_fab_clicked} />
 
           {/* This is the hidden add contact modal */}
@@ -121,40 +139,76 @@ const MainPage = () => {
               }
             </Modal>
           )}
-
         </div>
+      </div>
 
+      <div className={`${styles.container} justify-content-center`}>
         {/* This is other people's cards section */}
-        <div className={`col-12 col-md-8 p-4 pt-0`}>
-          <SearchCard addnewcard={newCardHandler} portfolio={portfolio}/>
-          {/* This is the card deck */}
-          <div className={`${styles.imgDiv}`}>
-            {searchClicked && 
-              filteredArray !== [] &&
-              filteredArray.map((card) => (
-                <SharedCard
-                  key={card._id}
-                  feedimg={card.img}
-                  id={card._id}
-                  useremail={JSON.parse(sessionStorage.getItem("email"))}
-                  email={card.email}
-                />
-              ))}
-              {/* {console.log(portfolio)} */}
-            {!searchClicked &&
-              portfolio !== [] &&
-              portfolio.map((card) => (
-                <SharedCard
-                  key={card._id}
-                  feedimg={card.img}
-                  id={card._id}
-                  useremail={JSON.parse(sessionStorage.getItem("email"))}
-                  email={card.email}
-                />
-              ))}
-          </div>
 
+        {/* My Card & Contact Row*/}
+        <div className={`d-flex justify-content-center my-2`}>
+          <button
+            className={`${styles.button} mx-4`}
+            onClick={handleMyCardDisplay}
+          >
+            <Icon name="user" />
+            My Card
+          </button>
+
+          <button
+            className={`${styles.button} mx-4`}
+            onClick={Handle_fab_clicked}
+          >
+            <Icon name="add" />
+            Contact
+          </button>
         </div>
+
+        <SearchCard addnewcard={newCardHandler} portfolio={portfolio} />
+
+        {/* This is the card deck */}
+        <div className={`${styles.imgDiv}`}>
+          {portfolio === [] && <div>empty</div>}
+
+          {searchClicked &&
+            filteredArray !== [] &&
+            filteredArray.map((card) => (
+              <SharedCard
+                key={card._id}
+                feedimg={card.img}
+                id={card._id}
+                useremail={JSON.parse(sessionStorage.getItem("email"))}
+                email={card.email}
+              />
+            ))}
+
+          {!searchClicked &&
+            portfolio !== [] &&
+            portfolio.map((card) => (
+              <SharedCard
+                key={card._id}
+                feedimg={card.img}
+                id={card._id}
+                useremail={JSON.parse(sessionStorage.getItem("email"))}
+                email={card.email}
+              />
+            ))}
+        </div>
+
+        {/* Loaders */}
+        {!arrayReceived && (
+          <div className="text-center">
+            <div className="spinner-grow text-secondary" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+            <div className="spinner-grow text-secondary mx-2" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+            <div className="spinner-grow text-secondary" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

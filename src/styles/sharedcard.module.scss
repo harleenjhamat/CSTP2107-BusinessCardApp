@@ -2,9 +2,11 @@
 
 $small: 450px;
 
-.container{
-  min-height: 75vh;
-  width: 95%;
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh;
+  width: 90%;
   margin: 2% auto;
 }
 
@@ -12,9 +14,6 @@ $small: 450px;
   display: flex;
   flex-direction: row;
   padding-bottom: 4%;
-  &:hover{
-    padding-top: 20px;
-  }
   @media screen and (max-width: $small) {
     flex-direction: column;
     overflow-x:unset;
@@ -29,7 +28,7 @@ $small: 450px;
   flex-direction: row;
   transition: 0.2s;
   &:not(:first-child) {
-    margin-left: -400px !important;
+    margin-left: -200px !important;
   }
   &:hover {
     transform: translateY(-100px);
@@ -42,7 +41,8 @@ $small: 450px;
     }
   }
   &:hover ~ .imgWrap {
-    transform: translateX(400px) !important;
+    // transform: translateY(-10px) !important;
+    transform: translateX(220px) !important;
   }
   i {
     position: absolute;
@@ -55,7 +55,7 @@ $small: 450px;
     flex-direction: column;
     &:not(:first-child) {
       margin-left: 0px !important;
-      margin-top: -50px !important;
+      margin-top: -60px !important;
     }
     &:hover {
       transform: translateX(0rem);
@@ -68,28 +68,91 @@ $small: 450px;
   }
 }
 
+.userCardDiv {
+  position: fixed;
+  width: 33%;
+  @media screen and (max-width: $small) {
+    width: 100%;
+  }
+  z-index: 2;
+  top: 0;
+  height: 100vh;
+  text-align: center;
+  background-color: darken($primary_color, 5%);
+  display: table;
+}
+
+.userCardInsideDiv {
+  width: 100%;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.userCardCloseButton {
+  text-align: right;
+  margin-bottom: 20px;
+  padding: 20px;
+  padding-right: 5px;
+  color: white;
+  font-size: large;
+  &:hover {
+    cursor: pointer;
+    color: darken(white, 10%);
+  }
+}
+
+.userCardImgDiv {
+  position: relative;
+  i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: green;
+    font-size: medium;
+  }
+}
+
+.viewMyCardButton {
+  width: 150px !important;
+  height: 50px !important;
+  margin: 20px;
+  position: absolute;
+  font-size: medium;
+  padding: 2px;
+  right: 1%;
+  bottom: 2%;
+  z-index: 1;
+}
+
+.menuPopup {
+  position: absolute;
+  right: 0;
+  bottom: 10%;
+  background-color: red;
+  min-width: 50px;
+  min-height: 50px;
+  z-index: 1;
+}
+
 .imgShadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  transition: 0.2s;
-  &:hover {
-    transform: translateY(-1rem);
-  }
 }
 
 .button {
   display: inline;
   width: 110px;
   height: 90px;
-  font-weight: 700; 
+  font-weight: 700;
   color: $ivory;
-  background-color: $primary_color;
+  background-color: complement($primary_color);
   border: none;
   border-radius: 5px;
   height: 40px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
   &:hover {
     color: $ivory;
-    background-color: $button_on_hover;
+    background-color: darken(complement($primary_color), 5%);
   }
   &:active {
     color: $ivory;
@@ -98,11 +161,20 @@ $small: 450px;
   }
 }
 
-.searchBarDiv{
-  width: 85%;
-  margin: 0 auto;
-  padding-bottom: 3%;
-  input{
-    border: 1px solid $border_color;
+.searchBarDiv {
+  text-align: center;
+  width: 50%;
+  @media screen and (max-width: $small) {
+    width: 100%;
+  }
+  margin: 10px auto;
+  padding: 1%;
+  input {
+    border: 2px solid $border_color;
+    padding: 1%;
+    display: inline-block;
+  }
+  button{
+    margin: 10px 0;
   }
 }
