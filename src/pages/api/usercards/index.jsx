@@ -92,7 +92,7 @@ const handler = async (req, res) => {
           email: render_cards
         }).exec()
         res.send(usercards)
-        console.log(usercards)
+        // console.log(usercards)
       } catch (e) {
         res.status(400).send(e)
       }

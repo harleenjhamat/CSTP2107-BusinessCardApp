@@ -6,21 +6,17 @@ const SearchCard = (props) => {
   const sharedcode = useRef("");
   const GetCards = () => {
     // console.log(sharedcode)
-    if (sharedcode.current.value === "") {
-      window.location.reload();
-    }
+    // if (sharedcode.current.value === "") {
+    //   window.location.reload();
+    // }
     let filteredCards = props.portfolio.filter((card) => {
       return (
-        card.email
-          .toLowerCase()
-          .includes(sharedcode.current.value.toLowerCase()) ||
-        card.tag
-          .toLowerCase()
-          .includes(sharedcode.current.value.toLowerCase()) ||
-        card.name.toLowerCase().includes(sharedcode.current.value.toLowerCase())
+         card.email.toLowerCase().includes(sharedcode.current.value.toLowerCase()) 
+      || card.tag.toLowerCase().includes(sharedcode.current.value.toLowerCase())
+      || card.name.toLowerCase().includes(sharedcode.current.value.toLowerCase())
       );
     });
-    props.addnewcard(filteredCards);
+      props.addnewcard(filteredCards);
   };
   return (
     <div className={`${styles.searchBarDiv}`}>
@@ -29,6 +25,7 @@ const SearchCard = (props) => {
         placeholder="Search Cards"
         className={`form-control`}
         ref={sharedcode}
+        onChange={GetCards}
       />
     </div>
   );
