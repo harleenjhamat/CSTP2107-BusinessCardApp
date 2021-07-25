@@ -3,10 +3,11 @@
 .wrapper{
   width: 80%;
   margin: 0 auto;
+  padding: 1% 0; 
 }
 
 .card {
-  padding: 4%;
+  padding: 3% 4%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: justify;
   display: flex;
@@ -14,13 +15,12 @@
   flex-direction: column;
   justify-content: center;
   h1{
-    letter-spacing: 3px;
-    font-weight: lighter;
+    letter-spacing: 1px;
     font-style: italic;
   }
   p {
     font-size: 1.5rem;
-    line-height: 2;
+    line-height: 1.8;
   }
 
   h1 {

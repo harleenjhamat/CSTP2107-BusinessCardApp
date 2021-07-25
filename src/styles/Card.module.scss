@@ -9,6 +9,7 @@ $small: 500px;
   justify-content: center;
   align-items: center;
   background-color: white;
+  background-image: url("/assets/choose_template.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -24,7 +25,6 @@ $small: 500px;
 }
 
 .banner{
-  background-color: white;
   margin: 2% 2%;
   padding:5% 10%;
   display: flex;
