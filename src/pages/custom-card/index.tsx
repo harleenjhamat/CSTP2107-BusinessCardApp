@@ -72,6 +72,7 @@ function CustomCard(props) {
             );
             setcanvasLoaded(true);
           }
+        }).catch((err) => {
         });
       }
     }
