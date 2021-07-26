@@ -7,7 +7,7 @@ const ContactUs = () => {
     <>    
     <div className={styles.container}>
         <h1>Contact Us</h1>
-        <p><b>Want to get in touch? Send us a message and we will get back to you within one business day</b></p>
+        <p>Want to get in touch? Send us a message and we will get back to you within one business day</p>
     </div>
     <div className={styles.row}>
 
