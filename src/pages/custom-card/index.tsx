@@ -519,7 +519,7 @@ function CustomCard(props) {
         </div>
         <br />
 
-        {showLogInMsg && <h2>Please logIn first...</h2>}
+        {showLogInMsg && <h2>Please login first...</h2>}
 
         {/* Save Card Section */}
         {session && (
@@ -528,7 +528,7 @@ function CustomCard(props) {
               <div className={`col-9`}>
                 <input
                   type="text"
-                  placeholder="Add a search tag to your card (ie. student)"
+                  placeholder="Add search tags (ie. job title, company name)"
                   className={`form-control ${styles.saveInput}`}
                   onChange={tagHandle}
                 />
