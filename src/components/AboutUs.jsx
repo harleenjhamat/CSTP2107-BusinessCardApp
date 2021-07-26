@@ -6,7 +6,7 @@ const AboutUs = () => {
     <>    
     <div className={styles.wrap}>
         <h1>About Us</h1>
-        <p>Learn about our company and us. We are growing every single day.</p>
+        <p>Learn about our company and us. We are growing every single day</p>
     </div>
       <div className={styles.wrapper}>
         <div className="my-4">
