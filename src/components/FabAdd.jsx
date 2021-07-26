@@ -1,8 +1,8 @@
 import { Fragment } from 'react'
 import styles from '../styles/mainpage.module.scss'
-const FabAdd = (props) => {
+const AddCardButton = (props) => {
   const AddCardTrue = () => {
-    props.fab_clicked(true)
+    props.AddCardButton_clicked(true)
   }
   return (
     <Fragment>
@@ -11,4 +11,4 @@ const FabAdd = (props) => {
   )
 }
 
-export default FabAdd
+export default AddCardButton
