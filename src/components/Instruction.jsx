@@ -7,7 +7,7 @@ const Instructions = () => {
       <div className={styles.wrapper}>
         <div className="my-4">
           <div className="row align-items-center justify-content-around">
-            <div className={`col-12 col-md-5 order-md-2 p-1`}>
+            <div className={`col-12 col-md-5 order-md-2 p-1 text-end`}>
               <Image
                 src="/assets/bot_choose.jpg"
                 alt="instruction1"
@@ -50,7 +50,7 @@ const Instructions = () => {
 
         <div className="py-4">
           <div className="row align-items-center justify-content-around">
-            <div className="col-12 col-md-5 order-md-2 p-1">
+            <div className="col-12 col-md-5 order-md-2 p-1 text-end">
               <Image
                 src="/assets/bot_share.jpg"
                 alt="instruction3"
