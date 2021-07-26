@@ -12,15 +12,9 @@ const UserCard = ({ AddCardButton_clicked }) => {
   const [shareCardNum, setshareCardNum] = useState(false);
   const [email, setEmailLink] = useState("");
 
-  useEffect(()=>{
-    var canvas = document.getElementById("qrCanvas");
-    if (canvas) {
-      QRCode.toCanvas(canvas, email, function (error) {
-        if (error) console.error(error);
-        console.log("success!");
-      });
-    }
-  }, [email]);
+  // useEffect(()=>{
+
+  // }, [email]);
 
   if (typeof window !== "undefined") {
     if (sessionStorage.getItem("email") === null) {
@@ -48,6 +42,14 @@ const UserCard = ({ AddCardButton_clicked }) => {
           setmyCustomCard(true);
           setmyCustomCardUrl(data[0].img);
           setEmailLink(`http://localhost:3000/` + data[0].email);
+
+          var canvas = document.getElementById("qrCanvas");
+          if (canvas) {
+            QRCode.toCanvas(canvas, email, function (error) {
+              if (error) console.error(error);
+              console.log("success!");
+            });
+          }
         }
       })
       .catch((err) => {
@@ -97,26 +99,29 @@ const UserCard = ({ AddCardButton_clicked }) => {
               className={`${styles.imgShadow} figure-img img-fluid rounded`}
               alt="..."
             />
-            <Icon onClick={handleEdit} name="big edit" />
           </div>
 
-          <div>
-            <canvas id="qrCanvas"></canvas>
-          </div>
+          <button className={`${styles.mediumButton}`} onClick={handleEdit}>
+            <Icon name="edit" />
+            Edit your card
+          </button>
 
           {/* share and edit container */}
-          <div className={`d-flex justify-content-around my-4`}>
-            <button className={`${styles.button} col-3`} onClick={SharedCard}>
+          <div className={`d-flex justify-content-around my-4 flex-wrap`}>
+            <button className={`${styles.mediumButton} `} onClick={SharedCard}>
               <Icon name="share alternate" />
-              Sharable Link
+              Get Sharable Link
             </button>
           </div>
 
           {/* Display share email message */}
           {shareCardNum && (
             <div className="rounded bd-highlight text-center">
+              <div>
+                <canvas id="qrCanvas"></canvas>
+              </div>
               <p className="m-0">
-                <b>Copied to clipboard:</b>
+                <b>Copied Link to clipboard:</b>
               </p>
               <p>
                 <input
@@ -127,6 +132,7 @@ const UserCard = ({ AddCardButton_clicked }) => {
                     border: "none",
                     width: "200px",
                     backgroundColor: "transparent",
+                    textOverflow: "ellipsis",
                   }}
                 />
               </p>

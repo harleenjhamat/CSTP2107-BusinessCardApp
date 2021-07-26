@@ -103,7 +103,7 @@ $small: 450px;
 }
 
 .userCardImgDiv {
-  position: relative;
+  position: relative; 
   i {
     position: absolute;
     width: 30px;
@@ -111,7 +111,7 @@ $small: 450px;
     right: 10px;
     color: $danger;
     font-size: medium;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.062);
   }
 }
 
@@ -188,7 +188,24 @@ $small: 450px;
   padding:0.4em 2.5em;
   border-radius: 2%;
   box-sizing: border-box;
+  background-color: transparent;
   text-transform:uppercase;
+  &:hover{
+    border:0.12em solid darken($primary_color, 10%);
+    background-color: rgba(0, 0, 0, 0.041);
+  }
+}
+
+.mediumButton{
+  border: none;
+  font-size: 1.5em;
+  margin: 0%;
+  padding:0.4em 2.5em;
+  color: white;
+  // border-radius: 2%;
+  box-sizing: border-box;
+  text-transform:uppercase;
+  background-color: transparent;
   &:hover{
     border:0.12em solid darken($primary_color, 10%);
     background-color: rgba(0, 0, 0, 0.041);
