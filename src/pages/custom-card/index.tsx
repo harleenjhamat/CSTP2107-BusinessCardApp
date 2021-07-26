@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { fabric } from "fabric";
 import { Icon } from "semantic-ui-react";
 import { useRouter } from "next/router";
+import { useSession, signIn } from "next-auth/client";
 
 import styles from "@/styles/CustomizeYourCard.module.scss";
 import { base64ToBlob, readFile } from "@/utility/File";
@@ -27,6 +28,7 @@ function CustomCard(props) {
   const [tag, setTag] = useState("");
   const [showLogInMsg, setShowLogInMsg] = useState(false);
   const [canvasLoaded, setcanvasLoaded] = useState(false);
+  const [session, loading] = useSession();
   const router = useRouter();
 
   const pullCanvas = async () => {
@@ -241,13 +243,15 @@ function CustomCard(props) {
     canvas.setBackgroundColor(ColorList[color], canvas.renderAll.bind(canvas));
   };
 
-  const handleCustomBackgroundColor = (e) =>{
-   let backgroundColorInput = document.getElementById("cardCustomBackgroundColor") as any;
-   let color = backgroundColorInput.value;
-   console.log(color);
-   canvas.setBackgroundColor(color, canvas.renderAll.bind(canvas));
-   backgroundColorInput.value = color;
-  }
+  const handleCustomBackgroundColor = (e) => {
+    let backgroundColorInput = document.getElementById(
+      "cardCustomBackgroundColor"
+    ) as any;
+    let color = backgroundColorInput.value;
+    console.log(color);
+    canvas.setBackgroundColor(color, canvas.renderAll.bind(canvas));
+    backgroundColorInput.value = color;
+  };
 
   const handleRemovedSelectedItemOnKeyPress = (e) => {
     if (e.key == "Backspace" || e.key === "Delete") handleRemovedSelectedItem();
@@ -285,9 +289,7 @@ function CustomCard(props) {
 
         {/* add text, image, backgroundColor, bring-to-front, send-to-back, remove item */}
         <div className={`d-flex justify-content-center pt-2 flex-wrap`}>
-          <div
-            className={`${styles.buttonDiv} mx-2 text-center`}
-          >
+          <div className={`${styles.buttonDiv} mx-2 text-center`}>
             <button
               className={`${addTextActive ? styles.btnActive : ""}`}
               onClick={handleToggleTextDisplay}
@@ -314,9 +316,7 @@ function CustomCard(props) {
             </div>
           </div>
 
-          <div
-            className={`${styles.buttonDiv}  mx-2 text-center`}
-          >
+          <div className={`${styles.buttonDiv}  mx-2 text-center`}>
             <button
               className={`${
                 selectBackgroundColorActive ? styles.btnActive : ""
@@ -328,27 +328,21 @@ function CustomCard(props) {
             <span className={styles.tooltiptext}>Card Colors</span>
           </div>
 
-          <div
-            className={`${styles.buttonDiv} mx-2 text-center`}
-          >
+          <div className={`${styles.buttonDiv} mx-2 text-center`}>
             <button onClick={handleBringToFront}>
               <Icon name="arrow up" />
             </button>
             <span className={styles.tooltiptext}>Bring Front</span>
           </div>
 
-          <div
-            className={`${styles.buttonDiv} mx-2 text-center`}
-          >
+          <div className={`${styles.buttonDiv} mx-2 text-center`}>
             <button onClick={handleSendToBack}>
               <Icon name="arrow down" />
             </button>
             <span className={styles.tooltiptext}>Send Back</span>
           </div>
 
-          <div
-            className={`${styles.buttonDiv} mx-2 text-center`}
-          >
+          <div className={`${styles.buttonDiv} mx-2 text-center`}>
             <button
               className={styles.trashButton}
               onClick={handleRemovedSelectedItem}
@@ -401,12 +395,12 @@ function CustomCard(props) {
               className={`col my-3 white ${styles.customBackgroundColorDiv}`}
             >
               <div>
-              <input
-                type="color"
-                id="cardCustomBackgroundColor"
-                name="cardCustomBackgroundColor"
-                onChange={handleCustomBackgroundColor}
-              ></input>
+                <input
+                  type="color"
+                  id="cardCustomBackgroundColor"
+                  name="cardCustomBackgroundColor"
+                  onChange={handleCustomBackgroundColor}
+                ></input>
               </div>
               <span className={styles.colorText}>Custom</span>
             </div>
@@ -528,24 +522,27 @@ function CustomCard(props) {
         {showLogInMsg && <h2>Please logIn first...</h2>}
 
         {/* Save Card Section */}
-        <div className={`row align-items-center py-0`}>
-          <div className={`col-9`}>
-            <input
-              type="text"
-              placeholder="Add a search tag to your card (ie. student)"
-              className={`form-control ${styles.saveInput}`}
-              onChange={tagHandle}
-            />
-          </div>
-        </div>
-
-        <div
-          className={`${styles.normalBtn} btn btn-success`}
-          onClick={handleSave}
-        >
-          <Icon className="save" />
-          Save
-        </div>
+        {session && (
+          <>
+            <div className={`row align-items-center py-0`}>
+              <div className={`col-9`}>
+                <input
+                  type="text"
+                  placeholder="Add a search tag to your card (ie. student)"
+                  className={`form-control ${styles.saveInput}`}
+                  onChange={tagHandle}
+                />
+              </div>
+            </div>
+            <div
+              className={`${styles.normalBtn} btn btn-success`}
+              onClick={handleSave}
+            >
+              <Icon className="save" />
+              Save
+            </div>
+          </>
+        ) || <div className="alert alert-info">You Cannot Save Your Progress without Signing In.</div>}
       </div>
     </>
   );

@@ -1,5 +1,4 @@
 import { signOut, useSession, signIn } from "next-auth/client";
-import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,10 +6,9 @@ import styles from "../styles/navbar.module.scss";
 
 const Navbar = () => {
   const [session, loading] = useSession();
-  const router = useRouter();
   const signOutHandler = () => {
-    sessionStorage.clear() 
-    signOut("google")
+    sessionStorage.clear();
+    signOut("google");
   };
 
   if (typeof window !== "undefined" && session) {
@@ -21,7 +19,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={`navbar navbar-expand-lg navbar-light ${styles.navbar}`}> 
+      <nav className={`navbar navbar-expand-lg navbar-light ${styles.navbar}`}>
         <div className="container-fluid">
           <Link href="/">
             <a>
@@ -51,7 +49,9 @@ const Navbar = () => {
               <ul className="navbar-nav mb-lg-0">
                 <li className="nav-item py-3 py-md-0">
                   <Link href="/#instructions">
-                    <a className={`${styles.navbarContact} mx-md-1`}>Get Started</a>
+                    <a className={`${styles.navbarContact} mx-md-1`}>
+                      Get Started
+                    </a>
                   </Link>
                 </li>
                 <li className="nav-item py-3 py-md-0">
@@ -89,7 +89,7 @@ const Navbar = () => {
             {/* Hide Logout Button if the user has logged in  */}
             {session && (
               <>
-                <Link href="/MainPage" >
+                <Link href="/MainPage">
                   <a>
                     <img
                       className={`${styles.thumbnail} mx-3 my-2 my-md-0`}
