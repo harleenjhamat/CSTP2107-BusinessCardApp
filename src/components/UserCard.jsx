@@ -5,12 +5,12 @@ var QRCode = require("qrcode");
 import { Icon } from "semantic-ui-react";
 import styles from "../styles/sharedcard.module.scss";
 
-const UserCard = ({ fab_clicked }) => {
+const UserCard = ({ AddCardButton_clicked }) => {
   const router = useRouter();
   const [myCustomCard, setmyCustomCard] = useState(false);
   const [myCustomCardUrl, setmyCustomCardUrl] = useState("");
   const [shareCardNum, setshareCardNum] = useState(false);
-  const [email, setEmail] = useState("");
+  const [email, setEmailLink] = useState("");
 
   useEffect(()=>{
     var canvas = document.getElementById("qrCanvas");
@@ -47,7 +47,7 @@ const UserCard = ({ fab_clicked }) => {
         } else {
           setmyCustomCard(true);
           setmyCustomCardUrl(data[0].img);
-          setEmail(data[0].email);
+          setEmailLink(`http://localhost:3000/` + data[0].email);
         }
       })
       .catch((err) => {
