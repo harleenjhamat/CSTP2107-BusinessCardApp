@@ -146,9 +146,9 @@ const MainPage = () => {
         {/* This is other people's cards section */}
 
         {/* My Card & Contact Row*/}
-        <div className={`d-flex justify-content-center my-2`}>
+        <div className={`d-flex justify-content-center my-2 flex-wrap`}>
           <button
-            className={`${styles.button} mx-4`}
+            className={`${styles.jumboButton} mx-4`}
             onClick={handleMyCardDisplay}
           >
             <Icon name="user" />
@@ -156,7 +156,7 @@ const MainPage = () => {
           </button>
 
           <button
-            className={`${styles.button} mx-4`}
+            className={`${styles.jumboButton} mx-4`}
             onClick={Handle_AddCardButton_clicked}
           >
             <Icon name="add" />
