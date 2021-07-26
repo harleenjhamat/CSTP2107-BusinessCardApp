@@ -89,7 +89,7 @@ const MainPage = () => {
     setfilteredArray(data);
   };
 
-  const Handle_fab_clicked = (data) => {
+  const Handle_AddCardButton_clicked = (data) => {
     setOpenModal(true);
     setaddclicked(data);
   };
@@ -121,7 +121,7 @@ const MainPage = () => {
             </div>
           </div>
 
-          <UserCard fab_clicked={Handle_fab_clicked} />
+          <UserCard AddCardButton_clicked={Handle_AddCardButton_clicked} />
 
           {/* This is the hidden add contact modal */}
           {addclicked && (
@@ -157,7 +157,7 @@ const MainPage = () => {
 
           <button
             className={`${styles.button} mx-4`}
-            onClick={Handle_fab_clicked}
+            onClick={Handle_AddCardButton_clicked}
           >
             <Icon name="add" />
             Contact
