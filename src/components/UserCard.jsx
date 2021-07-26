@@ -97,7 +97,7 @@ const UserCard = ({ AddCardButton_clicked }) => {
               className={`${styles.imgShadow} figure-img img-fluid rounded`}
               alt="..."
             />
-            <Icon onClick={handleEdit} name="edit" />
+            <Icon onClick={handleEdit} name="big edit" />
           </div>
 
           <div>
