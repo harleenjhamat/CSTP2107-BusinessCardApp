@@ -27,6 +27,7 @@ const SearchCard = (props) => {
         ref={sharedcode}
         onChange={GetCards}
       />
+  
     </div>
   );
 };

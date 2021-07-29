@@ -152,7 +152,7 @@ const MainPage = () => {
             onClick={handleMyCardDisplay}
           >
             <Icon name="user" />
-            My Card
+            <strong>My Card</strong>
           </button>
 
           <button
@@ -160,7 +160,7 @@ const MainPage = () => {
             onClick={Handle_AddCardButton_clicked}
           >
             <Icon name="add" />
-            Contact
+            <strong>Contact</strong>
           </button>
         </div>
 
