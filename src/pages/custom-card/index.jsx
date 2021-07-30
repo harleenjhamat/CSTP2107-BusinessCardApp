@@ -13,7 +13,6 @@ function CustomCard(props) {
   const [canvas, setCanvas] = useState();
   const [userTextInput, setUserTextInput] = useState("");
   const [imgData, setimgData] = useState();
-  const [data_to_json, setdata_to_json] = useState([]);
   const [fontWeight, setFontWeight] = useState(false);
   const [fontStyle, setFontStyle] = useState(false);
   const [fontFamily, setFontFamily] = useState("arial");
@@ -67,10 +66,9 @@ function CustomCard(props) {
       if (sessionStorage.getItem("email") !== null && !canvasLoaded) {
         pullCanvas().then(async function (response) {
           if (canvas) {
-            var myurl = await binary_to_url(response[0].json);
             setCanvas(
               canvas.loadFromJSON(
-                myurl,
+                response[0].json,
                 canvas.renderAll.bind(canvas)
               )
             );
@@ -176,79 +174,73 @@ function CustomCard(props) {
     setUserTextInput("");
     setAddTextMode(false);
   };
-  async function binary_to_url(data) {
-    var tempJson = data;
-    for (let index = 0; index < tempJson.objects.length; index++) {
-          const element = tempJson.objects[index];
-          const type = element.type;
-          if(type != 'image'){
-            continue;
-          }
-          const source = element.src;
 
-          const blob = await base64ToBlob(source)
-          const tempIMG = window.URL.createObjectURL(blob)
+async function step1(){
+  var tempJson = canvas.toJSON();
+  for (let index = 0; index < tempJson.objects.length; index++) {
+        const element = tempJson.objects[index];
+        const type = element.type;
+        if(type != 'image'){
+          continue;
+        }
 
-          return tempJson;
-  }}
-  const handleSave = async () => {
-    if (sessionStorage.getItem("email")) {
-      var tempJson = canvas.toJSON();
-      for (let index = 0; index < tempJson.objects.length; index++) {
-            const element = tempJson.objects[index];
-            const type = element.type;
-            if(type != 'image'){
-              continue;
-            }
-
-            const source = element.src;
-            const image = await fetch(source)
-            const imageBlog = await image.blob()
-            var reader = new FileReader();
-            reader.readAsDataURL(imageBlog); 
-            reader.onloadend = function() {
-                var base64data = reader.result;                
-                tempJson.objects[index].src = base64data
-            }
-            setimgData(tempJson)
+        const source = element.src;
+        const image = await fetch(source)
+        const imageBlog = await image.blob()
+        var reader = new FileReader();
+        reader.readAsDataURL(imageBlog); 
+        reader.onloadend = function() {
+            var base64data = reader.result;                
+            tempJson.objects[index].src = base64data
+        }
       }
-      const sendObject = {
-        json: imgData,
-        name: JSON.parse(sessionStorage.getItem("name")),
-        email: JSON.parse(sessionStorage.getItem("email")),
-        img: canvas.toDataURL("png"),
-        sharedcode: Math.random(),
-        create_new_card: "yes",
-        tag: tag,
-      };
-      const sendObjectStr = JSON.stringify(sendObject);
+  setimgData(tempJson)
+  return tempJson;
+}
+  const handleSave = async () => {
+    step1().then(function(response){
+      
+      if (sessionStorage.getItem("email") && response) {
+        console.log(response)
+        const sendObject = {
+          json: response,
+          name: JSON.parse(sessionStorage.getItem("name")),
+          email: JSON.parse(sessionStorage.getItem("email")),
+          img: canvas.toDataURL("png"),
+          sharedcode: Math.random(),
+          create_new_card: "yes",
+          tag: tag,
+        };
+        const sendObjectStr = JSON.stringify(sendObject);
+  
+        fetch("http://localhost:3000/api/usercards?=", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: sendObjectStr,
+        })
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            if (data.email === null) {
+              // console.log("have to log in");
+            } else {
+              router.push("/MainPage");
+            }
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      } else {
+        // setShowLogInMsg(true);
+        // setTimeout(() => {
+        //   setShowLogInMsg(false);
+        // }, 3000);
+      }
+    })
 
-      fetch("http://localhost:3000/api/usercards?=", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: sendObjectStr,
-      })
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          if (data.email === null) {
-            // console.log("have to log in");
-          } else {
-            router.push("/MainPage");
-          }
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    } else {
-      setShowLogInMsg(true);
-      setTimeout(() => {
-        setShowLogInMsg(false);
-      }, 3000);
-    }
   };
 
   const handleRemovedSelectedItem = () => {
