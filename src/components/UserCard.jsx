@@ -116,7 +116,7 @@ const UserCard = ({ AddCardButton_clicked }) => {
 
           {/* Display share email message */}
           {shareCardNum && (
-            <div className="rounded bd-highlight text-center">
+            <div className="rounded bd-highlight text-center mb-4">
               <div>
                 <canvas id="qrCanvas"></canvas>
               </div>

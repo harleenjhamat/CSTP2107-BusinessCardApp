@@ -107,7 +107,7 @@ const MainPage = () => {
     <>
       {/* This is the hidden user card section*/}
       <div
-        className={`${styles.userCardDiv} col-12 col-md-5 p-4 pb-0 text-center justify-content-center`}
+        className={`${styles.userCardDiv} col-12 col-md-5 pb-0 text-center justify-content-center`}
         style={{ display: `${displayMyCard}` }}
       >
         <div className={`${styles.userCardInsideDiv}`}>
