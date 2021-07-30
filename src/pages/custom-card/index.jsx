@@ -66,16 +66,10 @@ function CustomCard(props) {
     if (typeof window !== "undefined") {
       if (sessionStorage.getItem("email") !== null && !canvasLoaded) {
         pullCanvas().then(async function (response) {
-          // console.log(response[0])
           if (canvas) {
-            // console.log(response)
-            // console.log(response[0])
-            // console.log(response[0].json)
             var myurl = await binary_to_url(response[0].json);
-            console.log(myurl)
             setCanvas(
               canvas.loadFromJSON(
-                // response[0].json,
                 myurl,
                 canvas.renderAll.bind(canvas)
               )
@@ -184,9 +178,7 @@ function CustomCard(props) {
   };
   async function binary_to_url(data) {
     var tempJson = data;
-    // console.log(tempJson)
     for (let index = 0; index < tempJson.objects.length; index++) {
-    // console.log('dfdfgfffffffff')
           const element = tempJson.objects[index];
           const type = element.type;
           if(type != 'image'){
@@ -196,27 +188,18 @@ function CustomCard(props) {
 
           const blob = await base64ToBlob(source)
           const tempIMG = window.URL.createObjectURL(blob)
-          // console.log(tempIMG)
 
-          // setdata_to_json(tempIMG)
           return tempJson;
   }}
   const handleSave = async () => {
-    // const canvasJson = canvas.toJSON();
     if (sessionStorage.getItem("email")) {
-      // console.log(canvas.toJSON())
       var tempJson = canvas.toJSON();
-      // console.log(tempJson.objects.length)
       for (let index = 0; index < tempJson.objects.length; index++) {
-            // console.log(index)
             const element = tempJson.objects[index];
-            // console.log(element)
             const type = element.type;
             if(type != 'image'){
-              // console.log('text')
               continue;
             }
-            // console.log('tex2t')
 
             const source = element.src;
             const image = await fetch(source)
@@ -226,12 +209,9 @@ function CustomCard(props) {
             reader.onloadend = function() {
                 var base64data = reader.result;                
                 tempJson.objects[index].src = base64data
-            // console.log(tempJson.objects[index].src)
             }
             setimgData(tempJson)
-            // console.log(imgData)
       }
-      // console.log(imgData)
       const sendObject = {
         json: imgData,
         name: JSON.parse(sessionStorage.getItem("name")),
@@ -257,7 +237,7 @@ function CustomCard(props) {
           if (data.email === null) {
             // console.log("have to log in");
           } else {
-            // router.push("/MainPage");
+            router.push("/MainPage");
           }
         })
         .catch((err) => {
@@ -302,7 +282,6 @@ function CustomCard(props) {
       "cardCustomBackgroundColor"
     );
     let color = backgroundColorInput.value;
-    // console.log(color);
     canvas.setBackgroundColor(color, canvas.renderAll.bind(canvas));
     backgroundColorInput.value = color;
   };
@@ -326,7 +305,6 @@ function CustomCard(props) {
     const file = files[0];
     const data = await readFile(file);
     const blob = await base64ToBlob(data);
-    // console.log(blob)
     const imageURL = window.URL.createObjectURL(blob);
 
     fabric.Image.fromURL(imageURL, function (oImg) {
