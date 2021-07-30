@@ -190,6 +190,13 @@ $small: 450px;
     background-color: rgba(219, 211, 211, 0.062);;
 
   }
+  @media only screen and (max-width:$small){
+    .boxContainer{
+     width: auto;
+    }
+
+  }
+  
 
   .search:focus{
     outline: none;
