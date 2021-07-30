@@ -143,16 +143,22 @@ $medium: 900px;
 }
 
 .normalBtn {
-  background-color: complement($primary_color);
-  margin: 15px;
+margin: 15px;
+margin-bottom: 5%;
+width: 90px;
+height: 35px;
+font-size: 16px;
+background-color: lighten(complement($primary_color), 5%);
+color: $white;
+letter-spacing: 1.1px;
+box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
+@media screen and (max-widgt: $small) {
   margin-bottom: 5%;
-  border: none;
-  width: 90px;
-  height: 35px;
-  font-size: 16px;
-  &:hover {
-    background-color: lighten($primary_color, 5%) !important;
-  }
+}
+&:hover {
+  background-color: darken(complement($primary_color), 5%);
+  color: $white;
+}
 }
 
 .colorText {

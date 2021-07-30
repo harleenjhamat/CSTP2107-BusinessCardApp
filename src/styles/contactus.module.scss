@@ -1,5 +1,7 @@
 @import "./colors.scss";
 
+$small: 450px;
+
 .row{
     width: 80%;
     margin:auto;
@@ -46,25 +48,21 @@
 }
 
 .btn{
-    font-size: large;
-    padding:15px;
-    border-style: solid;
-    border-color: $quinary_color;
-    background-color:$white;
-    color: $quinary_color;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+background-color: lighten(complement($primary_color), 5%);
+color: $white;
+font-size: 16px;    
+margin-bottom: 5%;
+letter-spacing: 1.1px;
+box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
+padding:15px;
+border-style: solid;
+@media all and (max-width:$small){
+    margin-bottom: 5%;
 }
-
-@media all and (max-width:30em){
-    .btn{
-        display: block;
-    }
-}
-.btn:hover{
-    background-color:$quinary_color;
+&:hover {
+    background-color: darken(complement($primary_color), 5%);
     color: $white;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
+  }
 }
 .contactcol p{
     color: rgb(37, 6, 6);
