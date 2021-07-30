@@ -257,7 +257,7 @@ function CustomCard(props) {
           if (data.email === null) {
             // console.log("have to log in");
           } else {
-            // router.push("/MainPage");
+            router.push("/MainPage");
           }
         })
         .catch((err) => {
