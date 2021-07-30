@@ -55,6 +55,7 @@ $small: 450px;
     letter-spacing: 1.1px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
     padding:15px;
+    border:none;
     @media screen and (max-width:$small){
         margin-bottom: 5%;
     }
