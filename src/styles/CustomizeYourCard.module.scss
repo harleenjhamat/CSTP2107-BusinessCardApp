@@ -144,9 +144,8 @@ $medium: 900px;
 
 .normalBtn {
 margin: 15px;
-margin-bottom: 5%;
-width: 90px;
-height: 35px;
+margin-bottom: 4%;
+padding: 8px;
 font-size: 16px;
 background-color: lighten(complement($primary_color), 5%);
 color: $white;

@@ -571,7 +571,7 @@ function CustomCard(props) {
               </div>
             </div>
             <div
-              className={`${styles.normalBtn} btn btn-success`}
+              className={`${styles.normalBtn}`}
               onClick={handleSave}
             >
               <Icon className="save" />
