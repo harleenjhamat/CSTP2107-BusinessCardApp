@@ -76,7 +76,7 @@ $small: 450px;
   }
   z-index: 2;
   top: 0;
-  height: 100vh;
+  height: 100%vh;
   text-align: center;
   background-color: darken($primary_color, 5%);
   display: table;
@@ -84,16 +84,15 @@ $small: 450px;
 
 .userCardInsideDiv {
   width: 100%;
-  height: 100%;
-  display: table-cell;
-  vertical-align: middle;
+  height: 100vh;
+  overflow-y: scroll;
+  z-index: 2;
 }
 
 .userCardCloseButton {
-  text-align: right;
-  margin-bottom: 20px;
+  text-align: center;
+  margin: 20px;
   padding: 20px;
-  padding-right: 5px;
   color: white;
   font-size: large;
   &:hover {
