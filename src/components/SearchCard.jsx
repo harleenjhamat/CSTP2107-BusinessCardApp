@@ -19,14 +19,24 @@ const SearchCard = (props) => {
       props.addnewcard(filteredCards);
   };
   return (
-    <div className={`${styles.searchBarDiv}`}>
-      <input
-        type="text"
-        placeholder="Search Cards"
-        className={`form-control`}
-        ref={sharedcode}
-        onChange={GetCards}
-      />
+    <div className={styles.boxContainer}>
+      <table className={styles.elementsContainer}>
+        <tr>
+          <td>
+            <input
+              type="text"
+              placeholder="Search Cards"
+              className={styles.search}
+              ref={sharedcode}
+              onChange={GetCards}
+            />
+          </td>
+          <td>
+            <i className="material-icons">search</i>
+          </td>
+        </tr>
+      </table>
+          
   
     </div>
   );
