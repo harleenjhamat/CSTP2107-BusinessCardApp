@@ -47,13 +47,13 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <div className="d-flex flex-grow-1">
               <ul className="navbar-nav mb-lg-0">
-                <li className="nav-item py-3 py-md-0">
+                {/* <li className="nav-item py-3 py-md-0">
                   <Link href="/#instructions">
                     <a className={`${styles.navbarContact} mx-md-1`}>
                       Get Started
                     </a>
                   </Link>
-                </li>
+                </li> */}
                 <li className="nav-item py-3 py-md-0">
                   <a href="http://localhost:3000/AboutUs">
                     <a className={` ${styles.navbarContact}`}>About</a>
