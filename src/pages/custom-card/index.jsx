@@ -531,9 +531,11 @@ function CustomCard(props) {
                 onChange={handleUserTextInput}
               />
             </div>
+            </div>
+          <div className={`row gx-0 align-items-center justify-content-center`}>
             <div className={`col-4`}>
               <div
-                className={`${styles.normalBtn} btn`}
+                className={`${styles.normalBtn}`}
                 onClick={handleAddTextMode}
               >
                 <Icon className="add" />

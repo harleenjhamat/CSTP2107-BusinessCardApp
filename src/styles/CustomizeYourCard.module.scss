@@ -147,6 +147,9 @@ margin: 15px;
 margin-bottom: 4%;
 padding: 8px;
 font-size: 16px;
+border-radius: 2%;
+width: 100px;
+text-align: center;
 background-color: lighten(complement($primary_color), 5%);
 color: $white;
 letter-spacing: 1.1px;
@@ -157,6 +160,7 @@ box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 8, 0.19);
 &:hover {
   background-color: darken(complement($primary_color), 5%);
   color: $white;
+  cursor: pointer;
 }
 }
 
