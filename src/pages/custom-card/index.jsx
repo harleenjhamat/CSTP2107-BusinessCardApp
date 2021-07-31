@@ -64,18 +64,19 @@ function CustomCard(props) {
   setTimeout(() => {
     if (typeof window !== "undefined") {
       if (sessionStorage.getItem("email") !== null && !canvasLoaded) {
-        pullCanvas().then(async function (response) {
-          if (canvas) {
-            setCanvas(
-              canvas.loadFromJSON(
-                response[0].json,
-                canvas.renderAll.bind(canvas)
-              )
-            );
-            setcanvasLoaded(true);
-          }
-        }).catch((err) => {
-        });
+        pullCanvas()
+          .then(async function (response) {
+            if (canvas) {
+              setCanvas(
+                canvas.loadFromJSON(
+                  response[0].json,
+                  canvas.renderAll.bind(canvas)
+                )
+              );
+              setcanvasLoaded(true);
+            }
+          })
+          .catch((err) => {});
       }
     }
   }, 1000);
@@ -175,33 +176,32 @@ function CustomCard(props) {
     setAddTextMode(false);
   };
 
-async function step1(){
-  var tempJson = canvas.toJSON();
-  for (let index = 0; index < tempJson.objects.length; index++) {
-        const element = tempJson.objects[index];
-        const type = element.type;
-        if(type != 'image'){
-          continue;
-        }
-
-        const source = element.src;
-        const image = await fetch(source)
-        const imageBlog = await image.blob()
-        var reader = new FileReader();
-        reader.readAsDataURL(imageBlog); 
-        reader.onloadend = function() {
-            var base64data = reader.result;                
-            tempJson.objects[index].src = base64data
-        }
+  async function step1() {
+    var tempJson = canvas.toJSON();
+    for (let index = 0; index < tempJson.objects.length; index++) {
+      const element = tempJson.objects[index];
+      const type = element.type;
+      if (type != "image") {
+        continue;
       }
-  setimgData(tempJson)
-  return tempJson;
-}
+
+      const source = element.src;
+      const image = await fetch(source);
+      const imageBlog = await image.blob();
+      var reader = new FileReader();
+      reader.readAsDataURL(imageBlog);
+      reader.onloadend = function () {
+        var base64data = reader.result;
+        tempJson.objects[index].src = base64data;
+      };
+    }
+    setimgData(tempJson);
+    return tempJson;
+  }
   const handleSave = async () => {
-    step1().then(function(response){
-      
+    step1().then(function (response) {
       if (sessionStorage.getItem("email") && response) {
-        console.log(response)
+        console.log(response);
         const sendObject = {
           json: response,
           name: JSON.parse(sessionStorage.getItem("name")),
@@ -212,7 +212,7 @@ async function step1(){
           tag: tag,
         };
         const sendObjectStr = JSON.stringify(sendObject);
-  
+
         fetch("http://localhost:3000/api/usercards?=", {
           method: "POST",
           headers: {
@@ -239,8 +239,7 @@ async function step1(){
         //   setShowLogInMsg(false);
         // }, 3000);
       }
-    })
-
+    });
   };
 
   const handleRemovedSelectedItem = () => {
@@ -287,7 +286,7 @@ async function step1(){
     addImageInput.click();
   };
   async function xxx(data) {
-    const x = await fetch
+    const x = await fetch;
   }
 
   const handleImageInput = async (e) => {
@@ -304,9 +303,7 @@ async function step1(){
       canvas.add(oImg);
     });
 
-    const addImageInput = document.getElementById(
-      "addImageInput"
-    );
+    const addImageInput = document.getElementById("addImageInput");
     addImageInput.value = null;
   };
 
@@ -524,7 +521,7 @@ async function step1(){
             </div>
           </div>
 
-          <div className={`row gx-0 align-items-center`}>
+          <div className={`row gx-0 align-items-center justify-content-center`}>
             <div className={`col`}>
               <input
                 className={`${styles.textInput}`}
@@ -534,9 +531,9 @@ async function step1(){
                 onChange={handleUserTextInput}
               />
             </div>
-            <div className={`col`}>
+            <div className={`col-4`}>
               <div
-                className={`${styles.normalBtn} btn btn-success`}
+                className={`${styles.normalBtn} btn`}
                 onClick={handleAddTextMode}
               >
                 <Icon className="add" />
@@ -550,7 +547,7 @@ async function step1(){
         {showLogInMsg && <h2>Please login first...</h2>}
 
         {/* Save Card Section */}
-        {session && (
+        {(session && (
           <>
             <div className={`row align-items-center py-0`}>
               <div className={`col-9`}>
@@ -562,15 +559,16 @@ async function step1(){
                 />
               </div>
             </div>
-            <div
-              className={`${styles.normalBtn}`}
-              onClick={handleSave}
-            >
+            <div className={`${styles.normalBtn}`} onClick={handleSave}>
               <Icon className="save" />
               Save
             </div>
           </>
-        ) || <div className="alert alert-info">You Cannot Save Your Progress without Signing In.</div>}
+        )) || (
+          <div className="alert alert-info">
+            You Cannot Save Your Progress without Signing In.
+          </div>
+        )}
       </div>
     </>
   );
