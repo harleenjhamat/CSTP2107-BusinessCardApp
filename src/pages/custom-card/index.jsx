@@ -8,7 +8,7 @@ import styles from '@/styles/CustomizeYourCard.module.scss'
 import { base64ToBlob, readFile } from '@/utility/File'
 import { ColorList, ColorArray } from '../../utility/ColorList'
 
-function CustomCard () {
+function CustomCard (props) {
   const [canvasBackgroundColor] = useState(ColorArray)
   const [canvas, setCanvas] = useState()
   const [userTextInput, setUserTextInput] = useState('')
@@ -29,11 +29,11 @@ function CustomCard () {
   ] = useState(false)
   const [addTextMode, setAddTextMode] = useState(false)
   const [tag, setTag] = useState('')
+  const [showLogInMsg, setShowLogInMsg] = useState(false)
   const [canvasLoaded, setcanvasLoaded] = useState(false)
   const [session, loading] = useSession()
   const router = useRouter()
 
-  // GETTING user's card to edit it, setting canvas to data:
   const pullCanvas = async () => {
     const sendObject = {
       get_personal_card: JSON.parse(sessionStorage.getItem('email'))
@@ -64,7 +64,8 @@ function CustomCard () {
   useEffect(() => {
     if (!canvas) {
       setCanvas(new fabric.Canvas('Canvas', { backgroundColor: '#eee' }))
-    } else{
+    }
+    setTimeout(() => {
       if (typeof window !== 'undefined') {
         if (sessionStorage.getItem('email') !== null && !canvasLoaded) {
           pullCanvas()
@@ -83,72 +84,8 @@ function CustomCard () {
             .catch(err => {})
         }
       }
-    }
+    }, 1000)
   }, [canvas])
-
-  // SAVING card in DB:
-  useEffect(() => {
-    if (sessionStorage.getItem('email') && imgData) {
-      const sendObject = {
-        json: imgData,
-        name: JSON.parse(sessionStorage.getItem('name')),
-        email: JSON.parse(sessionStorage.getItem('email')),
-        img: canvas.toDataURL('png'),
-        sharedcode: Math.random(),
-        create_new_card: 'yes',
-        tag: tag
-      }
-      const sendObjectStr = JSON.stringify(sendObject)
-      fetch('http://localhost:3000/api/usercards?=', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: sendObjectStr
-      })
-        .then(function (response) {
-          return response.json()
-        })
-        .then(function (data) {
-          if (data.email === null) {
-          } else {
-            router.push('/MainPage')
-          }
-        })
-        .catch(err => {
-          console.error(err)
-        })
-    }
-  }, [imgData])
-
-  const handleSave = async () => {
-    var tempJson = canvas.toJSON()
-    sessionStorage.setItem('counter', tempJson.objects.length)
-    for (let index = 0; index < tempJson.objects.length; index++) {
-      const element = tempJson.objects[index]
-      const type = element.type
-      if (type != 'image') {
-        sessionStorage.setItem('counter', sessionStorage.getItem('counter') - 1)
-        if (sessionStorage.getItem('counter') == 0) {
-          setimgData(tempJson)
-        }
-        continue
-      }
-      const source = element.src
-      const image = await fetch(source)
-      const imageBlob = await image.blob()
-      var reader = new FileReader()
-      reader.readAsDataURL(imageBlob)
-      reader.onloadend = function () {
-        var base64data = reader.result
-        tempJson.objects[index].src = base64data
-        sessionStorage.setItem('counter', sessionStorage.getItem('counter') - 1)
-        if (sessionStorage.getItem('counter') == 0) {
-          setimgData(tempJson)
-        }
-      }
-    }
-  }
 
   const handleFontWeightChange = e => {
     setFontWeight(!fontWeight)
@@ -245,6 +182,69 @@ function CustomCard () {
     setAddTextMode(false)
   }
 
+  useEffect(() => {
+    if (sessionStorage.getItem('email') && imgData) {
+      console.log(imgData)
+      const sendObject = {
+        json: imgData,
+        name: JSON.parse(sessionStorage.getItem('name')),
+        email: JSON.parse(sessionStorage.getItem('email')),
+        img: canvas.toDataURL('png'),
+        sharedcode: Math.random(),
+        create_new_card: 'yes',
+        tag: tag
+      }
+      const sendObjectStr = JSON.stringify(sendObject)
+      fetch('http://localhost:3000/api/usercards?=', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: sendObjectStr
+      })
+        .then(function (response) {
+          return response.json()
+        })
+        .then(function (data) {
+          if (data.email === null) {
+          } else {
+            router.push('/MainPage')
+          }
+        })
+        .catch(err => {
+          console.error(err)
+        })
+    }
+  }, [imgData])
+
+  const handleSave = async () => {
+    var tempJson = canvas.toJSON()
+    sessionStorage.setItem('counter', tempJson.objects.length)
+    for (let index = 0; index < tempJson.objects.length; index++) {
+      const element = tempJson.objects[index]
+      const type = element.type
+      if (type != 'image') {
+        sessionStorage.setItem('counter', sessionStorage.getItem('counter') - 1)
+        if (sessionStorage.getItem('counter') == 0) {
+          setimgData(tempJson)
+        }
+        continue
+      }
+      const source = element.src
+      const image = await fetch(source)
+      const imageBlog = await image.blob()
+      var reader = new FileReader()
+      reader.readAsDataURL(imageBlog)
+      reader.onloadend = function () {
+        var base64data = reader.result
+        tempJson.objects[index].src = base64data
+        sessionStorage.setItem('counter', sessionStorage.getItem('counter') - 1)
+        if (sessionStorage.getItem('counter') == 0) {
+          setimgData(tempJson)
+        }
+      }
+    }
+  }
 
   const handleRemovedSelectedItem = () => {
     if (canvas.getActiveObject()?._objects) {
@@ -549,6 +549,8 @@ function CustomCard () {
           </div>
         </div>
         <br />
+
+        {showLogInMsg && <h2>Please login first...</h2>}
 
         {/* Save Card Section */}
         {(session && (
