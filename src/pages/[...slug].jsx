@@ -1,9 +1,13 @@
 import { Fragment } from "react";
 import { useRouter } from "next/router";
+import { useState } from 'react'
 import Scrollme from "./../components/Scrollme";
+import LinkNotCorrect from './../components/LinkNotCorrect';
+import LinkCorrect from './../components/LinkCorrect';
 
 const AddByEmail = () => {
   const router = useRouter();
+  const [trueLink, settrueLink] = useState(0);
   const queryData = router.query.slug;
   const check_if_exist = async () => {
     const sendObject = {
@@ -21,7 +25,7 @@ const AddByEmail = () => {
         return response.json();
       })
       .then(function (data) {
-        // console.log(data)
+        settrueLink(data)
         return data;
       })
       .catch((err) => {
@@ -29,12 +33,9 @@ const AddByEmail = () => {
       });
     return responsex;
   };
-  //   const AddCardByEmail = async () => {
-  // console.log(enteredEmail.current.value)
   setTimeout(() => {
     if (typeof queryData !== "undefined") {
       check_if_exist().then(function (response) {
-        // console.log(response)
         if (response > 0) {
           const sendObject = {
             addcard: queryData[0],
@@ -52,7 +53,6 @@ const AddByEmail = () => {
               return response.json();
             })
             .then(function (data) {
-              // console.log(data)
               router.push("/MainPage");
             })
             .catch((err) => {
@@ -65,14 +65,8 @@ const AddByEmail = () => {
 
   return (
     <Fragment>
-      <div className="row justify-content-center mt-4">
-        <div className="col-12 col-md-6 text-center mt-4">
-          <div className="alert alert-success">
-            <h1>Congrats!</h1>
-            <h2>Card was added to your collection</h2>
-          </div>
-        </div>
-      </div>
+        {trueLink && <LinkCorrect/>}
+        {!trueLink && <LinkNotCorrect/>}
       <Scrollme />
       <Scrollme />
     </Fragment>

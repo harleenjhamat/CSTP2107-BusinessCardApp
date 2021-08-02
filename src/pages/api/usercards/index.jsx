@@ -4,20 +4,20 @@ import Usercard from '../../../../models/usercard'
 
 const handler = async (req, res) => {
   if (req.method === 'POST') {
-    const { create_new_card } = req.body
-    const { addcard } = req.body
-    const { get_personal_card } = req.body
     const { get_cards_from_users_array } = req.body
-    const { render_cards } = req.body
     const { emailofcurrectuser } = req.body
+    const { get_personal_card } = req.body
+    const { create_new_card } = req.body
+    const { check_if_exist } = req.body
+    const { render_cards } = req.body
+    const { filter_card } = req.body
     const { deletecard } = req.body
     const { useremail } = req.body
+    const { addcard } = req.body
     const { email } = req.body
+    const { json } = req.body
     const { img } = req.body
     const { tag } = req.body
-    const { json } = req.body
-    const { filter_card } = req.body
-    const { check_if_exist } = req.body
 
     if (get_personal_card) {
       try {
