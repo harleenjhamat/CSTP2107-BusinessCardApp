@@ -12,7 +12,7 @@ const Card = () => {
     <>
       <div className={styles.container}>
       <div className={styles.banner}>
-        <p>You Had My at Card Hello!</p>
+        <p>You Had My Card At Hello!</p>
         <h1>Design and Share Your Business Card</h1>
       </div>
         <button
