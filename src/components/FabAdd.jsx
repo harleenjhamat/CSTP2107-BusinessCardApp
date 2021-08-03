@@ -1,3 +1,10 @@
+/**
+ * @ Author: CyberCard 2107 team
+ * @ Create Time: 2021-07-24 21:59:57
+ * @ Description:
+ *    This file is for getting share Link
+ */
+
 import { Fragment } from 'react'
 import styles from '../styles/mainpage.module.scss'
 const AddCardButton = (props) => {

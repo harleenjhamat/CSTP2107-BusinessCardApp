@@ -1,3 +1,10 @@
+/**
+ * @ Author: CyberCard 2107 team
+ * @ Create Time: 2021-07-24 21:59:57
+ * @ Description:
+ *    This file we use for User's Log in Google is a provider
+ */
+
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
 

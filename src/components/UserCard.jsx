@@ -1,3 +1,9 @@
+/**
+ * @ Author: CyberCard 2107 team
+ * @ Create Time: 2021-07-24 21:59:57
+ * @ Description:
+ */
+
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 var QRCode = require("qrcode");
@@ -18,7 +24,7 @@ const UserCard = ({ AddCardButton_clicked }) => {
 
   if (typeof window !== "undefined") {
     if (sessionStorage.getItem("email") === null) {
-      router.push("/custom-card");
+      router.push("/CustomCard");
     }
     const sendObject = {
       get_personal_card: JSON.parse(sessionStorage.getItem("email")),
@@ -37,7 +43,7 @@ const UserCard = ({ AddCardButton_clicked }) => {
       })
       .then(function (data) {
         if (data.length === 0) {
-          router.push("/custom-card");
+          router.push("/CustomCard");
         } else {
           setmyCustomCard(true);
           setmyCustomCardUrl(data[0].img);
@@ -70,7 +76,7 @@ const UserCard = ({ AddCardButton_clicked }) => {
   };
 
   const handleEdit = () => {
-    router.push("/custom-card");
+    router.push("/CustomCard");
   };
 
   return (

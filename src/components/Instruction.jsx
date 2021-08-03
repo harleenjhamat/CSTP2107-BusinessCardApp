@@ -1,3 +1,9 @@
+/**
+ * @ Author: CyberCard 2107 team
+ * @ Create Time: 2021-07-24 21:59:57
+ * @ Description:
+ */
+
 import Image from "next/image";
 import styles from "../styles/instruction.module.scss";
 

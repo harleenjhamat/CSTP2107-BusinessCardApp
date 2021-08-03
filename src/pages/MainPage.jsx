@@ -1,11 +1,18 @@
+/**
+ * @ Author: CyberCard 2107 team
+ * @ Create Time: 2021-08-01 20:05:05
+ * @ Description:
+ *    Main page of a user when he/she logged in
+ */
+
 import { useState, useEffect } from "react";
 import { Modal, makeStyles } from "@material-ui/core";
 import { Icon } from "semantic-ui-react";
 
-import UserCard from "./../../components/UserCard";
-import SharedCard from "./../../components/SharedCard";
-import SearchCard from "./../../components/SearchCard";
-import AddCard from "./../../components/AddCard";
+import UserCard from "../components/UserCard";
+import SharedCard from "../components/SharedCard";
+import SearchCard from "../components/SearchCard";
+import AddCard from "../components/AddCard";
 import styles from "@/styles/sharedcard.module.scss";
 
 const MainPage = () => {

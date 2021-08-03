@@ -1,3 +1,9 @@
+/**
+ * @ Author: CyberCard 2107 team
+ * @ Create Time: 2021-07-24 21:59:57
+ * @ Description:
+ */
+
 import React from 'react'
 import { Fragment } from 'react';
 import { Button, Card, CardDescription, Image, Icon } from 'semantic-ui-react'
@@ -57,7 +63,7 @@ const Templates = () => (
                             </Card.Content>
 
                             <Card.Content extra>
-                            <form action="/custom-card">
+                            <form action="/CustomCard">
                                 <div className='ui two buttons'>  
                                     <Button inverted color='blue' animated>
                                         <Button.Content visible>Edit</Button.Content>
@@ -121,7 +127,7 @@ const Templates = () => (
                             </Card.Content>
                             <br></br>
                             <Card.Content extra>
-                            <form action="/custom-card">
+                            <form action="/CustomCard">
                                 <div className='ui two buttons'>  
                                     <Button inverted color='blue' animated>
                                         <Button.Content visible>Edit</Button.Content>
@@ -170,7 +176,7 @@ const Templates = () => (
 
                             </Card.Content>
                             <Card.Content extra>
-                            <form action="/custom-card">
+                            <form action="/CustomCard">
                                 <div className='ui two buttons'>  
                                     <Button inverted color='blue' animated>
                                         <Button.Content visible>Edit</Button.Content>

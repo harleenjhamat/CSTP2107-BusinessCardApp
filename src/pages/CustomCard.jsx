@@ -1,3 +1,9 @@
+/**
+ * @ Author: CyberCard 2107 team
+ * @ Create Time: 2021-08-01 20:05:05
+ * @ Description:
+ */
+
 import { useState, useEffect } from 'react'
 import { fabric } from 'fabric'
 import { Icon } from 'semantic-ui-react'
@@ -6,7 +12,7 @@ import { useSession, signIn } from 'next-auth/client'
 
 import styles from '@/styles/CustomizeYourCard.module.scss'
 import { base64ToBlob, readFile } from '@/utility/File'
-import { ColorList, ColorArray } from '../../utility/ColorList'
+import { ColorList, ColorArray } from '../utility/ColorList'
 
 function CustomCard () {
   const [canvasBackgroundColor] = useState(ColorArray)
@@ -313,7 +319,7 @@ function CustomCard () {
 
   return (
     <>
-      <div className={styles.container} id='custom-card-container'>
+      <div className={styles.container} id='CustomCard-container'>
         <h2>Customize Your Card</h2>
 
         {/* add text, image, backgroundColor, bring-to-front, send-to-back, remove item */}
