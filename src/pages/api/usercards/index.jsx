@@ -88,7 +88,6 @@ const handler = async (req, res) => {
           email: get_cards_from_users_array
         }).exec()
         res.send(usercards)
-        // console.log(usercards[0].other_cards)
       } catch (e) {
         res.status(400).send(e)
       }
@@ -99,7 +98,6 @@ const handler = async (req, res) => {
           email: render_cards
         }).exec()
         res.send(usercards)
-        // console.log(usercards)
       } catch (e) {
         res.status(400).send(e)
       }

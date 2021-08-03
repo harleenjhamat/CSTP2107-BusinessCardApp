@@ -19,6 +19,7 @@ const AddByEmail = () => {
   const [renderLink, setrenderLink] = useState(false)
   const queryData = router.query.slug
 
+  // Checking if user in DB:
   const check_if_exist = async () => {
     const sendObject = {
       check_if_exist: queryData[0]
@@ -45,6 +46,7 @@ const AddByEmail = () => {
       })
     return responsex
   }
+  // Edding to collection and going to the Mian page of a user:
   if (typeof queryData !== 'undefined') {
       if (!sessionStorage.getItem('CustomState')) {
         check_if_exist().then(function (response) {

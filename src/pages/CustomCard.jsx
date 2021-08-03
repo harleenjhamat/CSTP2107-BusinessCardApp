@@ -66,11 +66,13 @@ function CustomCard () {
   };
 
   useEffect(() => {
+    // no canvas means that user did not create his/her card:
     if (!canvas) {
-      setCanvas(new fabric.Canvas("Canvas", { backgroundColor: "#eee" }));
-    } else {
-      if (typeof window !== "undefined") {
-        if (sessionStorage.getItem("email") !== null && !canvasLoaded) {
+      setCanvas(new fabric.Canvas('Canvas', { backgroundColor: '#eee' }))
+    } else{
+      // when a user has a card:
+      if (typeof window !== 'undefined') {
+        if (sessionStorage.getItem('email') !== null && !canvasLoaded) {
           pullCanvas()
             .then(async function (response) {
               if (canvas) {
@@ -123,11 +125,12 @@ function CustomCard () {
           console.error(err);
         });
     }
-  }, [imgData]);
-
+  }, [imgData])
+  // Saving the card 
   const handleSave = async () => {
-    var tempJson = canvas.toJSON();
-    sessionStorage.setItem("counter", tempJson.objects.length);
+    var tempJson = canvas.toJSON()
+    sessionStorage.setItem('counter', tempJson.objects.length)
+    // going through canvas and re-whiting json imgs to binary for DB storing
     for (let index = 0; index < tempJson.objects.length; index++) {
       const element = tempJson.objects[index];
       const type = element.type;
@@ -147,14 +150,12 @@ function CustomCard () {
       var reader = new FileReader();
       reader.readAsDataURL(imageBlob);
       reader.onloadend = function () {
-        var base64data = reader.result;
-        tempJson.objects[index].src = base64data;
-        sessionStorage.setItem(
-          "counter",
-          sessionStorage.getItem("counter") - 1
-        );
-        if (sessionStorage.getItem("counter") == 0) {
-          setimgData(tempJson);
+        var base64data = reader.result
+        tempJson.objects[index].src = base64data
+        sessionStorage.setItem('counter', sessionStorage.getItem('counter') - 1)
+        if (sessionStorage.getItem('counter') == 0) {
+          // Saving result:
+          setimgData(tempJson)
         }
       };
     }
@@ -295,13 +296,13 @@ function CustomCard () {
   };
 
   const handleAddImage = () => {
-    const addImageInput = document.getElementById("addImageInput");
-    addImageInput.click();
-  };
-
-  const handleImageInput = async (e) => {
-    const files = e.target.files;
-    if (files.length === 0) return;
+    const addImageInput = document.getElementById('addImageInput')
+    addImageInput.click()
+  }
+  // User can add an img to canvas:
+  const handleImageInput = async e => {
+    const files = e.target.files
+    if (files.length === 0) return
 
     const file = files[0];
     const data = await readFile(file);
