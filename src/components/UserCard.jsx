@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+// Display User Card
+import { useState } from "react";
 import { useRouter } from "next/router";
 var QRCode = require("qrcode");
 
@@ -11,10 +12,6 @@ const UserCard = ({ AddCardButton_clicked }) => {
   const [myCustomCardUrl, setmyCustomCardUrl] = useState("");
   const [shareCardNum, setshareCardNum] = useState(false);
   const [email, setEmailLink] = useState("");
-
-  // useEffect(()=>{
-
-  // }, [email]);
 
   if (typeof window !== "undefined") {
     if (sessionStorage.getItem("email") === null) {

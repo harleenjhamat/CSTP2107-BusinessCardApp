@@ -1,3 +1,4 @@
+// Navbar Component
 import { signOut, useSession, signIn } from "next-auth/client";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,6 +22,7 @@ const Navbar = () => {
     <>
       <nav className={`navbar navbar-expand-lg navbar-light ${styles.navbar}`}>
         <div className="container-fluid">
+          {/* App Logo */}
           <Link href="/">
             <a>
               <Image
@@ -32,6 +34,7 @@ const Navbar = () => {
             </a>
           </Link>
 
+          {/* Toggle Button displayed in mobile view */}
           <button
             className="navbar-toggler"
             type="button"
@@ -44,11 +47,12 @@ const Navbar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
 
+          {/* About and Contact Links */}
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <div className="d-flex flex-grow-1">
               <ul className="navbar-nav mb-lg-0">
                 <li className="nav-item py-3 py-md-0">
-                <Link href="/AboutUs">
+                  <Link href="/AboutUs">
                     <a className={` ${styles.navbarContact}`}>About</a>
                   </Link>
                 </li>
@@ -60,7 +64,7 @@ const Navbar = () => {
               </ul>
             </div>
 
-            {/* Bootstrip Spinners on auth loading */}
+            {/* Spinners on auth loading */}
             {loading && (
               <>
                 <div className="spinner-border text-light" role="status">

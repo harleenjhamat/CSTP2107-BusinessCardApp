@@ -1,3 +1,4 @@
+// Banner component
 import styles from "../styles/Card.module.scss";
 import { useRouter } from "next/router";
 

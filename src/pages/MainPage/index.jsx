@@ -1,3 +1,4 @@
+// User main page
 import { useState, useEffect } from "react";
 import { Modal, makeStyles } from "@material-ui/core";
 import { Icon } from "semantic-ui-react";
@@ -214,6 +215,7 @@ const MainPage = () => {
   );
 };
 
+// Styling for Add Contact Modal
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",

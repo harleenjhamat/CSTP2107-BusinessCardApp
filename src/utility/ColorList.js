@@ -1,3 +1,5 @@
+// Code for Card background colors
+
 export const ColorList = {
   red: "#B03060",
   orange: "#FE9A76",
@@ -31,4 +33,3 @@ export const ColorArray = [
   "grey",
   // "white",
 ];
-
