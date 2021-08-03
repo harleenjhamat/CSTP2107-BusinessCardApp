@@ -154,7 +154,7 @@
   filter:grayscale(100%);
   cursor: pointer;
   transition: 400ms;
- 
+  object-fit: cover;
 }
 
 .profile:hover .profileimg{
