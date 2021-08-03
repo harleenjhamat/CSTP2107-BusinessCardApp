@@ -1,3 +1,10 @@
+/**
+ * @ Author: CyberCard 2107 team
+ * @ Create Time: 2021-07-24 21:59:57
+ * @ Description:
+ *    This file provides Head Footer and Navbar for each page
+ */
+
 import { Provider } from "next-auth/client";
 import Head from "next/head";
 import Footer from "../components/Footer";

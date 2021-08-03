@@ -1,3 +1,9 @@
+/**
+ * @ Author: CyberCard 2107 team
+ * @ Create Time: 2021-08-01 20:10:08
+ * @ Description:
+ */
+
 import styles from "../styles/contactus.module.scss";
 import Image from "next/image";
 

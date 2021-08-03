@@ -1,3 +1,10 @@
+/**
+ * @ Author: CyberCard 2107 team
+ * @ Create Time: 2021-07-24 21:59:57
+ * @ Description:
+ *    This API page is for GET / DELETE / UPDATE a user by ID
+ */
+
 // Using Node.js `require()`
 import connectDB from '../../../../middleware/mongodb.jsx'
 import Usercard from '../../../../models/usercard'

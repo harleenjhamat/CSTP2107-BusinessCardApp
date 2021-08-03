@@ -1,3 +1,11 @@
+/**
+ * @ Author: CyberCard 2107 team
+ * @ Create Time: 2021-08-03 15:15:41
+ * @ Description:
+ *      This Next JS component is a Card that a user adds to his/her collection
+ */
+
+
 import { useRef } from 'react';
 import { Fragment } from 'react';
 import styles from "@/styles/sharedcard.module.scss";
@@ -6,7 +14,6 @@ const AddCard = (props) => {
     const enteredEmail = useRef('');
 
     const check_if_exist = async()=>{
-        // console.log(enteredEmail.current.value)
         const sendObject = {
             check_if_exist: enteredEmail.current.value
         }
@@ -22,7 +29,6 @@ const AddCard = (props) => {
             return response.json()
         })
         .then(function (data) {
-            // console.log(data)
             return data;
         })
         .catch(err => {
@@ -31,9 +37,7 @@ const AddCard = (props) => {
         return responsex
     }
     const  AddCardByEmail = async() => {
-        // console.log(enteredEmail.current.value)
         check_if_exist().then(function (response) {
-            // console.log(response)
             if(response>0){
                 const sendObject = {
                     addcard: enteredEmail.current.value,
@@ -51,7 +55,6 @@ const AddCard = (props) => {
                     return response.json()
                 })
                 .then(function (data) {
-                    // console.log(data)
                 })
                 .catch(err => {
                     console.error(err);

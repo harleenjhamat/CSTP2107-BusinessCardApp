@@ -1,3 +1,10 @@
+/**
+ * @ Author: CyberCard 2107 team
+ * @ Create Time: 2021-07-24 21:59:57
+ * @ Description:
+ *      This file is for using mongoose
+ */
+
 import mongoose from 'mongoose';
 
 const connectDB = handler => async(req, res) => {

@@ -1,4 +1,9 @@
-// Banner component
+/**
+ * @ Author: CyberCard 2107 team
+ * @ Create Time: 2021-07-24 21:59:57
+ * @ Description:
+ */
+
 import styles from "../styles/Card.module.scss";
 import { useRouter } from "next/router";
 
@@ -6,7 +11,7 @@ const Card = () => {
   const router = useRouter();
 
   const handleGetStart = () => {
-    router.push("/custom-card");
+    router.push("/CustomCard");
   };
 
   return (

@@ -1,36 +1,43 @@
-// Create customer card page
-import { useState, useEffect } from "react";
-import { fabric } from "fabric";
-import { Icon } from "semantic-ui-react";
-import { useRouter } from "next/router";
-import { useSession } from "next-auth/client";
+/**
+ * @ Author: CyberCard 2107 team
+ * @ Create Time: 2021-08-01 20:05:05
+ * @ Description:
+ */
 
-import styles from "@/styles/CustomizeYourCard.module.scss";
-import { base64ToBlob, readFile } from "@/utility/File";
-import { ColorList, ColorArray } from "../../utility/ColorList";
+import { useState, useEffect } from 'react'
+import { fabric } from 'fabric'
+import { Icon } from 'semantic-ui-react'
+import { useRouter } from 'next/router'
+import { useSession, signIn } from 'next-auth/client'
 
-function CustomCard() {
-  const [canvasBackgroundColor] = useState(ColorArray);
-  const [canvas, setCanvas] = useState();
-  const [userTextInput, setUserTextInput] = useState("");
-  const [imgData, setimgData] = useState();
-  const [fontWeight, setFontWeight] = useState(false);
-  const [fontStyle, setFontStyle] = useState(false);
-  const [fontFamily, setFontFamily] = useState("arial");
-  const [fontColor, setFontColor] = useState("black");
-  const [underline, setUnderline] = useState(false);
-  const [linethrough, setLinethrough] = useState(false);
-  const [overline, setOverline] = useState(false);
-  const [textToolDisplay, setTextToolDisplay] = useState("none");
-  const [backgroundColorDisplay, setBackgroundColorDisplay] = useState("none");
-  const [addTextActive, setAddTextActive] = useState(false);
-  const [selectBackgroundColorActive, setSelectBackgroundColorActive] =
-    useState(false);
-  const [addTextMode, setAddTextMode] = useState(false);
-  const [tag, setTag] = useState("");
-  const [canvasLoaded, setcanvasLoaded] = useState(false);
-  const [session, loading] = useSession();
-  const router = useRouter();
+import styles from '@/styles/CustomizeYourCard.module.scss'
+import { base64ToBlob, readFile } from '@/utility/File'
+import { ColorList, ColorArray } from '../utility/ColorList'
+
+function CustomCard () {
+  const [canvasBackgroundColor] = useState(ColorArray)
+  const [canvas, setCanvas] = useState()
+  const [userTextInput, setUserTextInput] = useState('')
+  const [imgData, setimgData] = useState()
+  const [fontWeight, setFontWeight] = useState(false)
+  const [fontStyle, setFontStyle] = useState(false)
+  const [fontFamily, setFontFamily] = useState('arial')
+  const [fontColor, setFontColor] = useState('black')
+  const [underline, setUnderline] = useState(false)
+  const [linethrough, setLinethrough] = useState(false)
+  const [overline, setOverline] = useState(false)
+  const [textToolDisplay, setTextToolDisplay] = useState('none')
+  const [backgroundColorDisplay, setBackgroundColorDisplay] = useState('none')
+  const [addTextActive, setAddTextActive] = useState(false)
+  const [
+    selectBackgroundColorActive,
+    setSelectBackgroundColorActive
+  ] = useState(false)
+  const [addTextMode, setAddTextMode] = useState(false)
+  const [tag, setTag] = useState('')
+  const [canvasLoaded, setcanvasLoaded] = useState(false)
+  const [session, loading] = useSession()
+  const router = useRouter()
 
   // GETTING user's card to edit it, setting canvas to data:
   const pullCanvas = async () => {
@@ -315,7 +322,7 @@ function CustomCard() {
 
   return (
     <>
-      <div className={styles.container} id="custom-card-container">
+      <div className={styles.container} id='CustomCard-container'>
         <h2>Customize Your Card</h2>
 
         {/* add text, image, backgroundColor, bring-to-front, send-to-back, remove item */}

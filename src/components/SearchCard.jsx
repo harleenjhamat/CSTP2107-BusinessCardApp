@@ -1,3 +1,9 @@
+/**
+ * @ Author: CyberCard 2107 team
+ * @ Create Time: 2021-07-24 21:59:57
+ * @ Description:
+ */
+
 import { useRef } from "react";
 import styles from "@/styles/sharedcard.module.scss";
 import { Icon } from "semantic-ui-react";
