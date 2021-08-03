@@ -32,6 +32,7 @@ const MainPage = () => {
 
   const [displayMyCard, setDisplayMyCard] = useState("none");
 
+  // Getting back a user with an array of gmails:
   useEffect(() => {
     if (!arrayReceived) {
       if (typeof window !== "undefined") {
@@ -50,7 +51,7 @@ const MainPage = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            // console.log(data[0].other_cards)
+            // Saving array of gmails:
             set_array_of_cards(data[0].other_cards);
             setarrayReceived(true);
           })
@@ -60,7 +61,7 @@ const MainPage = () => {
       }
     }
   }, []);
-
+  // For each gmail we are 
   useEffect(() => {
     if (arrayReceived && !portfolioset) {
       if (typeof window !== "undefined") {
@@ -78,6 +79,7 @@ const MainPage = () => {
           })
             .then((res) => res.json())
             .then((data) => {
+                // Data[0] is a user that belongs to ouw user collection:
               setPortfolioset(true);
               setportfolio((prevelem) => {
                 return [...prevelem, data[0]];
