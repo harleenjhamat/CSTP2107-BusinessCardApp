@@ -1,7 +1,7 @@
 /**
  * @ Author: CyberCard 2107 team
  * @ Create Time: 2021-07-24 21:59:57
- * @ Description:
+ * @ Description: this is the footer component.
  */
 
 import styles from "../styles/footer.module.scss";

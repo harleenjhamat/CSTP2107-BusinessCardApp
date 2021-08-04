@@ -1,7 +1,8 @@
 /**
  * @ Author: CyberCard 2107 team
  * @ Create Time: 2021-07-24 21:59:57
- * @ Description:
+ * @ Description: this is the component explains 
+ *  what the app is about in the landing page.
  */
 
 import Image from "next/image";

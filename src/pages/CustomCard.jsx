@@ -1,7 +1,9 @@
 /**
  * @ Author: CyberCard 2107 team
  * @ Create Time: 2021-08-01 20:05:05
- * @ Description:
+ * @ Description: User can customize their business card in this page. 
+ *  User can add texts, images, changing background colors etc. 
+ *  In additions, user can add tags to their business card. 
  */
 
 import { useState, useEffect } from 'react'

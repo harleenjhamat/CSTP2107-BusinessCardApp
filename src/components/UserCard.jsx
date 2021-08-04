@@ -1,7 +1,8 @@
 /**
  * @ Author: CyberCard 2107 team
  * @ Create Time: 2021-07-24 21:59:57
- * @ Description:
+ * @ Description: this is a component that display the user's own card 
+ *  and provides links to edit their card and share their cards
  */
 
 import { useState, useEffect } from "react";

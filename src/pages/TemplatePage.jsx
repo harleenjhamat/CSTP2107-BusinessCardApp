@@ -5,7 +5,6 @@
  */
 
 import React from 'react'
-import { Fragment } from 'react';
 import { Button, Card, CardDescription, Image, Icon } from 'semantic-ui-react'
 import styles from "../styles/template.module.scss";
 import Head from 'next/head'

@@ -1,7 +1,9 @@
 /**
  * @ Author: CyberCard 2107 team
  * @ Create Time: 2021-08-01 20:10:08
- * @ Description:
+ * @ Description: User can find contact information in this page.
+ * There is also a contact form to fill out 
+ * if the user have any questions for the team.
  */
 
 import styles from "../styles/contactus.module.scss";

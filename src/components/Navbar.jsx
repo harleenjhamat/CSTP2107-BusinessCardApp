@@ -1,4 +1,9 @@
-// Navbar Component
+/**
+ * @ Author: CyberCard 2107 team
+ * @ Create Time: 2021-07-24 21:59:57
+ * @ Description: The is the navbar component.  
+ */
+
 import { signOut, useSession, signIn } from "next-auth/client";
 import Image from "next/image";
 import Link from "next/link";

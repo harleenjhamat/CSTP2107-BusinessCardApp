@@ -7,7 +7,7 @@
 
 import { useRouter } from "next/router";
 
-import Card from "../components/Card";
+import Banner from "../components/Banner";
 import Instructions from "../components/Instruction";
 import styles from "../styles/landingPage.module.scss";
 
@@ -16,7 +16,7 @@ export default function Home() {
   
   return (
     <div className={styles.container}>
-      <Card />
+      <Banner />
       <Instructions />
     </div>
   );

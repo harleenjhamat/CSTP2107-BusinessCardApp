@@ -1,7 +1,9 @@
 /**
  * @ Author: CyberCard 2107 team
  * @ Create Time: 2021-08-03 15:15:31
- * @ Description:
+ * @ Description: This page explain the purpose of Cybercard
+ * the values of the team,  
+ * and introduce the team members behind the scene.
  */
 
 import styles from "../styles/aboutus.module.scss";
