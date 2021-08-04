@@ -6,19 +6,25 @@
  */
 
 import { Fragment } from 'react'
-const LinkGettingData = () => (
-  <Fragment>
-    <div className='row justify-content-center mt-4'>
-      <div className='col-12 col-md-6 text-center mt-4'>
-        <div className='alert alert-primary'>
-          <h1>Getting  result ...</h1>
-          <div class='spinner-border text-primary' role='status'>
-            <span class='visually-hidden'>Loading...</span>
+const LinkGettingData = (props) => {
+  const ClickHandle = () => {
+    props.ClickedConfirm()
+  }
+
+  return (
+    <Fragment>
+      <div className='row justify-content-center mt-4'>
+        <div className='col-12 col-md-6 text-center mt-4'>
+          <div className='alert alert-primary' onClick={ClickHandle}>
+            <h1>Click on me to confirm...</h1>
+            <div class='spinner-border text-primary' role='status'>
+              <span class='visually-hidden'>Loading...</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </Fragment>
-)
+    </Fragment>
+  )
+}
 
 export default LinkGettingData

@@ -16,7 +16,7 @@ import LinkGettingData from './../components/LinkGettingData'
 const AddByEmail = () => {
   const router = useRouter()
   const [trueLink, settrueLink] = useState()
-  const [renderLink, setrenderLink] = useState(false)
+  const [renderLink, setrenderLink] = useState(true)
   const queryData = router.query.slug
 
   // Checking if user in DB:
@@ -36,9 +36,7 @@ const AddByEmail = () => {
         return response.json()
       })
       .then(function (data) {
-        if(data){sessionStorage.setItem('CustomState', 1)}
-        settrueLink(data)
-        setrenderLink(true)
+
         return data
       })
       .catch(err => {
@@ -47,43 +45,51 @@ const AddByEmail = () => {
     return responsex
   }
   // Edding to collection and going to the Mian page of a user:
-  if (typeof queryData !== 'undefined') {
-      if (!sessionStorage.getItem('CustomState')) {
-        check_if_exist().then(function (response) {
-          if (response > 0) {
-            const sendObject = {
-              addcard: queryData[0],
-              emailofcurrectuser: JSON.parse(sessionStorage.getItem('email'))
-            }
-            const sendObjectStr = JSON.stringify(sendObject)
-            fetch('http://localhost:3000/api/usercards', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: sendObjectStr
-            })
-              .then(function (response) {
-                return response.json()
-              })
-              .then(function (data) {
-                sessionStorage.removeItem('CustomState')
-                setTimeout(() => {
-                  router.push('/MainPage')
-                }, 3000)
-              })
-              .catch(err => {
-                console.error(err)
-              })
+  function ConfirmHandle () {
+    if (typeof queryData !== 'undefined') {
+      check_if_exist().then(function (response) {
+        if (response > 0 && sessionStorage.getItem('email')) {
+          settrueLink(true)
+          setrenderLink(false)
+          const sendObject = {
+            addcard: queryData[0],
+            emailofcurrectuser: JSON.parse(sessionStorage.getItem('email'))
           }
-        })
-      }
+          const sendObjectStr = JSON.stringify(sendObject)
+          fetch('http://localhost:3000/api/usercards', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: sendObjectStr
+          })
+            .then(function (response) {
+              return response.json()
+            })
+            .then(function (data) {
+              setTimeout(() => {
+                router.push('/MainPage')
+              }, 3000)
+            })
+            .catch(err => {
+              console.error(err)
+            })
+        }else
+        {
+          settrueLink(false)
+          setrenderLink(false)
+          setTimeout(() => {
+            router.push('/MainPage')
+          }, 3000)
+        }
+      })
+    }
   }
   return (
     <Fragment>
-      {!renderLink && <LinkGettingData />}
-      {trueLink && renderLink && <LinkCorrect />}
-      {!trueLink && renderLink && <LinkNotCorrect />}
+      {renderLink && <LinkGettingData ClickedConfirm={ConfirmHandle} />}
+      {trueLink && <LinkCorrect />}
+      {!trueLink && !renderLink && <LinkNotCorrect />}
       <Scrollme />
       <Scrollme />
     </Fragment>
