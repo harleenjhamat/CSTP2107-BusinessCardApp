@@ -40,7 +40,7 @@ const AboutUs = () => {
               <p>
               Cybercard is the new way to share cards, whether it be for your
               business or personal use! Our goal is to provide a safe and
-              innovative way for people connect with each other amidst the global
+              innovative way for people to connect with each other amidst the global
               pandemic. This app is proudly created by the CSTP students at VCC.
               </p>
               <h1 className= {styles.head}>WHAT WE STAND FOR</h1>
@@ -72,13 +72,13 @@ const AboutUs = () => {
                 <div className={styles.car}>
                   <img src="/assets/v2.png"/>
                   <h1>Diversity</h1>
-                  <p>We value and embrace diversity in the backgrounds, cultures, interests and experiences within our organization.</p>
+                  <p>We value and embrace all diversity in backgrounds, cultures, interests and experiences within our organization.</p>
                 </div>
 
                 <div className={styles.car}>
                   <img src="/assets/v3.png"/>
                   <h1>Community Involvement</h1>
-                  <p>We believe in an obligation to give back through dedicatoin of time and leadership by our associated within their communities.</p>
+                  <p>We believe in an obligation to give back through dedication of time and leadership by our association within different communities.</p>
                 </div>
               </div>
             </div>
