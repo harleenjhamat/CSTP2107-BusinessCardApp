@@ -25,9 +25,9 @@ const Instructions = () => {
             <div className={`col-12 col-md-6 order-md-1 ${styles.card}`}>
               <h1>Use Anytime, Anywhere</h1>
               <p>
-                No more lost, outdated, or bent businesscards. All you need is
-                your desktop of mobile device, and you're all set to build your
-                web of professional contacts!
+                No more lost, outdated, or bent business cards. All you need is
+                your desktop or mobile device, and you're all set to build your
+                network of professional contacts!
               </p>
             </div>
           </div>

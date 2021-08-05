@@ -46,8 +46,8 @@ const AboutUs = () => {
               <h1 className= {styles.head}>WHAT WE STAND FOR</h1>
               <p>
                 We believe that during this ongoing pandemic, it's really hard to physically exchange
-                business cards with one another. Therefore cybercard can help you with digitally exchanging business cards. <br />
-                At CyberCard, we have made it very easy to create cards. Read the instruction manual at the Home Page and start
+                business cards with one another. Therefore cybercard can help you with digitally exchanging business cards. <br/>
+                At CyberCard, we have made it very easy to create cards, you can read the instruction manual on the Home Page and start
                 creating the cards you love and share it with others. We make sure that you and your business grow everday.
               </p>
             </div>
