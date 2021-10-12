@@ -27,7 +27,7 @@ const Instructions = () => {
               <p>
                 No more lost, outdated, or bent business cards. All you need is
                 your desktop or mobile device, and you're all set to build your
-                network of professional contacts!
+                network of professional contacts.
               </p>
             </div>
           </div>
